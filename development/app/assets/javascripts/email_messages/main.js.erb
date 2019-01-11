@@ -1,0 +1,586 @@
+//= require application
+//= require controls
+//= require zipcode
+
+$(document).ajaxStart(function(e) {
+  NProgress.start();
+});
+
+$(document).ajaxStop(function() {
+  NProgress.done();
+});
+
+var MainFilterController = function() {
+  var search_input;
+  var search_button;
+  var url ;
+
+
+  this.initialize = function(input, button, path) {
+    AddFilterClick();
+    AddViewAmountChange();
+    AddPaginationChange();
+    AddSelectMessageClick();
+    InitEventsForSelectedMessage();
+
+    search_input = $(input);
+    search_button = $(button);
+    url = path;
+    InitFind10Click();
+    InitSearchOnInput();
+    InitActionsMenu();
+    InitSortByClick('#sort-from', 'from');
+    InitSortByClick('#sort-created_at', 'created_at');
+  };
+
+  var InitEventsForSelectedMessage = function() {
+    AddToArchiveClick();
+    DeleteMessageClick();
+    ReplyMessageClick();
+    PreventParentClick();
+  };
+
+  var AddFilterClick = function(selector) {
+    $('.messages-wrapper ul.nav-tabs li a').each(function() {
+      $(this).click(function() {
+        $.ajax({
+          url: '<%= Rails.application.routes.url_helpers.new_tab_email_messages_path %>',
+          data: {
+            type: $(this).data('message_type'),
+            amount: $('#view-message-amount').val(),
+            sort_by: $('#sort_by').data('sort_by')
+          }
+        }).done(function(partial) {
+          $('#tabsContainer').html(partial);
+          InitTextMessagePage();
+        });
+      });
+    });
+  };
+
+  var AddViewAmountChange = function() {
+    $('#view-message-amount').change(function() {
+      var amount = $(this).val();
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.new_tab_email_messages_path %>',
+        data: {
+          type: $('.nav-tabs li.active a').data('message_type'),
+          amount: amount,
+          sort_by: $('#sort_by').data('sort_by')
+        }
+      }).done(function(partial) {
+        $('#tabsContainer').html(partial);
+        InitTextMessagePage();
+      });
+    });
+  };
+
+  var AddPaginationChange = function() {
+    $('#list-pagination li a').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: $(this).attr('href')
+      }).done(function (partial) {
+        $('#tabsContainer').html(partial);
+        InitTextMessagePage();
+      });
+      return false;
+    });
+  };
+
+  var AddSelectMessageClick = function() {
+    $('#list-of-messages .message').click(function() {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.message_email_messages_path %>',
+        data: { id: $(this).data('id') }
+      }).done(function(partial) {
+        $('#show-message-block').html(partial);
+        InitEventsForSelectedMessage();
+      });
+    });
+  };
+
+  var AddToArchiveClick = function() {
+    $('#message-to-archive').click(function(e) {
+      e.preventDefault();
+      ArchiveMessage($(this).data('id'));
+    });
+  };
+
+  var PreventParentClick = function() {
+    $('#list-of-messages .message input[type=checkbox], #list-of-messages .message span.checkbox-icon').click(function(e) {
+      e.stopPropagation();
+    });
+  }
+
+  var ArchiveMessage = function(id) {
+    if(typeof id != 'undefined') {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.to_archive_email_messages_path %>',
+        data: { id: id }
+      });
+    } 
+    else {
+      var checkBoxes = $('#list-of-messages .message input[type=checkbox]:checked');
+      if(checkBoxes.length > 0) {
+        var activeMessages = { 
+          ids: [
+          ]
+        };
+        checkBoxes.each(function() {
+          activeMessages.ids.push({ id: $(this).closest('.message').data('id') });
+        });
+        $.ajax({
+          url: '<%= Rails.application.routes.url_helpers.to_archive_email_messages_path %>',
+          data: { ids: JSON.stringify(activeMessages.ids) }
+        });
+      }
+    }
+  };
+
+  var DeleteMessageClick = function() {
+    $('#delete-message').click(function(e) {
+      e.preventDefault();
+      DeleteMessage($(this).data('id'));
+    });
+  };
+
+  var DeleteMessage = function(id) {
+    if(typeof id != 'undefined') {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.delete_message_email_messages_path %>',
+        data: { id: id }
+      }).done(function() {
+        var message = $('#list-of-messages .message[data-id="' + id + '"]');
+        var next = message.next();
+        message.remove();
+        if(!next.length)
+          next = $('#list-of-messages .message:first-child');
+        if(next.length)
+          next.trigger('click');
+        else {
+          $('#show-message-block').html('');
+          InitEventsForSelectedMessage();
+        }
+      });
+    } 
+    else {
+      var checkBoxes = $('#list-of-messages .message input[type=checkbox]:checked');
+      if(checkBoxes.length > 0) {
+        var activeMessages = { 
+          ids: [
+          ]
+        };
+        checkBoxes.each(function() {
+          activeMessages.ids.push({ id: $(this).closest('.message').data('id') });
+        });
+        $.ajax({
+          url: '<%= Rails.application.routes.url_helpers.delete_message_email_messages_path %>',
+          data: { ids: JSON.stringify(activeMessages.ids) }
+        }).done(function() {
+          var message = $('#list-of-messages .message[data-id="' + activeMessages.ids.last()['id'] + '"]');
+          var next = message.next();
+          message.remove();
+          if(!next.length)
+            next = $('#list-of-messages .message:first-child');
+          if(next.length)
+            next.trigger('click');
+          else {
+            $('#show-message-block').html('');
+            InitEventsForSelectedMessage();
+          }
+        });
+      }
+    }
+  }
+
+  var ReplyMessageClick = function messageItemControlButtonSelected() {
+    $('#message-item-reply-button, #message-item-forward-button').click(function(e) {
+      e.preventDefault();
+      switch($(this).attr('id')) {
+        case 'message-item-reply-button':
+          $.ajax({
+            url: '<%= Rails.application.routes.url_helpers.reply_to_message_in_practice_contacts_email_messages_path %>',
+            data: { id: $(this).data('id') }
+          });
+          break;
+        case 'message-item-forward-button':
+          if($('.messages-wrapper #messagesInboxTab .messages-content .left-block .message.active').hasClass('message-patient')) {
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.forward_message_from_patient_email_messages_path %>',
+              data: { id: $(this).data('id') }
+            });
+          }
+          if($('.messages-wrapper #messagesInboxTab .messages-content .left-block .message.active').hasClass('message-practice')) {
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.forward_message_in_practice_contacts_email_messages_path %>',
+              data: { id: $(this).data('id') }
+            });
+          }
+          break
+      }
+    })
+  };
+
+  var InitFind10Click = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.new_tab_email_messages_path %>',
+        data: {
+          type: $('.nav-tabs li.active a').data('message_type'),
+          amount: 10,
+          sort_by: $('#sort_by').data('sort_by')
+        }
+      }).done(function(partial){
+        $('#tabsContainer').html(partial);
+        InitTextMessagePage();
+      });
+    })
+  };
+
+  var InitSearchOnInput = function() {
+    var search_part;
+    search_input.on('keyup', function(){
+      search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part,
+          type: $('.nav-tabs li.active a').data('message_type'),
+          amount: $('#view-message-amount').val()
+        }
+      }).done(function(partial){
+        $('#tabsContainer').html(partial);
+        InitTextMessagePage();
+        $('input#find-messages-input').val(search_part);
+      });
+    });
+  };
+
+  var InitSortByClick = function(selector, sort_by) {
+    $(selector).click(function() {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.new_tab_email_messages_path %>',
+        data: {
+          type: $('ul.nav-tabs li.active a').data('message_type'),
+          amount: $('#view-message-amount').val(),
+          sort_by: sort_by
+        }
+      }).done(function(partial) {
+        $('#tabsContainer').html(partial);
+        InitTextMessagePage();
+      });
+    });
+  };
+
+  var MarkAsClick = function(read) {
+    var checkBoxes = $('#list-of-messages .message input[type=checkbox]:checked');
+    if(checkBoxes.length > 0) {
+      var activeMessages = { 
+        ids: [
+        ]
+      };
+      checkBoxes.each(function() {
+        activeMessages.ids.push({ id: $(this).closest('.message').data('id') });
+      });
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.mark_as_read_email_messages_path %>',
+        data: {
+          ids: JSON.stringify(activeMessages.ids),
+          read: read
+        }
+      });
+    }
+  };
+
+  var InitActionsMenu = function() {
+    $('#message-actions-menu').change(function(e) {
+      if($(this).val()!='') {
+        e.preventDefault();
+        switch($(this).val())
+        {
+          case '0':
+            MarkAsClick(true);
+          break;
+          case '1':
+            MarkAsClick(false);
+          break;
+          case '2':
+            DeleteMessage();
+            break;
+          case '3':
+            ArchiveMessage();
+            break;
+          case '4':
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.new_tab_email_messages_path %>',
+              data: {
+                type: 'archive',
+                amount: $('#view-message-amount').val(),
+                sort_by: $('#sort_by').data('sort_by')
+              }
+            }).done(function (partial) {
+              $('#tabsContainer').html(partial);
+              InitTextMessagePage();
+            });
+          break;
+          case '5':
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.new_contact_email_messages_path %>'
+            });
+          break;
+          case '6':
+            window.location.assign('<%= Rails.application.routes.url_helpers.contacts_email_messages_path %>');
+          break;
+        }
+        $('#message-actions-menu').val('').change();
+      }
+    });
+
+    $(function fillActionsMenu() {
+      var actionsWithChecked = [{ id: 0, text: 'Mark as Read' }, { id: 1, text: 'Mark as New' }, { id: 2, text: 'Delete' }, { id: 3, text: 'Archive' }];
+      var actions = [{ id: 4, text: 'Go to Archive' }];
+      var actionsProvider = [{ id: 5, text: 'New Contact' }, { id: 6, text: 'Go to Contacts' }];
+
+      function fillData(all) {
+        var actionsMenu = $('#message-actions-menu');
+        actionsMenu.html('');
+        actionsMenu.append('<option value="" </option>');
+        if(all) {
+          $(actionsWithChecked).each(function(index,value){
+            actionsMenu.append('<option value="' + actionsWithChecked[index].id+ '">'+actionsWithChecked[index].text+'</option>');
+          })
+          $(actions).each(function(index,value){
+            actionsMenu.append('<option value="' + actions[index].id+ '">'+actions[index].text+'</option>');
+          })
+          if(actionsMenu.hasClass('actions-provider')) {
+            $(actionsProvider).each(function(index,value){
+              actionsMenu.append('<option value="' + actionsProvider[index].id+ '">'+actionsProvider[index].text+'</option>');
+            })
+          }
+        }
+        else {
+          $(actions).each(function(index,value){
+            actionsMenu.append('<option value="' + actions[index].id+ '">'+actions[index].text+'</option>');
+          })
+          if(actionsMenu.hasClass('actions-provider')) {
+            $(actionsProvider).each(function(index,value){
+              actionsMenu.append('<option value="' + actionsProvider[index].id+ '">'+actionsProvider[index].text+'</option>');
+            })
+          }
+        }
+      }
+
+      $('#message-actions-menu').on('select2:opening', function (e) {
+        var isChecked = false;
+        if($('.messages-wrapper #messagesInboxTab .messages-content .left-block input[type="checkbox"]').each(function() {
+          if($(this).prop('checked'))
+            isChecked = true;
+        }));
+        if(isChecked)
+          fillData(true);
+        else
+          fillData(false);
+      });
+    })
+  };
+};
+
+$(function() {
+  InitTextMessagePage();
+});
+
+function InitTextMessagePage() {
+  var mainFilterController = new MainFilterController();
+  mainFilterController.initialize('input#find-messages-input', 'span#find-messages-button', '<%= Rails.application.routes.url_helpers.search_message_email_messages_path %>');
+  var contactSearchController = new ContactSearchController();
+  contactSearchController.initialize('input#practice_id', 'input#find-contacts-input', 'span#find-contacts-button', 'ul#list-of-practices', 'a#new-contact', '<%= Rails.application.routes.url_helpers.find_practices_email_messages_path %>');
+
+  initPickers();
+  initModalsReposition();
+  initSelect2('.messages-wrapper');
+
+  $(function messageItemSelected() {
+    $('.messages-wrapper #messagesInboxTab .messages-content .left-block .message').click(function(e) {
+      $('.messages-wrapper #messagesInboxTab .messages-content .left-block .message').removeClass('active');
+      $(this).addClass('active');
+    })
+  })
+
+  $(function newMessageMenuItemSelected() {
+    $('#message-new-message-menu').change(function(e) {
+      if($(this).val()!='') {
+        e.preventDefault();
+        switch($(this).val()) {
+          case '0':
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.new_message_to_patient_email_messages_path %>'
+            });
+          break;
+          case '1':
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.new_message_in_practice_email_messages_path %>'
+            });
+          break;
+        }
+        $('#message-new-message-menu').val('').change();
+      }
+    })
+  })
+
+  $(function contactItemSelected() {
+    $('.messages-wrapper #contactsTab #table-contacts tbody tr').click(function(e) {
+      e.preventDefault();
+      $('.messages-wrapper #contactsTab #table-contacts tbody tr').removeClass('active');
+      $(this).addClass('active');
+      var heartIcon = $(this).find('.fa');
+      if(heartIcon.hasClass('fa-heart-o')) {
+        $('.messages-wrapper #contactsTab #contact-fav-button .fa').removeClass('fa-heart');
+        $('.messages-wrapper #contactsTab #contact-fav-button .fa').addClass('fa-heart-o');
+      } else {
+        $('.messages-wrapper #contactsTab #contact-fav-button .fa').removeClass('fa-heart-o');
+        $('.messages-wrapper #contactsTab #contact-fav-button .fa').addClass('fa-heart');
+      }
+    })
+  })
+
+  $(function contactMarkFav() {
+    $('.messages-wrapper #contactsTab .controls #contact-fav-button').click(function(e) {
+      e.preventDefault();
+      var heartIcon = $('.messages-wrapper #contactsTab #table-contacts tbody tr.active td:nth-child(1)').first().find('.fa').first();
+      var heartIconButton = $(this).find('.fa');
+      if(heartIcon.hasClass('fa-heart-o')) {
+        $.ajax({
+          url: '<%= Rails.application.routes.url_helpers.favorite_contact_email_messages_path %>',
+          data: { id: $('.messages-wrapper #contactsTab #table-contacts tbody tr.active').data('id'), favorite: true }
+        }).done(function () {
+          heartIcon.removeClass('fa-heart-o');
+          heartIcon.addClass('fa-heart');
+          heartIconButton.removeClass('fa-heart-o');
+          heartIconButton.addClass('fa-heart');
+        });
+      } else {
+        $.ajax({
+          url: '<%= Rails.application.routes.url_helpers.favorite_contact_email_messages_path %>',
+          data: { id: $('.messages-wrapper #contactsTab #table-contacts tbody tr.active').data('id'), favorite: false }
+        }).done(function () {
+          heartIcon.removeClass('fa-heart');
+          heartIcon.addClass('fa-heart-o');
+          heartIconButton.removeClass('fa-heart');
+          heartIconButton.addClass('fa-heart-o');
+        });
+      }
+    })
+  })
+
+  $(function contactPagination() {
+    $('#contact-list-pagination li a').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: $(this).attr('href')
+      }).done(function (partial) {
+        $('#table-contacts').html(partial);
+        InitTextMessagePage();
+      });
+      return false;
+    });
+  })
+};
+
+ContactSearchController = function() {
+  var id_input;
+  var search_input;
+  var search_button;
+  var search_list;
+  var add_button;
+  var url ;
+
+  var liFocusIn = false;
+
+  this.initialize = function(id, input, button, list, add, path) {
+    id_input = $(id);
+    search_input = $(input);
+    search_button = $(button);
+    search_list = $(list);
+    add_button = $(add);
+    url = path;
+    initFind10Click();
+    initSearchOnInput();
+    AddPracticeToContactClick();
+  };
+
+  var initKeyDownListeners = function() {
+    search_input.on('keydown', function(e) {
+      if(e.keyCode == '40' && search_list.css('display') == 'block') {
+        e.preventDefault();
+        $(search_list.find('a').first()).focus();
+        return false;
+      }
+    });
+    search_list.find('a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        search_input.val($(this).text()).change();
+        id_input.val($(this).data('id'));
+        search_list.fadeOut('fast');
+        search_input.focus();
+      })
+    });
+  };
+
+  var listFill = function(elements) {
+    if(elements.length>0)
+      search_list.css('display', 'block');
+    else
+      search_list.css('display', 'none');
+    search_list.empty();
+    for(var i in elements) {
+      var link = $('<li><a href="#" data-id="' + elements[i]['id'] + '">' + elements[i]['full_name'] + '</a></li>');
+      search_list.append(link);
+    }
+  };
+
+  var initFind10Click = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: url
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+        search_list.find('a').first().focus();
+      });
+    })
+  };
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part
+        }
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+      });
+    });
+  };
+
+  var AddPracticeToContactClick = function() {
+    add_button.click(function () {
+      var id = id_input.val();
+      if(id > 0) {
+        $.ajax({
+          url: '<%= Rails.application.routes.url_helpers.add_contact_email_messages_path %>',
+          data: { id: id }
+        }).done(function (partial) {
+          $('table#table-contacts').html(partial);
+          id_input.val('');
+          search_input.val('');
+          InitTextMessagePage();
+        });
+      }
+    });
+  };
+};

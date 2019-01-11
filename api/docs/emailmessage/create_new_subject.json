@@ -1,0 +1,49 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/add_subject",
+  "description": "Create new subject",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "name",
+      "description": "Subject name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/add_subject?data[auth_token]=7695d6cb5b8a5c98c6465d90f63a5fc4&data[name]=Test",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "7695d6cb5b8a5c98c6465d90f63a5fc4",
+          "name": "Test"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lViTsaNTsf8F\",\n    \"type\": \"subjects\",\n    \"attributes\": {\n      \"id\": \"33lViTsaNTsf8F\",\n      \"name\": \"Test\"\n    },\n    \"links\": {\n      \"self\": \"/subjects/33lViTsaNTsf8F\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "resource": "Referral",
+  "http_method": "GET",
+  "route": "/referrals/new",
+  "description": "New referral",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/referrals/new?data[auth_token]=d2cc4669e6e973ce8ff74a9e5e0af6a1",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "d2cc4669e6e973ce8ff74a9e5e0af6a1"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lfrfMm1IvJp5\",\n    \"type\": \"referrals\",\n    \"attributes\": {\n      \"id\": \"33lfrfMm1IvJp5\",\n      \"appointment-id\": null,\n      \"normal\": null,\n      \"middle-name\": null,\n      \"last-name\": null,\n      \"individual-npi\": null,\n      \"speciality\": \"Endodontics\",\n      \"phone\": null,\n      \"fax\": null,\n      \"email\": null\n    },\n    \"links\": {\n      \"self\": \"/referrals/33lfrfMm1IvJp5\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+.window-my-appointments.window
+  .header
+    p.title My Appointments for Today
+  - if appointments.any?
+    .content
+      .table-container
+        .table-header-background
+        table#table-appointments-for-today.table.table-dashboard
+          thead
+            tr
+              - appointment_header_fields.each do |appointment_field|
+                th class="#{ appointment_field[:name].downcase.delete(' ') + "-header" }" colspan=("2" if appointment_field[:name] == 'Appt Type')
+                  a.table-header-sort-button href="#"
+                    | #{appointment_field[:name]}
+                    .sort-arrows data-field="#{appointment_field[:field]}"
+                      i.fa.fa-angle-up
+                      i.fa.fa-angle-down
+          tbody
+            - appointments.each do |appointment|
+              tr
+                td.time
+                  p
+                    = appointment.appointment_datetime.strftime("%I:%M %p")
+                  td.patient
+                    p
+                      = appointment.patient.try(:full_name)
+                  td.provider
+                    p
+                      = "#{current_user.try(:provider).try(:title)} #{current_user.try(:provider).try(:last_name)}"
+                  td.appttype
+                    p
+                      = appointment.appointment_type.try(:appt_type)
+                  td.details
+                    = link_to "Details", appointment_path(appointment), remote: true, class: "button"
+  - else
+    .content.message-empty
+      p You don't have any appointments for today
+= paginate appointments, inner_window: 1, outer_window: 0, params: { controller: 'sorter', action: 'appointments', field: field, type: type }, previous_label: I18n.t('previous_label'), next_label: I18n.t('next_label')

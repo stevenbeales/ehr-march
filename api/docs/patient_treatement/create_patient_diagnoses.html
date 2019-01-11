@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient treatement API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patient treatement API</h1>
+
+      <div class="article">
+        <h2>Create patient diagnoses</h2>
+        <h3>POST /patient_treatments/create_diagnosis</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">patient_id</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">diagnosis[diagnosis_code_id]</span>
+                </td>
+                <td>
+                  <span class="description">Diagnosis code id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">diagnosis[start_date]</span>
+                </td>
+                <td>
+                  <span class="description">Start date</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">diagnosis[stop_date]</span>
+                </td>
+                <td>
+                  <span class="description">Stop date</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">diagnosis[acute]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - acute</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">diagnosis[terminal]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - terminal</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">diagnosis[note]</span>
+                </td>
+                <td>
+                  <span class="description">Note</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /patient_treatments/create_diagnosis</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"ba0cdd21f36307d1c71188a2b3484a75","patient_id":"33lXkn0F8cPE5T","diagnosis":{"diagnosis_code_id":"2pT2NAQLz47QUC","start_date":"2016-02-26T16:08:51.302+02:00","stop_date":"2016-02-26T18:08:51.302+02:00","acute":true,"terminal":true,"note":"Cornhole echo plaid tumblr health migas."}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33lXpa7t8mO0QN&quot;,
+    &quot;type&quot;: &quot;diagnoses&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33lXpa7t8mO0QN&quot;,
+      &quot;patient-id&quot;: &quot;33lXkn0F8cPE5T&quot;,
+      &quot;diagnosis-code-id&quot;: &quot;2pT2NAQLz47QUC&quot;,
+      &quot;start-date&quot;: &quot;2016-02-26T16:08:51.302+02:00&quot;,
+      &quot;stop-date&quot;: &quot;2016-02-26T18:08:51.302+02:00&quot;,
+      &quot;acute&quot;: true,
+      &quot;terminal&quot;: true,
+      &quot;note&quot;: &quot;Cornhole echo plaid tumblr health migas.&quot;
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/diagnoses/33lXpa7t8mO0QN&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

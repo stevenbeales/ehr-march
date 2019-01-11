@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient treatement API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patient treatement API</h1>
+
+      <div class="article">
+        <h2>Add patient diagnoses</h2>
+        <h3>GET /patient_treatments/add_patient_diagnoses</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[patient_id]</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">data[diagnosis_id]</span>
+                </td>
+                <td>
+                  <span class="description">Diagnosis id, this or diagnosis code id should be present</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">data[diagnosis_code_id]</span>
+                </td>
+                <td>
+                  <span class="description">Diagnosis code id, this or diagnosis id should be present</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /patient_treatments/add_patient_diagnoses?data[auth_token]=9fa0ab4295587826f44bac8e20905d5a&amp;data[patient_id]=33lXY1oZbpFWEd&amp;data[diagnosis_id]=33lXY1oPvk69KN&amp;data[diagnosis_code_id]</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;9fa0ab4295587826f44bac8e20905d5a&quot;, &quot;patient_id&quot;=&gt;&quot;33lXY1oZbpFWEd&quot;, &quot;diagnosis_id&quot;=&gt;&quot;33lXY1oPvk69KN&quot;, &quot;diagnosis_code_id&quot;=&gt;nil}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;diagnosis&quot;: {
+      &quot;acute&quot;: true,
+      &quot;created_at&quot;: &quot;2016-02-26T17:08:40.365+02:00&quot;,
+      &quot;diagnosis_code_id&quot;: &quot;2pT2wTIIX5RWOu&quot;,
+      &quot;id&quot;: &quot;33lXY1oPvk69KN&quot;,
+      &quot;note&quot;: &quot;Truffaut mixtape plaid fashion axe mlkshk hella keffiyeh.&quot;,
+      &quot;patient_id&quot;: &quot;33lXY1oZbpFWEd&quot;,
+      &quot;start_date&quot;: &quot;2016-02-26T16:08:40.361+02:00&quot;,
+      &quot;stop_date&quot;: &quot;2016-02-26T18:08:40.361+02:00&quot;,
+      &quot;terminal&quot;: true,
+      &quot;updated_at&quot;: &quot;2016-02-26T17:08:40.365+02:00&quot;
+    },
+    &quot;diagnosis_code&quot;: {
+      &quot;code&quot;: &quot;W5542XD&quot;,
+      &quot;created_at&quot;: &quot;2015-12-29T10:30:37.009+02:00&quot;,
+      &quot;description&quot;: &quot;Struck by pig, subsequent encounter&quot;,
+      &quot;id&quot;: &quot;2pT2wTIIX5RWOu&quot;,
+      &quot;updated_at&quot;: &quot;2015-12-29T10:30:37.009+02:00&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

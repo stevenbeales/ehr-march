@@ -1,0 +1,138 @@
+{
+  "resource": "Appointments",
+  "http_method": "PATCH",
+  "route": "/appointments/:id",
+  "description": "Update appointment",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "Appointment id"
+    },
+    {
+      "scope": "appointment",
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "appointment",
+      "name": "location",
+      "description": "Location"
+    },
+    {
+      "scope": "appointment",
+      "name": "room_id",
+      "description": "Room id"
+    },
+    {
+      "scope": "appointment",
+      "name": "appointment_type_id",
+      "description": "Appointment type id"
+    },
+    {
+      "scope": "appointment",
+      "name": "reason",
+      "description": "Reason"
+    },
+    {
+      "scope": "appointment",
+      "name": "duration",
+      "description": "Duration"
+    },
+    {
+      "scope": "appointment",
+      "name": "contact_email",
+      "description": "Patient contact email"
+    },
+    {
+      "scope": "appointment",
+      "name": "contact_phone",
+      "description": "Patient contact phone"
+    },
+    {
+      "scope": "appointment",
+      "name": "reminder",
+      "description": "Reminder"
+    },
+    {
+      "scope": "appointment",
+      "name": "colour",
+      "description": "Colour"
+    },
+    {
+      "scope": "appointment",
+      "name": "referral_id",
+      "description": "Referral id"
+    },
+    {
+      "scope": "referral",
+      "name": "normal",
+      "description": "Referral normal"
+    },
+    {
+      "scope": "referral",
+      "name": "middle_name",
+      "description": "Referral middle name"
+    },
+    {
+      "scope": "referral",
+      "name": "last_name",
+      "description": "Referral last name"
+    },
+    {
+      "scope": "referral",
+      "name": "individual_npi",
+      "description": "Referral npi"
+    },
+    {
+      "scope": "referral",
+      "name": "speciality",
+      "description": "Referral speciality"
+    },
+    {
+      "scope": "referral",
+      "name": "phone",
+      "description": "Referral phone"
+    },
+    {
+      "scope": "referral",
+      "name": "fax",
+      "description": "Referral fax"
+    },
+    {
+      "scope": "referral",
+      "name": "email",
+      "description": "Referral email"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/appointments/33lNW2CdiW5QYd",
+      "request_body": "{\"data\":{\"auth_token\":\"1a753aa439d20193ede62ce5868b9113\",\"appointment\":{\"patient_id\":\"33lNJYcx6t1Bsx\",\"location\":\"12904 Armstrong Station\",\"room_id\":\"33lNRHlFaq38aZ\",\"appointment_type_id\":\"33lNSkZ0h2uTj9\",\"reason\":\"Quos necessitatibus eos amet quod neque eveniet.\",\"duration\":\"2 hours 45 min\",\"contact_email\":\"+14898726838\",\"contact_phone\":\"+14898726838\",\"reminder\":true,\"colour\":\"37604E\",\"referral_id\":\"33lNimxlrBYK9b\"},\"referral\":{\"normal\":\"Dino\",\"middle_name\":\"Keshaun\",\"last_name\":\"Russel\",\"individual_npi\":\"21-7857820\",\"speciality\":\"Prosthodontics\",\"phone\":\"+17964849645\",\"fax\":\"+13915050935\",\"email\":\"aleandra_langosh@croninstiedemann.info\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lNW2CdiW5QYd\",\n    \"type\": \"appointments\",\n    \"attributes\": {\n      \"id\": \"33lNW2CdiW5QYd\",\n      \"patient-id\": \"33lNJYcx6t1Bsx\",\n      \"room-id\": \"33lNRHlFaq38aZ\",\n      \"appointment-type-id\": \"33lNSkZ0h2uTj9\",\n      \"appointment-status-id\": \"33lNhDGtffE6Ox\",\n      \"location\": \"12904 Armstrong Station\",\n      \"reason\": \"Quos necessitatibus eos amet quod neque eveniet.\",\n      \"appointment-datetime-date\": \"2016-02-26\",\n      \"appointment-datetime-time\": \"16:52\",\n      \"duration\": \"2 hours 45 min\",\n      \"contact-email\": \"+14898726838\",\n      \"contact-phone\": \"+14898726838\",\n      \"reminder\": true,\n      \"colour\": \"5C7D77\"\n    },\n    \"links\": {\n      \"self\": \"/appointments/33lNW2CdiW5QYd\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

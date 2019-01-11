@@ -1,0 +1,88 @@
+{
+  "resource": "Calendar",
+  "http_method": "GET",
+  "route": "/calendars/filter",
+  "description": "Filtered calendars",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "provider_ids",
+      "description": "An array of ids of providers"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "locations",
+      "description": "An array of locations"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "room_ids",
+      "description": "An array of ids of rooms"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "status_ids",
+      "description": "An array of ids of appointment statuses"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "type_ids",
+      "description": "An array of ids of appointment types"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/calendars/filter?data[auth_token]=0fa9fe0054ec562ad45417d74a365166&data[provider_ids][]=33lTlpNGXg2isl&data[locations][]=Iva+Drive%2C+84400%2C+West+Shyann%2C+Illinois&data[locations][]=Bogisich+Stravenue%2C+3508%2C+Port+Margareteport%2C+Virginia&data[room_ids][]=33lTnOzlis8bEB&data[status_ids][]=33lTnOzvOxHy8R&data[type_ids][]=33lTnP0552RL2h",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "0fa9fe0054ec562ad45417d74a365166",
+          "provider_ids": [
+            "33lTlpNGXg2isl"
+          ],
+          "locations": [
+            "Iva Drive, 84400, West Shyann, Illinois",
+            "Bogisich Stravenue, 3508, Port Margareteport, Virginia"
+          ],
+          "room_ids": [
+            "33lTnOzlis8bEB"
+          ],
+          "status_ids": [
+            "33lTnOzvOxHy8R"
+          ],
+          "type_ids": [
+            "33lTnP0552RL2h"
+          ]
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"calendars\": [\n      {\n        \"id\": \"33lTs5QwcRtQRv\",\n        \"title\": \"Emergency\",\n        \"description\": \"Et nobis quae voluptatem ut enim.\",\n        \"start\": \"2016-02-26T17:02:00+02:00\",\n        \"end\": \"2016-02-26T18:17:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"DE9D1F\",\n        \"statusColor\": \"5226BA\",\n        \"patientName\": \"Nasir Ondricka\",\n        \"patientPhone\": \"+18062868044\",\n        \"providerName\": \"Cecil Schulist\",\n        \"type\": \"Emergency\",\n        \"status\": \"Prophy/Regular Appointment\",\n        \"room\": \"Suite 294\",\n        \"roomId\": \"33lTnOzlis8bEB\"\n      },\n      {\n        \"id\": \"33lTvEjEEaFwCB\",\n        \"title\": \"Emergency\",\n        \"description\": \"Libero sint amet et quasi aut sed.\",\n        \"start\": \"2016-02-26T17:02:00+02:00\",\n        \"end\": \"2016-02-26T19:02:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"DE9D1F\",\n        \"statusColor\": \"5226BA\",\n        \"patientName\": \"Delaney Gerhold\",\n        \"patientPhone\": \"+12175070702\",\n        \"providerName\": \"Cecil Schulist\",\n        \"type\": \"Emergency\",\n        \"status\": \"Prophy/Regular Appointment\",\n        \"room\": \"Suite 294\",\n        \"roomId\": \"33lTnOzlis8bEB\"\n      },\n      {\n        \"id\": \"33lTzBIPUYtgcV\",\n        \"title\": \"Emergency\",\n        \"description\": \"Perspiciatis molestiae aut maxime.\",\n        \"start\": \"2016-02-26T17:02:00+02:00\",\n        \"end\": \"2016-02-26T17:32:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"DE9D1F\",\n        \"statusColor\": \"5226BA\",\n        \"patientName\": \"Dena Bashirian\",\n        \"patientPhone\": \"+14070856668\",\n        \"providerName\": \"Cecil Schulist\",\n        \"type\": \"Emergency\",\n        \"status\": \"Prophy/Regular Appointment\",\n        \"room\": \"Suite 294\",\n        \"roomId\": \"33lTnOzlis8bEB\"\n      }\n    ]\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Providers API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Providers API</h1>
+
+      <div class="article">
+        <h2>Update provider</h2>
+        <h3>PATCH /providers/:id</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">id</span>
+                </td>
+                <td>
+                  <span class="description">Provider id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">provider</span>
+                </td>
+                <td>
+                  <span class="description">Provider params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">user</span>
+                </td>
+                <td>
+                  <span class="description">User params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">patient</span>
+                </td>
+                <td>
+                  <span class="description">Patient params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">block_out</span>
+                </td>
+                <td>
+                  <span class="description">Block out params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment</span>
+                </td>
+                <td>
+                  <span class="description">Appointment params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">referral</span>
+                </td>
+                <td>
+                  <span class="description">Referral params</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PATCH /providers/33lfRoBLh7kZSl</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"72c20885222c2b958f364dd4e6a2c3b4","provider":{"title":"Mr","first_name":"Erna","middle_name":null,"last_name":"Dooley","degree":"DDS","speciality":"Endodontics","secondary_speciality":null,"dental_licence":null,"street_address":"Dietrich Locks","suit_apt_number":"4792","city":"Port German","state":"Texas","zip":null,"practice_street_address":"Wilkinson Skyway","practice_suit_apt_number":"781","practice_city":"North Destineehaven","practice_state":"Hawaii","practice_zip":null,"expiration_date":null,"ein_tin":null,"npi":null,"dea":null,"upin":null,"nadean":null,"accepting_patient":false,"enable_online_booking":false,"biography":null,"primary_phone":null,"mobile_phone":null,"alt_email":null,"username":null},"user":{"id":"33lfRoBVNCtwN1","email":"richmond@cainward.name","password":null,"password_confirmation":null},"patient":{"id":"33lfTnboTpgBd5","user_id":"33lfTnby9upYXL","provider_id":"33lfRoBLh7kZSl","first_name":"Iva","last_name":"Rau","middle_name":null,"birth":"2006-02-26T17:20:44.322+02:00","gender":"Male","mobile_phone":"+13183906267","primary_phone":"+13012984831","code":null},"block_out":{"id":"33lfYeRFcI6pdr","time_for":"Individual Providers","block_datetime":"2016-02-26T17:20:00.000+02:00","duration":"1 hour 15 min","description":"Aut odio natus rerum ipsam facilis quisquam doloribus unde.","note":"Est accusantium ipsum rerum quos.","recurring":false,"recur_every":"magnam","range_day":"T"},"appointment":{"id":"33lfYeRPINGCY7","patient_id":"33lfTnboTpgBd5","location":"661 Paris Circles","room":{"created_at":"2016-02-26T17:20:56.063+02:00","id":"33lfaeZjoQedgx","provider_id":"33lfaeZtUVo0bD","room":"Apt. 990","updated_at":"2016-02-26T17:20:56.063+02:00"},"appointment_type":{"appt_type":"Consultation","colour":"409725","created_at":"2016-02-26T17:20:58.555+02:00","id":"33lfbrtjtqQSCx","provider_id":"33lfbrttZvZp7D","updated_at":"2016-02-26T17:20:58.555+02:00"},"reason":"Cupiditate praesentium blanditiis consequatur.","appointment_datetime":"2016-02-26T17:20:00.000+02:00","duration":"15 min","contact_email":"kraig@hermiston.co","contact_phone":"+16185002734","reminder":true,"colour":"39D894"},"referral":{"id":"33lfebnCBqHiDr","normal":"Walter","middle_name":"Edwin","last_name":"Gulgowski","individual_npi":"33-4675951","speciality":"Periodontics","phone":"+16011739392","fax":"+16482069373","email":"aurelia@cartersanford.net"}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33lfRoBLh7kZSl&quot;,
+    &quot;type&quot;: &quot;providers&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33lfRoBLh7kZSl&quot;,
+      &quot;email&quot;: &quot;richmond@cainward.name&quot;,
+      &quot;role&quot;: &quot;Provider&quot;,
+      &quot;user-id&quot;: &quot;33lfRoBVNCtwN1&quot;,
+      &quot;title&quot;: &quot;Mr&quot;,
+      &quot;first-name&quot;: &quot;Erna&quot;,
+      &quot;middle-name&quot;: null,
+      &quot;last-name&quot;: &quot;Dooley&quot;,
+      &quot;degree&quot;: &quot;DDS&quot;,
+      &quot;speciality&quot;: &quot;Endodontics&quot;,
+      &quot;street-address&quot;: &quot;Dietrich Locks&quot;,
+      &quot;suit-apt-number&quot;: &quot;4792&quot;,
+      &quot;city&quot;: &quot;Port German&quot;,
+      &quot;state&quot;: &quot;Texas&quot;,
+      &quot;zip&quot;: null,
+      &quot;practice-street-address&quot;: &quot;Wilkinson Skyway&quot;,
+      &quot;practice-suit-apt-number&quot;: &quot;781&quot;,
+      &quot;practice-city&quot;: &quot;North Destineehaven&quot;,
+      &quot;practice-state&quot;: &quot;Hawaii&quot;,
+      &quot;practice-zip&quot;: null,
+      &quot;primary-phone&quot;: null,
+      &quot;mobile-phone&quot;: null,
+      &quot;alt-email&quot;: null,
+      &quot;username&quot;: null,
+      &quot;secondary-speciality&quot;: null,
+      &quot;dental-licence&quot;: null,
+      &quot;expiration-date&quot;: null,
+      &quot;ein-tin&quot;: null,
+      &quot;npi&quot;: null,
+      &quot;dea&quot;: null,
+      &quot;upin&quot;: null,
+      &quot;nadean&quot;: null,
+      &quot;status&quot;: true,
+      &quot;biography&quot;: null,
+      &quot;accepting-patient&quot;: false,
+      &quot;enable-online-booking&quot;: false,
+      &quot;profile-image&quot;: {
+        &quot;url&quot;: &quot;/uploads/provider/profile_image/33lfRoBLh7kZSl/avatar8.jpg&quot;
+      }
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/providers/33lfRoBLh7kZSl&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

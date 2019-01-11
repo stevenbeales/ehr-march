@@ -1,0 +1,393 @@
+Show calendar
+-------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Calendar id
+
+Request:
+  GET /calendars/33lQkEkwApSWJv?data[auth_token]=22f0b7a93e73ef9e887dec615adb8c0f&data[id]=33lQkEkwApSWJv
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"22f0b7a93e73ef9e887dec615adb8c0f", "id"=>"33lQkEkwApSWJv"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lQkEkwApSWJv",
+      "type": "calendars",
+      "attributes": {
+        "id": "33lQkEkwApSWJv",
+        "appointment-id": "33lQZAIJHgrLSl",
+        "title": "Prophy-Child",
+        "start-time": "2016-02-26T16:57:00.000+02:00",
+        "end-time": "2016-02-26T17:27:00.000+02:00",
+        "all-day": false,
+        "description": "Officia rerum voluptas quia totam."
+      },
+      "links": {
+        "self": "/calendars/33lQkEkwApSWJv"
+      }
+    }
+  }
+
+
+Open reschedule
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Calendar id
+  * days - Amount of days past
+
+Request:
+  GET /calendars/open_reschedule?data[auth_token]=de04aab0d72896567b9ef8631fcfe20a&data[id]=33lR2mYagk6vpr&data[days]=3
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"de04aab0d72896567b9ef8631fcfe20a", "id"=>"33lR2mYagk6vpr", "days"=>"3"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lR2mYagk6vpr",
+      "type": "calendars",
+      "attributes": {
+        "id": "33lR2mYagk6vpr",
+        "appointment-id": "33lQs9UH1SYGSB",
+        "title": "New Patient – Child",
+        "start-time": "2016-02-26T16:58:00.000+02:00",
+        "end-time": "2016-02-26T17:43:00.000+02:00",
+        "all-day": false,
+        "description": "Sed maxime sapiente et."
+      },
+      "links": {
+        "self": "/calendars/33lR2mYagk6vpr"
+      }
+    },
+    "start_time": "2016-02-29T16:58:00.000+02:00",
+    "days": "3"
+  }
+
+
+Reschedule
+----------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Calendar id
+  * days - Amount of days past
+  * reschedule - Boolean, if true - send notification
+  * old_show_start_time - Old appointment datetime
+  * new_show_start_time - New appointment datetime
+
+Request:
+  PATCH /calendars/reschedule
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"dfa50e2798c39820df5779d939c7a143","id":"33lRMnZuyei17D","days":3,"reschedule":true,"old_show_start_time":"2016-02-26T16:58:00.000+02:00","new_show_start_time":"2016-02-29T16:58:00.000+02:00"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Schedule
+--------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /calendars/schedule?data[auth_token]=befc1c7689297db991205c0f479bd010
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"befc1c7689297db991205c0f479bd010"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "calendars": [
+        {
+          "id": "33lRerCRsk1ufz",
+          "title": "Prophy-Child",
+          "description": "Ad modi odio dicta voluptatem in dolores quo ratione.",
+          "start": "2016-02-26T16:59:00+02:00",
+          "end": "2016-02-26T19:29:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "853119",
+          "statusColor": "649EC9",
+          "patientName": "Anais Koelpin",
+          "patientPhone": "+12072520805",
+          "providerName": "Imogene Rippin",
+          "type": "Prophy-Child",
+          "status": "Reschedule",
+          "room": "Apt. 854",
+          "roomId": "33lRb0WPF5rMdH"
+        },
+        {
+          "id": "33lRoifDFBLw4R",
+          "title": "New Patient – Child",
+          "description": "Aut corrupti omnis accusamus.",
+          "start": "2016-02-26T16:59:00+02:00",
+          "end": "2016-02-26T19:59:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "41E79C",
+          "statusColor": "6DBD16",
+          "patientName": "Jackeline Corwin",
+          "patientPhone": "+18404470767",
+          "providerName": "Imogene Rippin",
+          "type": "New Patient – Child",
+          "status": "Oral Surgery",
+          "room": "Suite 375",
+          "roomId": "33lRk4rU0aowst"
+        },
+        {
+          "id": "33lS09VeIvPjbn",
+          "title": "New Patient",
+          "description": "Eaque dolor quo sed maiores asperiores qui qui ullam.",
+          "start": "2016-02-26T16:59:00+02:00",
+          "end": "2016-02-26T17:29:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "173500",
+          "statusColor": "BDB52C",
+          "patientName": "Claudia Welch",
+          "patientPhone": "+16053328603",
+          "providerName": "Imogene Rippin",
+          "type": "New Patient",
+          "status": "Oral Surgery",
+          "room": "Apt. 642",
+          "roomId": "33lRukfnqLwyPb"
+        }
+      ],
+      "settings": {
+        "minTime": "10:00:00",
+        "maxTime": "19:00:00",
+        "snapDuration": "00:30:00"
+      }
+    }
+  }
+
+
+Get calendars from range
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * start - Start date range
+  * end - End date range
+
+Request:
+  GET /calendars/get_calendars?data[auth_token]=05e89fb4c2648c3d17f07c9d94b44530&data[start]=2016-02-26+07%3A01%3A06+%2B0200&data[end]=2016-02-27+03%3A01%3A06+%2B0200
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"05e89fb4c2648c3d17f07c9d94b44530", "start"=>"2016-02-26 07:01:06 +0200", "end"=>"2016-02-27 03:01:06 +0200"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "calendars": [
+        {
+          "id": "33lSS1ODVggJSV",
+          "title": "Crown/Bridge Delivery",
+          "description": "Consequuntur magnam aspernatur ab.",
+          "start": "2016-02-26T17:00:00+02:00",
+          "end": "2016-02-26T19:00:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "6B26D4",
+          "statusColor": "944B55",
+          "patientName": "Elody Shanahan",
+          "patientPhone": "+16485328817",
+          "providerName": "Octavia Emmerich",
+          "type": "Crown/Bridge Delivery",
+          "status": "Reschedule",
+          "room": "Suite 703",
+          "roomId": "33lSNWWWBxTaap"
+        },
+        {
+          "id": "33lSeEFxryuihf",
+          "title": "Crown/Bridge Delivery",
+          "description": "Quis velit sit porro dolores vel aspernatur sunt distinctio.",
+          "start": "2016-02-26T17:00:00+02:00",
+          "end": "2016-02-26T18:00:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "7CA66A",
+          "statusColor": "7F7A60",
+          "patientName": "Roberta Schmitt",
+          "patientPhone": "+1252496377",
+          "providerName": "Octavia Emmerich",
+          "type": "Crown/Bridge Delivery",
+          "status": "Endo",
+          "room": "Apt. 837",
+          "roomId": "33lSZYRez5mtQB"
+        },
+        {
+          "id": "33lSq19RpHL0Et",
+          "title": "Prophy-Child",
+          "description": "Est aut reprehenderit atque voluptatem velit.",
+          "start": "2016-02-26T17:00:00+02:00",
+          "end": "2016-02-26T18:00:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "2D7D80",
+          "statusColor": "0F31D5",
+          "patientName": "Rickie Howe",
+          "patientPhone": "+16763441087",
+          "providerName": "Octavia Emmerich",
+          "type": "Prophy-Child",
+          "status": "New Patient",
+          "room": "Suite 448",
+          "roomId": "33lSktSrOa9jGN"
+        }
+      ]
+    }
+  }
+
+
+Move calendar
+-------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Calendar id
+  * all_day - Boolean, if true - all day calendar
+  * minute_delta - Delta between previous date and new date in minutes (can be negative)
+
+Request:
+  GET /calendars/33lTNNATHVB5L1/move?data[auth_token]=8d64ba2eeeff9fbdfed41232335ef130&data[id]=33lTNNATHVB5L1&data[all_day]=true&data[minute_delta]=10800
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"8d64ba2eeeff9fbdfed41232335ef130", "id"=>"33lTNNATHVB5L1", "all_day"=>"true", "minute_delta"=>"10800"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Resize calendar
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Calendar id
+  * minute_delta - Delta between previous date and new date in minutes (can be negative)
+
+Request:
+  GET /calendars/33lTfxAZ21uPuV/resize?data[auth_token]=af79d0b59c9cd5757118548065fcf22c&data[id]=33lTfxAZ21uPuV&data[minute_delta]=10800
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"af79d0b59c9cd5757118548065fcf22c", "id"=>"33lTfxAZ21uPuV", "minute_delta"=>"10800"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Filtered calendars
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * provider_ids - An array of ids of providers
+  * locations - An array of locations
+  * room_ids - An array of ids of rooms
+  * status_ids - An array of ids of appointment statuses
+  * type_ids - An array of ids of appointment types
+
+Request:
+  GET /calendars/filter?data[auth_token]=0fa9fe0054ec562ad45417d74a365166&data[provider_ids][]=33lTlpNGXg2isl&data[locations][]=Iva+Drive%2C+84400%2C+West+Shyann%2C+Illinois&data[locations][]=Bogisich+Stravenue%2C+3508%2C+Port+Margareteport%2C+Virginia&data[room_ids][]=33lTnOzlis8bEB&data[status_ids][]=33lTnOzvOxHy8R&data[type_ids][]=33lTnP0552RL2h
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"0fa9fe0054ec562ad45417d74a365166", "provider_ids"=>["33lTlpNGXg2isl"], "locations"=>["Iva Drive, 84400, West Shyann, Illinois", "Bogisich Stravenue, 3508, Port Margareteport, Virginia"], "room_ids"=>["33lTnOzlis8bEB"], "status_ids"=>["33lTnOzvOxHy8R"], "type_ids"=>["33lTnP0552RL2h"]}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "calendars": [
+        {
+          "id": "33lTs5QwcRtQRv",
+          "title": "Emergency",
+          "description": "Et nobis quae voluptatem ut enim.",
+          "start": "2016-02-26T17:02:00+02:00",
+          "end": "2016-02-26T18:17:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "DE9D1F",
+          "statusColor": "5226BA",
+          "patientName": "Nasir Ondricka",
+          "patientPhone": "+18062868044",
+          "providerName": "Cecil Schulist",
+          "type": "Emergency",
+          "status": "Prophy/Regular Appointment",
+          "room": "Suite 294",
+          "roomId": "33lTnOzlis8bEB"
+        },
+        {
+          "id": "33lTvEjEEaFwCB",
+          "title": "Emergency",
+          "description": "Libero sint amet et quasi aut sed.",
+          "start": "2016-02-26T17:02:00+02:00",
+          "end": "2016-02-26T19:02:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "DE9D1F",
+          "statusColor": "5226BA",
+          "patientName": "Delaney Gerhold",
+          "patientPhone": "+12175070702",
+          "providerName": "Cecil Schulist",
+          "type": "Emergency",
+          "status": "Prophy/Regular Appointment",
+          "room": "Suite 294",
+          "roomId": "33lTnOzlis8bEB"
+        },
+        {
+          "id": "33lTzBIPUYtgcV",
+          "title": "Emergency",
+          "description": "Perspiciatis molestiae aut maxime.",
+          "start": "2016-02-26T17:02:00+02:00",
+          "end": "2016-02-26T17:32:00+02:00",
+          "allDay": false,
+          "recurring": false,
+          "typeColor": "DE9D1F",
+          "statusColor": "5226BA",
+          "patientName": "Dena Bashirian",
+          "patientPhone": "+14070856668",
+          "providerName": "Cecil Schulist",
+          "type": "Emergency",
+          "status": "Prophy/Regular Appointment",
+          "room": "Suite 294",
+          "roomId": "33lTnOzlis8bEB"
+        }
+      ]
+    }
+  }
+
+

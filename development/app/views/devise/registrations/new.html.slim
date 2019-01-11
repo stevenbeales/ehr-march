@@ -1,0 +1,242 @@
+=  form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = f.fields_for :provider, Provider.new do |p|
+    #signup-index.fade.in
+      .authorization-signup-wrapper
+        .authorization-top
+          .string
+            .string-top
+              .image-center
+                = image_tag('ehr.svg', width: 232, height: 88, alt: "EHR1 Logo")
+            .container
+              .string-top-container
+                = link_to root_path, class: 'string-top-home-link'
+                  = image_tag('num-top.svg', width: 146, height: 248, alt: "EHR1 One Num Logo")
+        .authorization-content.authorization-steps
+          .content-top
+            .container
+              .col-lg-6
+                .row
+                  .main-title
+                    h1 SIGN UP FOR A PRACTITIONER ACCOUNT
+                    p
+                      'Already have an account?
+                      |
+                      /= link_to "Sign in here", user_enable_authy_path
+                      = link_to 'Sign in here', new_user_session_path
+              .col-lg-6
+                .row
+                  = devise_error_messages_signup!
+          .content
+            .container
+              .row
+                #collapse-parent
+                  #signup-personalinfo.col-lg-10.left-block.controls.collapse.fade
+                    .secondary-title.authorization-people-icon
+                      p Personal Information
+                    .row
+                      .col-lg-12
+                        .form-group
+                          p YOUR NAME
+                          .row
+                            .col-lg-2
+                              = p.select :title, options_for_select(Provider.titles.map { |title| [title.to_s.titleize, title] }), {}, { 'data-placeholder' => 'Title', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '4x', class: 'select2' }
+                            .col-lg-3
+                              = p.text_field :first_name, placeholder: 'First Name', class: 'form-control'
+                            .col-lg-3
+                              = p.text_field :middle_name, placeholder: 'Middle Name', class: 'form-control'
+                            .col-lg-4
+                              = p.text_field :last_name, placeholder: 'Last Name', class: 'form-control'
+                    .row
+                      .col-lg-3
+                        .form-group
+                          .row
+                            .col-lg-12
+                              p DEGREE
+                              .row
+                                .col-lg-12
+                                  = p.select :degree, options_for_select(Provider.degrees.map { |degree| ["#{degree.to_s.titleize == 'N/A Degree' ? 'N/A' : degree.to_s.titleize.upcase}",degree] }), {}, { 'data-placeholder' => 'Degree', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '4x', class: 'select2' }
+                      .col-lg-9
+                        .form-group
+                          .row
+                            .col-lg-12
+                              p SPECIALITY
+                              .row
+                                .col-lg-12
+                                  = p.select :speciality, options_for_select(Provider.specialities.map { |speciality| ["#{speciality.to_s.titleize == 'N/A Speciality' ? 'N/A' : speciality.to_s.titleize}",speciality] }), {}, { 'data-placeholder' => 'Speciality', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '4x', class: 'select2' }
+                    .row.block.buttons
+                      a.button.button-switch.button-next[data-target="#signup-contactinfo"] Next
+                  #signup-contactinfo.col-lg-10.left-block.controls.collapse.fade
+                    .secondary-title.authorization-people-icon
+                      p Contact Information
+                    .row
+                      .form-group
+                        .col-lg-12
+                          p PRACTICE ADDRESS
+                          .row
+                            .col-lg-10
+                              .row
+                                .col-lg-4
+                                  = p.text_field :practice_street_address, placeholder: 'Street Address', class: 'form-control'
+                                .col-lg-8
+                                  .row
+                                    .col-lg-5
+                                      = p.text_field :practice_suit_apt_number, placeholder: 'Suite/Apt Number', class: 'form-control'
+                                    .col-lg-7
+                                      .row
+                                        .col-lg-8
+                                          .dropdown-custom
+                                            = p.text_field :practice_city, placeholder: 'City', class: 'form-control'
+                                            ul.dropdown-menu id="practice-city-list"
+                                        .col-lg-4
+                                          .disabled
+                                            = p.select :practice_state, options_for_select(State.all.map { |state| [state.abbr, state.name] }), {}, { 'data-placeholder' => 'State', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '1x', 'data-font' => '4x', class: 'select2', readonly: 'readonly', 'tabindex' => -1, id: 'user_provider_practice_state' }
+                            .col-lg-2
+                              .dropdown-custom
+                                = p.number_field :practice_zip, placeholder: 'ZIP Code', class: 'form-control', value: ''
+                                ul.dropdown-menu id="practice-zip-list"
+                    .row
+                      .form-group
+                        .col-lg-12
+                          p MAILING ADDRESS
+                          .checkbox-custom.checkbox-same-as-practice
+                            = p.check_box :same_as_practice, checked: 'checked', class: 'checkbox'
+                            label[for="user_provider_same_as_practice"]
+                              span.checkbox-icon-container
+                                span.checkbox-icon
+                              span.checkbox-label Same as practice address
+                          .row
+                            .col-lg-10
+                              .row
+                                .col-lg-4
+                                  = p.text_field :street_address, placeholder: 'Street Address', class: 'form-control disabled', readonly: true
+                                .col-lg-8
+                                  .row
+                                    .col-lg-5
+                                      = p.text_field :suit_apt_number, placeholder: 'Suite/Apt Number', class: 'form-control disabled', readonly: true
+                                    .col-lg-7
+                                      .row
+                                        .col-lg-8
+                                          .dropdown-custom
+                                            = p.text_field :city, placeholder: 'City', class: 'form-control disabled', readonly: true
+                                            ul.dropdown-menu id="city-list"
+                                        .col-lg-4
+                                          .disabled
+                                            = p.select :state, options_for_select(State.all.map { |state| [state.abbr, state.name] }), {}, { 'data-placeholder' => 'State', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '1x', 'data-font' => '4x', class: 'select2', 'readonly': 'readonly', 'tabindex' => -1, id: 'user_provider_state' }
+                            .col-lg-2
+                              .dropdown-custom
+                                = p.number_field :zip, placeholder: 'ZIP Code', class: 'form-control disabled', value: '', readonly: true
+                                ul.dropdown-menu id="zip-list"
+                    .row
+                      .col-lg-3.col-contactinfo-phone
+                        .form-group
+                          p PRIMARY PHONE NUMBER
+                          .row
+                            .col-lg-12
+                              .input-group
+                                span.input-group-addon +1
+                                = p.text_field :primary_phone, placeholder: '(123)123-4567', class: 'form-control input-phone', type: 'tel', value: ''
+                      .col-lg-3.col-contactinfo-phone
+                        .form-group
+                          p MOBILE PHONE NUMBER
+                          .row
+                            .col-lg-12
+                              .input-group
+                                span.input-group-addon +1
+                                = p.text_field :mobile_phone, placeholder: '(123)123-4567', class: 'form-control input-phone', type: 'tel', value: ''
+                    .row.block.buttons
+                      a.button.button-switch.button-back[data-target="#signup-personalinfo"] Back
+                      a.button.button-switch.button-next[data-target="#signup-accountinfo"] Next
+                  #signup-accountinfo.col-lg-10.left-block.controls.collapse.fade
+                    .secondary-title.authorization-people-icon
+                      p Account Information
+                    .row
+                      .col-lg-4
+                        .form-group
+                        p PRIMARY EMAIL ADDRESS
+                        = f.text_field :email, placeholder: 'Email Address', class: 'form-control input-email', type: 'email'
+                      .col-lg-4
+                        .form-group
+                          p ALT. EMAIL ADDRESS
+                          = p.text_field :alt_email, placeholder: 'Email Address', class: 'form-control input-email', type: 'email'
+                    .row
+                      .col-lg-4
+                        .form-group
+                          p
+                            | PASSWORD
+                            - if @minimum_password_length
+                              span.password-length-title
+                                | (
+                                = @minimum_password_length
+                                |  characters minimum)
+                          = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password'
+                      .col-lg-4
+                        .form-group
+                          p CONFIRM PASSWORD
+                          = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'Confirm Password'
+                    .row.block.buttons
+                      .col-lg-12
+                        = f.submit 'Complete Sign Up', class: 'button button-switch button-next'
+                div.col-lg-2.right-block
+                  .category-buttons.hidden-md.hidden-sm.hidden-xs
+                    #personalinfo.button-cat
+                      .item-1
+                        .dots-container
+                          span.dots
+                            span
+                            span
+                            span
+                        .performed-container
+                          span.performed-icon
+                        span.title
+                          p PERSONAL
+                            INFO
+
+                    #contactinfo.button-cat
+                      .item-2
+                        .dots-container
+                          span.dots
+                            span
+                            span
+                            span
+                        .performed-container
+                          span.performed-icon
+                        span.title
+                          p CONTACT
+                            INFO
+                    #accountinfo.button-cat
+                      .item-3
+                        .dots-container
+                          span.dots
+                            span
+                            span
+                            span
+                        .performed-container
+                          span.performed-icon
+                        span.title
+                          p ACCOUNT
+                            INFO
+  #signup-complete.collapse.fade
+    .authorization-signup-wrapper.authorization-signup-finished
+      .authorization-top
+        .string
+          .string-top
+            .image-center
+              = image_tag('ehr.svg', width: 232, height: 88, alt: 'EHR1 Logo')
+          .container
+            .string-top-container
+              = image_tag('num-top.svg', width: 146, height: 248, alt: 'EHR1 One Num Logo')
+      .authorization-content
+        .content-top
+          .container
+            .main-title
+              h1 THANK YOU FOR YOUR REGISTRATION!
+              p Your account has been created. In order to activate it, please check your email for the activation link and scan QR code below to install our two factor authentication application.
+        .content
+          .container
+            .row
+              .col-lg-12
+                .services
+                  a.google-play href="#"
+                    = image_tag('default-qrcode.png', alt: 'EHR1 Two Factor Authentification App Android QR Code')
+                  a.app-store href="#"
+                    = image_tag('default-qrcode.png', alt: 'EHR1 Two Factor Authentification App iOS QR Code')

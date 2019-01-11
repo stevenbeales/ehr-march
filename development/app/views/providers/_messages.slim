@@ -1,0 +1,48 @@
+.window-my-messages.window
+  .header
+    p.title My Messages
+  - if messages.any?
+    .content
+      .table-container
+        .table-header-background
+        table#table-my-messages.table.table-dashboard
+          thead
+            tr
+              th colspan="2"
+                a.table-header-sort-button href="#"
+                  | From
+                  .sort-arrows data-field="from"
+                    i.fa.fa-angle-up
+                    i.fa.fa-angle-down
+              th
+                a.table-header-sort-button href="#"
+                  | Date
+                  .sort-arrows data-field="created_at"
+                    i.fa.fa-angle-up
+                    i.fa.fa-angle-down
+              th
+          tbody
+            - messages.each do |message|
+              tr
+                td.fromtitles
+                  p.from-title From:
+                  p.from-to To:
+                  p.from-subject Subject:
+                td.from
+                  p.from-title
+                    = message.from.person.try(:full_name)
+                  p.from-to
+                    = message.to.provider.try(:full_name)
+                  p.from-subject
+                    = message.subject.try(:name)
+                td.date
+                  p
+                    = message.created_at.strftime('%A, %b %e, %Y %H:%M %p')
+                td.message-buttons
+                  .message-buttons-container
+                    = link_to 'Open', open_message_email_messages_path(id: message.id), remote: true, class: 'button'
+                    = link_to 'Reply', reply_to_message_in_practice_contacts_email_messages_path(id: message.id), remote: true, class: 'button button-info'
+                    = link_to 'Delete', '#', class: 'button button-danger', id: 'delete-message', data: { id: message.id }
+  - else
+    .content.message-empty
+      p You don't have any messages

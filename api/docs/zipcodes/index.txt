@@ -1,0 +1,160 @@
+List of cities
+--------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * city - The beginning of a city name
+
+Request:
+  GET /zipcodes/city_set?data[auth_token]=49f38b49eb68f30886b8dd1f29edff28&data[city]=Wash
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"49f38b49eb68f30886b8dd1f29edff28", "city"=>"Wash"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  [
+    {
+      "city": "Washington",
+      "code": "03280",
+      "county_id": "2kVwd8lrcM0Tbl",
+      "created_at": "2015-12-08T23:39:04.858+02:00",
+      "id": "2kXAq3wsRjuKN9",
+      "lat": "43.17229",
+      "lon": "-72.100689",
+      "state_id": "2kVlT9O0dnwUBt",
+      "updated_at": "2015-12-08T23:39:04.862+02:00",
+      "state_abbr": "NH"
+    },
+    {
+      "city": "Washington",
+      "code": "04574",
+      "county_id": "2kVwsciQdaiRKr",
+      "created_at": "2015-12-08T23:39:56.313+02:00",
+      "id": "2kXBOnENPTIHGN",
+      "lat": "44.162384",
+      "lon": "-69.387795",
+      "state_id": "2kVlS6F06D05Kz",
+      "updated_at": "2015-12-08T23:39:56.319+02:00",
+      "state_abbr": "ME"
+    },
+    {
+      "city": "Washburn",
+      "code": "04786",
+      "county_id": "2kVwsciQdaiRKr",
+      "created_at": "2015-12-08T23:40:09.802+02:00",
+      "id": "2kXBXFyQwNisOZ",
+      "lat": "46.793032",
+      "lon": "-68.105233",
+      "state_id": "2kVlS6F06D05Kz",
+      "updated_at": "2015-12-08T23:40:09.806+02:00",
+      "state_abbr": "ME"
+    },
+    {
+      "city": "Washington",
+      "code": "05675",
+      "county_id": "2kVxJy2fAB95Z3",
+      "created_at": "2015-12-08T23:40:47.032+02:00",
+      "id": "2kXBwaP2Hjy8Xj",
+      "lat": "44.078238",
+      "lon": "-72.426322",
+      "state_id": "2kVlTtzQna252P",
+      "updated_at": "2015-12-08T23:40:47.038+02:00",
+      "state_abbr": "VT"
+    },
+    {
+      "city": "Washington",
+      "code": "06793",
+      "county_id": "2kVxjFdna9X3o9",
+      "created_at": "2015-12-08T23:41:53.016+02:00",
+      "id": "2kXCecJWySvR75",
+      "lat": "41.718159",
+      "lon": "-73.294187",
+      "state_id": "2kVlQfrZe0fY0v",
+      "updated_at": "2015-12-08T23:41:53.022+02:00",
+      "state_abbr": "CT"
+    }
+  ]
+
+
+List of zipcodes
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * zip - The beginning of a zip code
+
+Request:
+  GET /zipcodes/zip_set?data[auth_token]=3ef58d04bed9219e643cb5d23592c490&data[zip]=132
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"3ef58d04bed9219e643cb5d23592c490", "zip"=>"132"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  [
+    {
+      "city": "Syracuse",
+      "code": "13201",
+      "county_id": "2kVu8vLSgWptoQ",
+      "created_at": "2015-12-08T23:47:44.664+02:00",
+      "id": "2kXGQEcpWSheLz",
+      "lat": "43.02143",
+      "lon": "-76.197701",
+      "state_id": "2kVlT9OTg3Oauf",
+      "updated_at": "2015-12-08T23:47:44.671+02:00",
+      "state_abbr": "NY"
+    },
+    {
+      "city": "Syracuse",
+      "code": "13202",
+      "county_id": "2kVu8vLSgWptoQ",
+      "created_at": "2015-12-08T23:47:44.855+02:00",
+      "id": "2kXGQEd8sd0OAV",
+      "lat": "43.043116",
+      "lon": "-76.150796",
+      "state_id": "2kVlT9OTg3Oauf",
+      "updated_at": "2015-12-08T23:47:44.861+02:00",
+      "state_abbr": "NY"
+    },
+    {
+      "city": "Syracuse",
+      "code": "13203",
+      "county_id": "2kVu8vLSgWptoQ",
+      "created_at": "2015-12-08T23:47:45.019+02:00",
+      "id": "2kXGQpNF13J7gR",
+      "lat": "43.062016",
+      "lon": "-76.134145",
+      "state_id": "2kVlT9OTg3Oauf",
+      "updated_at": "2015-12-08T23:47:45.023+02:00",
+      "state_abbr": "NY"
+    },
+    {
+      "city": "Syracuse",
+      "code": "13204",
+      "county_id": "2kVu8vLSgWptoQ",
+      "created_at": "2015-12-08T23:47:45.206+02:00",
+      "id": "2kXGQpNYNDbrUx",
+      "lat": "43.055766",
+      "lon": "-76.177597",
+      "state_id": "2kVlT9OTg3Oauf",
+      "updated_at": "2015-12-08T23:47:45.210+02:00",
+      "state_abbr": "NY"
+    },
+    {
+      "city": "Syracuse",
+      "code": "13205",
+      "county_id": "2kVu8vLSgWptoQ",
+      "created_at": "2015-12-08T23:47:45.395+02:00",
+      "id": "2kXGQpNrjNubJT",
+      "lat": "43.006816",
+      "lon": "-76.142495",
+      "state_id": "2kVlT9OTg3Oauf",
+      "updated_at": "2015-12-08T23:47:45.401+02:00",
+      "state_abbr": "NY"
+    }
+  ]

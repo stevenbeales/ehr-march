@@ -1,0 +1,53 @@
+{
+  "resource": "Text message",
+  "http_method": "POST",
+  "route": "/text_messages",
+  "description": "Create text message",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "To",
+      "description": "To(email)"
+    },
+    {
+      "required": true,
+      "name": "From",
+      "description": "From(email)"
+    },
+    {
+      "required": true,
+      "name": "Body",
+      "description": "Message"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/text_messages",
+      "request_body": "{\"data\":{\"auth_token\":\"ed70d196f1881121304b93b4a39b28a9\",\"To\":\"valentin@pacocha.biz\",\"From\":\"thomas@pollichtillman.biz\",\"Body\":\"Vel expedita possimus ipsam similique odit ea. Aut amet omnis quis quae. Earum dolorem illo. Quod aspernatur nihil sit in.\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33liUFXqiO0VzX\",\n    \"type\": \"text-messages\",\n    \"attributes\": {\n      \"id\": \"33liUFXqiO0VzX\",\n      \"provider-id\": null,\n      \"patient-id\": null,\n      \"to\": \"valentin@pacocha.biz\",\n      \"from\": \"thomas@pollichtillman.biz\",\n      \"body\": \"vel expedita possimus ipsam similique odit ea. aut amet omnis quis quae. earum dolorem illo. quod aspernatur nihil sit in.\"\n    },\n    \"links\": {\n      \"self\": \"/text-messages/33liUFXqiO0VzX\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

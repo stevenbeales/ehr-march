@@ -1,0 +1,67 @@
+doctype html
+html
+  head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[name="description" content="#{content_for?(:description) ? yield(:description) : 'Doctor Portal'}"]
+    title
+      = content_for?(:title) ? yield(:title) : "Doctor Portal"
+    = stylesheet_link_tag 'providers', media: 'all'
+    = stylesheet_link_tag 'providers/settings', media: 'all'
+    = javascript_include_tag 'providers'
+    = javascript_include_tag 'providers/settings'
+    = csrf_meta_tags
+  body
+    main[role="main"]
+      = render 'layouts/messages'
+      = render 'providers/navigation_provider'
+      .dashboard-wrapper.settings-wrapper
+        .header
+          .categories-container
+            ul.categories
+              li
+                = link_to 'Home', providers_path
+              li
+                i.category-arrow.fa.fa-angle-right
+              li
+                = link_to 'Settings', settings_practice_path, class: 'active'
+        .content
+          .container-fluid.content-container
+            .row
+              .col-lg-2
+                .left-block
+                  .row-container
+                    .bordered-container
+                      ul.left-menu
+                        - if policy(:setting).show?
+                          li
+                            = link_to 'Practice', settings_practice_path, id: 'item-settings-practice'
+                        - if policy(Provider).admin?
+                          li
+                            = link_to 'Access Permissions', settings_access_permissions_path, id: 'item-settings-access-permissions'
+                        - if policy(:setting).schedule? || policy(:setting).show?
+                          li
+                            = link_to 'Schedule', settings_schedule_path, id: 'item-settings-schedule'
+                        li
+                          = link_to 'Patients', '#'
+                        li
+                          a id="item-settings-messages" href="#" Messages
+                        li
+                          a id="item-settings-erx" href="#" eRx
+                        li
+                          a id="item-settings-labsimaging" href="#" Labs/Imaging
+                        li
+                          a id="item-settings-reports" href="#" Reports
+                        li
+                          a id="item-settings-billing" href="#" Billing
+              = yield
+        .footer
+      #modal-settings-add-edit-provider-schedule.modal.fade
+      #modal-settings-add-user-added-practice.modal.fade
+      javascript:
+        $('.item-settings').parent().addClass('active');
+      - if current_user.locked
+        javascript:
+          $(function () {
+            $('a[data-target="#modal-lockscreen"]').trigger('click');
+          });
+    = render 'layouts/debug', landing: false, authorization: false, patient: false

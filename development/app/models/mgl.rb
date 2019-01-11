@@ -1,0 +1,2 @@
+class Mgl < ToothField
+end

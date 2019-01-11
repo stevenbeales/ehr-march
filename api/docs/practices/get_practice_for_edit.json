@@ -1,0 +1,49 @@
+{
+  "resource": "Practices",
+  "http_method": "GET",
+  "route": "/practices/:id/edit",
+  "description": "Get practice for edit",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Practice id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/practices/33lePBL6FYukRX/edit?data[auth_token]=3c11cd097aeb0b8f3e1dde2a250aaca0&data[id]=33lePBL6FYukRX",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "3c11cd097aeb0b8f3e1dde2a250aaca0",
+          "id": "33lePBL6FYukRX"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lePBL6FYukRX\",\n    \"type\": \"providers\",\n    \"attributes\": {\n      \"id\": \"33lePBL6FYukRX\",\n      \"email\": \"chaim@faywintheiser.name\",\n      \"role\": \"Provider\",\n      \"user-id\": \"33lePBLFve47Ln\",\n      \"title\": \"Mr\",\n      \"first-name\": \"Angus\",\n      \"middle-name\": null,\n      \"last-name\": \"Schiller\",\n      \"degree\": \"DDS\",\n      \"speciality\": \"Endodontics\",\n      \"street-address\": \"Lemke Harbor\",\n      \"suit-apt-number\": \"63091\",\n      \"city\": \"North Ted\",\n      \"state\": \"Kentucky\",\n      \"zip\": null,\n      \"practice-street-address\": \"Hand Flat\",\n      \"practice-suit-apt-number\": \"824\",\n      \"practice-city\": \"Winstonhaven\",\n      \"practice-state\": \"Missouri\",\n      \"practice-zip\": null,\n      \"primary-phone\": null,\n      \"mobile-phone\": null,\n      \"alt-email\": null,\n      \"username\": null,\n      \"secondary-speciality\": null,\n      \"dental-licence\": null,\n      \"expiration-date\": null,\n      \"ein-tin\": null,\n      \"npi\": null,\n      \"dea\": null,\n      \"upin\": null,\n      \"nadean\": null,\n      \"status\": true,\n      \"biography\": null,\n      \"accepting-patient\": false,\n      \"enable-online-booking\": false,\n      \"profile-image\": {\n        \"url\": \"/uploads/provider/profile_image/33lePBL6FYukRX/avatar2.jpg\"\n      }\n    },\n    \"links\": {\n      \"self\": \"/providers/33lePBL6FYukRX\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

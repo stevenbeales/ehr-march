@@ -1,0 +1,66 @@
+$("#modal-settings-add-user-practice").html("<%= escape_javascript(render 'new_form') %>");
+$("#modal-settings-add-user-practice").modal("show");
+
+$(function() {
+  $('#user_practice_attributes_status option').prop('selected', false);
+})
+
+initSelect2('#modal-settings-add-user-practice');
+
+//Validation begin
+function buttonStateChange(isEnable) {
+  if(!isEnable) {
+    disableControl('#new_user #button_submit_new_user_practice');
+  }
+  else {
+    enableControl('#new_user #button_submit_new_user_practice');
+  }
+}
+
+function validateForm() {
+  $('#new_user').validate({
+    highlight: function(element) {
+      buttonStateChange(false);
+      $(element).addClass('unvalid');
+      $(element).removeClass('valid');
+    },
+    unhighlight: function(element) {
+      $(element).removeClass('unvalid');
+      $(element).addClass('valid');
+    },
+    errorPlacement: function(error,element) {
+      return true;
+    },
+    rules: {
+      'user[practice_attributes][first_name]': {
+        required: true
+      },
+      'user[practice_attributes][last_name]': {
+        required: true
+      },
+      'user[email]': {
+        email: true,
+        required: true
+      },
+      'user[practice_attributes][practice_role]': {
+        required: true
+      },
+      'user[practice_attributes][status]': {
+        required: true,
+      }
+    }
+  });
+  $('#new_user').valid();
+}
+validateForm();
+
+$('#new_user input, #new_user select').bind('input change', function() {
+  formValidCheck();
+});
+
+function formValidCheck() {
+  if($('#new_user').valid()){
+    buttonStateChange(true);
+  };
+}
+//Validation ends

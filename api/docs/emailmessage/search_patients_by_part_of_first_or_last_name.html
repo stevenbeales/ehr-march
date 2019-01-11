@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EmailMessage API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>EmailMessage API</h1>
+
+      <div class="article">
+        <h2>Search patients by part of first or last name</h2>
+        <h3>GET /email_messages/patients</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">data[part]</span>
+                </td>
+                <td>
+                  <span class="description">Part of first or last name</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /email_messages/patients?data[auth_token]=83072e7c4537932e54f5251bd8369331&amp;data[part]=Dav</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;83072e7c4537932e54f5251bd8369331&quot;, &quot;part&quot;=&gt;&quot;Dav&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;33lVpghNf9QmPr&quot;,
+      &quot;type&quot;: &quot;patients&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lVpghNf9QmPr&quot;,
+        &quot;email&quot;: &quot;remington@bergstrom.org&quot;,
+        &quot;role&quot;: &quot;Patient&quot;,
+        &quot;first-name&quot;: &quot;Dave&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Stuart&quot;,
+        &quot;gender&quot;: &quot;Male&quot;,
+        &quot;mobile-phone&quot;: &quot;+19726809724&quot;,
+        &quot;primary-phone&quot;: &quot;+18739400972&quot;,
+        &quot;code&quot;: null,
+        &quot;social-number&quot;: &quot;516348687&quot;,
+        &quot;active&quot;: true,
+        &quot;declined-portal-access&quot;: null,
+        &quot;preferred-language&quot;: null,
+        &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+        &quot;american-race&quot;: null,
+        &quot;asian-race&quot;: null,
+        &quot;african-race&quot;: null,
+        &quot;hawaiian-race&quot;: null,
+        &quot;white-race&quot;: null,
+        &quot;undetermined-race&quot;: null,
+        &quot;email-reminder&quot;: null,
+        &quot;sms-reminder&quot;: null,
+        &quot;immunization-registry&quot;: &quot;NotSend&quot;,
+        &quot;work-phone&quot;: null,
+        &quot;ext&quot;: null,
+        &quot;street-address&quot;: null,
+        &quot;city&quot;: null,
+        &quot;state&quot;: null,
+        &quot;zip&quot;: null,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/patient/profile_image/33lVpghNf9QmPr/avatar1.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/patients/33lVpghNf9QmPr&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lVuwPKcY5CKZ&quot;,
+      &quot;type&quot;: &quot;patients&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lVuwPKcY5CKZ&quot;,
+        &quot;email&quot;: &quot;rebekah@willfadel.name&quot;,
+        &quot;role&quot;: &quot;Patient&quot;,
+        &quot;first-name&quot;: &quot;Timber&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Davison&quot;,
+        &quot;gender&quot;: &quot;Male&quot;,
+        &quot;mobile-phone&quot;: &quot;+18463641647&quot;,
+        &quot;primary-phone&quot;: &quot;+13548316754&quot;,
+        &quot;code&quot;: null,
+        &quot;social-number&quot;: &quot;897123412&quot;,
+        &quot;active&quot;: true,
+        &quot;declined-portal-access&quot;: null,
+        &quot;preferred-language&quot;: null,
+        &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+        &quot;american-race&quot;: null,
+        &quot;asian-race&quot;: null,
+        &quot;african-race&quot;: null,
+        &quot;hawaiian-race&quot;: null,
+        &quot;white-race&quot;: null,
+        &quot;undetermined-race&quot;: null,
+        &quot;email-reminder&quot;: null,
+        &quot;sms-reminder&quot;: null,
+        &quot;immunization-registry&quot;: &quot;NotSend&quot;,
+        &quot;work-phone&quot;: null,
+        &quot;ext&quot;: null,
+        &quot;street-address&quot;: null,
+        &quot;city&quot;: null,
+        &quot;state&quot;: null,
+        &quot;zip&quot;: null,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/patient/profile_image/33lVuwPKcY5CKZ/avatar3.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/patients/33lVuwPKcY5CKZ&quot;
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

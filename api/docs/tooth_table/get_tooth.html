@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tooth table API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tooth table API</h1>
+
+      <div class="article">
+        <h2>Get tooth</h2>
+        <h3>PATCH /patient_treatments/update_full_perio</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">tooth_table[id]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth id, tooth must be active</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[fm_f]</span>
+                </td>
+                <td>
+                  <span class="description">Fm f</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[fm_m]</span>
+                </td>
+                <td>
+                  <span class="description">Fm m</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl]</span>
+                </td>
+                <td>
+                  <span class="description">Mgl</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal]</span>
+                </td>
+                <td>
+                  <span class="description">Cal</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd]</span>
+                </td>
+                <td>
+                  <span class="description">Pd</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm]</span>
+                </td>
+                <td>
+                  <span class="description">Gm</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp4]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp4</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp5]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp5</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp6]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp6</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp7]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp7</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp8]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp8</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][b_bsp9]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl b bsp9</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp4]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp4</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp5]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp5</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp6]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp6</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp7]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp7</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp8]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp8</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[mgl][l_bsp9]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table mgl l bsp9</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp4]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp4</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp5]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp5</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp6]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp6</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp7]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp7</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp8]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp8</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][b_bsp9]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal b bsp9</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp4]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp4</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp5]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp5</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp6]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp6</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp7]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp7</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp8]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp8</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[cal][l_bsp9]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table cal l bsp9</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp4]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp4</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp5]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp5</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp6]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp6</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp7]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp7</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp8]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp8</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][b_bsp9]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd b bsp9</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp4]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp4</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp5]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp5</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp6]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp6</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp7]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp7</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp8]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp8</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[pd][l_bsp9]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table pd l bsp9</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp4]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp4</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp5]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp5</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp6]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp6</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp7]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp7</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp8]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp8</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][b_bsp9]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm b bsp9</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp1]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp1</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp2]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp2</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp3]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp3</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp4]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp4</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp5]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp5</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp6]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp6</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp7]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp7</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp8]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp8</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">tooth_table[gm][l_bsp9]</span>
+                </td>
+                <td>
+                  <span class="description">Tooth table gm l bsp9</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PATCH /patient_treatments/update_full_perio</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"18130102da9decf122edb054e132868e","tooth_table":{"id":"33likBvygCvQTz","fm_f":0,"fm_m":0,"mgl":{"b1":1,"b2":2,"b3":3,"b_bsp1":true,"b_bsp2":true,"b_bsp3":true,"b_bsp4":true,"b_bsp5":true,"b_bsp6":true,"b_bsp7":true,"b_bsp8":true,"b_bsp9":true,"l1":1,"l2":2,"l3":3,"l_bsp1":true,"l_bsp2":true,"l_bsp3":true,"l_bsp4":true,"l_bsp5":true,"l_bsp6":true,"l_bsp7":true,"l_bsp8":true,"l_bsp9":true},"cal":{"b1":1,"b2":2,"b3":3,"b_bsp1":true,"b_bsp2":true,"b_bsp3":true,"b_bsp4":true,"b_bsp5":true,"b_bsp6":true,"b_bsp7":true,"b_bsp8":true,"b_bsp9":true,"l1":1,"l2":2,"l3":3,"l_bsp1":true,"l_bsp2":true,"l_bsp3":true,"l_bsp4":true,"l_bsp5":true,"l_bsp6":true,"l_bsp7":true,"l_bsp8":true,"l_bsp9":true},"pd":{"b1":1,"b2":2,"b3":3,"b_bsp1":true,"b_bsp2":true,"b_bsp3":true,"b_bsp4":true,"b_bsp5":true,"b_bsp6":true,"b_bsp7":true,"b_bsp8":true,"b_bsp9":true,"l1":1,"l2":2,"l3":3,"l_bsp1":true,"l_bsp2":true,"l_bsp3":true,"l_bsp4":true,"l_bsp5":true,"l_bsp6":true,"l_bsp7":true,"l_bsp8":true,"l_bsp9":true},"gm":{"b1":1,"b2":2,"b3":3,"b_bsp1":true,"b_bsp2":true,"b_bsp3":true,"b_bsp4":true,"b_bsp5":true,"b_bsp6":true,"b_bsp7":true,"b_bsp8":true,"b_bsp9":true,"l1":1,"l2":2,"l3":3,"l_bsp1":true,"l_bsp2":true,"l_bsp3":true,"l_bsp4":true,"l_bsp5":true,"l_bsp6":true,"l_bsp7":true,"l_bsp8":true,"l_bsp9":true}}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33likBvygCvQTz&quot;,
+    &quot;type&quot;: &quot;tooth-tables&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33likBvygCvQTz&quot;,
+      &quot;patient-id&quot;: &quot;33liiDVB0Jgkjb&quot;,
+      &quot;tooth-num&quot;: 1,
+      &quot;fm-f&quot;: 0,
+      &quot;fm-m&quot;: 0,
+      &quot;b-bsp1&quot;: false,
+      &quot;b-bsp2&quot;: false,
+      &quot;b-bsp3&quot;: false,
+      &quot;b-bsp4&quot;: false,
+      &quot;b-bsp5&quot;: false,
+      &quot;b-bsp6&quot;: false,
+      &quot;b-bsp7&quot;: false,
+      &quot;b-bsp8&quot;: false,
+      &quot;b-bsp9&quot;: false,
+      &quot;l-bsp1&quot;: false,
+      &quot;l-bsp2&quot;: false,
+      &quot;l-bsp3&quot;: false,
+      &quot;l-bsp4&quot;: false,
+      &quot;l-bsp5&quot;: false,
+      &quot;l-bsp6&quot;: false,
+      &quot;l-bsp7&quot;: false,
+      &quot;l-bsp8&quot;: false,
+      &quot;l-bsp9&quot;: false,
+      &quot;active&quot;: true
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/tooth-tables/33likBvygCvQTz&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

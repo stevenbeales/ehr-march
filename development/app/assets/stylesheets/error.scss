@@ -1,0 +1,98 @@
+//= require bootstrap/bootstrap.min.css
+//= require controls
+
+html, body {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.error-wrapper{
+  height: auto;
+  font-family:"TimesNewRomanPSMT";
+  color:#4a4a4a;
+}
+.error-wrapper .error-top{
+  text-align: center;
+  margin-bottom:20px;
+  color:#fff;
+  background: asset_url('landing-top-bg.png') 100% 100% no-repeat;
+  background-size:cover;
+  background-position: center center;
+  background-position: center center;
+}
+.error-wrapper .string-top{
+  position:absolute;
+  width:100%;
+  height:89px;
+  top: 93px;
+  background-color:#41b6a6;
+}
+.error-wrapper .string-top .image-center{
+  width:277.2px;
+  margin:0 auto;
+  background-image: asset_url('logo-rectangle.svg');
+  background-repeat: no-repeat;
+}
+.error-wrapper .string .string-top-home-link {
+  width: 276px;
+  left: 12px;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+.error-wrapper .string .string-top-home-link img {
+  position: relative;
+  left: -12px;
+}
+.error-wrapper .string-top-container{
+  margin: 14px 0 14px -26px;
+}
+.error-wrapper .message .block{
+  display: table;
+  margin: 80px auto 80px auto;
+  width: auto;
+  text-align:center;
+}
+.error-wrapper .message .block div{
+  display: table-cell;
+  vertical-align: middle;
+}
+.error-wrapper .error-bottom{
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 20px;
+  border-top:1px solid #979797;
+  background-color: #f0eeee;
+  background-image: asset_url('landing-bottom-bg.png');
+}
+.error-wrapper .owner-info{
+  text-align:center;
+  clear: both;
+}
+.error-wrapper .owner-info p{
+  font-size:20px;
+  max-width: 466px;
+  margin: 32px auto;
+}
+.error-wrapper .error-content .message h4{
+  font-size:24px;
+  color:#4a4a4a;
+}
+.error-wrapper .error-content .message h5{
+  font-size:18px;
+  color:#4a4a4a;
+}
+.error-footer{
+  width: 100%;
+  height: 40px;
+  color: #949ca7;
+  background: #41b6a6;
+}
+footer > .container, .error-footer > .container{
+  padding-top: 10px;
+}
+.error-footer .copyright, footer .copyright{
+  color:#fff;
+  font-family: TimesNewRomanPSMT;
+}

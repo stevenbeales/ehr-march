@@ -1,0 +1,40 @@
+.dropdown.dropdown-styled.actions
+  a.dropdown-toggle.button data-toggle="dropdown"
+    = title
+  ul.dropdown-menu
+    - if policy(Procedure).create?
+      li
+        = link_to 'Add Procedure', add_patient_procedure_patient_treatments_path(id: @patient.id), remote: true, class: 'checker unchecked button-modal-open', 'data-target' => '#modal-patient-add-procedure'
+
+    - if policy(Encounter).create?
+      li
+        = link_to 'Add Encounter Note', add_patient_encounter_patient_treatments_path(id: @patient.id), remote: true, class: 'button-modal-open', 'data-target' => '#modal-patient-add-encounter'
+    li
+      hr
+    li
+      a href="#" Invite to Patient Portal
+    - if policy(EmailMessage).show?
+      li
+        = link_to 'Send a Message', new_email_message_path(id: @patient.id), remote: true, class: 'button-modal-open', 'data-target' => '#modal-patient-add-message'
+    li
+      hr
+    li.dropdown-submenu
+      a href="#" data-toggle="dropdown" Print / Send To
+      ul.dropdown-menu.pull-middle.bullet
+        li
+          a href="#" 
+            p Patient Chart
+            p.padding
+              | (includes everything)
+        li
+          a href="#" Treatments
+        li
+          a href="#" Encounter Note(s)
+        li
+          a href="#" Perio Chart
+    li
+      a href="#" Create Clinical Summary/Referral
+    li
+      hr
+    li
+      a href="#" Syndromic Surveillance

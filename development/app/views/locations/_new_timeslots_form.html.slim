@@ -1,0 +1,15 @@
+- Timeslot.weekdays.each do |weekday|
+  = l.simple_fields_for "timeslots[#{weekday}]", Timeslot.new do |t|
+    .row
+      = t.input :weekday, as: :hidden, label: false, input_html: { class: 'form-control', value: weekday }
+      .col-xs-2
+        .form-group
+          p
+            = weekday.to_s
+      .col-xs-3
+        = t.time_select :from, { combined: true, default: Time.now, ampm: true, time_separator: "", prompt: '' }, { 'data-placeholder' => 'From', 'data-theme' => 'gray-light', 'data-arrow' => '3x', 'data-padding' => '1x', 'data-arrow-padding' => '05x','data-font' => '2x', class: 'select2' }
+      .col-xs-3
+        = t.time_select :to, { combined: true, default: Time.now, ampm: true, time_separator: "", prompt: '' }, { 'data-placeholder' => 'To', 'data-theme' => 'gray-light', 'data-arrow' => '3x', 'data-padding' => '1x', 'data-arrow-padding' => '05x','data-font' => '2x', class: 'select2' }
+      .col-xs-4
+        .form-group
+          = t.input :specific_hour, as: :select, collection: Timeslot.specific_hours.to_a, selected: 0, input_html: { 'data-placeholder' => 'Specific Hours', 'data-theme' => 'gray-light', 'data-arrow' => '3x', 'data-arrow-padding' => '05x','data-padding' => '1x', 'data-font' => '2x', class: 'select2 select-new-user-specific-hours' }

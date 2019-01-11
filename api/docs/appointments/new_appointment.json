@@ -1,0 +1,42 @@
+{
+  "resource": "Appointments",
+  "http_method": "GET",
+  "route": "/appointments/new",
+  "description": "New appointment",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/appointments/new?data[auth_token]=fccdc6dc872e3605ddb3ff3fb8d212c5",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "fccdc6dc872e3605ddb3ff3fb8d212c5"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lMxOwrhgTzxD\",\n    \"type\": \"appointments\",\n    \"attributes\": {\n      \"id\": \"33lMxOwrhgTzxD\",\n      \"patient-id\": null,\n      \"room-id\": null,\n      \"appointment-type-id\": null,\n      \"appointment-status-id\": null,\n      \"location\": null,\n      \"reason\": null,\n      \"appointment-datetime-date\": \"2016-02-26\",\n      \"appointment-datetime-time\": \"16:51\",\n      \"duration\": \"15 min\",\n      \"contact-email\": null,\n      \"contact-phone\": null,\n      \"reminder\": null,\n      \"colour\": null\n    },\n    \"links\": {\n      \"self\": \"/appointments/33lMxOwrhgTzxD\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,714 @@
+Index
+-----
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /patients?data[auth_token]=3e6be69bfa221f5c7ce9e2bbe455e14b
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"3e6be69bfa221f5c7ce9e2bbe455e14b"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "appointments": [
+        {
+          "appointment_datetime": "2016-02-26T17:16:00.000+02:00",
+          "appointment_status_id": "33lciowC05G403",
+          "appointment_type_id": "33lchXLtm0djH9",
+          "colour": "A1C7F2",
+          "contact_email": "kenneth@eichmann.co",
+          "contact_phone": "+12100268729",
+          "created_at": "2016-02-26T17:16:29.802+02:00",
+          "duration": "2 hours",
+          "id": "33lcfSwL2nUYTr",
+          "location": "76246 Aiyana Prairie",
+          "patient_id": "33lcc9gdw4Rm0x",
+          "provider_id": "33lcfSwUisdvO7",
+          "reason": "Dolorem ut eius sequi.",
+          "reminder": false,
+          "room_id": "33lcgqD7uTLA5T",
+          "updated_at": "2016-02-26T17:16:29.802+02:00"
+        },
+        {
+          "appointment_datetime": "2016-02-26T17:16:00.000+02:00",
+          "appointment_status_id": "33lcoqbObs9U1r",
+          "appointment_type_id": "33lcmp8U1roasV",
+          "colour": "76BE71",
+          "contact_email": "gavin_howe@beatty.biz",
+          "contact_phone": "+1958039389",
+          "created_at": "2016-02-26T17:16:38.428+02:00",
+          "duration": "2 hours 45 min",
+          "id": "33lckM0iHCQ24J",
+          "location": "13053 Bartell Falls",
+          "patient_id": "33lcc9gdw4Rm0x",
+          "provider_id": "33lckM0rxHZOyZ",
+          "reason": "Ut officia quia ullam qui iste.",
+          "reminder": false,
+          "room_id": "33lclZBofsZmrb",
+          "updated_at": "2016-02-26T17:16:38.428+02:00"
+        },
+        {
+          "appointment_datetime": "2016-02-26T17:16:00.000+02:00",
+          "appointment_status_id": "33lcuBFweRbY3P",
+          "appointment_type_id": "33lcsxY3iJiChv",
+          "colour": "0A30CD",
+          "contact_email": "ole_hackett@orn.co",
+          "contact_phone": "+15495557185",
+          "created_at": "2016-02-26T17:16:45.812+02:00",
+          "duration": "1 hour",
+          "id": "33lcq5Jj3EUcKZ",
+          "location": "2353 Morissette Ridges",
+          "patient_id": "33lcc9gdw4Rm0x",
+          "provider_id": "33lcq5JsjJdzEp",
+          "reason": "Excepturi placeat quia amet aut est.",
+          "reminder": true,
+          "room_id": "33lcrd3SWHY7wx",
+          "updated_at": "2016-02-26T17:16:45.812+02:00"
+        }
+      ],
+      "notifications": {
+        "appointment": {
+          "appointment_datetime": "2016-02-26T17:16:00.000+02:00",
+          "appointment_status_id": "33lciowC05G403",
+          "appointment_type_id": "33lchXLtm0djH9",
+          "colour": "A1C7F2",
+          "contact_email": "kenneth@eichmann.co",
+          "contact_phone": "+12100268729",
+          "created_at": "2016-02-26T17:16:29.802+02:00",
+          "duration": "2 hours",
+          "id": "33lcfSwL2nUYTr",
+          "location": "76246 Aiyana Prairie",
+          "patient_id": "33lcc9gdw4Rm0x",
+          "provider_id": "33lcfSwUisdvO7",
+          "reason": "Dolorem ut eius sequi.",
+          "reminder": false,
+          "room_id": "33lcgqD7uTLA5T",
+          "updated_at": "2016-02-26T17:16:29.802+02:00"
+        },
+        "message": null
+      }
+    }
+  }
+
+
+Create new patient
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * email - Email
+  * password - Password
+  * password_confirmation - Password confirmation
+  * first_name - First_name
+  * last_name - Last name
+  * middle_name - Middle name
+  * birth - Birth date
+  * gender - Gender
+  * mobile_phone - Mobile phone
+  * primary_phone - Primary phone
+
+Request:
+  POST /patients
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"7e574ea7fad098e0180fdc3039463201","user":{"email":"test@email.com","password":"patient","password_confirmation":"patient"},"patient":{"first_name":"Dayna","last_name":"Langosh","middle_name":null,"birth":"2006-02-26T17:17:08.311+02:00","gender":"Male","mobile_phone":"+14527817450","primary_phone":"+14387026993"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33ldDZYTId7Ubz",
+      "type": "patients",
+      "attributes": {
+        "id": "33ldDZYTId7Ubz",
+        "email": "test@email.com",
+        "role": "Patient",
+        "first-name": "Dayna",
+        "middle-name": null,
+        "last-name": "Langosh",
+        "gender": "Male",
+        "mobile-phone": "+14527817450",
+        "primary-phone": "+14387026993",
+        "code": 88596,
+        "social-number": null,
+        "active": true,
+        "declined-portal-access": null,
+        "preferred-language": null,
+        "ethnicity": "Hispanic of Latino",
+        "american-race": null,
+        "asian-race": null,
+        "african-race": null,
+        "hawaiian-race": null,
+        "white-race": null,
+        "undetermined-race": null,
+        "email-reminder": null,
+        "sms-reminder": null,
+        "immunization-registry": "NotSend",
+        "work-phone": null,
+        "ext": null,
+        "street-address": null,
+        "city": null,
+        "state": null,
+        "zip": null,
+        "profile-image": {
+          "url": null
+        }
+      },
+      "links": {
+        "self": "/patients/33ldDZYTId7Ubz"
+      }
+    }
+  }
+
+
+Create new patient without email
+--------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * first_name - First_name
+  * last_name - Last name
+  * middle_name - Middle name
+  * birth - Birth date
+  * gender - Gender
+  * mobile_phone - Mobile phone
+  * primary_phone - Primary phone
+
+Request:
+  POST /patients/simple_create
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"4466df2a4b2b0bd488fb50cceb1913eb","patient":{"first_name":"Ernestine","last_name":"Jast","middle_name":null,"birth":"2006-02-26T17:17:24.264+02:00","gender":"Male","mobile_phone":"+15034306726","primary_phone":"+16766449139"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33ldQFbzW6IDCt",
+      "type": "patients",
+      "attributes": {
+        "id": "33ldQFbzW6IDCt",
+        "email": "92811@mail.com",
+        "role": "Patient",
+        "first-name": "Ernestine",
+        "middle-name": null,
+        "last-name": "Jast",
+        "gender": "Male",
+        "mobile-phone": "+15034306726",
+        "primary-phone": "+16766449139",
+        "code": 12958,
+        "social-number": null,
+        "active": true,
+        "declined-portal-access": null,
+        "preferred-language": null,
+        "ethnicity": "Hispanic of Latino",
+        "american-race": null,
+        "asian-race": null,
+        "african-race": null,
+        "hawaiian-race": null,
+        "white-race": null,
+        "undetermined-race": null,
+        "email-reminder": null,
+        "sms-reminder": null,
+        "immunization-registry": "NotSend",
+        "work-phone": null,
+        "ext": null,
+        "street-address": null,
+        "city": null,
+        "state": null,
+        "zip": null,
+        "profile-image": {
+          "url": null
+        }
+      },
+      "links": {
+        "self": "/patients/33ldQFbzW6IDCt"
+      }
+    }
+  }
+
+
+Update patient
+--------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * email - Email
+  * id - Patient id
+  * first_name - First_name
+  * last_name - Last name
+  * middle_name - Middle name
+  * birth - Birth date
+  * gender - Gender
+  * mobile_phone - Mobile phone
+  * primary_phone - Primary phone
+  * social_number - Social number
+  * active - Boolean, if true - active
+  * declined_portal_access - Boolean, if true - access declined
+  * preferred_language - Preferred language
+  * ethnicity - Ethnicity
+  * american_race - Boolean, if true - american race
+  * asian_race - Boolean, if true - asian race
+  * african_race - Boolean, if true - african race
+  * hawaiian_race - Boolean, if true - hawaiian race
+  * white_race - Boolean, if true - white race
+  * undetermined_race - Boolean, if true - undetermined race
+  * email_reminder - Boolean, if true - remind by email
+  * sms_reminder - Boolean, if true - remind by sms
+  * immunization_registry - Immunization registry
+  * work_phone - Work phone
+  * ext - Ext
+  * street_address - Street address
+  * city - City
+  * state - State
+  * zip - Zip
+  * contact_first_name - First name
+  * contact_last_name - Last name
+  * contact_middle_name - Middle name
+  * contact_relation - Relation
+  * contact_mobile_phone - Mobile phone
+  * contact_email - Email
+  * contact_street_address - Street address
+  * contact_city - City
+  * contact_state - State
+  * contact_zip - Zip
+  * kin_first_name - First name
+  * kin_last_name - Last name
+  * kin_middle_name - Middle name
+  * kin_relation - Relation
+  * kin_mobile_phone - Mobile phone
+  * kin_email - Email
+  * kin_street_address - Street address
+  * kin_city - City
+  * kin_state - State
+  * kin_zip - Zip
+
+Request:
+  PATCH /patients/33ldWolHwnwGah
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"3e129630b188d71ae61b3b611ed77eb0","user":{"email":"test@email.com"},"patient":{"id":"33ldWolHwnwGah","first_name":"Abner","last_name":"Jacobson","middle_name":null,"birth":"2006-02-26T17:17:42.328+02:00","gender":"Male","mobile_phone":"301-451-0292 x64456","primary_phone":"880-156-8341","social_number":"0dZpEiL2AqHlE691","active":true,"declined_portal_access":true,"preferred_language":"Spanish","ethnicity":"Hispanic of Latino","american_race":false,"asian_race":true,"african_race":false,"hawaiian_race":false,"white_race":false,"undetermined_race":false,"email_reminder":false,"sms_reminder":false,"immunization_registry":"NotSpecified","work_phone":"325-492-8605 x7607","ext":"Stumptown","street_address":"Tre Circle","city":"Christianaside","state":"2kVlS6EqQ7qiQj","zip":26818},"emergency_contact":{"contact_first_name":"Jordi","contact_last_name":"Bailey","contact_middle_name":"Nico","contact_relation":"Wife","contact_mobile_phone":"+1050347849","contact_email":"lorena.greenfelder@erdman.info","contact_street_address":"Gottlieb Row","contact_city":"Port Leon","contact_state":"Florida","contact_zip":15484},"next_kin":{"kin_first_name":"Vladimir","kin_last_name":"Gerlach","kin_middle_name":"Katherine","kin_relation":"Parent","kin_mobile_phone":"+17281815954","kin_email":"eryn_spencer@franecki.co","kin_street_address":"Ryan Harbors","kin_city":"Gutmannmouth","kin_state":"Oregon","kin_zip":48391}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33ldWolHwnwGah",
+      "type": "patients",
+      "attributes": {
+        "id": "33ldWolHwnwGah",
+        "email": "macy@lockman.org",
+        "role": "Patient",
+        "first-name": "Abner",
+        "middle-name": null,
+        "last-name": "Jacobson",
+        "gender": "Male",
+        "mobile-phone": "+1301451029264456",
+        "primary-phone": "+18801568341",
+        "code": null,
+        "social-number": "0dZpEiL2AqHlE691",
+        "active": true,
+        "declined-portal-access": true,
+        "preferred-language": "Spanish",
+        "ethnicity": "Hispanic of Latino",
+        "american-race": false,
+        "asian-race": true,
+        "african-race": false,
+        "hawaiian-race": false,
+        "white-race": false,
+        "undetermined-race": false,
+        "email-reminder": false,
+        "sms-reminder": false,
+        "immunization-registry": "NotSpecified",
+        "work-phone": "+132549286057607",
+        "ext": "Stumptown",
+        "street-address": "Tre Circle",
+        "city": "Christianaside",
+        "state": "2kVlS6EqQ7qiQj",
+        "zip": 26818,
+        "profile-image": {
+          "url": "/uploads/patient/profile_image/33ldWolHwnwGah/avatar3.jpg"
+        }
+      },
+      "links": {
+        "self": "/patients/33ldWolHwnwGah"
+      }
+    }
+  }
+
+
+List of providers for new appointment
+-------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /patients/new_appointment?data[auth_token]=7c4bc814722331ee6ee3282001ef2225
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"7c4bc814722331ee6ee3282001ef2225"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33ldktvFAQyZN5",
+        "type": "providers",
+        "attributes": {
+          "id": "33ldktvFAQyZN5",
+          "email": "bella@nienow.name",
+          "role": "Provider",
+          "user-id": "33ldktvOqW7wHL",
+          "title": "Mr",
+          "first-name": "Jo",
+          "middle-name": null,
+          "last-name": "Roob",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Walter Ramp",
+          "suit-apt-number": "808",
+          "city": "East Diamondburgh",
+          "state": "North Dakota",
+          "zip": null,
+          "practice-street-address": "Alessia Junction",
+          "practice-suit-apt-number": "937",
+          "practice-city": "Eldredborough",
+          "practice-state": "Indiana",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33ldktvFAQyZN5/avatar8.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33ldktvFAQyZN5"
+        }
+      },
+      {
+        "id": "33ldmpKs0i1FA3",
+        "type": "providers",
+        "attributes": {
+          "id": "33ldmpKs0i1FA3",
+          "email": "flavio.hintz@kihn.org",
+          "role": "Provider",
+          "user-id": "33ldmpL1gnAc4J",
+          "title": "Mr",
+          "first-name": "Jennyfer",
+          "middle-name": null,
+          "last-name": "Brekke",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Sipes Bypass",
+          "suit-apt-number": "335",
+          "city": "Deshawnhaven",
+          "state": "Indiana",
+          "zip": null,
+          "practice-street-address": "Pinkie Burg",
+          "practice-suit-apt-number": "9897",
+          "practice-city": "West Haylie",
+          "practice-state": "Maine",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33ldmpKs0i1FA3/avatar3.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33ldmpKs0i1FA3"
+        }
+      },
+      {
+        "id": "33ldoC8ccvl7zf",
+        "type": "providers",
+        "attributes": {
+          "id": "33ldoC8ccvl7zf",
+          "email": "rollin.moore@padberg.net",
+          "role": "Provider",
+          "user-id": "33ldoC8mJ0uUtv",
+          "title": "Mr",
+          "first-name": "Emiliano",
+          "middle-name": null,
+          "last-name": "Jacobs",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Abernathy Cove",
+          "suit-apt-number": "9917",
+          "city": "Nannieland",
+          "state": "Kansas",
+          "zip": null,
+          "practice-street-address": "Crist Viaduct",
+          "practice-suit-apt-number": "543",
+          "practice-city": "Lake Shaniya",
+          "practice-state": "Georgia",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33ldoC8ccvl7zf/avatar10.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33ldoC8ccvl7zf"
+        }
+      }
+    ]
+  }
+
+
+List of medications
+-------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /patients/myhealth?data[auth_token]=d99ce87211a1a830cb53230a023f2d9e
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"d99ce87211a1a830cb53230a023f2d9e"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33le0o81eDs99n",
+        "type": "medications",
+        "attributes": {
+          "id": "33le0o81eDs99n",
+          "diagnosis-id": "33ldy3cTjx8jjv",
+          "portion-id": "33le0o8BKJ1W43",
+          "shorthand": "Occupy",
+          "signature": "DtH4Fk8aInLpMzZn",
+          "start-date": "2016-02-26T16:18:27.668+02:00",
+          "stop-date": "2016-02-26T18:18:27.668+02:00",
+          "note": "Aut quibusdam qui maxime doloribus omnis et optio officiis."
+        },
+        "links": {
+          "self": "/medications/33le0o81eDs99n"
+        }
+      },
+      {
+        "id": "33le0o8L0OAsyJ",
+        "type": "medications",
+        "attributes": {
+          "id": "33le0o8L0OAsyJ",
+          "diagnosis-id": "33ldzX2nUgKL0F",
+          "portion-id": "33le0o8UgTKFsZ",
+          "shorthand": "Gluten-free",
+          "signature": "PmPrF9HuKqTxBpLb",
+          "start-date": "2016-02-26T16:18:27.686+02:00",
+          "stop-date": "2016-02-26T18:18:27.686+02:00",
+          "note": "Provident aut possimus et qui aperiam ea."
+        },
+        "links": {
+          "self": "/medications/33le0o8L0OAsyJ"
+        }
+      },
+      {
+        "id": "33le0o8eMYTcmp",
+        "type": "medications",
+        "attributes": {
+          "id": "33le0o8eMYTcmp",
+          "diagnosis-id": "33ldzuHN5MrqNf",
+          "portion-id": "33le0o8o2dczh5",
+          "shorthand": "Artisan",
+          "signature": "CeUnVbZg5g6bHrDu",
+          "start-date": "2016-02-26T16:18:27.838+02:00",
+          "stop-date": "2016-02-26T18:18:27.838+02:00",
+          "note": "Ea dicta suscipit enim perspiciatis."
+        },
+        "links": {
+          "self": "/medications/33le0o8eMYTcmp"
+        }
+      }
+    ]
+  }
+
+
+List of provider locations
+--------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * provider_id - Provider id
+
+Request:
+  GET /patients/provider_full_info?data[auth_token]=dbf9a8dc6f49c2f3b7bbc79ac65bb124&data[provider_id]=33le1XMWYnkkNv
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"dbf9a8dc6f49c2f3b7bbc79ac65bb124", "provider_id"=>"33le1XMWYnkkNv"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "locations": [
+        {
+          "city": "Josefaberg",
+          "colour": "F8BF28",
+          "created_at": "2016-02-26T17:18:31.582+02:00",
+          "id": "33le2hGqFYbYTz",
+          "location_address": "Harris Points",
+          "location_fax": "+18001364447",
+          "location_name": "Elouise Lane",
+          "location_npi": "49-4223248",
+          "location_phone": "+14325065136",
+          "location_tin_en": "39-2753518",
+          "provider_id": "33le1XMWYnkkNv",
+          "state": "Florida",
+          "updated_at": "2016-02-26T17:18:31.582+02:00",
+          "zip": 57631
+        },
+        {
+          "city": "Eddiefort",
+          "colour": "B0FA32",
+          "created_at": "2016-02-26T17:18:32.270+02:00",
+          "id": "33le3IMnPc4123",
+          "location_address": "Crona Meadows",
+          "location_fax": "+12697255674",
+          "location_name": "Torp Haven",
+          "location_npi": "54-1473409",
+          "location_phone": "+13510835971",
+          "location_tin_en": "60-1709963",
+          "provider_id": "33le1XMWYnkkNv",
+          "state": "North Carolina",
+          "updated_at": "2016-02-26T17:18:32.270+02:00",
+          "zip": 13026
+        },
+        {
+          "city": "North Herman",
+          "colour": "0B4B86",
+          "created_at": "2016-02-26T17:18:32.923+02:00",
+          "id": "33le44c07YgVUp",
+          "location_address": "Terry Ridges",
+          "location_fax": "+15647272134",
+          "location_name": "Jessie Mills",
+          "location_npi": "97-4237844",
+          "location_phone": "+13212942789",
+          "location_tin_en": "25-6732395",
+          "provider_id": "33le1XMWYnkkNv",
+          "state": "Connecticut",
+          "updated_at": "2016-02-26T17:18:32.923+02:00",
+          "zip": 1583
+        }
+      ]
+    }
+  }
+
+
+Create emergency contact
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * first_name - First name
+  * last_name - Last name
+  * middle_name - Middle name
+  * relation - Relation
+  * mobile_phone - Mobile phone
+  * email - Email
+  * street_address - Street address
+  * city - City
+  * state - State
+  * zip - Zip
+
+Request:
+  POST /patients/create_emergency_contact
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"1f743216a1f7920bc9f9b1b968a1a7a1","emergency_contact":{"first_name":"Eddie","last_name":"Jast","middle_name":"Hollis","relation":"Parent","mobile_phone":"+15993416732","email":"makenna@treutel.info","street_address":"Ella Motorway","city":"Schmittport","state":"Missouri","zip":36538}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33leG2VgFvVOJn",
+      "type": "emergency-contacts",
+      "attributes": {
+        "id": "33leG2VgFvVOJn",
+        "patient-id": null,
+        "first-name": "Eddie",
+        "middle-name": "Hollis",
+        "last-name": "Jast",
+        "relation": "Parent",
+        "mobile-phone": "+15993416732",
+        "email": "makenna@treutel.info",
+        "street-address": "Ella Motorway",
+        "city": "Schmittport",
+        "state": "Missouri",
+        "zip": 36538
+      },
+      "links": {
+        "self": "/emergency-contacts/33leG2VgFvVOJn"
+      }
+    }
+  }
+
+

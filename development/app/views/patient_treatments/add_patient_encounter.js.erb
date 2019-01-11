@@ -1,0 +1,286 @@
+$("#modal-patient-add-encounter").html("<%= escape_javascript(render 'patient_add_encounter_form') %>");
+$("#modal-patient-add-encounter").modal("show")
+
+initSelect2('#modal-patient-add-encounter');
+
+var SearchController = function() {
+  var id_input;
+  var search_input;
+  var search_button;
+  var search_list;
+
+  var attribute_name;
+  var counter_index = 0;
+  var plus_button;
+  var list_of_nested;
+
+  var url ;
+
+  var liFocusIn = false;
+
+  this.initialize = function(id, input, button, list, path, attribute, plus, nested) {
+    id_input = $(id);
+    search_input = $(input);
+    search_button = $(button);
+    search_list = $(list);
+    url = path;
+    attribute_name = attribute;
+    plus_button = $(plus);
+    list_of_nested = $(nested);
+    find10();
+    initSearchOnInput();
+    InitAddProcedureClick();
+  };
+
+  var initKeyDownListeners = function() {
+    search_input.on('keydown', function(e) {
+      if(e.keyCode == '40' && search_list.css('display') == 'block') {
+        e.preventDefault();
+        $(search_list.find('li a').first()).focus();
+        return false;
+      }
+    });
+    search_list.find('li a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        search_input.val($(this).text()).change();
+        id_input.val($(this).data('id'));
+        search_list.fadeOut('fast');
+        search_input.focus();
+      })
+    });
+    search_list.find('li').focusin(function() {
+      liFocusIn = true;
+    });
+    search_list.find('li').focusout(function() {
+      liFocusIn = false;
+    });
+    search_list.focusout(function() {
+      setTimeout(function() {
+        if(!liFocusIn)
+          search_list.fadeOut({
+            'duration': 0
+          });
+      }, 100);
+    });
+    search_list.find('li').each(function() {
+      $(this).on('keydown', function(e) {
+        switch(e.keyCode)
+        {
+          case 38:
+            if(this.previousElementSibling == null)
+              search_input.focus();
+            else
+              $(this).prev().find('a').focus();
+            return false;
+            break;
+          case 40:
+            if(this.nextElementSibling == null)
+              search_list.find('li a').first().focus();
+            else
+              $(this).next().find('a').focus();
+            return false;
+            break
+        }
+      });
+    });
+  };
+
+  var listFill = function(elements) {
+    if(elements.length>0)
+      search_list.css('display', 'block');
+    else
+      search_list.css('display', 'none');
+    search_list.empty();
+    for(var i in elements) {
+      var li = $('<li/>');
+      var link = $('<a/>').attr('href','#');
+      link.text(elements[i]['full_name'].trim());
+      link.data('id', elements[i]['id']);
+      li.append(link);
+      search_list.append(li);
+    }
+  };
+
+  var find10 = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: url
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+        search_list.find('li a').first().focus();
+      });
+    })
+  };
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part
+        }
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+      });
+    });
+  };
+
+  var InitAddProcedureClick = function() {
+    plus_button.on('click', function() {
+      if((search_input).val()) {
+        var row = $('<div class="row"></div>');
+        row.append('<div class="col-xs-8"><p>' + search_input.val() + '</p></div>');
+        row.append('<div class="col-xs-4"><p>' + id_input.val() + '</p></div>');
+        row.append('<input type="hidden" name="encounter[' + attribute_name + '][' + counter_index + '][procedure_code]" value="' + id_input.val() + '" />');
+        list_of_nested.append(row);
+        counter_index += 1;
+        ClearInput();
+      }
+    });
+  };
+
+  var ClearInput = function() {
+    search_input.val('');
+    id_input.val('');
+  };
+};
+
+var providerSearchController = new SearchController();
+providerSearchController.initialize('input#encounter_provider_id', 'input#find-dental_proc-input', 'span#find-dental_proc-button', 'ul#find-dental_proc-list', '<%= Rails.application.routes.url_helpers.providers_patient_treatments_path %>');
+var completedSearchController = new SearchController();
+completedSearchController.initialize('input#proc_completed',
+                                     'input#find-proc-completed-input',
+                                     'span#find-proc-completed-button',
+                                     'ul#find-proc-completed-list',
+                                     '<%= Rails.application.routes.url_helpers.procedure_codes_patient_treatments_path %>',
+                                     'procedure_completeds',
+                                     '#add-proc-completed',
+                                     '#proc-completed-list');
+var recommendedSearchController = new SearchController();
+recommendedSearchController.initialize('input#proc_recommend',
+                                       'input#find-proc-recommend-input',
+                                       'span#find-proc-recommend-button',
+                                       'ul#find-proc-recommend-list',
+                                       '<%= Rails.application.routes.url_helpers.procedure_codes_patient_treatments_path %>',
+                                       'procedure_recommends',
+                                       '#add-proc-recommend',
+                                       '#proc-recommend-list');
+
+var BMIController = function() {
+  var height_major;
+  var height_minor;
+  var height_major_unit_system;
+  var height_minor_unit_system;
+  var weight_unit_system;
+  var weight;
+  var unit_system;
+  var bmi;
+  // unit_system.data('system') - shows prev units system, before we select a new one, don't forget to change it too!
+
+  this.initialize = function(major_height, minor_height, major_unit_system_height, minor_unit_system_height, unit_system_weight, weig, b, parent) {
+    height_major = $(parent+' '+major_height);
+    height_minor = $(parent+' '+minor_height);
+    height_major_unit_system = $(parent+' '+major_unit_system_height);
+    height_minor_unit_system = $(parent+' '+minor_unit_system_height);
+    weight_unit_system = $(parent+' '+unit_system_weight);
+    weight       = $(parent+' '+weig);
+    bmi          = $(parent+' '+b);
+    bmi.data('system', 'us');
+    SetOnChange();
+  };
+
+  var SetOnChange = function() {
+    height_major.keyup(CountBMI);
+    height_minor.keyup(CountBMI);
+    weight.keyup(CountBMI);
+    height_major_unit_system.change(UnitSystemChange);
+    height_minor_unit_system.change(UnitSystemChange);
+    weight_unit_system.change(UnitSystemChange);
+  };
+
+  var UnitSystemChange = function(e) {
+    var control = $(e.currentTarget);
+    var id = control.attr('id');
+    switch(id) {
+      case 'height_major_unit_system':
+        if(height_minor_unit_system.val() != control.val() && weight_unit_system.val() != control.val()) {
+          height_minor_unit_system.val(control.val()).change();
+          weight_unit_system.val(control.val()).change();
+        }
+      break;
+      case 'height_minor_unit_system':
+        if(height_major_unit_system.val() != control.val() && weight_unit_system.val() != control.val()) {
+          height_major_unit_system.val(control.val()).change();
+          weight_unit_system.val(control.val()).change();
+        }
+      break;
+      case 'weight_unit_system':
+        if(height_minor_unit_system.val() != control.val() && height_major_unit_system.val() != control.val()) {
+          height_minor_unit_system.val(control.val()).change();
+          height_major_unit_system.val(control.val()).change();
+        }
+      break;
+    }
+    switch(control.val()) {
+      case 0:
+        bmi.data('system', 'us');
+      break;
+      case 1:
+        bmi.data('system', 'euro');
+      break;
+    }
+    RecountValues();
+  };
+
+  var RecountValues = function() {
+    var total;
+    var major;
+    var minor;
+    var height_major_val = parseFloat(height_major.val());
+    var height_minor_val = parseFloat(height_minor.val());
+    var weight_val;
+
+    if(bmi.data('system') == 'us') {
+      total = RoundFour((height_major_val * 12 + height_minor_val) * 2.54);
+      major = Math.floor(total / 100.0);
+      minor = total - major * 100;
+      weight_val = weight.val() * 0.453592;
+      bmi.data('system', 'euro');
+    } else {
+      total = RoundFour((height_major_val * 100 + height_minor_val) * 0.393701);
+      major = Math.floor(total / 12.0);
+      minor = total - major * 12;
+      weight_val = weight.val() * 2.20462;
+      bmi.data('system', 'us');
+    }
+    height_major.val(RoundFour(parseInt(major)));
+    height_minor.val(minor);
+    weight.val(RoundFour(weight_val));
+    CountBMI();
+    //console.log(height_major.val(), height_minor.val(), weight.val(), unit_system.data('system'), bmi.val());
+  };
+
+  var RoundFour = function(num) {
+    return Math.round(num * 10000) / 10000
+  };
+
+  var CountBMI = function() {
+    var h = parseInt(height_major.val());
+    if(bmi.data('system') == 'euro')
+      h = h * 100 + h;
+    else
+      h = h * 12 + h;
+    var w = parseInt(weight.val());
+    if(w && h) {
+      bmi.val(((w * 703) / Math.pow(h, 2)).toFixed(2));
+    }
+  };
+};
+
+var bmiController = new BMIController();
+bmiController.initialize('input#encounter_vital_height_major', 'input#encounter_vital_height_minor', 'select#height_major_unit_system', 'select#height_minor_unit_system', 
+  'select#weight_unit_system', 'input#encounter_vital_weight', 'input#encounter_vital_bmi', '#modal-patient-add-encounter');

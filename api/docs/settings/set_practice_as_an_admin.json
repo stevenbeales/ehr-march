@@ -1,0 +1,56 @@
+{
+  "resource": "Settings",
+  "http_method": "GET",
+  "route": "/settings/set_admin",
+  "description": "Set practice as an admin",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Practice id"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "admin",
+      "description": "Boolean, set true if practice is an admin"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/settings/set_admin?data[auth_token]=704ec5ae4e91ddf3ac29091fce7a3adb&data[id]=33lgGLheTjsRd5&data[admin]=true",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "704ec5ae4e91ddf3ac29091fce7a3adb",
+          "id": "33lgGLheTjsRd5",
+          "admin": "true"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

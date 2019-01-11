@@ -1,0 +1,56 @@
+//= require application
+//= require controls
+//= require zipcode
+
+$(document).ajaxStart(function(e) {
+  NProgress.start();
+});
+
+$(document).ajaxStop(function() {
+  NProgress.done();
+});
+
+$(function() {
+  initPickers();
+  initModalsReposition();
+
+  var searchPatientsHandler = function() {
+    $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.search_patients_patient_treatments_path %>',
+        data: { part: $('#find-patients-input').val() }
+    }).done(function(partial) {
+      var parent = $('.patients-main-table').parent();
+      parent.find('table').remove();
+      parent.find('.bottom-block').remove();
+      parent.append(partial);
+    });
+  }
+
+  $('#find-patients-button').click(searchPatientsHandler);
+  $('#find-patients-input').keyup(searchPatientsHandler);
+
+  $('#patient_show_inactive').change(function() {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.active_patients_patient_treatments_path %>',
+      data: { active: $(this).is(':checked') }
+    }).done(function(partial) {
+      var parent = $('.patients-main-table').parent();
+      parent.find('table').remove();
+      parent.find('.bottom-block').remove();
+      parent.append(partial);
+    });
+  });
+
+  $(function() {
+    $('.patients-wrapper .patients-header .nav-tabs li a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+      switch($(e.target).attr('href')) {
+        case '#patientsRecentTab':
+          $('.patients-wrapper .patients-header .nav-tabs .calendar-controls').css('display', 'none');
+        break
+        case '#patientsScheduledTab':
+          $('.patients-wrapper .patients-header .nav-tabs .calendar-controls').css('display', 'block');
+        break
+      }
+    })
+  })
+});

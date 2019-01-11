@@ -1,0 +1,49 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/contacts",
+  "description": "Get 25 contacts with pagination",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "page",
+      "description": "Page number"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/contacts?data[auth_token]=486970ab5f293efc85c6588d8dd379be&data[page]=0",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "486970ab5f293efc85c6588d8dd379be",
+          "page": "0"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lV6IabG90Gmp\",\n      \"type\": \"contacts\",\n      \"attributes\": {\n        \"id\": \"33lV6IabG90Gmp\",\n        \"provider-id\": \"33lV4VhP16VGVP\",\n        \"favorite\": false\n      },\n      \"links\": {\n        \"self\": \"/contacts/33lV6IabG90Gmp\"\n      }\n    },\n    {\n      \"id\": \"33lV6IakwE9dh5\",\n      \"type\": \"contacts\",\n      \"attributes\": {\n        \"id\": \"33lV6IakwE9dh5\",\n        \"provider-id\": \"33lV4VhP16VGVP\",\n        \"favorite\": false\n      },\n      \"links\": {\n        \"self\": \"/contacts/33lV6IakwE9dh5\"\n      }\n    },\n    {\n      \"id\": \"33lV6IaucJJ0bL\",\n      \"type\": \"contacts\",\n      \"attributes\": {\n        \"id\": \"33lV6IaucJJ0bL\",\n        \"provider-id\": \"33lV4VhP16VGVP\",\n        \"favorite\": false\n      },\n      \"links\": {\n        \"self\": \"/contacts/33lV6IaucJJ0bL\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

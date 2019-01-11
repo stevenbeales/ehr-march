@@ -1,0 +1,193 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "POST",
+  "route": "/patient_treatments/create_insurance",
+  "description": "Create patient insurance",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "required": true,
+      "name": "insurance",
+      "description": "Insurance params"
+    },
+    {
+      "required": true,
+      "name": "subscriber",
+      "description": "Subscriber params"
+    },
+    {
+      "required": true,
+      "name": "employer",
+      "description": "Employer params"
+    },
+    {
+      "scope": "insurance",
+      "name": "worker_compensation",
+      "description": "Worker compensation"
+    },
+    {
+      "scope": "insurance",
+      "name": "insurance_number",
+      "description": "Insurance number"
+    },
+    {
+      "scope": "insurance",
+      "name": "relation",
+      "description": "Relation"
+    },
+    {
+      "scope": "insurance",
+      "name": "effective_from",
+      "description": "Effective from"
+    },
+    {
+      "scope": "insurance",
+      "name": "effective_to",
+      "description": "Effective to"
+    },
+    {
+      "scope": "insurance",
+      "name": "copay_type",
+      "description": "Copay type"
+    },
+    {
+      "scope": "insurance",
+      "name": "copay_amount",
+      "description": "Copay amount"
+    },
+    {
+      "scope": "insurance",
+      "name": "claim",
+      "description": "Claim"
+    },
+    {
+      "scope": "insurance",
+      "name": "note",
+      "description": "Note"
+    },
+    {
+      "scope": "insurance",
+      "name": "active",
+      "description": "Active"
+    },
+    {
+      "scope": "subscriber",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "scope": "subscriber",
+      "name": "middle_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "subscriber",
+      "name": "last_name",
+      "description": "Middle name"
+    },
+    {
+      "scope": "subscriber",
+      "name": "birth",
+      "description": "Birth date"
+    },
+    {
+      "scope": "subscriber",
+      "name": "gender",
+      "description": "Gender"
+    },
+    {
+      "scope": "subscriber",
+      "name": "social_number",
+      "description": "Social number"
+    },
+    {
+      "scope": "subscriber",
+      "name": "phone",
+      "description": "Phone"
+    },
+    {
+      "scope": "subscriber",
+      "name": "street_address",
+      "description": "Street address"
+    },
+    {
+      "scope": "subscriber",
+      "name": "city",
+      "description": "City"
+    },
+    {
+      "scope": "subscriber",
+      "name": "state",
+      "description": "State"
+    },
+    {
+      "scope": "subscriber",
+      "name": "zip",
+      "description": "Zip"
+    },
+    {
+      "scope": "employer",
+      "name": "name",
+      "description": "Name"
+    },
+    {
+      "scope": "employer",
+      "name": "phone",
+      "description": "Phone"
+    },
+    {
+      "scope": "employer",
+      "name": "street_address",
+      "description": "Street address"
+    },
+    {
+      "scope": "employer",
+      "name": "city",
+      "description": "City"
+    },
+    {
+      "scope": "employer",
+      "name": "state",
+      "description": "state"
+    },
+    {
+      "scope": "employer",
+      "name": "zip",
+      "description": "Zip"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/patient_treatments/create_insurance",
+      "request_body": "{\"data\":{\"auth_token\":\"6f3f6fd956570abce260e9292313cbd5\",\"patient_id\":\"33lZS0UOfj8Wzj\",\"insurance\":{\"worker_compensation\":true,\"insurance_number\":\"697141577\",\"relation\":\"Owner\",\"effective_from\":\"2016-02-26T17:11:37.912+02:00\",\"effective_to\":\"2016-02-26T17:11:37.912+02:00\",\"copay_type\":\"$\",\"copay_amount\":74.58,\"claim\":109,\"note\":\"Inventore ut sed praesentium aut optio sapiente facilis ut.\",\"active\":true},\"subscriber\":{\"first_name\":\"Lillie\",\"middle_name\":\"Cordell\",\"last_name\":\"Mayert\",\"birth\":\"2016-02-26T17:11:45.686+02:00\",\"gender\":\"Male\",\"social_number\":\"158956878\",\"phone\":\"+12881694957\",\"street_address\":\"2137 Camren Neck\",\"city\":\"Carnegie\",\"state\":\"Rhode Island\",\"zip\":75301},\"employer\":{\"name\":\"Bettye\",\"phone\":\"+16438828230\",\"street_address\":\"253 Fisher Knoll\",\"city\":\"Columbus\",\"state\":\"Kentucky\",\"zip\":32102}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lZp3VIApqeax\",\n    \"type\": \"insurances\",\n    \"attributes\": {\n      \"id\": \"33lZp3VIApqeax\",\n      \"patient-id\": \"33lZS0UOfj8Wzj\",\n      \"provider-id\": null,\n      \"payer-id\": null,\n      \"worker-compensation\": true,\n      \"insurance-number\": \"697141577\",\n      \"relation\": \"Owner\",\n      \"effective-from\": \"2016-02-26T17:11:37.912+02:00\",\n      \"effective-to\": \"2016-02-26T17:11:37.912+02:00\",\n      \"copay-type\": \"$\",\n      \"copay-amount\": 74.58,\n      \"claim\": 109,\n      \"note\": \"Inventore ut sed praesentium aut optio sapiente facilis ut.\",\n      \"active\": true\n    },\n    \"links\": {\n      \"self\": \"/insurances/33lZp3VIApqeax\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "resource": "Providers",
+  "http_method": "GET",
+  "route": "/providers",
+  "description": "Index",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "page",
+      "description": "Page pagination"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/providers?data[auth_token]=a26807b6f7557b4b9f4f5e537149db7a&data[page]=0",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "a26807b6f7557b4b9f4f5e537149db7a",
+          "page": "0"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"appointments\": [\n      {\n        \"appointment_datetime\": \"2016-02-26T17:19:00.000+02:00\",\n        \"appointment_status_id\": \"33leedNno4Wl5n\",\n        \"appointment_type_id\": \"33lee1kkkP1yB1\",\n        \"colour\": \"4DCDC9\",\n        \"contact_email\": \"hyman.conroy@goyetteconnelly.io\",\n        \"contact_phone\": \"+13991037714\",\n        \"created_at\": \"2016-02-26T17:19:29.676+02:00\",\n        \"duration\": \"2 hours 45 min\",\n        \"id\": \"33leZF5WHMYQz5\",\n        \"location\": \"820 Sabryna Throughway\",\n        \"patient_id\": \"33leZF5fxRhntL\",\n        \"provider_id\": \"33leY1rIJ1NI2d\",\n        \"reason\": \"Voluptatum esse voluptas officiis beatae quo.\",\n        \"reminder\": false,\n        \"room_id\": \"33leck3u0q47LH\",\n        \"updated_at\": \"2016-02-26T17:19:29.676+02:00\"\n      },\n      {\n        \"appointment_datetime\": \"2016-02-26T17:19:00.000+02:00\",\n        \"appointment_status_id\": \"33lemTp8386v2J\",\n        \"appointment_type_id\": \"33lelPnTwSHCb5\",\n        \"colour\": \"706A39\",\n        \"contact_email\": \"jackson@nikolaus.info\",\n        \"contact_phone\": \"+17810446992\",\n        \"created_at\": \"2016-02-26T17:19:41.348+02:00\",\n        \"duration\": \"2 hours\",\n        \"id\": \"33lefs0CSH7quh\",\n        \"location\": \"1051 Hauck Camp\",\n        \"patient_id\": \"33lefs0M8MHDox\",\n        \"provider_id\": \"33leY1rIJ1NI2d\",\n        \"reason\": \"Quibusdam perferendis et accusantium et totam consequatur qui voluptatem.\",\n        \"reminder\": true,\n        \"room_id\": \"33lejEM47HCSNH\",\n        \"updated_at\": \"2016-02-26T17:19:41.348+02:00\"\n      },\n      {\n        \"appointment_datetime\": \"2016-02-26T17:19:00.000+02:00\",\n        \"appointment_status_id\": \"33letKpEstCXnn\",\n        \"appointment_type_id\": \"33les1fNQt8Hxb\",\n        \"colour\": \"44497D\",\n        \"contact_email\": \"breanne.treutel@reynolds.org\",\n        \"contact_phone\": \"+17570062429\",\n        \"created_at\": \"2016-02-26T17:19:50.769+02:00\",\n        \"duration\": \"1 hour\",\n        \"id\": \"33leo273ANGLND\",\n        \"location\": \"8524 Price Stream\",\n        \"patient_id\": \"33leo27CqSPiHT\",\n        \"provider_id\": \"33leY1rIJ1NI2d\",\n        \"reason\": \"Quia dolore id labore fugiat aut nesciunt doloribus libero.\",\n        \"reminder\": false,\n        \"room_id\": \"33leqiHcZUc9MR\",\n        \"updated_at\": \"2016-02-26T17:19:50.769+02:00\"\n      }\n    ],\n    \"messages\": [\n      {\n        \"archive\": false,\n        \"body\": \"Sunt repellat corporis et mollitia vitae.\",\n        \"created_at\": \"2016-02-26T17:19:19.023+02:00\",\n        \"draft\": false,\n        \"from_id\": null,\n        \"id\": \"33leZF4aCreDXX\",\n        \"read\": false,\n        \"subject_id\": \"33leZF4jswnaRn\",\n        \"to_id\": \"33leY1rRz6Wewt\",\n        \"updated_at\": \"2016-02-26T17:19:19.023+02:00\",\n        \"urgent\": false\n      },\n      {\n        \"archive\": false,\n        \"body\": \"Recusandae eveniet officia omnis nihil dolorum exercitationem.\",\n        \"created_at\": \"2016-02-26T17:19:19.144+02:00\",\n        \"draft\": false,\n        \"from_id\": null,\n        \"id\": \"33leZF4tZ1wxM3\",\n        \"read\": false,\n        \"subject_id\": \"33leZF53F76KGJ\",\n        \"to_id\": \"33leY1rRz6Wewt\",\n        \"updated_at\": \"2016-02-26T17:19:19.144+02:00\",\n        \"urgent\": false\n      },\n      {\n        \"archive\": false,\n        \"body\": \"Sapiente deleniti ratione sit consequatur odit delectus officia impedit.\",\n        \"created_at\": \"2016-02-26T17:19:19.220+02:00\",\n        \"draft\": false,\n        \"from_id\": null,\n        \"id\": \"33leZF5CvCFhAZ\",\n        \"read\": false,\n        \"subject_id\": \"33leZF5MbHP44p\",\n        \"to_id\": \"33leY1rRz6Wewt\",\n        \"updated_at\": \"2016-02-26T17:19:19.220+02:00\",\n        \"urgent\": false\n      }\n    ],\n    \"to_dos\": [\n      {\n        \"appointment_id\": \"33leZF5WHMYQz5\",\n        \"created_at\": \"2016-02-26T17:19:29.729+02:00\",\n        \"done\": false,\n        \"id\": \"33lefs02mByU0R\",\n        \"updated_at\": \"2016-02-26T17:19:29.729+02:00\"\n      },\n      {\n        \"appointment_id\": \"33lefs0CSH7quh\",\n        \"created_at\": \"2016-02-26T17:19:41.359+02:00\",\n        \"done\": false,\n        \"id\": \"33leo26tUI6ySx\",\n        \"updated_at\": \"2016-02-26T17:19:41.359+02:00\"\n      },\n      {\n        \"appointment_id\": \"33leo273ANGLND\",\n        \"created_at\": \"2016-02-26T17:19:50.865+02:00\",\n        \"done\": false,\n        \"id\": \"33letzPiUBGStn\",\n        \"updated_at\": \"2016-02-26T17:19:50.865+02:00\"\n      }\n    ]\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

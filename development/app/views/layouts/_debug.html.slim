@@ -1,0 +1,16 @@
+- if Rails.env.development?
+  .container-fluid.debug-container class=('landing-debug-container' if landing) class=('patient-debug-container' if patient)
+    .controls
+      a#debug-button href="#"
+        span
+      - if !landing && !authorization
+        a#console-button href="#"
+          span
+        - if params[:controller] != 'tables'
+          = link_to explorer_path, id: 'database-button'
+            span
+    #debug-info-container.collapse.fade
+      = debug(params)
+    - if !landing
+      = console
+  #modal-web-console-alert.modal.fade

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zipcodes API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Zipcodes API</h1>
+
+      <div class="article">
+        <h2>List of cities</h2>
+        <h3>GET /zipcodes/city_set</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[city]</span>
+                </td>
+                <td>
+                  <span class="description">The beginning of a city name</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /zipcodes/city_set?data[auth_token]=49f38b49eb68f30886b8dd1f29edff28&amp;data[city]=Wash</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;49f38b49eb68f30886b8dd1f29edff28&quot;, &quot;city&quot;=&gt;&quot;Wash&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">[
+  {
+    &quot;city&quot;: &quot;Washington&quot;,
+    &quot;code&quot;: &quot;03280&quot;,
+    &quot;county_id&quot;: &quot;2kVwd8lrcM0Tbl&quot;,
+    &quot;created_at&quot;: &quot;2015-12-08T23:39:04.858+02:00&quot;,
+    &quot;id&quot;: &quot;2kXAq3wsRjuKN9&quot;,
+    &quot;lat&quot;: &quot;43.17229&quot;,
+    &quot;lon&quot;: &quot;-72.100689&quot;,
+    &quot;state_id&quot;: &quot;2kVlT9O0dnwUBt&quot;,
+    &quot;updated_at&quot;: &quot;2015-12-08T23:39:04.862+02:00&quot;,
+    &quot;state_abbr&quot;: &quot;NH&quot;
+  },
+  {
+    &quot;city&quot;: &quot;Washington&quot;,
+    &quot;code&quot;: &quot;04574&quot;,
+    &quot;county_id&quot;: &quot;2kVwsciQdaiRKr&quot;,
+    &quot;created_at&quot;: &quot;2015-12-08T23:39:56.313+02:00&quot;,
+    &quot;id&quot;: &quot;2kXBOnENPTIHGN&quot;,
+    &quot;lat&quot;: &quot;44.162384&quot;,
+    &quot;lon&quot;: &quot;-69.387795&quot;,
+    &quot;state_id&quot;: &quot;2kVlS6F06D05Kz&quot;,
+    &quot;updated_at&quot;: &quot;2015-12-08T23:39:56.319+02:00&quot;,
+    &quot;state_abbr&quot;: &quot;ME&quot;
+  },
+  {
+    &quot;city&quot;: &quot;Washburn&quot;,
+    &quot;code&quot;: &quot;04786&quot;,
+    &quot;county_id&quot;: &quot;2kVwsciQdaiRKr&quot;,
+    &quot;created_at&quot;: &quot;2015-12-08T23:40:09.802+02:00&quot;,
+    &quot;id&quot;: &quot;2kXBXFyQwNisOZ&quot;,
+    &quot;lat&quot;: &quot;46.793032&quot;,
+    &quot;lon&quot;: &quot;-68.105233&quot;,
+    &quot;state_id&quot;: &quot;2kVlS6F06D05Kz&quot;,
+    &quot;updated_at&quot;: &quot;2015-12-08T23:40:09.806+02:00&quot;,
+    &quot;state_abbr&quot;: &quot;ME&quot;
+  },
+  {
+    &quot;city&quot;: &quot;Washington&quot;,
+    &quot;code&quot;: &quot;05675&quot;,
+    &quot;county_id&quot;: &quot;2kVxJy2fAB95Z3&quot;,
+    &quot;created_at&quot;: &quot;2015-12-08T23:40:47.032+02:00&quot;,
+    &quot;id&quot;: &quot;2kXBwaP2Hjy8Xj&quot;,
+    &quot;lat&quot;: &quot;44.078238&quot;,
+    &quot;lon&quot;: &quot;-72.426322&quot;,
+    &quot;state_id&quot;: &quot;2kVlTtzQna252P&quot;,
+    &quot;updated_at&quot;: &quot;2015-12-08T23:40:47.038+02:00&quot;,
+    &quot;state_abbr&quot;: &quot;VT&quot;
+  },
+  {
+    &quot;city&quot;: &quot;Washington&quot;,
+    &quot;code&quot;: &quot;06793&quot;,
+    &quot;county_id&quot;: &quot;2kVxjFdna9X3o9&quot;,
+    &quot;created_at&quot;: &quot;2015-12-08T23:41:53.016+02:00&quot;,
+    &quot;id&quot;: &quot;2kXCecJWySvR75&quot;,
+    &quot;lat&quot;: &quot;41.718159&quot;,
+    &quot;lon&quot;: &quot;-73.294187&quot;,
+    &quot;state_id&quot;: &quot;2kVlQfrZe0fY0v&quot;,
+    &quot;updated_at&quot;: &quot;2015-12-08T23:41:53.022+02:00&quot;,
+    &quot;state_abbr&quot;: &quot;CT&quot;
+  }
+]</pre>
+      </div>
+    </div>
+  </body>
+</html>

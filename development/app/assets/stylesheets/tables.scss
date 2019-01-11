@@ -1,0 +1,259 @@
+//= require application
+//= require controls
+
+$graytext: #74757e;
+$graylight: #f4f3ee;
+$graymedium: #ccc;
+$graydark: #716b7a;
+$cyan: #18c2e8;
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.tables-container {
+  h1 {
+    margin: 0;
+  }
+  .left-block,
+  .right-block {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .panel {
+      background-color: $graylight;
+      box-shadow: none;
+    }
+  }
+  .left-block {
+    position: fixed;
+    @media(max-width: 768px) {
+      position: inherit;
+    }
+    .panel {
+      margin: 0;
+      border: 0;
+      .panel-heading,
+      .panel-footer {
+        padding: 10px 20px;
+        border-top: 0;
+        border-bottom: 0;
+        background-color: $graylight;
+        font-size: 18px;
+      }
+      .panel-body {
+        max-height: calc(100vh - 150px);
+        overflow: auto;
+        padding: 10px 0;
+        ul {
+          list-style-type: none;
+          li {
+            a {
+              display: block;
+              color: $graydark;
+              padding: 5px 20px;
+              &:hover,
+              &:focus {
+                background-color: #e9e4df;
+                border-right: 1px solid #dbd8e0;
+              }
+              &.active {
+                border-right-color: $cyan;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .right-block {
+    float: right;
+    @media(max-width: 758px) {
+      float: none;
+    }
+    .panel {
+      margin: 0;
+      .panel-heading .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .panel-heading,
+      .panel-footer {
+        margin: 0 15px;
+        border-top: 0;
+        border-bottom: 0;
+        background-color: $graylight;
+        font-size: 18px;
+      }
+      .panel-heading {
+        margin-bottom: 15px;
+        border-radius: 3px;
+      }
+      .panel-body {
+        .pagination {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+.tables-container.tables-records-container {
+  .button {
+    width: auto;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    padding: 0 15px;
+    margin: 0;
+  }
+  .right-block {
+    .panel {
+      background-color: transparent;
+      .panel-heading {
+        .title {
+          margin: 0;
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+        .controls {
+          .button-new {
+            width: 80px;
+            margin: 0 0 0 auto;
+          }
+        }
+      }
+      .panel-body {
+        padding: 0 15px;
+        .table-responsive {
+          border-radius: 3px;
+          .table {
+            margin: 0;
+            background-color: $graylight;
+            border: 1px solid $graymedium;
+            thead {
+              background-color: $graymedium;
+              tr {
+                th {
+                  padding: 12px 12px;
+                  vertical-align: middle;
+                  border-bottom: 0;
+                }
+              }
+            }
+            tbody {
+              tr {
+                &.message {
+                  text-align: center;
+                }
+                td {
+                  padding: 6px 12px;
+                  vertical-align: middle;
+                  border-top: 1px solid #ccc;
+                  a:not(.button) {
+                    color: #333;
+                    text-decoration: underline !important;
+                    transition: opacity 0.2s;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                      opacity: 0.75;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-tables {
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  .modal-dialog {
+    .modal-content {
+      border-radius: 3px;
+      border: 1px solid $graymedium;
+      background-color: $graylight;
+      .modal-header {
+        height: 50px;
+        border-radius: 3px 3px 0 0;
+        border-bottom: 0;
+        background-color: $graymedium;
+        padding-left: 20px;
+        padding-right: 20px;
+        .title {
+          font-size: 14px;
+          font-weight: bold;
+          margin: 0;
+        }
+        .close-button {
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          display: block;
+          right: 20px;
+          top: 13px;
+          background-image: asset_url('close-button-graydark.svg');
+          &:hover {
+            background-image: asset_url('close-button-graydark.svg');
+            opacity: 0.75;
+          }
+        }
+      }
+      .modal-body {
+        padding-right: 0;
+        .content {
+          padding-right: 20px;
+        }
+        .slimScrollDiv {
+          .content {
+            padding-right: 30px;
+          }
+        }
+        .form-control {
+          font-size: 15px;
+        }
+        textarea {
+          height: 125px !important;
+          resize: none;
+        }
+        .checkbox-custom label .checkbox-label {
+          position: relative;
+          left: 10px;
+          text-transform: none;
+          font-weight: normal;
+          color: $graytext;
+        }
+      }
+      .modal-footer {
+        border-top: 0;
+        border-radius: 0 0 3px 3px;
+        padding-left: 20px;
+        padding-right: 20px;
+        .controls {
+          text-align: right;
+          margin: 0 -10px;
+          .button {
+            width: auto;
+            height: 35px;
+            display: inline-block;
+            line-height: 35px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+class Gm < ToothField
+end

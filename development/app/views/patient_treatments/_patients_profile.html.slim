@@ -1,0 +1,303 @@
+#patientProfileTab.tab-pane.fade role="tabpanel"
+  .scrollable-container
+    .content
+      = simple_form_for @patient.user, url: patient_path(@patient), remote: true do |u|
+        = u.simple_fields_for :patient, @patient do |p|
+          = p.input :provider_id, as: :hidden, input_html: { value: current_user.provider.main_provider_id }
+          = p.input :birth, as: :hidden, input_html: { value: @patient.birth }
+          .left-block.col-lg-6
+            .row.block
+              .row
+                .col-lg-9
+                  .form-group
+                    = p.input :first_name, label: false, input_html: { class: 'form-control', placeholder: 'First Name' }
+                .col-lg-3
+                  .form-group
+                    = p.input :middle_name, label: false, input_html: { class: 'form-control', placeholder: 'M.I.' }
+              .row
+                .col-lg-12
+                  .form-group
+                    = p.input :last_name, label: false, input_html: { class: 'form-control', placeholder: 'Last Name' }
+              .row
+                .col-lg-12
+                  .form-group
+                    p.sex-radio-buttons-title Sex
+                    .sex-radio-buttons
+                      - Patient.genders.each do |gender|
+                        .radiobutton-custom
+                          = p.radio_button :gender, gender
+                          label for="user_patient_gender_#{gender.downcase}"
+                            span.radio-icon
+                            span.radio-label
+                              = gender
+              .row
+                .col-lg-6
+                  .form-group
+                    = p.input :social_number, as: :string, label: false, input_html: { class: 'form-control input-social-security', placeholder: 'Social Security Number' }
+                .col-lg-6
+                  .form-group
+                    = p.input :id, as: :numeric, label: false, input_html: { class: 'form-control disabled', placeholder: 'Patient ID', readonly: 'readonly', 'tabindex' => '-1', value: @patient.id.to_i }, readonly: 'readonly'
+              .row
+                .col-lg-6
+                  .checkbox-custom
+                    = p.check_box :active, class: 'checkbox'
+                    label for="user_patient_active"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label Active Patient
+                .col-lg-6
+                  .form-group
+                    .input-group-custom
+                      = p.input :birth, label: false, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'DOB (mm/dd/yyyy)' }
+                      span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+              .row
+                .col-lg-12
+                  .checkbox-custom
+                    = p.check_box :declined_portal_access, class: 'checkbox'
+                    label for="user_patient_declined_portal_access"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label Patient Declined Portal Access
+            .row.block
+              .row
+                .col-lg-6
+                  .form-group
+                    .languages-container#languages-container-patient-profile.padding-1x.dropdown
+                      = p.input :preferred_language, as: :hidden, id: 'language-patient-profile'
+                      a.form-control.language-button.dropdown-toggle href="#" data-toggle="dropdown"
+                        span Declined to Specify
+                        b role="presentation"
+                      ul.dropdown-menu.languages-list
+                        - Patient.preferred_languages.each_with_index do |language, i|
+                          li class="#{language.to_s.strip == 'Preferred Language' ? 'language-other' : ''}"
+                            - if language.to_s.strip == 'Preferred Language'
+                              input.form-control.language-input class="#{i == 0 ? 'active' : ''}" type="text" placeholder=language data-index="#{i}"
+                            - else
+                              a href="#" class="#{i == 0 ? 'active' : ''}" data-index="#{i}"
+                                = language
+                    / = p.input :preferred_language, as: :select, label: false, collection: Patient.preferred_languages.to_a, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+                .col-lg-6
+                  .form-group
+                    = p.input :ethnicity, as: :select, label: false, collection: Patient.ethnicities.to_a, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+              .row
+                .col-lg-12
+                  .form-group
+                    p Race (Select All That Apply)
+              .row.checkbox-group-large
+                .col-lg-5
+                  .checkbox-custom
+                    = p.check_box :american_race, class: 'checkbox'
+                    label for="user_patient_american_race"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label American Indian or Alaska Native
+                .col-lg-2
+                  .checkbox-custom
+                    = p.check_box :asian_race, class: 'checkbox'
+                    label for="user_patient_asian_race"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label Asian
+                .col-lg-5
+                  .checkbox-custom
+                    = p.check_box :african_race, class: 'checkbox'
+                    label for="user_patient_african_race"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label Black or African American
+              .row.checkbox-group-large
+                .col-lg-5
+                  .checkbox-custom
+                    = p.check_box :hawaiian_race, class: 'checkbox'
+                    label for="user_patient_hawaiian_race"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label Native Hawaiian or Other Pacific Islander
+                .col-lg-2
+                  .checkbox-custom
+                    = p.check_box :white_race, class: 'checkbox'
+                    label for="user_patient_white_race"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label White
+                .col-lg-5
+                  .checkbox-custom
+                    = p.check_box :undetermined_race, class: 'checkbox'
+                    label for="user_patient_undetermined_race"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label Declined to specify/Undetermined
+            .row.block
+              .panel.panel-default
+                .panel-heading
+                  p.panel-title Appointment Reminders
+                .panel-body
+                  .row
+                    .col-lg-12
+                      .form-group
+                        .checkbox-custom
+                          = p.check_box :email_reminder, class: 'checkbox'
+                          label for="user_patient_email_reminder"
+                            span.checkbox-icon-container
+                              span.checkbox-icon
+                            span.checkbox-label Enable Patient appointment reminders by email
+                  .row
+                    .col-lg-12
+                      .checkbox-custom
+                        = p.check_box :sms_reminder, class: 'checkbox'
+                        label for="user_patient_sms_reminder"
+                          span.checkbox-icon-container
+                            span.checkbox-icon
+                          span.checkbox-label Enable patient appointment reminders by SMS
+              .panel.panel-default
+                .panel-heading
+                  p.panel-title Immunization Registry
+                .panel-body.radiobutton-group-large
+                  - immunization_registries.each do |value, full_text|
+                    .row
+                      .col-lg-12
+                        .radiobutton-custom
+                          = p.radio_button :immunization_registry, value
+                          label for="user_patient_immunization_registry_#{value.downcase}"
+                            span.radio-icon
+                            span.radio-label
+                              = full_text
+          .right-block.col-lg-6
+            .row
+              .block
+                .row
+                  .col-lg-6
+                    .form-group
+                      = u.input :email, as: :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Email Address' }
+                  .col-lg-6
+                    .form-group
+                      .checkbox-custom.checkbox-patient-doesnt-have-email
+                        input.checkbox type="checkbox" id="patients_doesnt_have_email" checked="checked"
+                          label for="patients_doesnt_have_email"
+                            span.checkbox-icon-container
+                              span.checkbox-icon
+                            span.checkbox-label Patient does not have an email address
+                .row
+                  .col-lg-6
+                    .form-group
+                      = p.input :mobile_phone, as: :tel, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Cell Phone' }
+                  .col-lg-6
+                    .form-group
+                      = p.input :primary_phone, as: :tel, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Home Phone' }
+                .row
+                  .col-lg-6
+                    .form-group
+                      = p.input :work_phone, as: :tel, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Work Phone' }
+                  .col-lg-2
+                    .form-group
+                      = p.input :ext, label: false, input_html: { class: 'form-control', placeholder: 'Ext' }
+                .row
+                  .col-lg-12
+                    .form-group
+                      = p.input :street_address, label: false, input_html: { class: 'form-control', placeholder: 'Street Address' }
+                .row
+                  .col-lg-6
+                    .form-group
+                      .dropdown.dropdown-custom
+                        = p.input :city, label: false, input_html: { class: 'form-control', placeholder: 'City' }
+                        ul.dropdown-menu#user_patient_city_list
+                  .col-lg-2
+                    .form-group
+                      .disabled
+                        = p.input :state, as: :select, label: false, collection: State.all.map {|state| [state.abbr, state.name]}, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2', 'readonly' => 'readonly', 'tabindex' => '-1' }, include_blank: false
+                  .col-lg-4
+                    .form-group
+                      .dropdown.dropdown-custom
+                        = p.input :zip, as: :numeric, label: false, input_html: { class: 'form-control', placeholder: 'Zip' }
+                        ul.dropdown-menu#user_patient_zip_list
+              .panel.panel-default
+                .panel-heading
+                  p.panel-title Emergency Contact
+                .panel-body.radiobutton-group-large
+                  = p.simple_fields_for :emergency_contact, @patient.emergency_contacts.first do |ec|
+                    = ec.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+                    .row
+                      .col-lg-9
+                        .form-group
+                          = ec.input :first_name, label: false, input_html: { class: 'form-control', placeholder: 'First Name' }
+                      .col-lg-3
+                        .form-group
+                          = ec.input :middle_name, label: false, input_html: { class: 'form-control', placeholder: 'M.I.' }
+                    .row
+                      .col-lg-6
+                        .form-group
+                          = ec.input :last_name, label: false, input_html: { class: 'form-control', placeholder: 'Last Name' }
+                      .col-lg-6
+                        .form-group
+                          = ec.input :relation, as: :select, label: false, collection: EmergencyContact.relations.to_a, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+                    .row
+                      .col-lg-6
+                        .form-group
+                          = ec.input :mobile_phone, as: :tel, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Cell Phone' }
+                      .col-lg-6
+                        .form-group
+                          = ec.input :email, as: :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Email Address' }
+                    .row
+                      .col-lg-12
+                        .form-group
+                          = ec.input :street_address, label: false, input_html: { class: 'form-control', placeholder: 'Street Address' }
+                    .row
+                      .col-lg-6
+                        .form-group
+                          .dropdown.dropdown-custom
+                            = ec.input :city, label: false, input_html: { class: 'form-control', placeholder: 'City' }
+                            ul.dropdown-menu#user_patient_emergency_contact_city_list
+                      .col-lg-2
+                        .form-group
+                          .disabled
+                            = ec.input :state, as: :select, label: false, collection: State.all.map {|state| [state.abbr, state.name]}, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2', 'readonly' => 'readonly', 'tabindex' => '-1' }, include_blank: false
+                      .col-lg-4
+                        .form-group
+                          .dropdown.dropdown-custom
+                            = ec.input :zip, as: :numeric, label: false, input_html: { class: 'form-control', placeholder: 'Zip' }
+                            ul.dropdown-menu#user_patient_emergency_contact_zip_list
+                .panel.panel-default
+                .panel-heading
+                  p.panel-title Next of Kin
+                .panel-body.radiobutton-group-large
+                  = p.simple_fields_for :next_kin, @patient.next_kin do |nk|
+                    .row
+                      .col-lg-9
+                        .form-group
+                          = nk.input :first_name, label: false, input_html: { class: 'form-control', placeholder: 'First Name' }
+                      .col-lg-3
+                        .form-group
+                          = nk.input :middle_name, label: false, input_html: { class: 'form-control', placeholder: 'M.I.' }
+                    .row
+                      .col-lg-6
+                        .form-group
+                          = nk.input :last_name, label: false, input_html: { class: 'form-control', placeholder: 'Last Name' }
+                      .col-lg-6
+                        .form-group
+                          = nk.input :relation, as: :select, label: false, collection: EmergencyContact.relations.to_a, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+                    .row
+                      .col-lg-6
+                        .form-group
+                          = nk.input :mobile_phone, as: :tel, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Cell Phone' }
+                      .col-lg-6
+                        .form-group
+                          = nk.input :email, as: :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Email Address' }
+                    .row
+                      .col-lg-12
+                        .form-group
+                          = nk.input :street_address, label: false, input_html: { class: 'form-control', placeholder: 'Street Address' }
+                    .row
+                      .col-lg-6
+                        .form-group
+                          .dropdown.dropdown-custom.dropup
+                            = nk.input :city, label: false, input_html: { class: 'form-control', placeholder: 'City' }
+                            ul.dropdown-menu#user_patient_next_kin_city_list
+                      .col-lg-2
+                        .form-group
+                          .disabled
+                            = nk.input :state, as: :select, label: false, collection: State.all.map {|state| [state.abbr, state.name]}, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2', 'readonly' => 'readonly', 'tabindex' => '-1' }, include_blank: false
+                      .col-lg-4
+                        .form-group
+                          .dropdown.dropdown-custom.dropup
+                            = nk.input :zip, as: :numeric, label: false, input_html: { class: 'form-control', placeholder: 'Zip' }
+                            ul.dropdown-menu#user_patient_next_kin_zip_list

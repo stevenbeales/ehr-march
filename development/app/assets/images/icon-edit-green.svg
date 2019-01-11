@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="19px" viewBox="0 0 25 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15575) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Doctor---Patient-Landing-Page---Patient-Chart" sketch:type="MSArtboardGroup" transform="translate(-634.000000, -997.000000)" fill="#41B6A6">
+            <g id="Smoking-Status" sketch:type="MSLayerGroup" transform="translate(171.000000, 980.000000)">
+                <g id="Edit-Button" transform="translate(435.000000, 11.000000)" sketch:type="MSShapeGroup">
+                    <path d="M46.1936756,6.72246508 C47.3379319,7.78090218 47.1948999,9.41146745 46.1078564,10.498511 L45.0494193,11.5569481 C62.6064536,3.99755594 45.8503987,10.3268725 44.191227,8.72491365 C42.7323002,7.26598683 41.3591926,7.89532781 41.3591926,7.89532781 L42.4748425,6.77967789 C43.4760668,5.7498472 45.2210577,5.7498472 46.1936756,6.72246508 L46.1936756,6.72246508 Z M44.1626206,12.4437467 L32.8916958,23.7146715 L28.0858192,24.8875343 L28,24.8017151 L29.258682,19.9958385 L40.5296068,8.78212647 C40.7298516,8.72491365 41.2161606,8.58188161 41.9027144,8.72491365 L29.9452358,20.6823923 L29.6019589,21.9410742 L30.9750665,23.3141818 L32.2623548,22.9709049 L32.834483,22.4273832 L32.8916958,21.1400948 L31.9762907,20.2246897 L42.9325451,9.26843541 C43.1041835,9.41146745 43.1041835,9.41146745 43.275822,9.6117123 C44.9063872,11.2136712 44.1626206,12.4437467 44.1626206,12.4437467 L44.1626206,12.4437467 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,24 @@
+= enable_authy_form
+  .modal-authy-wrapper
+    #modal-authy-enable.modal-authy.modal.fade[data-backdrop='static' data-keyboard='false']
+      .modal-dialog
+        .modal-content
+          .modal-header
+            .left-block
+              p Enable Two-Factor Authentication
+            .right-block
+              #authy-logo
+          .modal-body
+            p 
+              | Please Select your country and enter your mobile phone number to make your EHR experience even 
+              span more
+              |   secure!
+            .input-group
+              span.input-group-addon Your Country
+              = text_field_tag :country_code, '', :autocomplete => :off, :placeholder => I18n.t('devise.country'), :id => "authy-countries", :'class' => 'form-control'
+            .input-group
+              span.input-group-addon Mobile Phone
+              = text_field_tag :cellphone, '', :autocomplete => :off, :placeholder => I18n.t('devise.cellphone'), :id => "authy-cellphone", class: 'form-control'
+          .modal-footer
+            .buttons
+              = submit_tag I18n.t('enable_authy', {:scope => 'devise'}), class: 'button'

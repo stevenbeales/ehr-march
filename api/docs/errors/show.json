@@ -1,0 +1,48 @@
+{
+  "resource": "Errors",
+  "http_method": "GET",
+  "route": "/errors/show",
+  "description": "Show",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "code",
+      "description": "Error code(404, 500...)"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/errors/show?data[auth_token]=ebcd2b0ffea781e4bc2f9ba02d52ee33&data[code]=404",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "ebcd2b0ffea781e4bc2f9ba02d52ee33",
+          "code": "404"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 404,
+      "response_status_text": "Not Found",
+      "response_body": "{\n  \"code\": \"404\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

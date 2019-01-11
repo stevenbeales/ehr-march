@@ -1,0 +1,43 @@
+//= require authy-form/form.authy
+//= require controls
+
+.btn:focus {
+  outline: 0;
+}
+
+.sessions-new-wrapper,
+.registrations-new-wrapper,
+.confirmations-new-wrapper,
+.authy-wrapper {
+  .btn:focus {
+    outline: 0;
+  }
+  margin-top: 30px;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  #error_explanation {
+    ul {
+      padding-left: 30px;
+      margin: 0;
+      list-style-type: disc;
+    }
+  }
+  .panel {
+    margin: 0 auto;
+    .panel-header {
+      padding: 15px;
+    }
+    .panel-footer {
+      div[class*='col-'] {
+        .btn {
+          margin: 5px;
+        }
+      }
+      div[class*='col-'] {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}

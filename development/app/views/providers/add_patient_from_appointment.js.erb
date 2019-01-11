@@ -1,0 +1,70 @@
+$("#modal-new-patient").html("<%= escape_javascript(render 'form_patient_from_appointment') %>");
+if(!$("#modal-new-patient").hasClass('in'))
+  $("#modal-new-patient").modal("show");
+
+initPickers();
+
+function buttonStateChange(isEnable) {
+  if(!isEnable) {
+    disableControl('#modal-new-patient .modal-new-patient-save-changes');
+  }
+  else {
+    enableControl('#modal-new-patient .modal-new-patient-save-changes');
+  }
+}
+
+function validateForm() {
+  $('form.new_user').validate({
+    highlight: function(element) {
+      buttonStateChange(false);
+      $(element).addClass('unvalid');
+      $(element).removeClass('valid');
+      if($(element).attr('id')=='new_patient_contact_email'){
+        $('#modal-new-patient .checkbox-new-patient-no-email input[type=checkbox]').prop('checked', true);
+      }
+    },
+    unhighlight: function(element) {
+      $(element).removeClass('unvalid');
+      $(element).addClass('valid');
+      if($(element).attr('id')=='new_patient_contact_email') {
+        if($(element).val().length>0)
+          $('#modal-new-patient .checkbox-new-patient-no-email input[type=checkbox]').prop('checked', false);
+        else
+          $('#modal-new-patient .checkbox-new-patient-no-email input[type=checkbox]').prop('checked', true);
+      }
+    },
+    errorPlacement: function(error,element) {
+      return true;
+    },
+    rules: {
+      'user[patient][first_name]': {
+        required: true
+      },
+      'user[patient][last_name]': {
+        required: true
+      },
+      'user[patient][birth]': {
+        required: true
+      },
+      'user[patient][mobile_phone]': {
+        required: true,
+      },
+      'user[email]': {
+        required: false,
+        email: true
+      }
+    }
+  });
+  $('form.new_user').valid();
+}
+validateForm();
+
+$('form.new_user input:not([type="radio"]):not([type="checkbox"])').bind('input change', function() {
+  formValidCheck();
+});
+
+function formValidCheck() {
+  if($('form.new_user').valid()){
+    buttonStateChange(true);
+  };
+}

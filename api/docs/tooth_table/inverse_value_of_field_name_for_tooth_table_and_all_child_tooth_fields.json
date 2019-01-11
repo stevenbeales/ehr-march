@@ -1,0 +1,56 @@
+{
+  "resource": "Tooth table",
+  "http_method": "GET",
+  "route": "/patient_treatments/set_tooth_bsp",
+  "description": "Inverse value of field name for tooth table and all child tooth fields",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "field_name",
+      "description": "b_bsp1, b_bsp2 ... b_bsp9 or l_bsp1, l_bsp2 ... l_bsp9"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Tooth table id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/set_tooth_bsp?data[auth_token]=8d92e960a3d7e8f6680e09140e90cb88&data[field_name]=b_bsp4&data[id]=33lj3SYDQuN6bD",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "8d92e960a3d7e8f6680e09140e90cb88",
+          "field_name": "b_bsp4",
+          "id": "33lj3SYDQuN6bD"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

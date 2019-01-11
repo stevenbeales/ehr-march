@@ -1,0 +1,79 @@
+.countries-autocomplete ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.countries-autocomplete li {
+  height: 34px;
+  line-height: 35px;
+  list-style-type:none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.countries-autocomplete li span {
+  color: #555;
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+.countries-autocomplete li:hover,
+.countries-autocomplete li.active {
+  cursor: pointer;
+  background-color: #eee;
+}
+
+#authy-tooltip-close {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  cursor: pointer;
+  width: 11px;
+  height: 11px;
+}
+
+#authy-token {
+  padding: 3px 20px 3px 20px;
+  background-size: 18px 18px;
+}
+
+#authy-tooltip {
+  position: absolute;
+  z-index: 999999;
+  border: 1px solid #ccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  padding: 15px 10px 10px 10px;
+  background-color: #fff;
+  display: none;
+  width: 330px;
+}
+
+#authy-tooltip p {
+  color: #444;
+}
+
+.countries-autocomplete {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  position: absolute;
+  width: auto;
+  display: none;
+  max-height: 200px;
+  overflow: auto;
+  z-index: 99999999;
+  margin-left: 2px;
+}
+
+#authy-help {
+  color: #35C2F1;
+}
+
+#authy-help:hover {
+  text-decoration: none;
+}

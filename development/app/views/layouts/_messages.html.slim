@@ -1,0 +1,14 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    #modal-alert.modal-alert.modal-provider.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-body
+            .alert-title
+              = content_tag :p, msg, :id => "flash_#{name}"
+          .modal-footer
+            a href="#modal-alert" class="button" data-toggle="modal" Close
+javascript:
+  $(document).ready(function() {
+    $('#modal-alert').modal('show');
+  });

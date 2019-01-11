@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient treatement API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patient treatement API</h1>
+
+      <div class="article">
+        <h2>Search providers</h2>
+        <h3>GET /patient_treatments/providers</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[part]</span>
+                </td>
+                <td>
+                  <span class="description">A part of first name or last name of a provider</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /patient_treatments/providers?data[auth_token]=9eb1b476f935c45d1bc14d9aeca121b8&amp;data[part]=Dav</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;9eb1b476f935c45d1bc14d9aeca121b8&quot;, &quot;part&quot;=&gt;&quot;Dav&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;33lavj0f9WBipH&quot;,
+      &quot;type&quot;: &quot;providers&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lavj0f9WBipH&quot;,
+        &quot;email&quot;: &quot;mauricio@rippin.co&quot;,
+        &quot;role&quot;: &quot;Provider&quot;,
+        &quot;user-id&quot;: &quot;33lavj0opbL5jX&quot;,
+        &quot;title&quot;: &quot;Mr&quot;,
+        &quot;first-name&quot;: &quot;David&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Markus&quot;,
+        &quot;degree&quot;: &quot;DDS&quot;,
+        &quot;speciality&quot;: &quot;Endodontics&quot;,
+        &quot;street-address&quot;: &quot;Frami Mission&quot;,
+        &quot;suit-apt-number&quot;: &quot;925&quot;,
+        &quot;city&quot;: &quot;South Rosemarie&quot;,
+        &quot;state&quot;: &quot;New Hampshire&quot;,
+        &quot;zip&quot;: null,
+        &quot;practice-street-address&quot;: &quot;Satterfield Springs&quot;,
+        &quot;practice-suit-apt-number&quot;: &quot;28410&quot;,
+        &quot;practice-city&quot;: &quot;Lake Elise&quot;,
+        &quot;practice-state&quot;: &quot;Wyoming&quot;,
+        &quot;practice-zip&quot;: null,
+        &quot;primary-phone&quot;: null,
+        &quot;mobile-phone&quot;: null,
+        &quot;alt-email&quot;: null,
+        &quot;username&quot;: null,
+        &quot;secondary-speciality&quot;: null,
+        &quot;dental-licence&quot;: null,
+        &quot;expiration-date&quot;: null,
+        &quot;ein-tin&quot;: null,
+        &quot;npi&quot;: null,
+        &quot;dea&quot;: null,
+        &quot;upin&quot;: null,
+        &quot;nadean&quot;: null,
+        &quot;status&quot;: true,
+        &quot;biography&quot;: null,
+        &quot;accepting-patient&quot;: false,
+        &quot;enable-online-booking&quot;: false,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/provider/profile_image/33lavj0f9WBipH/avatar4.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/providers/33lavj0f9WBipH&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33layO6GMzi1Xn&quot;,
+      &quot;type&quot;: &quot;providers&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33layO6GMzi1Xn&quot;,
+        &quot;email&quot;: &quot;maye@hudson.co&quot;,
+        &quot;role&quot;: &quot;Provider&quot;,
+        &quot;user-id&quot;: &quot;33layO6Q34rOS3&quot;,
+        &quot;title&quot;: &quot;Mr&quot;,
+        &quot;first-name&quot;: &quot;Glory&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Daviand&quot;,
+        &quot;degree&quot;: &quot;DDS&quot;,
+        &quot;speciality&quot;: &quot;Endodontics&quot;,
+        &quot;street-address&quot;: &quot;Lillie Prairie&quot;,
+        &quot;suit-apt-number&quot;: &quot;355&quot;,
+        &quot;city&quot;: &quot;Lake Salma&quot;,
+        &quot;state&quot;: &quot;Virginia&quot;,
+        &quot;zip&quot;: null,
+        &quot;practice-street-address&quot;: &quot;Napoleon Street&quot;,
+        &quot;practice-suit-apt-number&quot;: &quot;31227&quot;,
+        &quot;practice-city&quot;: &quot;Lake Tessie&quot;,
+        &quot;practice-state&quot;: &quot;Michigan&quot;,
+        &quot;practice-zip&quot;: null,
+        &quot;primary-phone&quot;: null,
+        &quot;mobile-phone&quot;: null,
+        &quot;alt-email&quot;: null,
+        &quot;username&quot;: null,
+        &quot;secondary-speciality&quot;: null,
+        &quot;dental-licence&quot;: null,
+        &quot;expiration-date&quot;: null,
+        &quot;ein-tin&quot;: null,
+        &quot;npi&quot;: null,
+        &quot;dea&quot;: null,
+        &quot;upin&quot;: null,
+        &quot;nadean&quot;: null,
+        &quot;status&quot;: true,
+        &quot;biography&quot;: null,
+        &quot;accepting-patient&quot;: false,
+        &quot;enable-online-booking&quot;: false,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/provider/profile_image/33layO6GMzi1Xn/avatar10.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/providers/33layO6GMzi1Xn&quot;
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

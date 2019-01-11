@@ -1,0 +1,104 @@
+$("#modal-add-patient").html("<%= escape_javascript(render 'form_patient') %>")
+$("#modal-add-patient").modal("show")
+
+initPickers();
+placeholdersHideOnClick('form.new_user');
+
+$('.modal').on('show.bs.modal', function(e) {
+  if($(e.target).hasClass('modal'))
+    repositionModal($(this));
+});
+
+$(window).on('resize', function() {
+  $('.modal:visible').each(function() {
+    repositionModal($(this));
+  });
+});
+
+$('.modal-add-patient-save').on('click', function() {
+  var parent = $(this).closest('.modal');
+  $('#modal-add-patient-invite-to-portal').on('show.bs.modal', function (e) {
+    if($(e.target).hasClass('modal')){
+      modalBackward(parent);
+    }
+  });
+  $('#modal-add-patient-invite-to-portal').on('hidden.bs.modal', function (e) {
+    if($(e.target).hasClass('modal')){
+      modalForward(parent);
+    }
+  });
+});
+
+function buttonStateChange(isEnable) {
+  if(!isEnable) {
+    disableControl('#modal-add-patient .new_user .modal-add-patient-save');
+  }
+  else {
+    enableControl('#modal-add-patient .new_user .modal-add-patient-save');
+  }
+}
+
+function validateForm() {
+  jQuery.validator.addMethod("notEqualTo", function(value, element, param) {
+    return this.optional(element) || value != $(param).val();
+  }, "");
+  $('form.new_user').validate({
+    highlight: function(element) {
+      buttonStateChange(false);
+      $(element).addClass('unvalid');
+      $(element).removeClass('valid');
+      if($(element).attr('id')=='patient_email')
+        $('#modal-add-patient .checkbox-patient-doesnt-have-email input[type=checkbox]').prop('checked', true);
+    },
+    unhighlight: function(element) {
+      $(element).removeClass('unvalid');
+      $(element).addClass('valid');
+      if($(element).attr('id')=='patient_email') {
+        if($(element).val().length>0)
+          $('#modal-add-patient .checkbox-patient-doesnt-have-email input[type=checkbox]').prop('checked', false);
+        else
+          $('#modal-add-patient .checkbox-patient-doesnt-have-email input[type=checkbox]').prop('checked', true);
+      }
+    },
+    errorPlacement: function(error,element) {
+      return true;
+    },
+    rules: {
+      'user[patient][first_name]': {
+        required: true
+      },
+      'user[patient][middle_name]': {
+        required: false
+      },
+      'user[patient][last_name]': {
+        required: true
+      },
+      'user[patient][birth]': {
+        required: true
+      },
+      'user[patient][mobile_phone]': {
+        required: true,
+      },
+      'user[patient][primary_phone]': {
+        required: true,
+        notEqualTo: "#user_patient_attributes_mobile_phone"
+      },
+      'user[email]': {
+        required: false,
+        email: true
+      }
+    }
+  });
+  $('form.new_user').valid();
+}
+validateForm();
+
+$('form.new_user input:not([type="radio"]):not([type="checkbox"])').bind('input change', function() {
+  formValidCheck();
+});
+
+function formValidCheck() {
+  if($('form.new_user').valid()){
+    buttonStateChange(true);
+  };
+}

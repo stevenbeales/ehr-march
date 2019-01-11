@@ -1,0 +1,2 @@
+class Cal < ToothField
+end

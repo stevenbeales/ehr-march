@@ -1,0 +1,63 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/delete_message",
+  "description": "Delete messages",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "message_ids",
+      "description": "Array of email message ids that should be deleted"
+    },
+    {
+      "scope": "data",
+      "name": "message_id",
+      "description": "Email message id that should be deleted"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/delete_message?data[auth_token]=e3c82abf5703d444983d008c1e7714f5&data[message_ids][][id]=33lVRaoBFKwn3L&data[message_ids][][id]=33lVRaoUbVFWrr&data[message_ids][][id]=33lVRaonxfYGgN",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "e3c82abf5703d444983d008c1e7714f5",
+          "message_ids": [
+            {
+              "id": "33lVRaoBFKwn3L"
+            },
+            {
+              "id": "33lVRaoUbVFWrr"
+            },
+            {
+              "id": "33lVRaonxfYGgN"
+            }
+          ]
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

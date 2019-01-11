@@ -1,0 +1,56 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/encounter_full_info",
+  "description": "Get encounter by id",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Encounter id"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/encounter_full_info?data[auth_token]=8786b8f4eae8e234e17f1490e0449175&data[id]=33lbr7wplbLBTf&data[patient_id]=33lbtZdvz4tstH",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "8786b8f4eae8e234e17f1490e0449175",
+          "id": "33lbr7wplbLBTf",
+          "patient_id": "33lbtZdvz4tstH"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lbr7wplbLBTf\",\n    \"type\": \"encounters\",\n    \"attributes\": {\n      \"id\": \"33lbr7wplbLBTf\",\n      \"provider-id\": null,\n      \"patient-id\": \"33lbr7wzRgUYNv\",\n      \"notes\": \"Optio et ut sit.\",\n      \"med-completed\": true,\n      \"patient-education\": true,\n      \"clinical-summary\": true,\n      \"to-provider-id\": null,\n      \"from-provider-id\": null\n    },\n    \"links\": {\n      \"self\": \"/encounters/33lbr7wplbLBTf\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

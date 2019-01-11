@@ -1,0 +1,26 @@
+.sessions-new-wrapper
+  .panel.panel-default
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .panel-header
+        h4 Log in
+      .panel-body
+        .row
+          .col-lg-12
+            .form-group
+              = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'E-Mail'
+        .row
+          .col-lg-12
+            .form-group
+              = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password'
+        - if devise_mapping.rememberable?
+          .row
+            .col-lg-12
+              .form-group
+                f.check_box :remember_me
+      .panel-footer
+        .actions
+          .row
+            .col-lg-12
+              = f.submit "Log in", class: 'btn btn-success'
+              .pull-right
+                = render "devise/shared/links"

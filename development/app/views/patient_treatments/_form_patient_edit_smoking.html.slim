@@ -1,0 +1,50 @@
+.modal-content
+  .modal-header
+    p.title Record Smoking Status
+  = flash[:error]
+  = simple_form_for SmokingStatus.new, url: update_smoking_status_patient_treatments_path, remote: true do |s|
+    .modal-body
+      .scrollable-container
+        .content
+          .panel
+            .panel-heading
+              p.panel-title
+                | Current Status (Select one only)
+            .panel-body
+              = s.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+              .row
+                .col-lg-6.left-block
+                  - SmokingStatus.statuses.first(4).each do |key, value|
+                    .row
+                      .col-lg-12
+                        .form-group
+                          .radiobutton-custom
+                            = s.radio_button :status, key, id: "edit_smoking_smoking_status_#{key.to_s}"
+                            label for="edit_smoking_smoking_status_#{key.to_s}"
+                              span.radio-icon
+                              span.radio-label
+                                = key.to_s
+                .col-lg-6.right-block
+                  - SmokingStatus.statuses.to_a.last(4).each do |key|
+                    .row
+                      .col-lg-12
+                        .form-group
+                          .radiobutton-custom
+                            = s.radio_button :status, key, id: "edit_smoking_smoking_status_#{key.to_s}"
+                            label for="edit_smoking_smoking_status_#{key.to_s}"
+                              span.radio-icon
+                              span.radio-label
+                                = key.to_s
+              .row
+                .row
+                  .col-lg-6
+                    .form-group
+                      .input-group-custom
+                        = s.input :effective_from, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Effective Date' }
+                        span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+                  .col-lg-4
+                    a.button.button-today Today
+    .modal-footer
+      .controls
+        = s.submit 'Save', class: 'button button-save'
+        a.button.button-cancel data-dismiss="modal" type="button" Cancel

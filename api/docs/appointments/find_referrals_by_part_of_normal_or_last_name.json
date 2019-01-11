@@ -1,0 +1,48 @@
+{
+  "resource": "Appointments",
+  "http_method": "GET",
+  "route": "/appointments/referrals",
+  "description": "Find referrals by part of normal or last name",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "part",
+      "description": "The beginning of a referral's normal or last name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/appointments/referrals?data[auth_token]=ce1388715e3e572dc1c76ba3cb7ad3b2&data[part]=De",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "ce1388715e3e572dc1c76ba3cb7ad3b2",
+          "part": "De"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lQ4Xb9MWQHUh\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ4Xb9MWQHUh\",\n        \"appointment-id\": null,\n        \"normal\": \"Den\",\n        \"middle-name\": \"Jessy\",\n        \"last-name\": \"Brown\",\n        \"individual-npi\": \"57-5534436\",\n        \"speciality\": \"Periodontics\",\n        \"phone\": \"+14837213224\",\n        \"fax\": \"+14202741365\",\n        \"email\": \"devan@bode.net\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ4Xb9MWQHUh\"\n      }\n    },\n    {\n      \"id\": \"33lQ4XbJ2bZeOx\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ4XbJ2bZeOx\",\n        \"appointment-id\": null,\n        \"normal\": \"Den\",\n        \"middle-name\": \"Amira\",\n        \"last-name\": \"Crown\",\n        \"individual-npi\": \"57-9875556\",\n        \"speciality\": \"Prosthodontics\",\n        \"phone\": \"+16898926557\",\n        \"fax\": \"+13403744941\",\n        \"email\": \"pinkie@feillittle.biz\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ4XbJ2bZeOx\"\n      }\n    },\n    {\n      \"id\": \"33lQ4XbSigj1JD\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ4XbSigj1JD\",\n        \"appointment-id\": null,\n        \"normal\": \"Den\",\n        \"middle-name\": \"Elisa\",\n        \"last-name\": \"Down\",\n        \"individual-npi\": \"84-9652567\",\n        \"speciality\": \"Endodontics\",\n        \"phone\": \"+15084540414\",\n        \"fax\": \"+12662920122\",\n        \"email\": \"bernadine_waelchi@bergstromwolff.com\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ4XbSigj1JD\"\n      }\n    },\n    {\n      \"id\": \"33lQ4XbcOlsODT\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ4XbcOlsODT\",\n        \"appointment-id\": null,\n        \"normal\": \"Den\",\n        \"middle-name\": \"Wilfred\",\n        \"last-name\": \"Xown\",\n        \"individual-npi\": \"64-2891135\",\n        \"speciality\": \"Prosthodontics\",\n        \"phone\": \"+13321432760\",\n        \"fax\": \"+19869358910\",\n        \"email\": \"buster.oconnell@connelly.info\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ4XbcOlsODT\"\n      }\n    },\n    {\n      \"id\": \"33lQ4Xbm4r1l7j\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ4Xbm4r1l7j\",\n        \"appointment-id\": null,\n        \"normal\": \"Den\",\n        \"middle-name\": \"Haley\",\n        \"last-name\": \"Unknown\",\n        \"individual-npi\": \"26-2244785\",\n        \"speciality\": \"Pediatric Dentistry\",\n        \"phone\": \"+12122549773\",\n        \"fax\": \"+17835504582\",\n        \"email\": \"kirk@parker.info\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ4Xbm4r1l7j\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "POST",
+  "route": "/patient_treatments/create_medication",
+  "description": "Create patient medication",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "medication",
+      "name": "diagnosis_id",
+      "description": "Diagnosis id"
+    },
+    {
+      "scope": "medication",
+      "name": "portion_id",
+      "description": "Portion id"
+    },
+    {
+      "scope": "medication",
+      "name": "shorthand",
+      "description": "Shorthand"
+    },
+    {
+      "scope": "medication",
+      "name": "signature",
+      "description": "Signature"
+    },
+    {
+      "scope": "medication",
+      "name": "start_date",
+      "description": "Start date"
+    },
+    {
+      "scope": "medication",
+      "name": "stop_date",
+      "description": "Stop date"
+    },
+    {
+      "scope": "medication",
+      "name": "note",
+      "description": "Note"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/patient_treatments/create_medication",
+      "request_body": "{\"data\":{\"auth_token\":\"346d9ee79ad38320bd2a639dcbbf6557\",\"patient_id\":\"33lYYnXfqw0MNP\",\"medication\":{\"diagnosis_id\":\"33lYYnXWAqqzT9\",\"portion_id\":\"33lYgB2znCuWcF\",\"shorthand\":\"Flexitarian\",\"signature\":\"Jh53QyA4D93sHmD5\",\"start_date\":\"2016-02-26T17:10:10.653+02:00\",\"stop_date\":\"2016-02-26T17:10:10.653+02:00\",\"note\":\"Nihil quo inventore quod maiores.\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lYgB39TI3tWV\",\n    \"type\": \"medications\",\n    \"attributes\": {\n      \"id\": \"33lYgB39TI3tWV\",\n      \"diagnosis-id\": \"33lYYnXWAqqzT9\",\n      \"portion-id\": \"33lYgB2znCuWcF\",\n      \"shorthand\": \"Flexitarian\",\n      \"signature\": \"Jh53QyA4D93sHmD5\",\n      \"start-date\": \"2016-02-26T17:10:10.653+02:00\",\n      \"stop-date\": \"2016-02-26T17:10:10.653+02:00\",\n      \"note\": \"Nihil quo inventore quod maiores.\"\n    },\n    \"links\": {\n      \"self\": \"/medications/33lYgB39TI3tWV\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+$("#modal-patient-edit-authorized-representative").html("<%= escape_javascript(render 'form', type: 'Edit') %>")
+$("#modal-patient-edit-authorized-representative").modal("show")
+
+initPickers('#modal-patient-edit-authorized-representative');
+initSelect2('#modal-patient-edit-authorized-representative');

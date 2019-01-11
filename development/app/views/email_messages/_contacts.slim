@@ -1,0 +1,48 @@
+thead
+  tr
+    th
+      p Contact Name
+    th
+      p Title
+    th
+      a href="#"
+        | Speciality
+        span.fa.fa-angle-down
+    th
+      p Phone
+    th
+      p Practice Address
+    th
+      p Message
+  tbody
+    - contacts.each_with_index do |contact, index|
+      tr class=('active' if index == 0) data-id=contact.id
+        td
+          p
+            - if contact.favorite == true
+              span.fa.fa-heart.pull-left
+            - else
+              span.fa.fa-heart-o.pull-left
+            span
+              = "#{contact.practice.last_name} #{contact.practice.first_name}"
+        td
+          p
+            = contact.practice.degree
+        td
+          p
+            = contact.practice.speciality
+        td
+          p
+            = contact.practice.primary_phone
+        td
+          p
+            = contact.practice.street_address
+            br
+              = "#{contact.practice.city}, #{contact.practice.state} #{contact.practice.zip}"
+        td
+          = link_to new_message_in_practice_email_messages_path(practice_id: contact.practice.id), class: 'pull-right', remote: true
+            span.fa.fa-comments-o
+  tfoot
+    tr
+      td#contact-list-pagination colspan="6"
+        = paginate contacts, inner_window: 1, outer_window: 0, params: { controller: 'email_messages', action: 'contacts_pagination' }

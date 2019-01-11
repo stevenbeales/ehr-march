@@ -1,0 +1,43 @@
+.panel-heading
+  .row#sort_by data-sort_by="#{sort_by}"
+    .col-xs-6
+      a.panel-title#sort-from href="#"
+        | From
+        i.fa.fa-angle-down
+    .col-xs-6
+      a.panel-title.pull-right#sort-created_at href="#"
+        | Date
+        i.fa.fa-angle-down
+.panel-body#list-of-messages
+  - messages.each_with_index do |message, index|
+    .message class=('active' if index == 0) data-id="#{message.id}" class=(current_user.role == :Provider ? 'message-practice' : 'message-patient' )
+      .row
+        .col-xs-9
+          .message-checkbox
+            .checkbox-custom
+              input type="checkbox" id="message_headers_message_#{message.id}"
+              label for="message_headers_message_#{message.id}"
+                span.checkbox-icon-container
+                  span.checkbox-icon
+          .message-content
+            p
+              = message.from.try(:person).try(:full_name)
+            p
+              | To:&nbsp;
+              span
+                = message.to.try(:person).try(:full_name)
+            p
+              | RE:&nbsp;
+              span
+                = message.subject.try(:name)
+        .col-xs-3
+          .message-date
+            p
+              = message.created_at.strftime('%m/%d/%y')
+.panel-footer
+  .controls-bottom
+    .row
+      .col-lg-5
+        = select_tag :amount, options_for_select([['25 Msg', 25], ['50 Msg', 50], ['75 Msg', 75], ['100 Msg', 100]], amount), class: 'select2', id: 'view-message-amount', 'data-placeholder' => 'View', 'data-theme' => 'green-dark', 'data-arrow' => '1x', 'data-padding' => '3x', 'data-font' => '1x'
+      .col-lg-7#list-pagination
+        = paginate messages, inner_window: 1, outer_window: 0, params: { controller: 'email_messages', action: 'new_tab', amount: amount, type: type }

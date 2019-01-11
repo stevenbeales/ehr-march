@@ -1,0 +1,70 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/mark_as_read",
+  "description": "Mark messages as read",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "message_ids",
+      "description": "Array of email message ids that should be marked as read"
+    },
+    {
+      "scope": "data",
+      "name": "message_id",
+      "description": "Email message id that should be marked as read"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "read",
+      "description": "Boolean, if true - messages will be marked as read"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/mark_as_read?data[auth_token]=f4c30e85018c48c234563bf48e18f5af&data[message_ids][][id]=33lVUPjhNPtcw7&data[message_ids][][id]=33lVUPk0jaCMkd&data[message_ids][][id]=33lVUPkK5kV6Z9&data[read]=true",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "f4c30e85018c48c234563bf48e18f5af",
+          "message_ids": [
+            {
+              "id": "33lVUPjhNPtcw7"
+            },
+            {
+              "id": "33lVUPk0jaCMkd"
+            },
+            {
+              "id": "33lVUPkK5kV6Z9"
+            }
+          ],
+          "read": "true"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

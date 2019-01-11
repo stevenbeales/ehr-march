@@ -1,0 +1,70 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/search_message",
+  "description": "Search messages",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "amount",
+      "description": "Amount of messages"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "page",
+      "description": "Pagination page number"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "type",
+      "description": "Type should be one of following: inbox, sent, draft, urgent or archive"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "part",
+      "description": "Part of user email"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/search_message?data[auth_token]=a1731d7bf7bea2ab112d246f8f862bb7&data[amount]=25&data[page]=1&data[type]=inbox&data[part]=te",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "a1731d7bf7bea2ab112d246f8f862bb7",
+          "amount": "25",
+          "page": "1",
+          "type": "inbox",
+          "part": "te"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lVZeD041LdK7\",\n      \"type\": \"email-messages\",\n      \"attributes\": {\n        \"id\": \"33lVZeD041LdK7\",\n        \"subject-id\": \"33lVZeD9k6V0EN\",\n        \"to-id\": \"33lVX3T9k6xmZX\",\n        \"from-id\": \"33lVX3TcmMPtIJ\",\n        \"body\": \"Sint aut ut amet.\",\n        \"draft\": false,\n        \"archive\": false,\n        \"urgent\": false,\n        \"read\": false\n      },\n      \"links\": {\n        \"self\": \"/email-messages/33lVZeD041LdK7\"\n      }\n    },\n    {\n      \"id\": \"33lVZeDJQBeN8d\",\n      \"type\": \"email-messages\",\n      \"attributes\": {\n        \"id\": \"33lVZeDJQBeN8d\",\n        \"subject-id\": \"33lVZeDT6Gnk2t\",\n        \"to-id\": \"33lVX3T9k6xmZX\",\n        \"from-id\": \"33lVX3TcmMPtIJ\",\n        \"body\": \"Voluptates at adipisci possimus aliquid nihil beatae voluptatibus minima.\",\n        \"draft\": false,\n        \"archive\": false,\n        \"urgent\": false,\n        \"read\": false\n      },\n      \"links\": {\n        \"self\": \"/email-messages/33lVZeDJQBeN8d\"\n      }\n    },\n    {\n      \"id\": \"33lVZeDcmLx6x9\",\n      \"type\": \"email-messages\",\n      \"attributes\": {\n        \"id\": \"33lVZeDcmLx6x9\",\n        \"subject-id\": \"33lVZeDmSR6TrP\",\n        \"to-id\": \"33lVX3T9k6xmZX\",\n        \"from-id\": \"33lVX3TcmMPtIJ\",\n        \"body\": \"Sed et corporis ex deserunt quam occaecati.\",\n        \"draft\": false,\n        \"archive\": false,\n        \"urgent\": false,\n        \"read\": false\n      },\n      \"links\": {\n        \"self\": \"/email-messages/33lVZeDcmLx6x9\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

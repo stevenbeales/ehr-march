@@ -1,0 +1,73 @@
+{
+  "resource": "Providers",
+  "http_method": "PATCH",
+  "route": "/providers/:id",
+  "description": "Update provider",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "Provider id"
+    },
+    {
+      "required": true,
+      "name": "provider",
+      "description": "Provider params"
+    },
+    {
+      "required": true,
+      "name": "user",
+      "description": "User params"
+    },
+    {
+      "required": true,
+      "name": "patient",
+      "description": "Patient params"
+    },
+    {
+      "required": true,
+      "name": "block_out",
+      "description": "Block out params"
+    },
+    {
+      "required": true,
+      "name": "appointment",
+      "description": "Appointment params"
+    },
+    {
+      "required": true,
+      "name": "referral",
+      "description": "Referral params"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/providers/33lfRoBLh7kZSl",
+      "request_body": "{\"data\":{\"auth_token\":\"72c20885222c2b958f364dd4e6a2c3b4\",\"provider\":{\"title\":\"Mr\",\"first_name\":\"Erna\",\"middle_name\":null,\"last_name\":\"Dooley\",\"degree\":\"DDS\",\"speciality\":\"Endodontics\",\"secondary_speciality\":null,\"dental_licence\":null,\"street_address\":\"Dietrich Locks\",\"suit_apt_number\":\"4792\",\"city\":\"Port German\",\"state\":\"Texas\",\"zip\":null,\"practice_street_address\":\"Wilkinson Skyway\",\"practice_suit_apt_number\":\"781\",\"practice_city\":\"North Destineehaven\",\"practice_state\":\"Hawaii\",\"practice_zip\":null,\"expiration_date\":null,\"ein_tin\":null,\"npi\":null,\"dea\":null,\"upin\":null,\"nadean\":null,\"accepting_patient\":false,\"enable_online_booking\":false,\"biography\":null,\"primary_phone\":null,\"mobile_phone\":null,\"alt_email\":null,\"username\":null},\"user\":{\"id\":\"33lfRoBVNCtwN1\",\"email\":\"richmond@cainward.name\",\"password\":null,\"password_confirmation\":null},\"patient\":{\"id\":\"33lfTnboTpgBd5\",\"user_id\":\"33lfTnby9upYXL\",\"provider_id\":\"33lfRoBLh7kZSl\",\"first_name\":\"Iva\",\"last_name\":\"Rau\",\"middle_name\":null,\"birth\":\"2006-02-26T17:20:44.322+02:00\",\"gender\":\"Male\",\"mobile_phone\":\"+13183906267\",\"primary_phone\":\"+13012984831\",\"code\":null},\"block_out\":{\"id\":\"33lfYeRFcI6pdr\",\"time_for\":\"Individual Providers\",\"block_datetime\":\"2016-02-26T17:20:00.000+02:00\",\"duration\":\"1 hour 15 min\",\"description\":\"Aut odio natus rerum ipsam facilis quisquam doloribus unde.\",\"note\":\"Est accusantium ipsum rerum quos.\",\"recurring\":false,\"recur_every\":\"magnam\",\"range_day\":\"T\"},\"appointment\":{\"id\":\"33lfYeRPINGCY7\",\"patient_id\":\"33lfTnboTpgBd5\",\"location\":\"661 Paris Circles\",\"room\":{\"created_at\":\"2016-02-26T17:20:56.063+02:00\",\"id\":\"33lfaeZjoQedgx\",\"provider_id\":\"33lfaeZtUVo0bD\",\"room\":\"Apt. 990\",\"updated_at\":\"2016-02-26T17:20:56.063+02:00\"},\"appointment_type\":{\"appt_type\":\"Consultation\",\"colour\":\"409725\",\"created_at\":\"2016-02-26T17:20:58.555+02:00\",\"id\":\"33lfbrtjtqQSCx\",\"provider_id\":\"33lfbrttZvZp7D\",\"updated_at\":\"2016-02-26T17:20:58.555+02:00\"},\"reason\":\"Cupiditate praesentium blanditiis consequatur.\",\"appointment_datetime\":\"2016-02-26T17:20:00.000+02:00\",\"duration\":\"15 min\",\"contact_email\":\"kraig@hermiston.co\",\"contact_phone\":\"+16185002734\",\"reminder\":true,\"colour\":\"39D894\"},\"referral\":{\"id\":\"33lfebnCBqHiDr\",\"normal\":\"Walter\",\"middle_name\":\"Edwin\",\"last_name\":\"Gulgowski\",\"individual_npi\":\"33-4675951\",\"speciality\":\"Periodontics\",\"phone\":\"+16011739392\",\"fax\":\"+16482069373\",\"email\":\"aurelia@cartersanford.net\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lfRoBLh7kZSl\",\n    \"type\": \"providers\",\n    \"attributes\": {\n      \"id\": \"33lfRoBLh7kZSl\",\n      \"email\": \"richmond@cainward.name\",\n      \"role\": \"Provider\",\n      \"user-id\": \"33lfRoBVNCtwN1\",\n      \"title\": \"Mr\",\n      \"first-name\": \"Erna\",\n      \"middle-name\": null,\n      \"last-name\": \"Dooley\",\n      \"degree\": \"DDS\",\n      \"speciality\": \"Endodontics\",\n      \"street-address\": \"Dietrich Locks\",\n      \"suit-apt-number\": \"4792\",\n      \"city\": \"Port German\",\n      \"state\": \"Texas\",\n      \"zip\": null,\n      \"practice-street-address\": \"Wilkinson Skyway\",\n      \"practice-suit-apt-number\": \"781\",\n      \"practice-city\": \"North Destineehaven\",\n      \"practice-state\": \"Hawaii\",\n      \"practice-zip\": null,\n      \"primary-phone\": null,\n      \"mobile-phone\": null,\n      \"alt-email\": null,\n      \"username\": null,\n      \"secondary-speciality\": null,\n      \"dental-licence\": null,\n      \"expiration-date\": null,\n      \"ein-tin\": null,\n      \"npi\": null,\n      \"dea\": null,\n      \"upin\": null,\n      \"nadean\": null,\n      \"status\": true,\n      \"biography\": null,\n      \"accepting-patient\": false,\n      \"enable-online-booking\": false,\n      \"profile-image\": {\n        \"url\": \"/uploads/provider/profile_image/33lfRoBLh7kZSl/avatar8.jpg\"\n      }\n    },\n    \"links\": {\n      \"self\": \"/providers/33lfRoBLh7kZSl\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

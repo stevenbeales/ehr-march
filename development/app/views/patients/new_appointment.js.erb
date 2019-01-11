@@ -1,0 +1,39 @@
+$("#modal-make-an-appt").html("<%= escape_javascript(render 'new_appointment_form') %>");
+$("#modal-make-an-appt").modal("show");
+
+initPickers();
+initSelect2('#modal-make-an-appt');
+
+var NewAppointmentController = function() {
+  var modal = $('#modal-make-an-appt');
+  var select = modal.find('#patient_appointment_provider_id');
+  var location = modal.find('#patient_appointment_location');
+
+  this.initialize = function() {
+    SetSelectedProvider();
+    select.change(function() {
+      SetSelectedProvider();
+    });
+  };
+
+  var SetSelectedProvider = function() {
+    var provider_id = select.find(':selected').val();
+    location.html('');
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.provider_full_info_patients_path %>',
+      data: {
+        provider_id: provider_id
+      }
+    }).done(function(locations) {
+      locations.forEach(function(address) {
+        var option = $('<option />').attr('value', address).text(address);
+        location.append(option);
+      });
+    });
+  };
+};
+
+$(function() {
+  var newAppointmentController = new NewAppointmentController();
+  newAppointmentController.initialize();
+});

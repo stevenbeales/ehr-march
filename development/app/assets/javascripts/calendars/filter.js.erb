@@ -1,0 +1,170 @@
+var FilterController = function() {
+  var calendar;
+  var data;
+
+  this.initialize = function(ids, ls, rs, ss, ts) {
+    calendar = $('#calendar');
+    data = {
+      provider_ids: ids,
+      locations:  ls,
+      room_ids:   rs,
+      status_ids: ss,
+      type_ids:   ts
+    };
+
+    var providersFilterController = new SingleFilterController();
+
+    var locationsFilterController = new SingleFilterController();
+    var roomsFilterController     = new SingleFilterController();
+    var statusesFilterController  = new SingleFilterController();
+    var typesFilterController     = new SingleFilterController();
+
+    var locationContentController = new ContentController();
+    var roomContentController     = new ContentController();
+    var statusContentController   = new ContentController();
+    var typeContentController     = new ContentController();
+
+    // addFilter(variable_name_in_data_hash, selector)
+    providersFilterController.addFilter('provider_ids', 'ul#provider_filter');
+    locationsFilterController.addFilter('locations', 'ul#location_filter');
+    roomsFilterController.addFilter('room_ids', 'ul#room_filter');
+    statusesFilterController.addFilter('status_ids', 'ul#status_filter');
+    typesFilterController.addFilter('type_ids', 'ul#type_filter');
+
+    // initialize(single_filter_controller, selector, partial_name, variable_name_in_data_hash)
+    locationContentController.initialize(locationsFilterController, 'ul#location_filter', 'location', 'locations');
+    roomContentController.initialize(roomsFilterController, 'ul#room_filter', 'room', 'room_ids');
+    statusContentController.initialize(statusesFilterController, 'ul#status_filter', 'appointment_status', 'status_ids');
+    typeContentController.initialize(typesFilterController, 'ul#type_filter', 'appointment_type', 'type_ids');
+
+    Filter();
+  };
+
+  var SingleFilterController = function() {
+    var filter;
+    var filter_name;
+
+    this.addFilter = function(f_name, ul_selector) {
+      filter = $(ul_selector);
+      filter_name = f_name;
+
+      filter.find('.select_all').change(function () {
+        if ($(this).find('input').is(':checked'))
+          filter.find('.filter_item input[type="checkbox"]').prop('checked', false).trigger('click');
+        else
+          filter.find('.filter_item input[type="checkbox"]').prop('checked', true).trigger('click');
+      });
+
+      filter.find('.filter_item').change(this.setEventHandler);
+    };
+
+    this.setEventHandler = function() {
+      ReloadSelectAll(filter);
+      var option = $(this).data('option');
+      if($(this).find('input').is(':checked'))
+        AddToData(option, filter_name);
+      else
+        RemoveFromData(option, filter_name);
+      Filter();
+    };
+  };
+
+  var AddToData = function (option, filter_name) {
+    data[filter_name].push(option);
+  };
+
+  var RemoveFromData = function(option, filter_name) {
+    var index = data[filter_name].indexOf(option);
+    while(index != -1)
+    {
+      data[filter_name].splice(index, 1);
+      index = data[filter_name].indexOf(option);
+    }
+  };
+
+  var Filter = function() {
+    $.ajax({
+      url:' <%= Rails.application.routes.url_helpers.filter_calendars_path %>',
+      data: data
+    }).done(function(calendars) {
+      ReloadCalendar(calendars);
+    });
+  };
+
+  var ReloadSelectAll = function(filter) {
+    if(filter.find('.filter_item input:not(:checked)').length == 0)
+      filter.find('.select_all input').prop('checked', true);
+    else
+      filter.find('.select_all input').prop('checked', false);
+  };
+
+  var ReloadCalendar = function(calendars) {
+    calendar.fullCalendar('removeEvents');
+    if(calendars != '') {
+      for (var i = 0; i < calendars.length; i++)
+        calendar.fullCalendar('renderEvent', calendars[i], true);
+    }
+  };
+
+  var ContentController = function() {
+    var provider_filter = $('ul#provider_filter');
+    var target_filter;
+    var target;
+    var filter;
+    var filter_name;
+
+    this.initialize = function(FilterController, selector, t, f_name) {
+      filter = FilterController;
+      target_filter = $(selector);
+      target = t;
+      filter_name = f_name;
+      AddProviderFilterChange();
+    };
+
+    var AddProviderFilterChange = function() {
+      provider_filter.find('.filter_item').change(function() {
+        var id = $(this).data('option');
+        if($(this).find('input').is(':checked'))
+          AddTargets(id);
+        else
+          RemoveTargets(id);
+      });
+    };
+
+    var AddTargets = function(id) {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.targets_calendars_path %>',
+        data: { id: id, target: target }
+      }).done(function(targets) {
+        var part = $(targets);
+        var amount = part.find('.filter_item').length;
+        target_filter.append(part);
+        target_filter.find('.filter_item').slice(-amount).change(filter.setEventHandler);
+        ReIndexLi();
+        target_filter.find('.filter_item').each(function(){
+          AddToData($(this).data('option'), filter_name);
+        });
+        Filter();
+        ReloadSelectAll(target_filter);
+      });
+    };
+
+    var RemoveTargets = function(id) {
+      target_filter.find('.filter_item').each(function(){
+        RemoveFromData($(this).data('option'), filter_name);
+      });
+      target_filter.find('li[data-provider_id="' + id + '"]').remove();
+      ReIndexLi();
+    };
+
+    var ReIndexLi = function() {
+      var index = 0;
+      target_filter.find('li[data-provider_id] .checkbox-custom').each(function() {
+        index += 1;
+        var id = target + '_' + index;
+        $(this).find('input').attr('id', id);
+        $(this).find('label').attr('for', id);
+      });
+    };
+  };
+};

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Providers API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Providers API</h1>
+
+      <div class="article">
+        <h2>Index</h2>
+        <h3>GET /providers</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[page]</span>
+                </td>
+                <td>
+                  <span class="description">Page pagination</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /providers?data[auth_token]=a26807b6f7557b4b9f4f5e537149db7a&amp;data[page]=0</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;a26807b6f7557b4b9f4f5e537149db7a&quot;, &quot;page&quot;=&gt;&quot;0&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;appointments&quot;: [
+      {
+        &quot;appointment_datetime&quot;: &quot;2016-02-26T17:19:00.000+02:00&quot;,
+        &quot;appointment_status_id&quot;: &quot;33leedNno4Wl5n&quot;,
+        &quot;appointment_type_id&quot;: &quot;33lee1kkkP1yB1&quot;,
+        &quot;colour&quot;: &quot;4DCDC9&quot;,
+        &quot;contact_email&quot;: &quot;hyman.conroy@goyetteconnelly.io&quot;,
+        &quot;contact_phone&quot;: &quot;+13991037714&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:29.676+02:00&quot;,
+        &quot;duration&quot;: &quot;2 hours 45 min&quot;,
+        &quot;id&quot;: &quot;33leZF5WHMYQz5&quot;,
+        &quot;location&quot;: &quot;820 Sabryna Throughway&quot;,
+        &quot;patient_id&quot;: &quot;33leZF5fxRhntL&quot;,
+        &quot;provider_id&quot;: &quot;33leY1rIJ1NI2d&quot;,
+        &quot;reason&quot;: &quot;Voluptatum esse voluptas officiis beatae quo.&quot;,
+        &quot;reminder&quot;: false,
+        &quot;room_id&quot;: &quot;33leck3u0q47LH&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:29.676+02:00&quot;
+      },
+      {
+        &quot;appointment_datetime&quot;: &quot;2016-02-26T17:19:00.000+02:00&quot;,
+        &quot;appointment_status_id&quot;: &quot;33lemTp8386v2J&quot;,
+        &quot;appointment_type_id&quot;: &quot;33lelPnTwSHCb5&quot;,
+        &quot;colour&quot;: &quot;706A39&quot;,
+        &quot;contact_email&quot;: &quot;jackson@nikolaus.info&quot;,
+        &quot;contact_phone&quot;: &quot;+17810446992&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:41.348+02:00&quot;,
+        &quot;duration&quot;: &quot;2 hours&quot;,
+        &quot;id&quot;: &quot;33lefs0CSH7quh&quot;,
+        &quot;location&quot;: &quot;1051 Hauck Camp&quot;,
+        &quot;patient_id&quot;: &quot;33lefs0M8MHDox&quot;,
+        &quot;provider_id&quot;: &quot;33leY1rIJ1NI2d&quot;,
+        &quot;reason&quot;: &quot;Quibusdam perferendis et accusantium et totam consequatur qui voluptatem.&quot;,
+        &quot;reminder&quot;: true,
+        &quot;room_id&quot;: &quot;33lejEM47HCSNH&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:41.348+02:00&quot;
+      },
+      {
+        &quot;appointment_datetime&quot;: &quot;2016-02-26T17:19:00.000+02:00&quot;,
+        &quot;appointment_status_id&quot;: &quot;33letKpEstCXnn&quot;,
+        &quot;appointment_type_id&quot;: &quot;33les1fNQt8Hxb&quot;,
+        &quot;colour&quot;: &quot;44497D&quot;,
+        &quot;contact_email&quot;: &quot;breanne.treutel@reynolds.org&quot;,
+        &quot;contact_phone&quot;: &quot;+17570062429&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:50.769+02:00&quot;,
+        &quot;duration&quot;: &quot;1 hour&quot;,
+        &quot;id&quot;: &quot;33leo273ANGLND&quot;,
+        &quot;location&quot;: &quot;8524 Price Stream&quot;,
+        &quot;patient_id&quot;: &quot;33leo27CqSPiHT&quot;,
+        &quot;provider_id&quot;: &quot;33leY1rIJ1NI2d&quot;,
+        &quot;reason&quot;: &quot;Quia dolore id labore fugiat aut nesciunt doloribus libero.&quot;,
+        &quot;reminder&quot;: false,
+        &quot;room_id&quot;: &quot;33leqiHcZUc9MR&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:50.769+02:00&quot;
+      }
+    ],
+    &quot;messages&quot;: [
+      {
+        &quot;archive&quot;: false,
+        &quot;body&quot;: &quot;Sunt repellat corporis et mollitia vitae.&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:19.023+02:00&quot;,
+        &quot;draft&quot;: false,
+        &quot;from_id&quot;: null,
+        &quot;id&quot;: &quot;33leZF4aCreDXX&quot;,
+        &quot;read&quot;: false,
+        &quot;subject_id&quot;: &quot;33leZF4jswnaRn&quot;,
+        &quot;to_id&quot;: &quot;33leY1rRz6Wewt&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:19.023+02:00&quot;,
+        &quot;urgent&quot;: false
+      },
+      {
+        &quot;archive&quot;: false,
+        &quot;body&quot;: &quot;Recusandae eveniet officia omnis nihil dolorum exercitationem.&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:19.144+02:00&quot;,
+        &quot;draft&quot;: false,
+        &quot;from_id&quot;: null,
+        &quot;id&quot;: &quot;33leZF4tZ1wxM3&quot;,
+        &quot;read&quot;: false,
+        &quot;subject_id&quot;: &quot;33leZF53F76KGJ&quot;,
+        &quot;to_id&quot;: &quot;33leY1rRz6Wewt&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:19.144+02:00&quot;,
+        &quot;urgent&quot;: false
+      },
+      {
+        &quot;archive&quot;: false,
+        &quot;body&quot;: &quot;Sapiente deleniti ratione sit consequatur odit delectus officia impedit.&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:19.220+02:00&quot;,
+        &quot;draft&quot;: false,
+        &quot;from_id&quot;: null,
+        &quot;id&quot;: &quot;33leZF5CvCFhAZ&quot;,
+        &quot;read&quot;: false,
+        &quot;subject_id&quot;: &quot;33leZF5MbHP44p&quot;,
+        &quot;to_id&quot;: &quot;33leY1rRz6Wewt&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:19.220+02:00&quot;,
+        &quot;urgent&quot;: false
+      }
+    ],
+    &quot;to_dos&quot;: [
+      {
+        &quot;appointment_id&quot;: &quot;33leZF5WHMYQz5&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:29.729+02:00&quot;,
+        &quot;done&quot;: false,
+        &quot;id&quot;: &quot;33lefs02mByU0R&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:29.729+02:00&quot;
+      },
+      {
+        &quot;appointment_id&quot;: &quot;33lefs0CSH7quh&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:41.359+02:00&quot;,
+        &quot;done&quot;: false,
+        &quot;id&quot;: &quot;33leo26tUI6ySx&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:41.359+02:00&quot;
+      },
+      {
+        &quot;appointment_id&quot;: &quot;33leo273ANGLND&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:19:50.865+02:00&quot;,
+        &quot;done&quot;: false,
+        &quot;id&quot;: &quot;33letzPiUBGStn&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:19:50.865+02:00&quot;
+      }
+    ]
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

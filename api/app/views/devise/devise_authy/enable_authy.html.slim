@@ -1,0 +1,20 @@
+.authy-wrapper
+  .panel.panel-default
+    = enable_authy_form do |f|
+      .panel-header
+        h4 
+          = I18n.t('authy_register_title', {:scope => 'devise'})
+      .panel-body
+        .row
+          .col-lg-12
+            .form-group
+              = text_field_tag :country_code, '', autocomplete: 'off', placeholder: I18n.t('devise.country'), id: 'authy-countries', class: 'form-control'
+        .row
+          .col-lg-12
+            .form-group
+              = text_field_tag :cellphone, '', autocomplete: 'off', placeholder: I18n.t('devise.cellphone'), id: 'authy-cellphone', class: 'form-control'
+      .panel-footer
+        .actions
+          .row
+            .col-lg-12
+              = submit_tag I18n.t('enable_authy', {:scope => 'devise'}), { class: 'btn btn-success' }

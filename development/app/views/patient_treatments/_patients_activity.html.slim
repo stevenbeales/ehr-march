@@ -1,0 +1,105 @@
+#patientActivityTab.tab-pane.fade role="tabpanel"
+  .form-row-field
+    form.form-inline.pull-left
+      select#activitySelect.empty.form-control name="activitySelect" required=""
+        option disabled="" selected="" value=""  Select Type
+        option value="activity0"  Encounters
+        option value="activity1"  Imaging Orders
+        option value="activity2"  Lab Orders
+        option value="activity3"  Appointments
+        option value="activity4"  Refernals
+        option value="activity5"  Patient Intakes
+        option value="activity6"  Documents Signed
+        option value="activity7"  Documents Pending
+        option value="activity8"  ePrescriptions
+    form.form-inline.pull-right
+      button.btn.btn-default Print
+      .btn-group
+        button.btn.btn-default.dropdown-toggle aria-expanded="false" data-toggle="dropdown" type="button" 
+          | Patient Actions
+          span.caret
+        ul.dropdown-menu role="menu"
+          li
+            a href="#"  Create Encounter (SOAP)
+          li
+            a href="#"  Create Clinical Document
+  .activityOptions.activity0.form-row-field.clear
+    .head
+      .form-row-field.pull-right
+        select.add-new.form-control required=""
+          option New Encounter (SOAP)
+    .form-row-field.table-responsive.clear
+      table.table
+        thead
+          tr
+            th
+            th type/source
+            th Details
+            th Status
+        tbody
+          tr
+            td
+              a href="#"
+                img alt="officeVisit" src="http://placehold.it/120x100&amp;text=officeVisit" /
+            td
+              span.type Office Visit
+              br/
+              span Sarah Kim
+            td
+              span SOAP Note
+              br/
+              span.add-info CC: No chief complaint recorded
+            td
+              span 05/13/2015
+          tr
+            td
+              a href="#"
+                img alt="officeVisit" src="http://placehold.it/120x100&amp;text=officeVisit" /
+            td
+              span.type Office Visit
+              br/
+              span Sarah Kim
+            td
+              span SOAP Note
+              br/
+              span.add-info CC: No chief complaint recorded
+            td
+              span 05/13/2015
+  .activityOptions.activity1.form-row-field.clear
+    .head
+    .form-row-field.table-responsive.clear
+      table.table
+        thead
+          tr
+            th
+            th Status
+            th Details
+            th Provider
+            th Date
+        tbody
+          tr
+            td
+              a href="#"
+                img alt="officeVisit" src="http://placehold.it/120x100&amp;text=officeVisit" /
+            td
+              span.status Draft
+            td
+              span SOAP Note
+              br/
+              span.add-info CC: No chief complaint recorded
+            td
+              span 05/13/2015
+          tr
+            td
+              a href="#"
+                img alt="officeVisit" src="http://placehold.it/120x100&amp;text=officeVisit" /
+            td
+              span.type Office Visit
+              br/
+              span Sarah Kim
+            td
+              span SOAP Note
+              br/
+              span.add-info CC: No chief complaint recorded
+            td
+              span 05/13/2015

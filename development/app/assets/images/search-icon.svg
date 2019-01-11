@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: bin/sketchtool 1.4 (305) - http://www.bohemiancoding.com/sketch -->
+    <title>1430939685_search-80px</title>
+    <desc>Created with bin/sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Doctor---Add-New-Appointment" sketch:type="MSArtboardGroup" transform="translate(-756.000000, -261.000000)" fill="#FFFFFF">
+            <g id="Modal" sketch:type="MSLayerGroup" transform="translate(413.000000, 146.000000)">
+                <g id="First-Row" transform="translate(29.000000, 105.000000)" sketch:type="MSShapeGroup">
+                    <g id="Find-Patient">
+                        <g id="1430939685_search-80px" transform="translate(314.000000, 10.000000)">
+                            <path d="M24.2800007,22.0814914 L17.9929483,15.794439 C19.1882905,14.1525537 19.9016399,12.1375126 19.9016399,9.95081995 C19.9016399,4.45485771 15.4467822,-3.01980663e-14 9.95081995,-3.01980663e-14 C4.45485771,-3.01980663e-14 0,4.45485771 0,9.95081995 C0,15.4467822 4.45485771,19.9016399 9.95081995,19.9016399 C12.1375126,19.9016399 14.1525537,19.1882905 15.794439,17.9929483 L22.0814914,24.2800007 L24.2800007,22.0814914 L24.2800007,22.0814914 Z M9.95081995,16.7920087 C6.17883726,16.7920087 3.10963124,13.7228026 3.10963124,9.95081995 C3.10963124,6.17883726 6.17883726,3.10963124 9.95081995,3.10963124 C13.7228026,3.10963124 16.7920087,6.17883726 16.7920087,9.95081995 C16.7920087,13.7228026 13.7228026,16.7920087 9.95081995,16.7920087 L9.95081995,16.7920087 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

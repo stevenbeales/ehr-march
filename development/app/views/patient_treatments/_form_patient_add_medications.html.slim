@@ -1,0 +1,104 @@
+.modal-body
+  .scrollable-container
+    = m.input :patient_id, as: :hidden, input_html: { value: patient.id }
+    = m.input :diagnosis_id, as: :hidden, input_html: { value: diagnosis.id }
+    = m.input :medication_id, as: :hidden, input_html: { value: medication.id }
+    .content
+      .row
+        .col-xs-4.left-block
+          ul
+            li
+              a href="#" Zithromax 500 MG Oral Tablet
+            li
+              a href="#" Zithromax 500 MG Oral Tablet
+        .col-xs-8.right-block
+          .row
+            .col-xs-12
+              .form-group
+                .input-group-custom.input-group-search
+                  input.form-control type="text" placeholder="Search Medications" id="search-medications-input"
+                  span.input-group-addon.input-group-addon-right.input-group-addon-search id="search-medications-button"
+                  .scrollable-padding-container.collapse
+                    .scrollable id="search-medications-list"
+                      a href="#" Zithromax 250 MG Oral Tablet
+                      a href="#" Zithromax 500 MG Oral Tablet
+                      a href="#" Zithromax 500 MG Oral Tablet
+                      a href="#" Zithromax 500 MG Oral Tablet
+                      a href="#" Zithromax 500 MG Oral Tablet
+                      a href="#" Zithromax 500 MG Oral Tablet
+          .row
+            .col-xs-12
+              .form-group
+                .panel
+                  .panel-heading
+                    p.panel-title Alerts
+                  .panel-body
+                    ul
+                      li
+                        p > Text
+                      li
+                        p > Text
+          .row
+            .col-xs-2.col-sig
+              .form-group
+                .container-sig
+                  p.title SIG
+            .col-xs-10
+              .row
+                .col-xs-12
+                  .form-group
+                    = m.input :shorthand, input_html: { class: 'form-control', placeholder: 'Enter shorthand' }
+                    /.input-group-custom.input-group-search
+                      input.form-control type="text" placeholder="Enter shorthand"
+                      span.input-group-addon.input-group-addon-right.input-group-addon-search
+              .row
+                .col-xs-12
+                  = m.input :signature, as: :text, input_html: { class: 'form-control', rows: 3, placeholder: 'Enter a SIG for this medication' }
+          .row
+            .col-xs-12
+              .form-group
+                .input-group-custom.input-group-search
+                  = m.input :portion_id, as: :hidden
+                  input.form-control type="text" placeholder="Associated Dx" id="search-portion-input"
+                  span.input-group-addon.input-group-addon-right.input-group-addon-search#search-portions-button
+                  ul#search-portions-list
+          .row
+            .col-xs-8
+              .form-group
+                .input-group-custom
+                  = m.input :start_date, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Start Date' }
+                  span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+            .col-xs-4
+              .form-group
+                a.button.button-today href="#" Today
+          .row
+            .col-xs-8
+              .form-group
+                .input-group-custom
+                  = m.input :stop_date, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Stop Date' }
+                  span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+            .col-xs-4
+              .form-group
+                a.button.button-today href="#" Today
+          .row
+            .col-xs-8
+              .form-group
+                a.button href="#" Discontinued
+          .row
+            .col-xs-12
+              .form-group
+                = m.input :note, as: :text, input_html: { class: 'form-control', rows: 3, placeholder: 'Medication Notes' }
+          .row.links
+            .col-lg-3.col-md-3.col-sm-3
+              p Resources:
+            .col-lg-3.col-md-3.col-sm-3
+              a.underlined href="#" Medicine Plus
+            .col-lg-6.col-md-6.col-sm-6
+              a.underlined href="#" Patient Education Materials
+.modal-footer
+  .row
+    .col-xs-4.left-block
+    .col-xs-8.right-block
+      .controls
+        = m.submit 'Save', class: 'button button-save'
+        a.button.button-cancel href="#" data-dismiss="modal" Cancel

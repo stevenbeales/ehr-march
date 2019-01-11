@@ -1,0 +1,56 @@
+{
+  "resource": "Tooth table",
+  "http_method": "GET",
+  "route": "/patient_treatments/tooth_activity",
+  "description": "Set tooth table activity",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Tooth id, tooth must be active"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "active",
+      "description": "Boolean, if true - set tooth table to active"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/tooth_activity?data[auth_token]=ec006620722e6f83887ea19b24acc32e&data[id]=33liYKRuLS0amJ&data[active]=true",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "ec006620722e6f83887ea19b24acc32e",
+          "id": "33liYKRuLS0amJ",
+          "active": "true"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title Add a New Patient
+    = flash[:error]
+    = simple_form_for @user, url: patients_path, remote: true do |u|
+      = u.simple_fields_for :patient, Patient.new do |q|
+        .modal-body
+          .scrollable-container
+            .content
+              .row
+                .col-lg-4
+                  .form-group
+                    = q.input :first_name, label: false, input_html: { class: 'form-control placeholder-hiding', placeholder: 'First Name' }
+                .col-lg-2
+                  .form-group
+                    = q.input :middle_name, label: false, input_html: { class: 'form-control placeholder-hiding', placeholder: 'M.I.' }
+                .col-lg-6
+                  .form-group
+                    = q.input :last_name, label: false, input_html: { class: 'form-control placeholder-hiding', placeholder: 'Last Name' }
+              .row
+                .col-lg-6
+                  .form-group
+                    .input-group-custom
+                      = q.input :birth, label: false, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'DOB (mm/dd/yyyy)' }
+                      span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+                .col-lg-6
+                  .form-group
+                    p.sex-radio-buttons-title Sex:
+                    .sex-radio-buttons
+                      - Patient.genders.each do |k|
+                        .radiobutton-custom
+                          = q.radio_button :gender, k
+                          label for="user_patient_gender_#{k.to_s.downcase}"
+                            span.radio-icon
+                            span.radio-label
+                              = k.to_s
+              .row
+                .col-lg-6
+                  .form-group
+                    = q.input :mobile_phone, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Mobile Phone' }, as: 'tel'
+                .col-lg-6
+                  .form-group
+                    = q.input :primary_phone, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Primary Phone' }, as: 'tel'
+              .row
+                .col-lg-6.col-xs-6
+                  .form-group
+                    = u.input :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Email Address', id: 'patient_email' }
+                .col-lg-6.col-xs-6
+                  .form-group
+                    .checkbox-custom.checkbox-patient-doesnt-have-email.disabled
+                      input.checkbox type="checkbox" id="patient_doesnt_have_email" checked="checked"
+                        label for="patient_doesnt_have_email"
+                          span.checkbox-icon-container
+                            span.checkbox-icon
+                          span.checkbox-label Patient does not have an email address
+        .modal-footer
+          .controls
+            .row
+              .col-lg-12
+                = u.button :submit, 'Save', class: 'button modal-add-patient-save'
+                a.button.modal-close data-target="#modal-add-patient" data-dismiss="modal" Cancel

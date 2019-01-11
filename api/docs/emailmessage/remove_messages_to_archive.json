@@ -1,0 +1,63 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/to_archive",
+  "description": "Remove messages to archive",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "message_ids",
+      "description": "Array of email message ids that should be removed to archive"
+    },
+    {
+      "scope": "data",
+      "name": "message_id",
+      "description": "Email message id that should be removed to archive"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/to_archive?data[auth_token]=c604af8b4bcd3b2ba49e1812796bb071&data[message_ids][][id]=33lVPErwfmqhvf&data[message_ids][][id]=33lVPEsG1x9RkB&data[message_ids][][id]=33lVPEsZO7SBYh",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "c604af8b4bcd3b2ba49e1812796bb071",
+          "message_ids": [
+            {
+              "id": "33lVPErwfmqhvf"
+            },
+            {
+              "id": "33lVPEsG1x9RkB"
+            },
+            {
+              "id": "33lVPEsZO7SBYh"
+            }
+          ]
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

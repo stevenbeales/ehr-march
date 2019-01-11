@@ -1,0 +1,285 @@
+Create practice
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * user - User parameters
+  * practice - Practice parameters
+  * email - Practice email
+  * password - Practice password
+  * password_confirmation - Practice password confirmation
+  * practice_role - Practice role
+  * provider_id - Provider id
+  * title - Mr/Ms/Dr
+  * first_name - First name
+  * middle_name - Middle name
+  * last_name - Last name
+  * degree - Degree
+  * speciality - Speciality
+  * secondary_speciality - Secondary speciality
+  * dental_licence - Dental licence
+  * street_address - Street address
+  * suit_apt_number - Suit apt number
+  * city - City
+  * state - State
+  * zip - Zip
+  * practice_street_address - Practice street address
+  * practice_suit_apt_number - Practice suit apt number
+  * practice_city - Practice city
+  * practice_state - Practice state
+  * practice_zip - Practice zip
+  * expiration_date - Expiration date
+  * ein_tin - EIN TIN
+  * npi - NPI
+  * dea - DEA
+  * upin - UPIN
+  * nadean - NADEAN
+  * accepting_patient - Accepting patient
+  * enable_online_booking - Enable online booking
+  * biography - Biography
+  * primary_phone - Primay phone
+  * mobile_phone - mobile phone
+  * alt_email - Alternative email
+  * username - Username
+  * profile_image - Profile image
+
+Request:
+  POST /practices
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"3ba30c44d65242e9bcf3db595b237a79","user":{"email":"test@email.com","password":"doctor","password_confirmation":"doctor"},"practice":{"practice_role":"Provider","provider_id":null,"title":"Mr","first_name":"Kristian","middle_name":null,"last_name":"Considine","degree":"DDS","speciality":"Endodontics","secondary_speciality":null,"dental_licence":null,"street_address":"Henri Manors","suit_apt_number":"3742","city":"Port Rico","state":"Maryland","zip":null,"practice_street_address":"Henri Manors","practice_suit_apt_number":"3742","practice_city":"Port Rico","practice_state":"Maryland","practice_zip":null,"expiration_date":null,"ein_tin":null,"npi":null,"dea":null,"upin":null,"nadean":null,"accepting_patient":false,"enable_online_booking":false,"biography":null,"primary_phone":null,"mobile_phone":null,"alt_email":null,"username":null}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33leK6EgE6mYRn",
+      "type": "providers",
+      "attributes": {
+        "id": "33leK6EgE6mYRn",
+        "email": "test@email.com",
+        "role": "Provider",
+        "user-id": "33leK6EDBrKRj1",
+        "title": "Mr",
+        "first-name": "Kristian",
+        "middle-name": null,
+        "last-name": "Considine",
+        "degree": "DDS",
+        "speciality": "Endodontics",
+        "street-address": "Henri Manors",
+        "suit-apt-number": "3742",
+        "city": "Port Rico",
+        "state": "Maryland",
+        "zip": null,
+        "practice-street-address": "Henri Manors",
+        "practice-suit-apt-number": "3742",
+        "practice-city": "Port Rico",
+        "practice-state": "Maryland",
+        "practice-zip": null,
+        "primary-phone": null,
+        "mobile-phone": null,
+        "alt-email": null,
+        "username": null,
+        "secondary-speciality": null,
+        "dental-licence": null,
+        "expiration-date": null,
+        "ein-tin": null,
+        "npi": null,
+        "dea": null,
+        "upin": null,
+        "nadean": null,
+        "status": false,
+        "biography": null,
+        "accepting-patient": false,
+        "enable-online-booking": false,
+        "profile-image": {
+          "url": null
+        }
+      },
+      "links": {
+        "self": "/providers/33leK6EgE6mYRn"
+      }
+    }
+  }
+
+
+Get practice for edit
+---------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Practice id
+
+Request:
+  GET /practices/33lePBL6FYukRX/edit?data[auth_token]=3c11cd097aeb0b8f3e1dde2a250aaca0&data[id]=33lePBL6FYukRX
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"3c11cd097aeb0b8f3e1dde2a250aaca0", "id"=>"33lePBL6FYukRX"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lePBL6FYukRX",
+      "type": "providers",
+      "attributes": {
+        "id": "33lePBL6FYukRX",
+        "email": "chaim@faywintheiser.name",
+        "role": "Provider",
+        "user-id": "33lePBLFve47Ln",
+        "title": "Mr",
+        "first-name": "Angus",
+        "middle-name": null,
+        "last-name": "Schiller",
+        "degree": "DDS",
+        "speciality": "Endodontics",
+        "street-address": "Lemke Harbor",
+        "suit-apt-number": "63091",
+        "city": "North Ted",
+        "state": "Kentucky",
+        "zip": null,
+        "practice-street-address": "Hand Flat",
+        "practice-suit-apt-number": "824",
+        "practice-city": "Winstonhaven",
+        "practice-state": "Missouri",
+        "practice-zip": null,
+        "primary-phone": null,
+        "mobile-phone": null,
+        "alt-email": null,
+        "username": null,
+        "secondary-speciality": null,
+        "dental-licence": null,
+        "expiration-date": null,
+        "ein-tin": null,
+        "npi": null,
+        "dea": null,
+        "upin": null,
+        "nadean": null,
+        "status": true,
+        "biography": null,
+        "accepting-patient": false,
+        "enable-online-booking": false,
+        "profile-image": {
+          "url": "/uploads/provider/profile_image/33lePBL6FYukRX/avatar2.jpg"
+        }
+      },
+      "links": {
+        "self": "/providers/33lePBL6FYukRX"
+      }
+    }
+  }
+
+
+Update practice
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * user - User parameters
+  * user_id - User id
+  * practice - Practice parameters
+  * practice_id - Practice id
+  * email - Practice email
+  * password - Practice password
+  * password_confirmation - Practice password confirmation
+  * practice_role - Practice role
+  * provider_id - Provider id
+  * title - Mr/Ms/Dr
+  * first_name - First name
+  * middle_name - Middle name
+  * last_name - Last name
+  * degree - Degree
+  * speciality - Speciality
+  * secondary_speciality - Secondary speciality
+  * dental_licence - Dental licence
+  * street_address - Street address
+  * suit_apt_number - Suit apt number
+  * city - City
+  * state - State
+  * zip - Zip
+  * practice_street_address - Practice street address
+  * practice_suit_apt_number - Practice suit apt number
+  * practice_city - Practice city
+  * practice_state - Practice state
+  * practice_zip - Practice zip
+  * expiration_date - Expiration date
+  * ein_tin - EIN TIN
+  * npi - NPI
+  * dea - DEA
+  * upin - UPIN
+  * nadean - NADEAN
+  * accepting_patient - Accepting patient
+  * enable_online_booking - Enable online booking
+  * biography - Biography
+  * primary_phone - Primay phone
+  * mobile_phone - mobile phone
+  * alt_email - Alternative email
+  * username - Username
+  * profile_image - Profile image
+
+Request:
+  PATCH /practices/:id
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"e3513bf409174a917bfebbe754a53ca9","user":{"user_id":"33leVQznj2aKpP","email":"keanu.botsford@tillmanmuller.io","password":"doctor","password_confirmation":"doctor"},"practice":{"practice_id":"33leVQze2xQxv9","practice_role":"Provider","provider_id":null,"title":"Mr","first_name":"Adeline","middle_name":null,"last_name":"Jacobi","degree":"DDS","speciality":"Endodontics","secondary_speciality":null,"dental_licence":null,"street_address":"D'Amore Mill","suit_apt_number":"586","city":"Demarcofurt","state":"Kansas","zip":null,"practice_street_address":"D'Amore Mill","practice_suit_apt_number":"586","practice_city":"Demarcofurt","practice_state":"Kansas","practice_zip":null,"expiration_date":null,"ein_tin":null,"npi":null,"dea":null,"upin":null,"nadean":null,"accepting_patient":false,"enable_online_booking":false,"biography":null,"primary_phone":null,"mobile_phone":null,"alt_email":null,"username":null}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33leVQze2xQxv9",
+      "type": "providers",
+      "attributes": {
+        "id": "33leVQze2xQxv9",
+        "email": "keanu.botsford@tillmanmuller.io",
+        "role": "Provider",
+        "user-id": "33leVQznj2aKpP",
+        "title": "Mr",
+        "first-name": "Adeline",
+        "middle-name": null,
+        "last-name": "Jacobi",
+        "degree": "DDS",
+        "speciality": "Endodontics",
+        "street-address": "D'Amore Mill",
+        "suit-apt-number": "586",
+        "city": "Demarcofurt",
+        "state": "Kansas",
+        "zip": null,
+        "practice-street-address": "D'Amore Mill",
+        "practice-suit-apt-number": "586",
+        "practice-city": "Demarcofurt",
+        "practice-state": "Kansas",
+        "practice-zip": null,
+        "primary-phone": null,
+        "mobile-phone": null,
+        "alt-email": null,
+        "username": null,
+        "secondary-speciality": null,
+        "dental-licence": null,
+        "expiration-date": null,
+        "ein-tin": null,
+        "npi": null,
+        "dea": null,
+        "upin": null,
+        "nadean": null,
+        "status": true,
+        "biography": null,
+        "accepting-patient": false,
+        "enable-online-booking": false,
+        "profile-image": {
+          "url": "/uploads/provider/profile_image/33leVQze2xQxv9/avatar6.jpg"
+        }
+      },
+      "links": {
+        "self": "/providers/33leVQze2xQxv9"
+      }
+    }
+  }
+
+

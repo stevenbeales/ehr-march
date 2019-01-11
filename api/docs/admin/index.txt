@@ -1,0 +1,20 @@
+Index
+-----
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /admin/index?data[auth_token]=9e91ae0c64dfc283dfabf4e61a05dcfe
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"9e91ae0c64dfc283dfabf4e61a05dcfe"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+

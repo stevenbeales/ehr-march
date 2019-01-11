@@ -1,0 +1,1105 @@
+Set tooth table activity
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Tooth id, tooth must be active
+  * active - Boolean, if true - set tooth table to active
+
+Request:
+  GET /patient_treatments/tooth_activity?data[auth_token]=ec006620722e6f83887ea19b24acc32e&data[id]=33liYKRuLS0amJ&data[active]=true
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"ec006620722e6f83887ea19b24acc32e", "id"=>"33liYKRuLS0amJ", "active"=>"true"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Get tooth
+---------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Tooth id, tooth must be active
+
+Request:
+  GET /patient_treatments/show_patient_full_perio?data[auth_token]=371408e01b986a1fa8146b90709eb1ed&data[id]=33liel6Udpm2dP
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"371408e01b986a1fa8146b90709eb1ed", "id"=>"33liel6Udpm2dP"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33liel6Udpm2dP",
+      "type": "tooth-tables",
+      "attributes": {
+        "id": "33liel6Udpm2dP",
+        "patient-id": "33libUoXQtb8AF",
+        "tooth-num": 1,
+        "fm-f": null,
+        "fm-m": null,
+        "b-bsp1": false,
+        "b-bsp2": false,
+        "b-bsp3": false,
+        "b-bsp4": false,
+        "b-bsp5": false,
+        "b-bsp6": false,
+        "b-bsp7": false,
+        "b-bsp8": false,
+        "b-bsp9": false,
+        "l-bsp1": false,
+        "l-bsp2": false,
+        "l-bsp3": false,
+        "l-bsp4": false,
+        "l-bsp5": false,
+        "l-bsp6": false,
+        "l-bsp7": false,
+        "l-bsp8": false,
+        "l-bsp9": false,
+        "active": true
+      },
+      "links": {
+        "self": "/tooth-tables/33liel6Udpm2dP"
+      }
+    }
+  }
+
+
+Get tooth
+---------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Tooth id, tooth must be active
+  * fm_f - Fm f
+  * fm_m - Fm m
+  * mgl - Mgl
+  * cal - Cal
+  * pd - Pd
+  * gm - Gm
+  * b1 - Tooth table mgl b1
+  * b2 - Tooth table mgl b2
+  * b3 - Tooth table mgl b3
+  * b_bsp1 - Tooth table mgl b bsp1
+  * b_bsp2 - Tooth table mgl b bsp2
+  * b_bsp3 - Tooth table mgl b bsp3
+  * b_bsp4 - Tooth table mgl b bsp4
+  * b_bsp5 - Tooth table mgl b bsp5
+  * b_bsp6 - Tooth table mgl b bsp6
+  * b_bsp7 - Tooth table mgl b bsp7
+  * b_bsp8 - Tooth table mgl b bsp8
+  * b_bsp9 - Tooth table mgl b bsp9
+  * l1 - Tooth table mgl l1
+  * l2 - Tooth table mgl l2
+  * l3 - Tooth table mgl l3
+  * l_bsp1 - Tooth table mgl l bsp1
+  * l_bsp2 - Tooth table mgl l bsp2
+  * l_bsp3 - Tooth table mgl l bsp3
+  * l_bsp4 - Tooth table mgl l bsp4
+  * l_bsp5 - Tooth table mgl l bsp5
+  * l_bsp6 - Tooth table mgl l bsp6
+  * l_bsp7 - Tooth table mgl l bsp7
+  * l_bsp8 - Tooth table mgl l bsp8
+  * l_bsp9 - Tooth table mgl l bsp9
+  * b1 - Tooth table cal b1
+  * b2 - Tooth table cal b2
+  * b3 - Tooth table cal b3
+  * b_bsp1 - Tooth table cal b bsp1
+  * b_bsp2 - Tooth table cal b bsp2
+  * b_bsp3 - Tooth table cal b bsp3
+  * b_bsp4 - Tooth table cal b bsp4
+  * b_bsp5 - Tooth table cal b bsp5
+  * b_bsp6 - Tooth table cal b bsp6
+  * b_bsp7 - Tooth table cal b bsp7
+  * b_bsp8 - Tooth table cal b bsp8
+  * b_bsp9 - Tooth table cal b bsp9
+  * l1 - Tooth table cal l1
+  * l2 - Tooth table cal l2
+  * l3 - Tooth table cal l3
+  * l_bsp1 - Tooth table cal l bsp1
+  * l_bsp2 - Tooth table cal l bsp2
+  * l_bsp3 - Tooth table cal l bsp3
+  * l_bsp4 - Tooth table cal l bsp4
+  * l_bsp5 - Tooth table cal l bsp5
+  * l_bsp6 - Tooth table cal l bsp6
+  * l_bsp7 - Tooth table cal l bsp7
+  * l_bsp8 - Tooth table cal l bsp8
+  * l_bsp9 - Tooth table cal l bsp9
+  * b1 - Tooth table pd b1
+  * b2 - Tooth table pd b2
+  * b3 - Tooth table pd b3
+  * b_bsp1 - Tooth table pd b bsp1
+  * b_bsp2 - Tooth table pd b bsp2
+  * b_bsp3 - Tooth table pd b bsp3
+  * b_bsp4 - Tooth table pd b bsp4
+  * b_bsp5 - Tooth table pd b bsp5
+  * b_bsp6 - Tooth table pd b bsp6
+  * b_bsp7 - Tooth table pd b bsp7
+  * b_bsp8 - Tooth table pd b bsp8
+  * b_bsp9 - Tooth table pd b bsp9
+  * l1 - Tooth table pd l1
+  * l2 - Tooth table pd l2
+  * l3 - Tooth table pd l3
+  * l_bsp1 - Tooth table pd l bsp1
+  * l_bsp2 - Tooth table pd l bsp2
+  * l_bsp3 - Tooth table pd l bsp3
+  * l_bsp4 - Tooth table pd l bsp4
+  * l_bsp5 - Tooth table pd l bsp5
+  * l_bsp6 - Tooth table pd l bsp6
+  * l_bsp7 - Tooth table pd l bsp7
+  * l_bsp8 - Tooth table pd l bsp8
+  * l_bsp9 - Tooth table pd l bsp9
+  * b1 - Tooth table gm b1
+  * b2 - Tooth table gm b2
+  * b3 - Tooth table gm b3
+  * b_bsp1 - Tooth table gm b bsp1
+  * b_bsp2 - Tooth table gm b bsp2
+  * b_bsp3 - Tooth table gm b bsp3
+  * b_bsp4 - Tooth table gm b bsp4
+  * b_bsp5 - Tooth table gm b bsp5
+  * b_bsp6 - Tooth table gm b bsp6
+  * b_bsp7 - Tooth table gm b bsp7
+  * b_bsp8 - Tooth table gm b bsp8
+  * b_bsp9 - Tooth table gm b bsp9
+  * l1 - Tooth table gm l1
+  * l2 - Tooth table gm l2
+  * l3 - Tooth table gm l3
+  * l_bsp1 - Tooth table gm l bsp1
+  * l_bsp2 - Tooth table gm l bsp2
+  * l_bsp3 - Tooth table gm l bsp3
+  * l_bsp4 - Tooth table gm l bsp4
+  * l_bsp5 - Tooth table gm l bsp5
+  * l_bsp6 - Tooth table gm l bsp6
+  * l_bsp7 - Tooth table gm l bsp7
+  * l_bsp8 - Tooth table gm l bsp8
+  * l_bsp9 - Tooth table gm l bsp9
+
+Request:
+  PATCH /patient_treatments/update_full_perio
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"18130102da9decf122edb054e132868e","tooth_table":{"id":"33likBvygCvQTz","fm_f":0,"fm_m":0,"mgl":{"b1":1,"b2":2,"b3":3,"b_bsp1":true,"b_bsp2":true,"b_bsp3":true,"b_bsp4":true,"b_bsp5":true,"b_bsp6":true,"b_bsp7":true,"b_bsp8":true,"b_bsp9":true,"l1":1,"l2":2,"l3":3,"l_bsp1":true,"l_bsp2":true,"l_bsp3":true,"l_bsp4":true,"l_bsp5":true,"l_bsp6":true,"l_bsp7":true,"l_bsp8":true,"l_bsp9":true},"cal":{"b1":1,"b2":2,"b3":3,"b_bsp1":true,"b_bsp2":true,"b_bsp3":true,"b_bsp4":true,"b_bsp5":true,"b_bsp6":true,"b_bsp7":true,"b_bsp8":true,"b_bsp9":true,"l1":1,"l2":2,"l3":3,"l_bsp1":true,"l_bsp2":true,"l_bsp3":true,"l_bsp4":true,"l_bsp5":true,"l_bsp6":true,"l_bsp7":true,"l_bsp8":true,"l_bsp9":true},"pd":{"b1":1,"b2":2,"b3":3,"b_bsp1":true,"b_bsp2":true,"b_bsp3":true,"b_bsp4":true,"b_bsp5":true,"b_bsp6":true,"b_bsp7":true,"b_bsp8":true,"b_bsp9":true,"l1":1,"l2":2,"l3":3,"l_bsp1":true,"l_bsp2":true,"l_bsp3":true,"l_bsp4":true,"l_bsp5":true,"l_bsp6":true,"l_bsp7":true,"l_bsp8":true,"l_bsp9":true},"gm":{"b1":1,"b2":2,"b3":3,"b_bsp1":true,"b_bsp2":true,"b_bsp3":true,"b_bsp4":true,"b_bsp5":true,"b_bsp6":true,"b_bsp7":true,"b_bsp8":true,"b_bsp9":true,"l1":1,"l2":2,"l3":3,"l_bsp1":true,"l_bsp2":true,"l_bsp3":true,"l_bsp4":true,"l_bsp5":true,"l_bsp6":true,"l_bsp7":true,"l_bsp8":true,"l_bsp9":true}}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33likBvygCvQTz",
+      "type": "tooth-tables",
+      "attributes": {
+        "id": "33likBvygCvQTz",
+        "patient-id": "33liiDVB0Jgkjb",
+        "tooth-num": 1,
+        "fm-f": 0,
+        "fm-m": 0,
+        "b-bsp1": false,
+        "b-bsp2": false,
+        "b-bsp3": false,
+        "b-bsp4": false,
+        "b-bsp5": false,
+        "b-bsp6": false,
+        "b-bsp7": false,
+        "b-bsp8": false,
+        "b-bsp9": false,
+        "l-bsp1": false,
+        "l-bsp2": false,
+        "l-bsp3": false,
+        "l-bsp4": false,
+        "l-bsp5": false,
+        "l-bsp6": false,
+        "l-bsp7": false,
+        "l-bsp8": false,
+        "l-bsp9": false,
+        "active": true
+      },
+      "links": {
+        "self": "/tooth-tables/33likBvygCvQTz"
+      }
+    }
+  }
+
+
+Get full perio
+--------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * field - mgl/cal/pd/gm
+
+Request:
+  GET /patient_treatments/show_patient_perio_data_entry?data[auth_token]=7b027d6c68bdd751df4ea0342d75a3fc&data[patient_id]=33linWVJmO0RVr&data[field]=mgl
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"7b027d6c68bdd751df4ea0342d75a3fc", "patient_id"=>"33linWVJmO0RVr", "field"=>"mgl"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "patient": {
+        "active": true,
+        "birth": "2006-02-26T17:25:53.569+02:00",
+        "created_at": "2016-02-26T17:25:53.664+02:00",
+        "ethnicity": "Hispanic of Latino",
+        "first_name": "Dedric",
+        "gender": "Male",
+        "id": "33linWVJmO0RVr",
+        "immunization_registry": "NotSend",
+        "last_name": "Jones",
+        "mobile_phone": "+12225630272",
+        "primary_phone": "+15999044950",
+        "profile_image": {
+          "url": "/uploads/patient/profile_image/33linWVJmO0RVr/avatar5.jpg"
+        },
+        "provider_id": null,
+        "social_number": "417483469",
+        "updated_at": "2016-02-26T17:25:53.664+02:00",
+        "user_id": "33linWVTST9oQ7",
+        "work_phone": null
+      },
+      "field": "mgl",
+      "top_teeth": [
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.678+02:00",
+          "id": "33lipylO2TPuBH",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 18,
+          "updated_at": "2016-02-26T17:25:57.678+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.733+02:00",
+          "id": "33lipymAQtAkiZ",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 19,
+          "updated_at": "2016-02-26T17:25:57.733+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.792+02:00",
+          "id": "33lipymwpIvbFr",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 20,
+          "updated_at": "2016-02-26T17:25:57.792+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.845+02:00",
+          "id": "33lipynjDigRn9",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 21,
+          "updated_at": "2016-02-26T17:25:57.845+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.901+02:00",
+          "id": "33lipyoVc8RIKR",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 22,
+          "updated_at": "2016-02-26T17:25:57.901+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.953+02:00",
+          "id": "33lipypI0YC8rj",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 23,
+          "updated_at": "2016-02-26T17:25:57.953+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.009+02:00",
+          "id": "33liqnFWqMXEDj",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 24,
+          "updated_at": "2016-02-26T17:25:58.009+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.068+02:00",
+          "id": "33liqnGJEmI4l1",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 25,
+          "updated_at": "2016-02-26T17:25:58.068+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.121+02:00",
+          "id": "33liqnH5dC2vIJ",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 26,
+          "updated_at": "2016-02-26T17:25:58.121+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.210+02:00",
+          "id": "33liqnHs1bnlpb",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 27,
+          "updated_at": "2016-02-26T17:25:58.210+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.259+02:00",
+          "id": "33liqnIeQ1YcMt",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 28,
+          "updated_at": "2016-02-26T17:25:58.259+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.316+02:00",
+          "id": "33liqnJQoRJSuB",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 29,
+          "updated_at": "2016-02-26T17:25:58.316+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.371+02:00",
+          "id": "33liqnKDCr4JRT",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 30,
+          "updated_at": "2016-02-26T17:25:58.371+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.428+02:00",
+          "id": "33liqnKzbGp9yl",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 31,
+          "updated_at": "2016-02-26T17:25:58.428+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:58.486+02:00",
+          "id": "33liqnLlzga0W3",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 32,
+          "updated_at": "2016-02-26T17:25:58.486+02:00"
+        }
+      ],
+      "bottom_teeth": [
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.513+02:00",
+          "id": "33lipyj2rE9MZP",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 15,
+          "updated_at": "2016-02-26T17:25:57.513+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.456+02:00",
+          "id": "33lipyiGSoOW27",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 14,
+          "updated_at": "2016-02-26T17:25:57.456+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.401+02:00",
+          "id": "33lipyhU4OdfUp",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 13,
+          "updated_at": "2016-02-26T17:25:57.401+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.341+02:00",
+          "id": "33lipyghfysoxX",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 12,
+          "updated_at": "2016-02-26T17:25:57.341+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.286+02:00",
+          "id": "33lipyfvHZ7yQF",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 11,
+          "updated_at": "2016-02-26T17:25:57.286+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.233+02:00",
+          "id": "33lipyf8t9N7sx",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 10,
+          "updated_at": "2016-02-26T17:25:57.233+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.153+02:00",
+          "id": "33lipyeMUjcHLf",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 9,
+          "updated_at": "2016-02-26T17:25:57.153+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.095+02:00",
+          "id": "33lipyda6JrQoN",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 8,
+          "updated_at": "2016-02-26T17:25:57.095+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:57.036+02:00",
+          "id": "33lipycnhu6aH5",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 7,
+          "updated_at": "2016-02-26T17:25:57.036+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:56.974+02:00",
+          "id": "33lipZtBZhUs5r",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 6,
+          "updated_at": "2016-02-26T17:25:56.974+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:56.914+02:00",
+          "id": "33lipZsPBHk1YZ",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 5,
+          "updated_at": "2016-02-26T17:25:56.914+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:56.859+02:00",
+          "id": "33lipZrcmrzB1H",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 4,
+          "updated_at": "2016-02-26T17:25:56.859+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:56.808+02:00",
+          "id": "33lipZqqOSEKTz",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 3,
+          "updated_at": "2016-02-26T17:25:56.808+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:56.753+02:00",
+          "id": "33lipZq402TTwh",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 2,
+          "updated_at": "2016-02-26T17:25:56.753+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:25:56.700+02:00",
+          "id": "33lipZpHbcidPP",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33linWVJmO0RVr",
+          "tooth_num": 1,
+          "updated_at": "2016-02-26T17:25:56.700+02:00"
+        }
+      ]
+    }
+  }
+
+
+Update all teeth fields
+-----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * tooth_tables - All 32 tooth with specific tooth field
+
+Request:
+  PATCH /patient_treatments/update_tooth
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"aedd628f29dff84f1a195bb416ce365a","patient":{"tooth_tables":[{"id":"33liufp7aZUzWl","tooth_field_id":"33liufpHGeeMR1","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufptyzFq43","tooth_field_id":"33liufq3f4PCyJ","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufqgNP0gbL","tooth_field_id":"33liufqq3UA3Vb","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufrSlolX8d","tooth_field_id":"33liufrcRtuu2t","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufsFAEWNfv","tooth_field_id":"33liufsOqJfkaB","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liuft1YeHEDD","tooth_field_id":"33liuftBEjQb7T","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liuftnx424kV","tooth_field_id":"33liuftxd9BRel","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufuaLTmvHn","tooth_field_id":"33liufuk1YwIC3","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufvMjtXlp5","tooth_field_id":"33liufvWPyh8jL","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33livZy2Z9BWT5","tooth_field_id":"33livZyCFEKtNL","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33livZyoxYwN0N","tooth_field_id":"33livZyyde5jud","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33livZzbLyhDXf","tooth_field_id":"33livZzl23qaRv","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva0NkOS44x","tooth_field_id":"33liva0XQTbQzD","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva1A8oCucF","tooth_field_id":"33liva1JotMHWV","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva1wXDxl9X","tooth_field_id":"33liva26DJ783n","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva2ivdibgp","tooth_field_id":"33liva2sbiryb5","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva3VK3TSE7","tooth_field_id":"33liva3f08cp8N","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva4HiTEIlP","tooth_field_id":"33liva4ROYNfff","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva546sz9Ih","tooth_field_id":"33liva5Dmy8WCx","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva5qVIjzpz","tooth_field_id":"33liva60BNtMkF","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva6ctiUqNH","tooth_field_id":"33liva6mZneDHX","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva7PI8FguZ","tooth_field_id":"33liva7YyDP3op","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva8BgY0XRr","tooth_field_id":"33liva8LMd9uM7","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva8y4xlNz9","tooth_field_id":"33liva97l2uktP","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva9kTNWEWR","tooth_field_id":"33liva9u9SfbQh","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33livaAWrnH53j","tooth_field_id":"33liwCakjdNFnn","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCbNRxyjQp","tooth_field_id":"33liwCbX8386L5","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCc9qNjZy7","tooth_field_id":"33liwCcJWSswsN","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCcwEnUQVP","tooth_field_id":"33liwCd5usdnPf","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCdidDFH2h","tooth_field_id":"33liwCdsJIOdwx","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCeV1d07Zz","tooth_field_id":"33liwCeehi9UUF","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCfHQ2ky7H","tooth_field_id":"33liwCfR67uL1X","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}}]}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Inverse value of field name for tooth table and all child tooth fields
+----------------------------------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * field_name - b_bsp1, b_bsp2 ... b_bsp9 or l_bsp1, l_bsp2 ... l_bsp9
+  * id - Tooth table id
+
+Request:
+  GET /patient_treatments/set_tooth_bsp?data[auth_token]=8d92e960a3d7e8f6680e09140e90cb88&data[field_name]=b_bsp4&data[id]=33lj3SYDQuN6bD
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"8d92e960a3d7e8f6680e09140e90cb88", "field_name"=>"b_bsp4", "id"=>"33lj3SYDQuN6bD"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+

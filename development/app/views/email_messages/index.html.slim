@@ -1,0 +1,14 @@
+.content
+  .container.bordered-container
+    div#tabsContainer role="tab-panel"
+      = render 'tab_container', messages: @messages, type: 'inbox', amount: 25, page: 1, sort_by: 'created_at'
+#modal-messages-new-message-to-patient.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+#modal-reply-to-message-from-patient.modal.fade aria-hidden="true" role="dialog" tabindex="-1" 
+#modal-forward-message-from-patient.modal.fade aria-hidden="true" role="dialog" tabindex="-1" 
+#modal-messages-new-message-in-practice.modal.fade aria-hidden="true" role="dialog" tabindex="-1" 
+#modal-reply-to-message-in-practice-contacts.modal.fade aria-hidden="true" role="dialog" tabindex="-1" 
+#modal-forward-to-message-in-practice-contacts.modal.fade aria-hidden="true" role="dialog" tabindex="-1" 
+#modal-contacts-new-contact.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+#modal-message-new.modal.fade
+#modal-message-reply.modal.fade
+#modal-message-forward.modal.fade

@@ -1,0 +1,270 @@
+#patientPerioChartTab.tab-pane.fade role="tabpanel"
+  .scrollable-container
+    .content
+      .row
+        .col-lg-9.left-block
+          .bordered-container
+            .table-responsive
+              table.table
+                thead
+                  tr
+                    th colspan="34"
+                      p
+                        | Chart Date:
+                        span
+                          = @patient.created_at.strftime('%m/%d/%Y')
+                tbody
+                  tr
+                    td.main-title rowspan="8"
+                      p.breaked BUCCAL
+                    td.title
+                      p F & M
+                    - @top_teeth.each do |tooth|
+                      td colspan="3"
+                        = text_field_tag :fm_f, tooth.fm_f, maxlength: 1, class: 'input-tooth'
+                      td colspan="3"
+                        = text_field_tag :fm_m, tooth.fm_m, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p PD
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.pd.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.pd.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.pd.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p GM
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.gm.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.gm.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.gm.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p CAL
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.cal.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.cal.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.cal.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p MGL
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.mgl.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.mgl.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.mgl.b3, maxlength: 1, class: 'input-tooth'
+                  = render 'perio_color_dots', type_name: 'Bleed', teeth: @top_teeth, field_names: %w(b_bsp1 b_bsp2 b_bsp3)
+                  = render 'perio_color_dots', type_name: 'Supp.', teeth: @top_teeth, field_names: %w(b_bsp4 b_bsp5 b_bsp6)
+                  = render 'perio_color_dots', type_name: 'Plaq.', teeth: @top_teeth, field_names: %w(b_bsp7 b_bsp8 b_bsp9)
+                  tr.separator
+                    td colspan="98"
+                  tr
+                    td.main-title rowspan="8"
+                      p.breaked LINGUAL
+                  tr
+                    td.title
+                      p PD
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.pd.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.pd.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.pd.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p GM
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.gm.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.gm.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.gm.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p CAL
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.cal.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.cal.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.cal.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p MGL
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.mgl.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.mgl.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.mgl.b3, maxlength: 1, class: 'input-tooth'
+                  = render 'perio_color_dots', type_name: 'Bleed', teeth: @top_teeth, field_names: %w(l_bsp1 l_bsp2 l_bsp3)
+                  = render 'perio_color_dots', type_name: 'Supp.', teeth: @top_teeth, field_names: %w(l_bsp4 l_bsp5 l_bsp6)
+                  = render 'perio_color_dots', type_name: 'Plaq.', teeth: @top_teeth, field_names: %w(l_bsp7 l_bsp8 l_bsp9)
+                  tr.numbers.numbers-top
+                    td.controls colspan="2" rowspan="8"
+                      select.select2 data-placeholder="Export" data-theme="green-dark" data-arrow="1x" data-padding="1x" data-font="1x" id="provider_name"
+                        option value="Dr. J. Wilson" Dr. J. Wilson
+                      = link_to 'PD',  '#', class: 'button button-modal-open', data: { field: 'pd'  }, 'data-target' => '#modal-patient-perio-data-entry'
+                      = link_to 'GM',  '#', class: 'button button-modal-open', data: { field: 'gm'  }, 'data-target' => '#modal-patient-perio-data-entry'
+                      = link_to 'CAL', '#', class: 'button button-modal-open', data: { field: 'cal' }, 'data-target' => '#modal-patient-perio-data-entry'
+                      = link_to 'MGL', '#', class: 'button button-modal-open', data: { field: 'mgl' }, 'data-target' => '#modal-patient-perio-data-entry'
+                      = link_to 'Tooth Full Perio', '#', class: 'button button-modal-open', 'data-target' => '#modal-patient-full-perio'
+                      - if policy(:chart).perio_update?
+                        a.button.button-tooth-extracted Ext.
+                    - @top_teeth.each do |tooth|
+                      td.tooth_number colspan="6" class=('active' if tooth.tooth_num == 1) data-id="#{tooth.id}"
+                        = link_to tooth.tooth_num, '#', class: 'number'
+                  = render 'patients_adult_tooths'
+                  tr.numbers.numbers-bottom
+                    - @bottom_teeth.each do |tooth|
+                      td.tooth_number colspan="6" data-id="#{tooth.id}"
+                        = link_to tooth.tooth_num, '#', class: 'number'
+                  tr
+                    td.main-title rowspan="8"
+                      p.breaked BUCCAL
+                    td.title
+                      p F & M
+                    - @bottom_teeth.each do |tooth|
+                      td colspan="3"
+                        = text_field_tag :fm_f, tooth.fm_f, maxlength: 1, class: 'input-tooth'
+                      td colspan="3"
+                        = text_field_tag :fm_m, tooth.fm_m, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p PD
+                    - @bottom_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :l1, tooth.pd.l1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :l2, tooth.pd.l2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :l3, tooth.pd.l3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p GM
+                    - @bottom_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :l1, tooth.gm.l1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :l2, tooth.gm.l2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :l3, tooth.gm.l3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p CAL
+                    - @bottom_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :l1, tooth.cal.l1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :l2, tooth.cal.l2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :l3, tooth.cal.l3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p MGL
+                    - @bottom_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :l1, tooth.mgl.l1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :l2, tooth.mgl.l2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :l3, tooth.mgl.l3, maxlength: 1, class: 'input-tooth'
+                    = render 'perio_color_dots', type_name: 'Bleed', teeth: @bottom_teeth, field_names: %w(b_bsp1 b_bsp2 b_bsp3)
+                    = render 'perio_color_dots', type_name: 'Supp.', teeth: @bottom_teeth, field_names: %w(b_bsp4 b_bsp5 b_bsp6)
+                    = render 'perio_color_dots', type_name: 'Plaq.', teeth: @bottom_teeth, field_names: %w(b_bsp7 b_bsp8 b_bsp9)
+                  tr.separator
+                    td colspan="98"
+                  tr
+                    td.main-title rowspan="8"
+                      p.breaked LINGUAL
+                  tr
+                    td.title
+                      p PD
+                    - @bottom_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.pd.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.pd.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.pd.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p GM
+                    - @top_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.gm.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.gm.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.gm.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p CAL
+                    - @bottom_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.cal.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.cal.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.cal.b3, maxlength: 1, class: 'input-tooth'
+                  tr
+                    td.title
+                      p MGL
+                    - @bottom_teeth.each do |tooth|
+                      td colspan="2"
+                        = text_field_tag :b1, tooth.mgl.b1, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b2, tooth.mgl.b2, maxlength: 1, class: 'input-tooth'
+                      td colspan="2"
+                        = text_field_tag :b3, tooth.mgl.b3, maxlength: 1, class: 'input-tooth'
+                  = render 'perio_color_dots', type_name: 'Bleed', teeth: @bottom_teeth, field_names: %w(l_bsp1 l_bsp2 l_bsp3)
+                  = render 'perio_color_dots', type_name: 'Supp.', teeth: @bottom_teeth, field_names: %w(l_bsp4 l_bsp5 l_bsp6)
+                  = render 'perio_color_dots', type_name: 'Plaq.', teeth: @bottom_teeth, field_names: %w(l_bsp7 l_bsp8 l_bsp9)
+        .col-lg-3.right-block
+          .form-group
+            = render 'nav_patients_actions', title: 'Actions'
+          .form-group
+            .panel.panel-default
+              .panel-heading
+                a data-toggle="collapse" href="#patient_perio_treatments"
+                  h4.panel-title
+                    | Treatments
+                    i.fa.fa-angle-right
+              .panel-collapse.in id="patient_perio_treatments"
+                .panel-body
+                  p D2490 Resin
+                  p D111 Prophy
+                  p D0140 Crown
+            .panel.panel-default
+              .panel-heading
+                a data-toggle="collapse" href="#patient_perio_intra_oral_images"
+                  h4.panel-title
+                    | Intra/Extra Oral Images
+                    i.fa.fa-angle-right
+              .panel-collapse.in id="patient_perio_intra_oral_images"
+                .panel-body
+                  = image_tag('fake-data/fake_intra_oral_image.png', alt: "patient_intra_oral_image", class: 'image-container')
+            .panel.panel-default
+              .panel-heading
+                a data-toggle="collapse" href="#patient_perio_x_ray_images"
+                  h4.panel-title
+                    | X-Ray Images
+                    i.fa.fa-angle-right
+              .panel-collapse.in id="patient_perio_x_ray_images"
+                .panel-body
+                  = image_tag('fake-data/fake_x_ray_image.png', alt: "patient_x_ray_image", class: 'image-container')

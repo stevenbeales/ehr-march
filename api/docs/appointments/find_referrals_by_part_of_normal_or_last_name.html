@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointments API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Appointments API</h1>
+
+      <div class="article">
+        <h2>Find referrals by part of normal or last name</h2>
+        <h3>GET /appointments/referrals</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">data[part]</span>
+                </td>
+                <td>
+                  <span class="description">The beginning of a referral&#39;s normal or last name</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /appointments/referrals?data[auth_token]=ce1388715e3e572dc1c76ba3cb7ad3b2&amp;data[part]=De</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;ce1388715e3e572dc1c76ba3cb7ad3b2&quot;, &quot;part&quot;=&gt;&quot;De&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;33lQ4Xb9MWQHUh&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ4Xb9MWQHUh&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: &quot;Jessy&quot;,
+        &quot;last-name&quot;: &quot;Brown&quot;,
+        &quot;individual-npi&quot;: &quot;57-5534436&quot;,
+        &quot;speciality&quot;: &quot;Periodontics&quot;,
+        &quot;phone&quot;: &quot;+14837213224&quot;,
+        &quot;fax&quot;: &quot;+14202741365&quot;,
+        &quot;email&quot;: &quot;devan@bode.net&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ4Xb9MWQHUh&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ4XbJ2bZeOx&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ4XbJ2bZeOx&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: &quot;Amira&quot;,
+        &quot;last-name&quot;: &quot;Crown&quot;,
+        &quot;individual-npi&quot;: &quot;57-9875556&quot;,
+        &quot;speciality&quot;: &quot;Prosthodontics&quot;,
+        &quot;phone&quot;: &quot;+16898926557&quot;,
+        &quot;fax&quot;: &quot;+13403744941&quot;,
+        &quot;email&quot;: &quot;pinkie@feillittle.biz&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ4XbJ2bZeOx&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ4XbSigj1JD&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ4XbSigj1JD&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: &quot;Elisa&quot;,
+        &quot;last-name&quot;: &quot;Down&quot;,
+        &quot;individual-npi&quot;: &quot;84-9652567&quot;,
+        &quot;speciality&quot;: &quot;Endodontics&quot;,
+        &quot;phone&quot;: &quot;+15084540414&quot;,
+        &quot;fax&quot;: &quot;+12662920122&quot;,
+        &quot;email&quot;: &quot;bernadine_waelchi@bergstromwolff.com&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ4XbSigj1JD&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ4XbcOlsODT&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ4XbcOlsODT&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: &quot;Wilfred&quot;,
+        &quot;last-name&quot;: &quot;Xown&quot;,
+        &quot;individual-npi&quot;: &quot;64-2891135&quot;,
+        &quot;speciality&quot;: &quot;Prosthodontics&quot;,
+        &quot;phone&quot;: &quot;+13321432760&quot;,
+        &quot;fax&quot;: &quot;+19869358910&quot;,
+        &quot;email&quot;: &quot;buster.oconnell@connelly.info&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ4XbcOlsODT&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ4Xbm4r1l7j&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ4Xbm4r1l7j&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: &quot;Haley&quot;,
+        &quot;last-name&quot;: &quot;Unknown&quot;,
+        &quot;individual-npi&quot;: &quot;26-2244785&quot;,
+        &quot;speciality&quot;: &quot;Pediatric Dentistry&quot;,
+        &quot;phone&quot;: &quot;+12122549773&quot;,
+        &quot;fax&quot;: &quot;+17835504582&quot;,
+        &quot;email&quot;: &quot;kirk@parker.info&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ4Xbm4r1l7j&quot;
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

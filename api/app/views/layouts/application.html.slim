@@ -1,0 +1,36 @@
+doctype html
+html
+head
+  title
+    = Apitome.configuration.title
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
+  = javascript_include_tag 'application'
+  = stylesheet_link_tag    Apitome.configuration.code_theme_url, media: 'all'
+  = stylesheet_link_tag    Apitome.configuration.css_override || 'apitome/application', media: 'all'
+  = javascript_include_tag Apitome.configuration.js_override || 'apitome/application'
+  = javascript_include_tag "https://www.authy.com/form.authy.min.js"
+  = stylesheet_link_tag "https://www.authy.com/form.authy.min.css"
+body class="#{Apitome.configuration.single_page ? 'single-page' : ''}"
+  .container
+    header.navbar.navbar-fixed-top.docs-nav role="banner"
+      .container
+        .navbar-header
+          h1.navbar-brand
+            a href="#{Apitome.configuration.mount_at}"
+              = Apitome.configuration.title
+          .pull-right
+            - if current_user.present?
+              - if current_user.authy_id.present? && current_user.authy_enabled
+                = link_to 'Disable 2FA', user_disable_authy_path(id: current_user.id), method: :post, class: 'btn btn-warning'
+              - else
+                = link_to 'Enable 2FA', user_enable_authy_path, class: 'btn btn-info'
+              = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger'
+    .container.docs-container
+      .row
+        - if current_user.present?
+          .col-md-4
+            #sidebar.sidebar.hidden-print role="complementary"
+              = render partial: 'shared/navigation'
+        .col-md-8 role="main"
+          .docs-section
+            = yield

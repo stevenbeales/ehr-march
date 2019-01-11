@@ -1,0 +1,45 @@
+.modal-dialog.modal-md
+  = flash[:error]
+  = simple_form_for @representative, remote: true, html: { class: 'modal-content' } do |f|
+    = hidden_field_tag :patient_id, @patient.id
+    .modal-header
+      p.title
+        = "#{ type } Authorized Representative"
+      a.close-button href="#" data-dismiss="modal"
+    .modal-body
+      .scrollable-container
+        .content
+          .row
+            .col-lg-12
+              .form-group
+                = f.input :first_name, input_html: { class: 'form-control', placeholder: 'First Name' }
+          .row
+            .col-lg-12
+              .form-group
+                = f.input :last_name, input_html: { class: 'form-control', placeholder: 'Last Name' }
+          .row
+            .col-lg-12
+              .form-group
+                = f.simple_fields_for @user do |u|
+                  = u.input :email, as: :email, input_html: { class: 'form-control', placeholder: 'Email' }
+          .row
+            .col-lg-12
+              .form-group
+                = f.input :primary_phone, input_html: { class: 'form-control input-phone', placeholder: 'Primary Contact Phone' }
+          - if type == 'Add'
+            .row
+              .col-lg-12
+                .form-group
+                  .checkbox-custom
+                    = check_box_tag :representative_policy, false, class: 'checkbox'
+                    label for="representative_policy"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label
+                        | Representative has read and signed  
+                        a href="#" Authorized Representative Acceptable Use Policy
+    .modal-footer
+      .controls
+        - if type != 'View'
+          = f.submit 'Save', class: 'button'
+        a.button href="#" data-dismiss="modal" Close

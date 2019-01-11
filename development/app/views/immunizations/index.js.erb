@@ -1,0 +1,7 @@
+$("#modal-patient-immunizations").html("<%= escape_javascript(render 'immunizations') %>")
+
+initPickers('#modal-patient-immunizations');
+initModalFadeInOut('#modal-patient-immunizations');
+initSelect2('#modal-patient-immunizations');
+
+$("#modal-patient-immunizations").modal("show")

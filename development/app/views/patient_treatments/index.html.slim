@@ -1,0 +1,66 @@
+.content
+  .container
+    .patients-header
+      div role="tab-panel"
+        ul.nav.nav-tabs.styled
+          li.active
+            a data-toggle="tab" href="#patientsRecentTab" role="tab" Recent
+          / li
+            a data-toggle="tab" href="#patientsScheduledTab" role="tab" Scheduled
+          li.calendar-controls
+            a.button-calendar.button-calendar-left href="#"
+              i.fa.fa-angle-left
+            a.button-calendar-today href="#" Oct. 21
+            a.button-calendar.button-calendar-right href="#"
+              i.fa.fa-angle-right
+        .tab-content.bordered-container
+          #patientsRecentTab.tab-pane.active role="tabpanel"
+            .row.controls
+              .col-lg-4.col-md-4.col-sm-4
+                .form-group
+                  .input-group-custom
+                    input#find-patients-input.form-control placeholder="Search Patients" autocomplete="off"
+                    span#find-patients-button.input-group-addon.input-group-addon-right.input-group-addon-search
+              .col-lg-4.col-md-4.col-sm-4
+                .form-group
+                  .checkbox-custom
+                    input.checkbox type="checkbox" id="patient_show_inactive"
+                    label for="patient_show_inactive"
+                      span.checkbox-icon-container
+                        span.checkbox-icon
+                      span.checkbox-label Show Inactive
+              .col-lg-4.col-md-4.col-sm-4
+                - if policy(Patient).create?
+                  .form-group
+                    = link_to 'Add Patient', add_patient_providers_path, remote: true, class: 'button'
+            = render 'patients', patients: @patients
+          #patientsScheduledTab.tab-pane.active role="tabpanel"
+            div
+
+#modal-patient-main.patientMainModal.modal.fade.bs-example-modal-lg aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-diagnoses.search-modal.modal.fade.bs-example-modal-lg aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-add-diagnoses.search-modal.modal.fade.bs-example-modal-lg aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-medications.search-modal.modal.fade.bs-example-modal-lg aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-add-medications.search-modal.modal.fade.bs-example-modal-lg aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-allergy.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-smoking.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-add-medical-history.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-add-advanced-directives.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-add-message.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-add-insurance.modal.fade.bs-example-modal-lg aria-hidden="true" role="dialog" tabindex="-1"
+#modal-patient-add-payer.modal.fade role="dialog" tabindex="-1"
+#modal-patient-full-perio.modal.fade role="dialog" tabindex="-1"
+#modal-patient-perio-data-entry.modal.fade role="dialog" tabindex="-1"
+#modal-patient-add-encounter.modal.fade role="dialog" tabindex="-1"
+#modal-patient-add-procedure.modal.fade role="dialog" tabindex="-1"
+#modal-patient-show-procedure.modal.fade role="dialog" tabindex="-1"
+#modal-add-appointment.modal-provider.modal.fade role="dialog" tabindex="-1"
+#modal-new-patient.modal-provider.modal.fade role="dialog" tabindex="-1"
+#modal-new-referral.modal-provider.modal.fade role="dialog" tabindex="-1"
+#modal-patient-all-authorized-representatives.modal.fade role="dialog" tabindex="-1"
+#modal-patient-add-authorized-representative.modal.fade role="dialog" tabindex="-1"
+#modal-patient-show-authorized-representative.modal.fade role="dialog" tabindex="-1"
+#modal-patient-edit-authorized-representative.modal.fade role="dialog" tabindex="-1"
+#modal-patient-reset-password-authorized-representative.modal.fade role="dialog" tabindex="-1"
+#modal-patient-immunizations.modal.fade role="dialog" tabindex="-1"
+#modal-patient-immunization-vaccine.modal.fade role="dialog" tabindex="-1"

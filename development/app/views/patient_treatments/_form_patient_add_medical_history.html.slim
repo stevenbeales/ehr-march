@@ -1,0 +1,33 @@
+.modal-content
+  = flash[:error]
+  .modal-header
+    p.title Record Past Medical History
+  = simple_form_for @patient.past_medical_history, url: update_medical_history_patient_treatments_path, remote: true do |p|
+    .modal-body
+      .scrollable-container
+        .content
+          = p.input :id, as: :hidden, input_html: { value: @patient.past_medical_history.id }
+          = p.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+          .row
+            .col-lg-12
+              .form-group
+                = p.input :major_events, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Major Events' }
+          .row
+            .col-lg-12
+              .form-group
+                = p.input :ongoing_problems, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Ongoing Medical Problems' }
+          .row
+            .col-lg-12
+              .form-group
+                = p.input :preventitive_care, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Preventitive Care' }
+          .row
+            .col-lg-12
+              .form-group
+                = p.input :nutrition_history, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Nutrition History' }
+          .row
+            .col-lg-12
+              = p.input :developmental_history, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Developmental History' }
+    .modal-footer
+      .controls
+        = p.submit 'Save', class: 'button button-save'
+        a.button.button-cancel data-dismiss="modal" Cancel

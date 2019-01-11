@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient treatement API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patient treatement API</h1>
+
+      <div class="article">
+        <h2>Create patient encounter</h2>
+        <h3>POST /patient_treatments/create_patient_encounter</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">patient_id</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">procedure_id</span>
+                </td>
+                <td>
+                  <span class="description">Procedure id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">encounter</span>
+                </td>
+                <td>
+                  <span class="description">Encounter params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">vital</span>
+                </td>
+                <td>
+                  <span class="description">Vital params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">procedure_completed</span>
+                </td>
+                <td>
+                  <span class="description">Procedure completed params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">procedure_recommended</span>
+                </td>
+                <td>
+                  <span class="description">Procedure recommended params</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">encounter[provider_id]</span>
+                </td>
+                <td>
+                  <span class="description">Provider id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">encounter[notes]</span>
+                </td>
+                <td>
+                  <span class="description">Notes</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">encounter[med_completed]</span>
+                </td>
+                <td>
+                  <span class="description">Medication completed</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">encounter[patient_education]</span>
+                </td>
+                <td>
+                  <span class="description">Patient education</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">encounter[clinical_summary]</span>
+                </td>
+                <td>
+                  <span class="description">Clinical summary</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">encounter[to_provider_id]</span>
+                </td>
+                <td>
+                  <span class="description">To provider id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">encounter[from_provider_id]</span>
+                </td>
+                <td>
+                  <span class="description">From provider id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[height_major]</span>
+                </td>
+                <td>
+                  <span class="description">Height major</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[height_minor]</span>
+                </td>
+                <td>
+                  <span class="description">Height minor</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[weight]</span>
+                </td>
+                <td>
+                  <span class="description">Weight</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[units_system]</span>
+                </td>
+                <td>
+                  <span class="description">Units system</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[bp_left]</span>
+                </td>
+                <td>
+                  <span class="description">Bp left</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[bp_right]</span>
+                </td>
+                <td>
+                  <span class="description">Bp right</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[temp]</span>
+                </td>
+                <td>
+                  <span class="description">Temp</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[pulse]</span>
+                </td>
+                <td>
+                  <span class="description">Pulse</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[rr]</span>
+                </td>
+                <td>
+                  <span class="description">RR</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[sat]</span>
+                </td>
+                <td>
+                  <span class="description">SAT</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[temp_type]</span>
+                </td>
+                <td>
+                  <span class="description">Temp type</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[ra_type]</span>
+                </td>
+                <td>
+                  <span class="description">RA type</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">vital[blood]</span>
+                </td>
+                <td>
+                  <span class="description">Blood</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">procedure_completed[procedure_code]</span>
+                </td>
+                <td>
+                  <span class="description">Procedure code</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">procedure_recommended[procedure_code]</span>
+                </td>
+                <td>
+                  <span class="description">Procedure code</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /patient_treatments/create_patient_encounter</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"6f76edfc37b05332f350f3685cb18e78","patient_id":"33laPgTx4BDIR9","procedure_id":"33laVD7tMOInRb","encounter":{"provider_id":"33laOQ0oWuXdgZ","notes":"Sit fuga totam officia quos eos eaque dolorem.","med_completed":true,"patient_education":true,"clinical_summary":true,"to_provider_id":null,"from_provider_id":null},"vital":{"height_major":9,"height_minor":2,"weight":37.0,"units_system":"us","bp_left":"nulla","bp_right":"qui","temp":"et","pulse":"eum","rr":"est","sat":"est","temp_type":"Rectal","ra_type":"2.0 LO2","blood":"corrupti"},"procedure_completed":{"procedure_code":"D1206"},"procedure_recommended":{"procedure_code":"D6240"}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33lapg9J8GVnmt&quot;,
+    &quot;type&quot;: &quot;encounters&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33lapg9J8GVnmt&quot;,
+      &quot;provider-id&quot;: &quot;33laOQ0oWuXdgZ&quot;,
+      &quot;patient-id&quot;: &quot;33laPgTx4BDIR9&quot;,
+      &quot;notes&quot;: &quot;Sit fuga totam officia quos eos eaque dolorem.&quot;,
+      &quot;med-completed&quot;: true,
+      &quot;patient-education&quot;: true,
+      &quot;clinical-summary&quot;: true,
+      &quot;to-provider-id&quot;: null,
+      &quot;from-provider-id&quot;: null
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/encounters/33lapg9J8GVnmt&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

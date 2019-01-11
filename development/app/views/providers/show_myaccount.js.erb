@@ -1,0 +1,44 @@
+$("#modal-myaccount").html("<%= escape_javascript(render 'form_show_myaccount') %>")
+
+initPickers('#modal-myaccount');
+initModalFadeInOut('#modal-myaccount');
+initSelect2('#modal-myaccount');
+
+$("#modal-myaccount").modal("show");
+
+if($('#modal-settings-add-edit-location-practice').length == 0) {
+  $('#modal-myaccount #myaccount-add-practice-location').unbind('click');
+}
+
+$('#modal-myaccount #myaccount-add-practice-location').click(function(e) {
+  if($('#modal-settings-add-edit-location-practice').length == 0) {
+    $('body').append('<div class="modal fade" id="modal-settings-add-edit-location-practice"></div>');
+    var parent = $(this).closest('.modal');
+    $($(this).attr('data-target')).on('show.bs.modal', function (e) {
+      if($(e.target).hasClass('modal')){
+        modalBackward(parent);
+      }
+    });
+    $($(this).attr('data-target')).on('hidden.bs.modal', function (e) {
+      if($(e.target).hasClass('modal')){
+        modalForward(parent);
+      }
+    });
+    initModalsReposition();
+  }
+})
+
+$('.attachment-container .button-attachment').on('click', function(e) {
+  e.preventDefault();
+  $(this).closest('.attachment-container').find('input[type="file"]').trigger('click');
+})
+
+$('.primary_location').click(function() {
+  $.ajax({
+    url: '<%= Rails.application.routes.url_helpers.primary_location_locations_path %>',
+    data: {
+      id: $(this).data('id'),
+      checked: $(this).is(':checked')
+    }
+  });
+});

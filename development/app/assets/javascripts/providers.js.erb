@@ -1,0 +1,102 @@
+//= require application
+//= require controls
+//= require sorter
+//= require calendars/main
+//= require zipcode
+
+$(document).ajaxStart(function(e) {
+  NProgress.start();
+});
+
+$(document).ajaxStop(function() {
+  NProgress.done();
+});
+
+$(document).ready(function() {
+  initPickers();
+  initModalsReposition();
+
+  $('#modal-add-patient .modal-add-patient-save').on('click', function(){
+    $('#collapsing-patient-adding').collapse('hide');
+    $('#collapsing-patient-added').collapse('show');
+  });
+
+  $('#modal-add-patient').on('hidden.bs.modal', function() {
+    $('#collapsing-patient-adding').collapse('show');
+    $('#collapsing-patient-added').collapse('hide');
+  });
+
+  $('#check-all input[type=checkbox]').on('change', function() {
+    if($(this).is(':checked')) {
+      $('#table-my-todo-s tbody .checkbox .checkbox-table input[type="checkbox"]').each(function() {
+        $(this).prop('checked', true);
+      })
+    }
+    else {
+      $('#table-my-todo-s tbody .checkbox .checkbox-table input[type="checkbox"]').each(function() {
+        $(this).prop('checked', false);
+      })
+    }
+  });
+
+  $('#modal-lockscreen input[type="password"]').bind('input', function() {
+    passwordInputChangeSize($(this));
+  });
+
+  $('#modal-lockscreen input[type="password"]').bind('keyup', function(e) {
+    if(e.keyCode == 13)
+    {
+      $('#modal-lockscreen #unlock').trigger('click');
+      return false;
+    }
+  });
+
+  $('#modal-lockscreen').on('show.bs.modal', function() {
+    $.ajax({ url: '<%= Rails.application.routes.url_helpers.lock_providers_path %>' });
+    $('body').append($(this));
+    $('main').addClass('blurred');
+    $(this).find('.form-control').focus();
+  });
+
+  $('#unlock').click(function() {
+    var unlockDOM = function() {
+      $('#modal-lockscreen').modal('hide');
+      $('#modal-lockscreen').on('hidden.bs.modal', function() {
+        $('#modal-lockscreen input[type="password"]').val('');
+        $('#modal-lockscreen input[type="password"]').removeClass('input-password');
+      });
+      $('main').removeClass('blurred');
+      $('#modal-lockscreen .modal-body .message').remove();
+      $('#modal-lockscreen .modal-body').css('padding', '23px 42px 28px 42px');
+    };
+    var errorShow = function(error) {
+      var message = $('<div/>',{'class':'message'});
+      message.append($('<p/>').text(error));
+      $('#modal-lockscreen .modal-body').append(message);
+      $('#modal-lockscreen input[type="password"]').val('');
+      $('#modal-lockscreen input[type="password"]').removeClass('input-password');
+      $('#modal-lockscreen .modal-body').css('padding', '43px 42px 28px 42px');
+    };
+    $.ajax({
+      type: 'POST',
+      url: '<%= Rails.application.routes.url_helpers.unlock_providers_path %>',
+      data: {
+        password: $('#modal-lockscreen input[type="password"]').val()
+      }
+    }).done(function(result) {
+      if(result['status'] == 'Ok') { unlockDOM(); }
+      else { errorShow(result['error']); }
+    });
+  });
+
+  $('a#delete-message').click(function() {
+    var message = $(this).closest('tr');
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.destroy_message_providers_path %>',
+      data: { message_id: $(this).data('id') }
+    }).done(function() {
+      message.remove();
+    });
+    return false;
+  });
+});

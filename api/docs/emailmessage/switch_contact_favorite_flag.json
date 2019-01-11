@@ -1,0 +1,55 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/favorite_contact",
+  "description": "Switch contact favorite flag",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "contact_id",
+      "description": "Contact id"
+    },
+    {
+      "scope": "data",
+      "name": "favorite",
+      "description": "Boolean, if true - contact is favorite"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/favorite_contact?data[auth_token]=6a6ab4b14ff53aace7ada1e2bcbad989&data[contact_id]=33lVL8IhNnxPMJ&data[favorite]=true",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "6a6ab4b14ff53aace7ada1e2bcbad989",
+          "contact_id": "33lVL8IhNnxPMJ",
+          "favorite": "true"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lVL8IhNnxPMJ\",\n    \"type\": \"contacts\",\n    \"attributes\": {\n      \"id\": \"33lVL8IhNnxPMJ\",\n      \"provider-id\": \"33lVL8Ir3t6mGZ\",\n      \"favorite\": true\n    },\n    \"links\": {\n      \"self\": \"/contacts/33lVL8IhNnxPMJ\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

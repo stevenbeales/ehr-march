@@ -1,0 +1,48 @@
+source 'https://rubygems.org'
+
+ruby File.read('.ruby-version').strip
+
+gem 'rails',                    '4.2.5.2'
+gem 'nobrainer'
+gem 'jquery-rails'
+gem 'sass-rails',               '~> 5.0'
+gem 'uglifier',                 '~> 2.7'
+gem 'jbuilder',                 '~> 2.4'
+gem 'turbolinks'
+gem 'figaro'
+gem 'jsonapi-resources'
+gem 'jsonapi-serializers'
+gem 'devise-nobrainer'
+gem 'devise'
+gem 'devise-authy'
+gem 'rspec_api_documentation'
+gem 'apitome'
+gem 'rspec-rails',              '~> 3.4'
+gem 'spring-commands-rspec',                platform: :ruby
+gem 'prawn'
+gem 'prawn-table'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave-nobrainer', github: 'katafrakt/carrierwave-nobrainer'
+gem 'slim-rails'
+gem 'twilio-ruby'
+gem 'phony_rails'
+gem 'will_paginate'
+gem 'kaminari-nobrainer'
+gem 'pundit'
+
+gem 'sdoc',                     '~> 0.4',   group: :doc
+
+group :development, :test do
+  gem 'mailcatcher'
+  gem 'spring',                             platform: :ruby
+  gem 'byebug'
+  gem 'shoulda-matchers',       '~> 3.1',   require: false
+  gem 'factory_girl'
+  gem 'factory_girl_rails',     '~> 4.6'
+  gem 'faker'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
+  gem 'pry-rescue'
+  gem 'thin'
+end

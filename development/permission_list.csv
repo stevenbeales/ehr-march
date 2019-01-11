@@ -1,0 +1,49 @@
+Allergy update?,AllergyPolicy#update?,true,true,true,true,true
+Allergy create?,AllergyPolicy#create?,true,true,true,true,true
+Allergy show?,AllergyPolicy#show?,true,true,true,true,true
+Calendar show?,CalendarPolicy#show?,true,true,true,true,true
+Chart main show?,ChartPolicy#main_show?,true,true,true,true,true
+Chart dental show?,ChartPolicy#dental_show?,true,true,true,true,true
+Chart perio show?,ChartPolicy#perio_show?,true,true,true,true,true
+Chart profile show?,ChartPolicy#profile_show?,true,true,true,true,true
+Chart perio update?,ChartPolicy#perio_update?,true,true,true,true,true
+Chart insurance show?,ChartPolicy#insurance_show?,true,true,true,true,true
+Diagnosis update?,DiagnosisPolicy#update?,true,true,true,true,true
+Diagnosis create?,DiagnosisPolicy#create?,true,true,true,true,true
+Diagnosis show?,DiagnosisPolicy#show?,true,true,true,true,true
+Medication update?,MedicationPolicy#update?,true,true,true,true,true
+Medication create?,MedicationPolicy#create?,true,true,true,true,true
+Medication show?,MedicationPolicy#show?,true,true,true,true,true
+Profile update?,ProfilePolicy#update?,true,true,true,true,true
+Profile show?,ProfilePolicy#show?,true,true,true,true,true
+Advanced directive update?,AdvancedDirectivePolicy#update?,true,true,true,true,true
+Advanced directive show?,AdvancedDirectivePolicy#show?,true,true,true,true,true
+Encounter update?,EncounterPolicy#update?,true,true,true,true,true
+Encounter create?,EncounterPolicy#create?,true,true,true,true,true
+Encounter show?,EncounterPolicy#show?,true,true,true,true,true
+Past medical history update?,PastMedicalHistoryPolicy#update?,true,true,true,true,true
+Past medical history show?,PastMedicalHistoryPolicy#show?,true,true,true,true,true
+Practice update?,PracticePolicy#update?,true,true,true,true,true
+Practice create?,PracticePolicy#create?,true,true,true,true,true
+Practice show?,PracticePolicy#show?,true,true,true,true,true
+Procedure update?,ProcedurePolicy#update?,true,true,true,true,true
+Procedure create?,ProcedurePolicy#create?,true,true,true,true,true
+Procedure show?,ProcedurePolicy#show?,true,true,true,true,true
+Setting show?,SettingPolicy#show?,true,true,true,true,true
+Setting schedule?,SettingPolicy#schedule?,true,true,true,true,true
+Smoking status update?,SmokingStatusPolicy#update?,true,true,true,true,true
+Smoking status show?,SmokingStatusPolicy#show?,true,true,true,true,true
+To do update?,ToDoPolicy#update?,true,true,true,true,true
+To do show?,ToDoPolicy#show?,true,true,true,true,true
+Email message create?,EmailMessagePolicy#create?,true,true,true,true,true
+Email message show?,EmailMessagePolicy#show?,true,true,true,true,true
+Patient update?,PatientPolicy#update?,true,true,true,true,true
+Patient patient?,PatientPolicy#patient?,true,true,true,true,true
+Patient create?,PatientPolicy#create?,true,true,true,true,true
+Appointment update?,AppointmentPolicy#update?,true,true,true,true,true
+Appointment create?,AppointmentPolicy#create?,true,true,true,true,true
+Appointment show?,AppointmentPolicy#show?,true,true,true,true,true
+Appointment reschedule?,AppointmentPolicy#reschedule?,true,true,true,true,true
+Immunization update?,ImmunizationPolicy#update?,true,true,true,true,true
+Immunization create?,ImmunizationPolicy#create?,true,true,true,true,true
+Immunization show?,ImmunizationPolicy#show?,true,true,true,true,true

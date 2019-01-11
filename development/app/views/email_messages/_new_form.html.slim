@@ -1,0 +1,48 @@
+.modal-dialog.modal-md
+  .modal-content
+    .modal-header
+      p.title New Message (To Patient)
+    = flash[:error]
+    = simple_form_for EmailMessage.new, url: email_messages_path, remote: true do |t|
+      = t.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+      .modal-body
+        .scrollable-container
+          .content
+            .row
+              .col-lg-12
+                .form-group
+                  .input-group.disabled
+                    span.input-group-addon To Patient:
+                    = text_field_tag :patient_full_name, @patient.full_name, class: 'form-control', readonly: 'readonly', tabindex: '-1'
+            .row
+              .col-lg-12
+                .form-group
+                  .input-group.disabled
+                    span.input-group-addon From:
+                    = text_field_tag :provider_full_name, "#{current_user.provider.title}. #{current_user.provider.full_name}, #{current_user.provider.degree}", class: 'form-control', readonly: 'true', tabindex: '-1'
+            .row
+              .col-lg-12
+                .form-group
+                  = t.input :subject_id, as: :hidden
+                  .input-group.input-group-custom.input-group-subject
+                    span.input-group-addon Subject:
+                    a.form-control#subject-button href="#"
+                    #subjects-container
+                      ul.dropdown-menu#subjects-list
+                      .controls
+                        input.form-control#subject-add-input type="text" placeholder="Add New Subject"
+                        a.button#subject-add-button href="#" Add
+            .row
+              .col-lg-12
+                = t.input :body, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Message:' }
+      .modal-footer
+        .controls
+          .checkbox-custom
+            = t.check_box :urgent, class: 'checkbox'
+            label for="email_message_urgent"
+              span.checkbox-icon-container
+                span.checkbox-icon
+              span.checkbox-label Urgent
+          = t.submit 'Send', class: 'button button-send'
+          = t.submit 'Save', class: 'button button-save'
+          a.button.button-cancel data-dismiss="modal" Cancel

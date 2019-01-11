@@ -1,0 +1,73 @@
+{
+  "resource": "Patients",
+  "http_method": "POST",
+  "route": "/patients/simple_create",
+  "description": "Create new patient without email",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "patient",
+      "name": "first_name",
+      "description": "First_name"
+    },
+    {
+      "scope": "patient",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "patient",
+      "name": "middle_name",
+      "description": "Middle name"
+    },
+    {
+      "scope": "patient",
+      "name": "birth",
+      "description": "Birth date"
+    },
+    {
+      "scope": "patient",
+      "name": "gender",
+      "description": "Gender"
+    },
+    {
+      "scope": "patient",
+      "name": "mobile_phone",
+      "description": "Mobile phone"
+    },
+    {
+      "scope": "patient",
+      "name": "primary_phone",
+      "description": "Primary phone"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/patients/simple_create",
+      "request_body": "{\"data\":{\"auth_token\":\"4466df2a4b2b0bd488fb50cceb1913eb\",\"patient\":{\"first_name\":\"Ernestine\",\"last_name\":\"Jast\",\"middle_name\":null,\"birth\":\"2006-02-26T17:17:24.264+02:00\",\"gender\":\"Male\",\"mobile_phone\":\"+15034306726\",\"primary_phone\":\"+16766449139\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33ldQFbzW6IDCt\",\n    \"type\": \"patients\",\n    \"attributes\": {\n      \"id\": \"33ldQFbzW6IDCt\",\n      \"email\": \"92811@mail.com\",\n      \"role\": \"Patient\",\n      \"first-name\": \"Ernestine\",\n      \"middle-name\": null,\n      \"last-name\": \"Jast\",\n      \"gender\": \"Male\",\n      \"mobile-phone\": \"+15034306726\",\n      \"primary-phone\": \"+16766449139\",\n      \"code\": 12958,\n      \"social-number\": null,\n      \"active\": true,\n      \"declined-portal-access\": null,\n      \"preferred-language\": null,\n      \"ethnicity\": \"Hispanic of Latino\",\n      \"american-race\": null,\n      \"asian-race\": null,\n      \"african-race\": null,\n      \"hawaiian-race\": null,\n      \"white-race\": null,\n      \"undetermined-race\": null,\n      \"email-reminder\": null,\n      \"sms-reminder\": null,\n      \"immunization-registry\": \"NotSend\",\n      \"work-phone\": null,\n      \"ext\": null,\n      \"street-address\": null,\n      \"city\": null,\n      \"state\": null,\n      \"zip\": null,\n      \"profile-image\": {\n        \"url\": null\n      }\n    },\n    \"links\": {\n      \"self\": \"/patients/33ldQFbzW6IDCt\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

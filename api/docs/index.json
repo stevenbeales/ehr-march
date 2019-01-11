@@ -1,0 +1,1017 @@
+{
+  "resources": [
+    {
+      "name": "Admin",
+      "examples": [
+        {
+          "description": "Index",
+          "link": "admin/index.json",
+          "groups": "all",
+          "route": "/admin/index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Appointments",
+      "examples": [
+        {
+          "description": "Create appointment",
+          "link": "appointments/create_appointment.json",
+          "groups": "all",
+          "route": "/appointments",
+          "method": "post"
+        },
+        {
+          "description": "Delete appointment",
+          "link": "appointments/delete_appointment.json",
+          "groups": "all",
+          "route": "/appointments/:id",
+          "method": "delete"
+        },
+        {
+          "description": "Find patients by part of first or last name",
+          "link": "appointments/find_patients_by_part_of_first_or_last_name.json",
+          "groups": "all",
+          "route": "/appointments/patients",
+          "method": "get"
+        },
+        {
+          "description": "Find referrals by part of normal or last name",
+          "link": "appointments/find_referrals_by_part_of_normal_or_last_name.json",
+          "groups": "all",
+          "route": "/appointments/referrals",
+          "method": "get"
+        },
+        {
+          "description": "Get first 10 patients",
+          "link": "appointments/get_first_10_patients.json",
+          "groups": "all",
+          "route": "/appointments/patients",
+          "method": "get"
+        },
+        {
+          "description": "Get first 10 referrals",
+          "link": "appointments/get_first_10_referrals.json",
+          "groups": "all",
+          "route": "/appointments/referrals",
+          "method": "get"
+        },
+        {
+          "description": "New appointment",
+          "link": "appointments/new_appointment.json",
+          "groups": "all",
+          "route": "/appointments/new",
+          "method": "get"
+        },
+        {
+          "description": "Set appointment status to reschedule",
+          "link": "appointments/set_appointment_status_to_reschedule.json",
+          "groups": "all",
+          "route": "/appointments/reschedule",
+          "method": "get"
+        },
+        {
+          "description": "Show appointment",
+          "link": "appointments/show_appointment.json",
+          "groups": "all",
+          "route": "/appointments/:id",
+          "method": "get"
+        },
+        {
+          "description": "Update appointment",
+          "link": "appointments/update_appointment.json",
+          "groups": "all",
+          "route": "/appointments/:id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Block out",
+      "examples": [
+        {
+          "description": "Create block out",
+          "link": "block_out/create_block_out.json",
+          "groups": "all",
+          "route": "/block_outs",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Calendar",
+      "examples": [
+        {
+          "description": "Filtered calendars",
+          "link": "calendar/filtered_calendars.json",
+          "groups": "all",
+          "route": "/calendars/filter",
+          "method": "get"
+        },
+        {
+          "description": "Get calendars from range",
+          "link": "calendar/get_calendars_from_range.json",
+          "groups": "all",
+          "route": "/calendars/get_calendars",
+          "method": "get"
+        },
+        {
+          "description": "Move calendar",
+          "link": "calendar/move_calendar.json",
+          "groups": "all",
+          "route": "/calendars/:id/move",
+          "method": "get"
+        },
+        {
+          "description": "Open reschedule",
+          "link": "calendar/open_reschedule.json",
+          "groups": "all",
+          "route": "/calendars/open_reschedule",
+          "method": "get"
+        },
+        {
+          "description": "Reschedule",
+          "link": "calendar/reschedule.json",
+          "groups": "all",
+          "route": "/calendars/reschedule",
+          "method": "patch"
+        },
+        {
+          "description": "Resize calendar",
+          "link": "calendar/resize_calendar.json",
+          "groups": "all",
+          "route": "/calendars/:id/resize",
+          "method": "get"
+        },
+        {
+          "description": "Schedule",
+          "link": "calendar/schedule.json",
+          "groups": "all",
+          "route": "/calendars/schedule",
+          "method": "get"
+        },
+        {
+          "description": "Show calendar",
+          "link": "calendar/show_calendar.json",
+          "groups": "all",
+          "route": "/calendars/:id",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "examples": [
+        {
+          "description": "Index",
+          "link": "dashboard/index.json",
+          "groups": "all",
+          "route": "/dashboard/index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "EmailMessage",
+      "examples": [
+        {
+          "description": "Create contact",
+          "link": "emailmessage/create_contact.json",
+          "groups": "all",
+          "route": "/email_messages/add_contact",
+          "method": "get"
+        },
+        {
+          "description": "Create message from current patient to practice",
+          "link": "emailmessage/create_message_from_current_patient_to_practice.json",
+          "groups": "all",
+          "route": "/email_messages/create_from_patient_to_practice",
+          "method": "post"
+        },
+        {
+          "description": "Create message from current user to patient",
+          "link": "emailmessage/create_message_from_current_user_to_patient.json",
+          "groups": "all",
+          "route": "/email_messages",
+          "method": "post"
+        },
+        {
+          "description": "Create message from current user to patient and practice",
+          "link": "emailmessage/create_message_from_current_user_to_patient_and_practice.json",
+          "groups": "all",
+          "route": "/email_messages/create_to_practice",
+          "method": "post"
+        },
+        {
+          "description": "Create new subject",
+          "link": "emailmessage/create_new_subject.json",
+          "groups": "all",
+          "route": "/email_messages/add_subject",
+          "method": "get"
+        },
+        {
+          "description": "Create reply message",
+          "link": "emailmessage/create_reply_message.json",
+          "groups": "all",
+          "route": "/email_messages/create_reply",
+          "method": "post"
+        },
+        {
+          "description": "Delete messages",
+          "link": "emailmessage/delete_messages.json",
+          "groups": "all",
+          "route": "/email_messages/delete_message",
+          "method": "get"
+        },
+        {
+          "description": "Delete subject",
+          "link": "emailmessage/delete_subject.json",
+          "groups": "all",
+          "route": "/email_messages/remove_subject",
+          "method": "get"
+        },
+        {
+          "description": "Get 25 contacts with pagination",
+          "link": "emailmessage/get_25_contacts_with_pagination.json",
+          "groups": "all",
+          "route": "/email_messages/contacts",
+          "method": "get"
+        },
+        {
+          "description": "Get all subjects",
+          "link": "emailmessage/get_all_subjects.json",
+          "groups": "all",
+          "route": "/email_messages/get_subjects",
+          "method": "get"
+        },
+        {
+          "description": "Get all subjects",
+          "link": "emailmessage/get_all_subjects.json",
+          "groups": "all",
+          "route": "/email_messages/get_subjects",
+          "method": "get"
+        },
+        {
+          "description": "Get certain amount of certain type email messages with pagination",
+          "link": "emailmessage/get_certain_amount_of_certain_type_email_messages_with_pagination.json",
+          "groups": "all",
+          "route": "/email_messages/new_tab",
+          "method": "get"
+        },
+        {
+          "description": "Get certain amount of certain type email messages with pagination",
+          "link": "emailmessage/get_certain_amount_of_certain_type_email_messages_with_pagination.json",
+          "groups": "all",
+          "route": "/email_messages/new_tab",
+          "method": "get"
+        },
+        {
+          "description": "Get first 25 inbox messages",
+          "link": "emailmessage/get_first_25_inbox_messages.json",
+          "groups": "all",
+          "route": "/email_messages",
+          "method": "get"
+        },
+        {
+          "description": "Get patient by id",
+          "link": "emailmessage/get_patient_by_id.json",
+          "groups": "all",
+          "route": "/email_messages/new",
+          "method": "get"
+        },
+        {
+          "description": "Get practice by id",
+          "link": "emailmessage/get_practice_by_id.json",
+          "groups": "all",
+          "route": "/email_messages/practice",
+          "method": "get"
+        },
+        {
+          "description": "Mark messages as read",
+          "link": "emailmessage/mark_messages_as_read.json",
+          "groups": "all",
+          "route": "/email_messages/mark_as_read",
+          "method": "get"
+        },
+        {
+          "description": "Remove messages to archive",
+          "link": "emailmessage/remove_messages_to_archive.json",
+          "groups": "all",
+          "route": "/email_messages/to_archive",
+          "method": "get"
+        },
+        {
+          "description": "Search messages",
+          "link": "emailmessage/search_messages.json",
+          "groups": "all",
+          "route": "/email_messages/search_message",
+          "method": "get"
+        },
+        {
+          "description": "Search patients by part of first or last name",
+          "link": "emailmessage/search_patients_by_part_of_first_or_last_name.json",
+          "groups": "all",
+          "route": "/email_messages/patients",
+          "method": "get"
+        },
+        {
+          "description": "Search practice by part of first or last name",
+          "link": "emailmessage/search_practice_by_part_of_first_or_last_name.json",
+          "groups": "all",
+          "route": "/email_messages/find_practices",
+          "method": "get"
+        },
+        {
+          "description": "Switch contact favorite flag",
+          "link": "emailmessage/switch_contact_favorite_flag.json",
+          "groups": "all",
+          "route": "/email_messages/favorite_contact",
+          "method": "get"
+        },
+        {
+          "description": "Update subject",
+          "link": "emailmessage/update_subject.json",
+          "groups": "all",
+          "route": "/email_messages/update_subject",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Show",
+          "link": "errors/show.json",
+          "groups": "all",
+          "route": "/errors/show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Landings",
+      "examples": [
+        {
+          "description": "Index",
+          "link": "landings/index.json",
+          "groups": "all",
+          "route": "/landings/index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Locations",
+      "examples": [
+        {
+          "description": "Create location",
+          "link": "locations/create_location.json",
+          "groups": "all",
+          "route": "/locations",
+          "method": "post"
+        },
+        {
+          "description": "Get location for edit",
+          "link": "locations/get_location_for_edit.json",
+          "groups": "all",
+          "route": "/locations/form",
+          "method": "get"
+        },
+        {
+          "description": "New location",
+          "link": "locations/new_location.json",
+          "groups": "all",
+          "route": "/locations/form",
+          "method": "get"
+        },
+        {
+          "description": "Set location as primary",
+          "link": "locations/set_location_as_primary.json",
+          "groups": "all",
+          "route": "/locations/primary_location",
+          "method": "get"
+        },
+        {
+          "description": "Update timeslots",
+          "link": "locations/update_timeslots.json",
+          "groups": "all",
+          "route": "/locations/:id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Patient appointment",
+      "examples": [
+        {
+          "description": "Create patient appointment",
+          "link": "patient_appointment/create_patient_appointment.json",
+          "groups": "all",
+          "route": "/patient_appointments",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Patient treatement",
+      "examples": [
+        {
+          "description": "Add patient diagnoses",
+          "link": "patient_treatement/add_patient_diagnoses.json",
+          "groups": "all",
+          "route": "/patient_treatments/add_patient_diagnoses",
+          "method": "get"
+        },
+        {
+          "description": "Add patient medications",
+          "link": "patient_treatement/add_patient_medications.json",
+          "groups": "all",
+          "route": "/patient_treatments/add_patient_medications",
+          "method": "get"
+        },
+        {
+          "description": "Create patient allergy",
+          "link": "patient_treatement/create_patient_allergy.json",
+          "groups": "all",
+          "route": "/patient_treatments/create_allergy",
+          "method": "post"
+        },
+        {
+          "description": "Create patient allergy",
+          "link": "patient_treatement/create_patient_allergy.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_allergy",
+          "method": "patch"
+        },
+        {
+          "description": "Create patient diagnoses",
+          "link": "patient_treatement/create_patient_diagnoses.json",
+          "groups": "all",
+          "route": "/patient_treatments/create_diagnosis",
+          "method": "post"
+        },
+        {
+          "description": "Create patient encounter",
+          "link": "patient_treatement/create_patient_encounter.json",
+          "groups": "all",
+          "route": "/patient_treatments/create_patient_encounter",
+          "method": "post"
+        },
+        {
+          "description": "Create patient insurance",
+          "link": "patient_treatement/create_patient_insurance.json",
+          "groups": "all",
+          "route": "/patient_treatments/create_insurance",
+          "method": "post"
+        },
+        {
+          "description": "Create patient medication",
+          "link": "patient_treatement/create_patient_medication.json",
+          "groups": "all",
+          "route": "/patient_treatments/create_medication",
+          "method": "post"
+        },
+        {
+          "description": "Create patient payer",
+          "link": "patient_treatement/create_patient_payer.json",
+          "groups": "all",
+          "route": "/patient_treatments/create_payer",
+          "method": "post"
+        },
+        {
+          "description": "Get active or inactive patients",
+          "link": "patient_treatement/get_active_or_inactive_patients.json",
+          "groups": "all",
+          "route": "/patient_treatments/active_patients",
+          "method": "get"
+        },
+        {
+          "description": "Get active or inactive patients",
+          "link": "patient_treatement/get_active_or_inactive_patients.json",
+          "groups": "all",
+          "route": "/patient_treatments/add_patient_encounter",
+          "method": "get"
+        },
+        {
+          "description": "Get encounter by id",
+          "link": "patient_treatement/get_encounter_by_id.json",
+          "groups": "all",
+          "route": "/patient_treatments/encounter_full_info",
+          "method": "get"
+        },
+        {
+          "description": "Get tooth and procedure code for creating procedure",
+          "link": "patient_treatement/get_tooth_and_procedure_code_for_creating_procedure.json",
+          "groups": "all",
+          "route": "/patient_treatments/add_patient_procedure",
+          "method": "get"
+        },
+        {
+          "description": "Get tooth and procedure code for creating procedure",
+          "link": "patient_treatement/get_tooth_and_procedure_code_for_creating_procedure.json",
+          "groups": "all",
+          "route": "/patient_treatments/create_procedure",
+          "method": "post"
+        },
+        {
+          "description": "Get tooth and procedure code for creating procedure",
+          "link": "patient_treatement/get_tooth_and_procedure_code_for_creating_procedure.json",
+          "groups": "all",
+          "route": "/patient_treatments/guarantor",
+          "method": "get"
+        },
+        {
+          "description": "Index",
+          "link": "patient_treatement/index.json",
+          "groups": "all",
+          "route": "/patient_treatments",
+          "method": "get"
+        },
+        {
+          "description": "Search diagnosis codes",
+          "link": "patient_treatement/search_diagnosis_codes.json",
+          "groups": "all",
+          "route": "/patient_treatments/diagnosis_codes",
+          "method": "get"
+        },
+        {
+          "description": "Search medications",
+          "link": "patient_treatement/search_medications.json",
+          "groups": "all",
+          "route": "/patient_treatments/medications",
+          "method": "get"
+        },
+        {
+          "description": "Search patient",
+          "link": "patient_treatement/search_patient.json",
+          "groups": "all",
+          "route": "/patient_treatments/show_patient_main",
+          "method": "get"
+        },
+        {
+          "description": "Search patient",
+          "link": "patient_treatement/search_patient.json",
+          "groups": "all",
+          "route": "/patient_treatments/search_patients",
+          "method": "get"
+        },
+        {
+          "description": "Search payer names",
+          "link": "patient_treatement/search_payer_names.json",
+          "groups": "all",
+          "route": "/patient_treatments/payers",
+          "method": "get"
+        },
+        {
+          "description": "Search portion drugs",
+          "link": "patient_treatement/search_portion_drugs.json",
+          "groups": "all",
+          "route": "/patient_treatments/portions",
+          "method": "get"
+        },
+        {
+          "description": "Search procedure codes",
+          "link": "patient_treatement/search_procedure_codes.json",
+          "groups": "all",
+          "route": "/patient_treatments/procedure_codes",
+          "method": "get"
+        },
+        {
+          "description": "Search providers",
+          "link": "patient_treatement/search_providers.json",
+          "groups": "all",
+          "route": "/patient_treatments/providers",
+          "method": "get"
+        },
+        {
+          "description": "Show patient medications",
+          "link": "patient_treatement/show_patient_medications.json",
+          "groups": "all",
+          "route": "/patient_treatments/show_patient_medications",
+          "method": "get"
+        },
+        {
+          "description": "Update advanced directive",
+          "link": "patient_treatement/update_advanced_directive.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_advanced_directive",
+          "method": "patch"
+        },
+        {
+          "description": "Update guarantor",
+          "link": "patient_treatement/update_guarantor.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_guarantor",
+          "method": "patch"
+        },
+        {
+          "description": "Update past medical history",
+          "link": "patient_treatement/update_past_medical_history.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_medical_history",
+          "method": "patch"
+        },
+        {
+          "description": "Update patient diagnoses",
+          "link": "patient_treatement/update_patient_diagnoses.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_diagnosis",
+          "method": "patch"
+        },
+        {
+          "description": "Update patient medication",
+          "link": "patient_treatement/update_patient_medication.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_medication",
+          "method": "patch"
+        },
+        {
+          "description": "Update smoking status",
+          "link": "patient_treatement/update_smoking_status.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_smoking_status",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Patients",
+      "examples": [
+        {
+          "description": "Create emergency contact",
+          "link": "patients/create_emergency_contact.json",
+          "groups": "all",
+          "route": "/patients/create_emergency_contact",
+          "method": "post"
+        },
+        {
+          "description": "Create new patient",
+          "link": "patients/create_new_patient.json",
+          "groups": "all",
+          "route": "/patients",
+          "method": "post"
+        },
+        {
+          "description": "Create new patient without email",
+          "link": "patients/create_new_patient_without_email.json",
+          "groups": "all",
+          "route": "/patients/simple_create",
+          "method": "post"
+        },
+        {
+          "description": "Index",
+          "link": "patients/index.json",
+          "groups": "all",
+          "route": "/patients",
+          "method": "get"
+        },
+        {
+          "description": "List of medications",
+          "link": "patients/list_of_medications.json",
+          "groups": "all",
+          "route": "/patients/myhealth",
+          "method": "get"
+        },
+        {
+          "description": "List of provider locations",
+          "link": "patients/list_of_provider_locations.json",
+          "groups": "all",
+          "route": "/patients/provider_full_info",
+          "method": "get"
+        },
+        {
+          "description": "List of providers for new appointment",
+          "link": "patients/list_of_providers_for_new_appointment.json",
+          "groups": "all",
+          "route": "/patients/new_appointment",
+          "method": "get"
+        },
+        {
+          "description": "Update patient",
+          "link": "patients/update_patient.json",
+          "groups": "all",
+          "route": "/patients/:id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Practices",
+      "examples": [
+        {
+          "description": "Create practice",
+          "link": "practices/create_practice.json",
+          "groups": "all",
+          "route": "/practices",
+          "method": "post"
+        },
+        {
+          "description": "Get practice for edit",
+          "link": "practices/get_practice_for_edit.json",
+          "groups": "all",
+          "route": "/practices/:id/edit",
+          "method": "get"
+        },
+        {
+          "description": "Update practice",
+          "link": "practices/update_practice.json",
+          "groups": "all",
+          "route": "/practices/:id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "examples": [
+        {
+          "description": "Add patient",
+          "link": "providers/add_patient.json",
+          "groups": "all",
+          "route": "/providers/add_patient",
+          "method": "get"
+        },
+        {
+          "description": "Download pdf",
+          "link": "providers/download_pdf.json",
+          "groups": "all",
+          "route": "/providers/download_pdf",
+          "method": "get"
+        },
+        {
+          "description": "Get first inbox message",
+          "link": "providers/get_first_inbox_message.json",
+          "groups": "all",
+          "route": "/providers/first_message",
+          "method": "get"
+        },
+        {
+          "description": "Get next message",
+          "link": "providers/get_next_message.json",
+          "groups": "all",
+          "route": "/providers/next_message",
+          "method": "get"
+        },
+        {
+          "description": "Get previous message",
+          "link": "providers/get_previous_message.json",
+          "groups": "all",
+          "route": "/providers/prev_message",
+          "method": "get"
+        },
+        {
+          "description": "Index",
+          "link": "providers/index.json",
+          "groups": "all",
+          "route": "/providers",
+          "method": "get"
+        },
+        {
+          "description": "Lock provider user",
+          "link": "providers/lock_provider_user.json",
+          "groups": "all",
+          "route": "/providers/lock",
+          "method": "get"
+        },
+        {
+          "description": "Save email message",
+          "link": "providers/save_email_message.json",
+          "groups": "all",
+          "route": "/providers/save_message",
+          "method": "post"
+        },
+        {
+          "description": "Send invitation email",
+          "link": "providers/send_invitation_email.json",
+          "groups": "all",
+          "route": "/providers/send_invite_email",
+          "method": "get"
+        },
+        {
+          "description": "Unlock provider user",
+          "link": "providers/unlock_provider_user.json",
+          "groups": "all",
+          "route": "/providers/unlock",
+          "method": "post"
+        },
+        {
+          "description": "Update provider",
+          "link": "providers/update_provider.json",
+          "groups": "all",
+          "route": "/providers/:id",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Referral",
+      "examples": [
+        {
+          "description": "Create referral",
+          "link": "referral/create_referral.json",
+          "groups": "all",
+          "route": "/referrals",
+          "method": "post"
+        },
+        {
+          "description": "New referral",
+          "link": "referral/new_referral.json",
+          "groups": "all",
+          "route": "/referrals/new",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Registration",
+      "examples": [
+        {
+          "description": "Registrate new provider",
+          "link": "registration/registrate_new_provider.json",
+          "groups": "all",
+          "route": "/registration/create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Session",
+      "examples": [
+        {
+          "description": "Authorization",
+          "link": "session/authorization.json",
+          "groups": "all",
+          "route": "/sessions/create",
+          "method": "post"
+        },
+        {
+          "description": "Log out",
+          "link": "session/log_out.json",
+          "groups": "all",
+          "route": "/sessions/destroy",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "examples": [
+        {
+          "description": "Get practice by id",
+          "link": "settings/get_practice_by_id.json",
+          "groups": "all",
+          "route": "/settings/add_user_added_practice",
+          "method": "get"
+        },
+        {
+          "description": "Practices and locations settings",
+          "link": "settings/practices_and_locations_settings.json",
+          "groups": "all",
+          "route": "/settings/practice",
+          "method": "get"
+        },
+        {
+          "description": "Practices and locations settings",
+          "link": "settings/practices_and_locations_settings.json",
+          "groups": "all",
+          "route": "/settings/access_permissions",
+          "method": "get"
+        },
+        {
+          "description": "Practices with role \"Provider\"",
+          "link": "settings/practices_with_role_\"provider\".json",
+          "groups": "all",
+          "route": "/settings/schedule",
+          "method": "get"
+        },
+        {
+          "description": "Set colours settings",
+          "link": "settings/set_colours_settings.json",
+          "groups": "all",
+          "route": "/settings/update_schedule",
+          "method": "patch"
+        },
+        {
+          "description": "Set location color",
+          "link": "settings/set_location_color.json",
+          "groups": "all",
+          "route": "/settings/set_practice_location_color",
+          "method": "get"
+        },
+        {
+          "description": "Set practice as an admin",
+          "link": "settings/set_practice_as_an_admin.json",
+          "groups": "all",
+          "route": "/settings/set_admin",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Sorter",
+      "examples": [
+        {
+          "description": "Sort appointments and paginate",
+          "link": "sorter/sort_appointments_and_paginate.json",
+          "groups": "all",
+          "route": "/sorter/appointments",
+          "method": "get"
+        },
+        {
+          "description": "Sort inbox messages",
+          "link": "sorter/sort_inbox_messages.json",
+          "groups": "all",
+          "route": "/sorter/messages",
+          "method": "get"
+        },
+        {
+          "description": "Sort inbox messages",
+          "link": "sorter/sort_inbox_messages.json",
+          "groups": "all",
+          "route": "/sorter/todos",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Text message",
+      "examples": [
+        {
+          "description": "Create text message",
+          "link": "text_message/create_text_message.json",
+          "groups": "all",
+          "route": "/text_messages",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Tooth table",
+      "examples": [
+        {
+          "description": "Get full perio",
+          "link": "tooth_table/get_full_perio.json",
+          "groups": "all",
+          "route": "/patient_treatments/show_patient_perio_data_entry",
+          "method": "get"
+        },
+        {
+          "description": "Get tooth",
+          "link": "tooth_table/get_tooth.json",
+          "groups": "all",
+          "route": "/patient_treatments/show_patient_full_perio",
+          "method": "get"
+        },
+        {
+          "description": "Get tooth",
+          "link": "tooth_table/get_tooth.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_full_perio",
+          "method": "patch"
+        },
+        {
+          "description": "Inverse value of field name for tooth table and all child tooth fields",
+          "link": "tooth_table/inverse_value_of_field_name_for_tooth_table_and_all_child_tooth_fields.json",
+          "groups": "all",
+          "route": "/patient_treatments/set_tooth_bsp",
+          "method": "get"
+        },
+        {
+          "description": "Set tooth table activity",
+          "link": "tooth_table/set_tooth_table_activity.json",
+          "groups": "all",
+          "route": "/patient_treatments/tooth_activity",
+          "method": "get"
+        },
+        {
+          "description": "Update all teeth fields",
+          "link": "tooth_table/update_all_teeth_fields.json",
+          "groups": "all",
+          "route": "/patient_treatments/update_tooth",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Zipcodes",
+      "examples": [
+        {
+          "description": "List of cities",
+          "link": "zipcodes/list_of_cities.json",
+          "groups": "all",
+          "route": "/zipcodes/city_set",
+          "method": "get"
+        },
+        {
+          "description": "List of zipcodes",
+          "link": "zipcodes/list_of_zipcodes.json",
+          "groups": "all",
+          "route": "/zipcodes/zip_set",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}

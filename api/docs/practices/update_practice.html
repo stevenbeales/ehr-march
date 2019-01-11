@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practices API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Practices API</h1>
+
+      <div class="article">
+        <h2>Update practice</h2>
+        <h3>PATCH /practices/:id</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user</span>
+                </td>
+                <td>
+                  <span class="description">User parameters</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">user[user_id]</span>
+                </td>
+                <td>
+                  <span class="description">User id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice</span>
+                </td>
+                <td>
+                  <span class="description">Practice parameters</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">practice[practice_id]</span>
+                </td>
+                <td>
+                  <span class="description">Practice id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[email]</span>
+                </td>
+                <td>
+                  <span class="description">Practice email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[password]</span>
+                </td>
+                <td>
+                  <span class="description">Practice password</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[password_confirmation]</span>
+                </td>
+                <td>
+                  <span class="description">Practice password confirmation</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[practice_role]</span>
+                </td>
+                <td>
+                  <span class="description">Practice role</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[provider_id]</span>
+                </td>
+                <td>
+                  <span class="description">Provider id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[title]</span>
+                </td>
+                <td>
+                  <span class="description">Mr/Ms/Dr</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[first_name]</span>
+                </td>
+                <td>
+                  <span class="description">First name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[middle_name]</span>
+                </td>
+                <td>
+                  <span class="description">Middle name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[last_name]</span>
+                </td>
+                <td>
+                  <span class="description">Last name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[degree]</span>
+                </td>
+                <td>
+                  <span class="description">Degree</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[speciality]</span>
+                </td>
+                <td>
+                  <span class="description">Speciality</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[secondary_speciality]</span>
+                </td>
+                <td>
+                  <span class="description">Secondary speciality</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[dental_licence]</span>
+                </td>
+                <td>
+                  <span class="description">Dental licence</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[street_address]</span>
+                </td>
+                <td>
+                  <span class="description">Street address</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[suit_apt_number]</span>
+                </td>
+                <td>
+                  <span class="description">Suit apt number</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[city]</span>
+                </td>
+                <td>
+                  <span class="description">City</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[state]</span>
+                </td>
+                <td>
+                  <span class="description">State</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[zip]</span>
+                </td>
+                <td>
+                  <span class="description">Zip</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[practice_street_address]</span>
+                </td>
+                <td>
+                  <span class="description">Practice street address</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[practice_suit_apt_number]</span>
+                </td>
+                <td>
+                  <span class="description">Practice suit apt number</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[practice_city]</span>
+                </td>
+                <td>
+                  <span class="description">Practice city</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[practice_state]</span>
+                </td>
+                <td>
+                  <span class="description">Practice state</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[practice_zip]</span>
+                </td>
+                <td>
+                  <span class="description">Practice zip</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[expiration_date]</span>
+                </td>
+                <td>
+                  <span class="description">Expiration date</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[ein_tin]</span>
+                </td>
+                <td>
+                  <span class="description">EIN TIN</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[npi]</span>
+                </td>
+                <td>
+                  <span class="description">NPI</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[dea]</span>
+                </td>
+                <td>
+                  <span class="description">DEA</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[upin]</span>
+                </td>
+                <td>
+                  <span class="description">UPIN</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[nadean]</span>
+                </td>
+                <td>
+                  <span class="description">NADEAN</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[accepting_patient]</span>
+                </td>
+                <td>
+                  <span class="description">Accepting patient</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[enable_online_booking]</span>
+                </td>
+                <td>
+                  <span class="description">Enable online booking</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[biography]</span>
+                </td>
+                <td>
+                  <span class="description">Biography</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[primary_phone]</span>
+                </td>
+                <td>
+                  <span class="description">Primay phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[mobile_phone]</span>
+                </td>
+                <td>
+                  <span class="description">mobile phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[alt_email]</span>
+                </td>
+                <td>
+                  <span class="description">Alternative email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[username]</span>
+                </td>
+                <td>
+                  <span class="description">Username</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">practice[profile_image]</span>
+                </td>
+                <td>
+                  <span class="description">Profile image</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PATCH /practices/:id</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"e3513bf409174a917bfebbe754a53ca9","user":{"user_id":"33leVQznj2aKpP","email":"keanu.botsford@tillmanmuller.io","password":"doctor","password_confirmation":"doctor"},"practice":{"practice_id":"33leVQze2xQxv9","practice_role":"Provider","provider_id":null,"title":"Mr","first_name":"Adeline","middle_name":null,"last_name":"Jacobi","degree":"DDS","speciality":"Endodontics","secondary_speciality":null,"dental_licence":null,"street_address":"D'Amore Mill","suit_apt_number":"586","city":"Demarcofurt","state":"Kansas","zip":null,"practice_street_address":"D'Amore Mill","practice_suit_apt_number":"586","practice_city":"Demarcofurt","practice_state":"Kansas","practice_zip":null,"expiration_date":null,"ein_tin":null,"npi":null,"dea":null,"upin":null,"nadean":null,"accepting_patient":false,"enable_online_booking":false,"biography":null,"primary_phone":null,"mobile_phone":null,"alt_email":null,"username":null}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33leVQze2xQxv9&quot;,
+    &quot;type&quot;: &quot;providers&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33leVQze2xQxv9&quot;,
+      &quot;email&quot;: &quot;keanu.botsford@tillmanmuller.io&quot;,
+      &quot;role&quot;: &quot;Provider&quot;,
+      &quot;user-id&quot;: &quot;33leVQznj2aKpP&quot;,
+      &quot;title&quot;: &quot;Mr&quot;,
+      &quot;first-name&quot;: &quot;Adeline&quot;,
+      &quot;middle-name&quot;: null,
+      &quot;last-name&quot;: &quot;Jacobi&quot;,
+      &quot;degree&quot;: &quot;DDS&quot;,
+      &quot;speciality&quot;: &quot;Endodontics&quot;,
+      &quot;street-address&quot;: &quot;D&#39;Amore Mill&quot;,
+      &quot;suit-apt-number&quot;: &quot;586&quot;,
+      &quot;city&quot;: &quot;Demarcofurt&quot;,
+      &quot;state&quot;: &quot;Kansas&quot;,
+      &quot;zip&quot;: null,
+      &quot;practice-street-address&quot;: &quot;D&#39;Amore Mill&quot;,
+      &quot;practice-suit-apt-number&quot;: &quot;586&quot;,
+      &quot;practice-city&quot;: &quot;Demarcofurt&quot;,
+      &quot;practice-state&quot;: &quot;Kansas&quot;,
+      &quot;practice-zip&quot;: null,
+      &quot;primary-phone&quot;: null,
+      &quot;mobile-phone&quot;: null,
+      &quot;alt-email&quot;: null,
+      &quot;username&quot;: null,
+      &quot;secondary-speciality&quot;: null,
+      &quot;dental-licence&quot;: null,
+      &quot;expiration-date&quot;: null,
+      &quot;ein-tin&quot;: null,
+      &quot;npi&quot;: null,
+      &quot;dea&quot;: null,
+      &quot;upin&quot;: null,
+      &quot;nadean&quot;: null,
+      &quot;status&quot;: true,
+      &quot;biography&quot;: null,
+      &quot;accepting-patient&quot;: false,
+      &quot;enable-online-booking&quot;: false,
+      &quot;profile-image&quot;: {
+        &quot;url&quot;: &quot;/uploads/provider/profile_image/33leVQze2xQxv9/avatar6.jpg&quot;
+      }
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/providers/33leVQze2xQxv9&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

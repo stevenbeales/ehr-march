@@ -1,0 +1,78 @@
+{
+  "resource": "Referral",
+  "http_method": "POST",
+  "route": "/referrals",
+  "description": "Create referral",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "referral",
+      "name": "normal",
+      "description": "Normal"
+    },
+    {
+      "scope": "referral",
+      "name": "middle_name",
+      "description": "Middle name"
+    },
+    {
+      "scope": "referral",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "referral",
+      "name": "individual_npi",
+      "description": "Individual npi"
+    },
+    {
+      "scope": "referral",
+      "name": "speciality",
+      "description": "Speciality"
+    },
+    {
+      "scope": "referral",
+      "name": "phone",
+      "description": "Phone"
+    },
+    {
+      "scope": "referral",
+      "name": "fax",
+      "description": "Fax"
+    },
+    {
+      "scope": "referral",
+      "name": "email",
+      "description": "Email"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/referrals",
+      "request_body": "{\"data\":{\"auth_token\":\"bfbb9783982009116c2da16bc1cc3a25\",\"referral\":{\"normal\":\"Conor\",\"middle_name\":\"Pasquale\",\"last_name\":\"Grady\",\"individual_npi\":\"32-2616700\",\"speciality\":\"N/A Speciality\",\"phone\":\"1-523-783-9632\",\"fax\":\"602-471-2288 x11276\",\"email\":\"may@bergstromrunte.com\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lfuUDIQj2Kfb\",\n    \"type\": \"referrals\",\n    \"attributes\": {\n      \"id\": \"33lfuUDIQj2Kfb\",\n      \"appointment-id\": null,\n      \"normal\": \"Conor\",\n      \"middle-name\": \"Pasquale\",\n      \"last-name\": \"Grady\",\n      \"individual-npi\": \"32-2616700\",\n      \"speciality\": \"N/A Speciality\",\n      \"phone\": \"+15237839632\",\n      \"fax\": \"+1602471228811276\",\n      \"email\": \"may@bergstromrunte.com\"\n    },\n    \"links\": {\n      \"self\": \"/referrals/33lfuUDIQj2Kfb\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+.modal-dialog
+  .modal-content
+    = simple_form_for current_user.provider, url: update_emergency_access_providers_path do |f|
+      .modal-header
+        p.title Request Emergency Access
+        a.close-button href="#" data-dismiss="modal"
+      .modal-body
+        .scrollable-container
+          .content
+            .row
+              .col-xs-12
+                .form-group
+                  p.request-emergency-access-text
+                    | You are requesting full Emergency Access permissions for your account, #{current_user.provider.full_name} to your account holder’s data.
+                    br
+                    br
+                    | Your account holder will be notified of your request and all activities performed under #{current_user.provider.full_name} during your Emergency Access Enabled session will be logged.  By clicking Enable and continuing, you agree that you understand that you are exercising permissions that were not explicitly granted to your account and are only available to you on a temporary basis for the sole purposes of completing your immediate task(s) at-hand requiring such emergency access.
+                    br
+                    br
+                    | You agree to terminate your Emergency Access immediately once your task(s) at-hand is complete.
+                    br
+                    br
+                    | You must provide a written reason below explaining why you are requesting your emergency access.  This information will be logged and also sent to the account holder.
+                = f.input :emergency_access_reason, as: :text, input_html: { class: 'form-control', placeholder: 'Enter your written reason for requesting emergency access here.' }
+      .modal-footer
+        .controls
+          = f.submit 'Enable', class: 'button button-danger button-enable'
+          a.button.button-cancel data-dismiss="modal" Cancel

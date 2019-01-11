@@ -1,0 +1,49 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/diagnosis_codes",
+  "description": "Search diagnosis codes",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "part",
+      "description": "A part of diagnosis code"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/diagnosis_codes?data[auth_token]=5b0b7189a966b7428c531273cfbbb0e4&data[part]=A00",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "5b0b7189a966b7428c531273cfbbb0e4",
+          "part": "A00"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"2pSzzWf5wtQHGS\",\n      \"type\": \"diagnosis-codes\",\n      \"attributes\": {\n        \"id\": \"2pSzzWf5wtQHGS\",\n        \"code\": \"A000\",\n        \"description\": \"Cholera due to Vibrio cholerae 01, biovar cholerae\"\n      },\n      \"links\": {\n        \"self\": \"/diagnosis-codes/2pSzzWf5wtQHGS\"\n      }\n    },\n    {\n      \"id\": \"2pSzzWfFcyZeAi\",\n      \"type\": \"diagnosis-codes\",\n      \"attributes\": {\n        \"id\": \"2pSzzWfFcyZeAi\",\n        \"code\": \"A001\",\n        \"description\": \"Cholera due to Vibrio cholerae 01, biovar eltor\"\n      },\n      \"links\": {\n        \"self\": \"/diagnosis-codes/2pSzzWfFcyZeAi\"\n      }\n    },\n    {\n      \"id\": \"2pSzzWfPJ3j14y\",\n      \"type\": \"diagnosis-codes\",\n      \"attributes\": {\n        \"id\": \"2pSzzWfPJ3j14y\",\n        \"code\": \"A009\",\n        \"description\": \"Cholera, unspecified\"\n      },\n      \"links\": {\n        \"self\": \"/diagnosis-codes/2pSzzWfPJ3j14y\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

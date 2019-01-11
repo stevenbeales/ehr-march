@@ -1,0 +1,267 @@
+#patientChartTab.tab-pane.fade.in.active role="tabpanel"
+  .scrollable-container
+    .content
+      .row.top-block
+        - if policy(Diagnosis).show?
+          .col-lg-6
+            .panel.panel-default
+                .panel-heading.form-inline
+                  p.panel-title Diagnoses (Dx)
+                  .pull-right
+                    = link_to show_patient_diagnoses_patient_treatments_path(id: @patient.id), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-diagnoses'
+                      span.glyphicon.glyphicon-plus
+                .panel-body
+                  - chronics = @diagnoses.where(terminal: false)
+                  - acutes = @diagnoses.where(acute: true)
+                  ul.main-list
+                    li
+                      span Chronic Dx
+                  - if chronics.present?
+                    ul.sub-list
+                      - chronics.each do |chronic|
+                        li
+                          span
+                            = " – (#{chronic.try(:diagnosis_code).try(:code)}) #{chronic.try(:diagnosis_code).try(:description)}"
+                        li
+                          ul.sub-list
+                            li
+                              span
+                                = "Start: #{chronic.start_date.try(:strftime, '%m/%d/%Y')}"
+                  - else
+                    ul.sub-list
+                      li
+                        span No acutive Chronic Dx.
+                  ul.main-list
+                    li
+                      span Acute Dx
+
+                  - if acutes.present?
+                    ul.sub-list
+                      - acutes.each do |acute|
+                        li
+                          span
+                            = " – (#{acute.try(:diagnosis_code).try(:code)}) #{acute.try(:diagnosis_code).try(:description)}"
+                        li
+                          ul.sub-list
+                            li
+                              span
+                                = "Start: #{acute.start_date.try(:strftime, '%m/%d/%Y')}"
+                  - else
+                    ul.sub-list
+                      li
+                        span No acutive Acute Dx.
+        - if policy(Encounter).show?
+          .col-lg-6
+            .panel.panel-default
+              .panel-heading.form-inline
+                p.panel-title Encounters
+                .pull-right
+                  = link_to add_patient_encounter_patient_treatments_path(id: @patient.id), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-add-encounter'
+                    span.glyphicon.glyphicon-plus
+              .panel-body
+                - if @encounters.present?
+                  - @encounters.each do |encounter|
+                    ul.main-list.icon-checked
+                      li
+                        span
+                          = " – #{encounter.created_at.strftime('%m/%d/%Y')} (#{encounter.notes})"
+      .row
+        .col-lg-6.left-block
+          - if policy(Medication).show?
+            .panel.panel-default
+              .panel-heading.form-inline
+                p.panel-title Medications (Rx)
+                .pull-right
+                  = link_to show_patient_medications_patient_treatments_path(id: @patient.id), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-medications'
+                    span.glyphicon.glyphicon-plus
+              .panel-body
+                - if @medications.present?
+                  - @medications.each do |medication|
+                    ul.sub-list
+                      li
+                        span
+                          = " – #{medication.shorthand} (#{medication.signature})"
+          - if policy(Allergy).show?
+            .panel.panel-default.allergy-content
+              .panel-heading.form-inline
+                p.panel-title Allergies
+                .pull-right
+                  = link_to show_patient_allergy_patient_treatments_path(id: @patient.id), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-allergy'
+                    span.glyphicon.glyphicon-plus
+              .panel-body
+                - drugs = @allergies.where(allergen_type: Allergy.allergen_types.first)
+                - foods = @allergies.where(allergen_type: Allergy.allergen_types[1])
+                - envs  = @allergies.where(allergen_type: Allergy.allergen_types.last)
+                ul.main-list
+                  li
+                    span Drug Allergies
+                - if drugs.any?
+                  - drugs.each do |drug|
+                    ul.sub-list
+                      li
+                        span
+                          - if drug.active
+                            | ACTIVE:  
+                          - else
+                            | INACTIVE:  
+                          = link_to drug.note, show_patient_allergy_patient_treatments_path(id: @patient.id, allergy_id: drug.id), remote: true, 'data-target' => '#modal-patient-allergy', class: 'button-modal-open'
+                - else
+                  ul.sub-list
+                    li
+                      span No drug allergies recorded
+                ul.main-list
+                  li
+                    span Food Allergies
+                - if foods.any?
+                  - foods.each do |food|
+                    ul.sub-list
+                      li
+                        span
+                          - if food.active
+                            | ACTIVE:  
+                          - else
+                            | INACTIVE:  
+                          = link_to food.note, show_patient_allergy_patient_treatments_path(id: @patient.id, allergy_id: food.id), remote: true, 'data-target' => '#modal-patient-allergy', class: 'button-modal-open'
+                - else
+                  ul.sub-list
+                    li
+                      span No food allergies recorded
+                ul.main-list
+                  li
+                    span Enviromental Allergies
+                - if envs.any?
+                  - envs.each do |env|
+                    ul.sub-list
+                      li
+                        span
+                          - if env.active
+                            | ACTIVE:  
+                          - else
+                            | INACTIVE:  
+                          = link_to env.note, show_patient_allergy_patient_treatments_path(id: @patient.id, allergy_id: env.id), remote: true, 'data-target' => '#modal-patient-allergy'
+                - else
+                  ul.sub-list
+                    li
+                      span No enviromental allergies recorded
+          - if policy(SmokingStatus).show?
+            .panel.panel-default
+              .panel-heading.form-inline
+                p.panel-title Smoking Status
+                .pull-right
+                  = link_to edit_patient_smoking_patient_treatments_path(id: @patient.id), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-smoking'
+                    span.icon-pencil
+              .panel-body
+                ul.main-list
+                  - if @smoking_statuses.any?
+                    - @smoking_statuses.each do |status|
+                      li
+                        span
+                          = "#{status.effective_from.strftime('%m/%d/%Y')} #{status.status} / #{SmokingStatus.statuses_with_codes[status.status]}"
+                  - else
+                    li
+                      span No smoking status recorded
+          - if policy(PastMedicalHistory).show?
+            .panel.panel-default
+              .panel-heading.form-inline
+                p.panel-title Past Medical History
+                .pull-right
+                  = link_to add_patient_medical_history_patient_treatments_path(id: @patient.id), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-add-medical-history'
+                    span.icon-pencil
+              .panel-body
+                ul.main-list
+                  - if @past_medical_history.present?
+                    li
+                      span
+                        = @past_medical_history.major_events
+                  -else
+                    li
+                      span No past medical history recorded
+          - if policy(AdvancedDirective).show?
+            .panel.panel-default
+              .panel-heading.form-inline
+                p.panel-title Advanced Directives
+                .pull-right
+                  = link_to add_patient_advanced_directives_patient_treatments_path(id: @patient.id), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-add-advanced-directives'
+                    span.icon-pencil
+              .panel-body
+                ul.main-list
+                  - if @advanced_directive.present?
+                    li
+                      span
+                        = "#{@advanced_directive.record_date.try(:strftime, '%m/%d/%Y')} #{@advanced_directive.notes}"
+                  - else
+                    li
+                      span No advanced directives recorded
+        .col-lg-6.right-block
+          - if policy(EmailMessage).show?
+            .panel.panel-default
+              .panel-heading.form-inline
+                p.panel-title Messages
+                .pull-right
+                  = link_to new_email_message_path(id: @patient.id), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-add-message'
+                    span.glyphicon.glyphicon-plus
+              .panel-body
+                - if @email_messages.present?
+                  - @email_messages.each do |message|
+                    /ul.main-list.icon-message.icon-message-replied
+                    ul.main-list.icon-message
+                      li
+                        span
+                          = "#{message.created_at.strftime('%m/%d/%Y')} - #{message.subject.try(:name)}"
+                      li
+                        span
+                          = message.created_at.strftime('%I:%M %P')
+                - else
+                  ul.main-list.icon-message
+                    li
+                      span No messages
+          - if policy(Appointment).show?
+            .panel.panel-default
+              .panel-heading.form-inline
+                p.panel-title Appointments
+                .pull-right
+                  = link_to new_appointment_path, remote: true, class: "plus-edit-right button button-modal-open", 'data-target' => '#modal-add-appointment'
+                    span.glyphicon.glyphicon-plus
+              .panel-body
+                - if @appointments.present?
+                  - @appointments.each do |appointment|
+                    ul.main-list.icon-appointment
+                      li
+                        span
+                          = "#{appointment.appointment_datetime.strftime('%m/%d/%Y')} - #{appointment.appointment_status.try(:name)}"
+                - else
+                  ul.main-list.icon-appointment
+                    li
+                      span No appointments
+          - if policy(Immunization).show?
+            .panel.panel-default.immunizations-content
+              .panel-heading.form-inline
+                p.panel-title Immunizations
+                - if policy(Immunization).create?
+                  .pull-right
+                    = link_to new_immunization_path(immunization: { patient_id: @patient.id }), remote: true, class: 'plus-edit-right button button-modal-open', 'data-target' => '#modal-patient-immunization-vaccine'
+                      span.glyphicon.glyphicon-plus
+              .panel-body
+                ul.main-list
+                  - @immunizations.each do |immunization|
+                    li
+                      - if policy(Immunization).update?
+                        = link_to "- #{immunization.vaccine.try(:name)}, #{immunization.administered_at.try(:strftime, Date::DATE_FORMATS[:dosespot])}", edit_immunization_path(immunization, type_general: immunization.name, immunization: { patient_id: @patient.id }), remote: true, class: 'button-modal-open', 'data-target' => '#modal-patient-immunization-vaccine'
+                      - else
+                        = link_to "- #{immunization.vaccine.try(:name)}, #{immunization.administered_at.try(:strftime, Date::DATE_FORMATS[:dosespot])}", '#', remote: true, class: 'button-modal-open', 'data-target' => '#modal-patient-immunization-vaccine'
+                = link_to 'view more', immunizations_path(immunization: { patient_id: @patient.id }), remote: true, class: 'more button-modal-open', 'data-target' => '#modal-patient-immunizations'
+          .panel.panel-default.screenings-content
+            .panel-heading.form-inline
+              p.panel-title Screenings/Interventions/Assessments
+              .pull-right
+                a.plus-edit-right.button href="#"
+                  span.glyphicon.glyphicon-plus
+            .panel-body
+              ul.main-list
+                li
+                  a href="#" - Smoking Cessation, Performed
+                li
+                  a href="#" - Smoking Cessation, Performed
+                li
+                  a href="#" - Smoking Cessation, Performed
+              a.more href="#" view more

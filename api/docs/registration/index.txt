@@ -1,0 +1,71 @@
+Registrate new provider
+-----------------------
+
+Parameters:
+  * email - New provider email
+  * password - New provider password
+  * password_confirmation - New provider password confirmation
+  * first_name - New provider first_name
+
+Request:
+  POST /registration/create
+  Content-Type: application/vnd.api+json
+
+  {"data":{"user":{"email":"doctor@email.com","password":"doctor","password_confirmation":"doctor"},"provider":{"first_name":"Kennith"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfvDvId0TlOV",
+      "type": "providers",
+      "attributes": {
+        "id": "33lfvDvId0TlOV",
+        "email": "doctor@email.com",
+        "role": "Provider",
+        "user-id": "33lfvDupal1efj",
+        "title": "Mr",
+        "first-name": "Kennith",
+        "middle-name": null,
+        "last-name": null,
+        "degree": "DDS",
+        "speciality": "Endodontics",
+        "street-address": null,
+        "suit-apt-number": null,
+        "city": null,
+        "state": null,
+        "zip": null,
+        "practice-street-address": null,
+        "practice-suit-apt-number": null,
+        "practice-city": null,
+        "practice-state": null,
+        "practice-zip": null,
+        "primary-phone": null,
+        "mobile-phone": null,
+        "alt-email": null,
+        "username": null,
+        "secondary-speciality": null,
+        "dental-licence": null,
+        "expiration-date": null,
+        "ein-tin": null,
+        "npi": null,
+        "dea": null,
+        "upin": null,
+        "nadean": null,
+        "status": false,
+        "biography": null,
+        "accepting-patient": false,
+        "enable-online-booking": false,
+        "profile-image": {
+          "url": null
+        }
+      },
+      "links": {
+        "self": "/providers/33lfvDvId0TlOV"
+      }
+    }
+  }
+
+

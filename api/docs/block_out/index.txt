@@ -1,0 +1,48 @@
+Create block out
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * time_for - Time for
+  * block_datetime - Datetime
+  * duration - Duration
+  * description - Description
+  * note - Note
+  * recurring - Recurring
+  * recur_every - Recurring every
+  * range_day - Day range
+
+Request:
+  POST /block_outs
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"fd4825b0fdda8c36e6fee50aa74b8d9f","block_out":{"patient_id":"33lQSUQVvK1XAR","time_for":"Practice Location","block_datetime":"2016-02-26T16:57:31.866+02:00","duration":"1 hour 30 min","description":"Porro magnam eum accusantium aperiam consequatur eius ducimus.","note":"Tempora natus adipisci hic autem impedit.","recurring":true,"recur_every":"cum","range_day":"Su"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lQXdqyNQd79H",
+      "type": "block-outs",
+      "attributes": {
+        "id": "33lQXdqyNQd79H",
+        "patient-id": "33lQSUQVvK1XAR",
+        "time-for": "Practice Location",
+        "block-datetime": "2016-02-26T16:57:00.000+02:00",
+        "duration": "1 hour 30 min",
+        "description": "Porro magnam eum accusantium aperiam consequatur eius ducimus.",
+        "note": "Tempora natus adipisci hic autem impedit.",
+        "recurring": true,
+        "recur-every": "cum",
+        "range-day": "Su"
+      },
+      "links": {
+        "self": "/block-outs/33lQXdqyNQd79H"
+      }
+    }
+  }
+
+

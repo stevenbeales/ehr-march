@@ -1,0 +1,329 @@
+#patientDentalChartTab.tab-pane.fade role="tabpanel"
+  .scrollable-container
+    .content
+      .row
+        .col-lg-9.left-block
+          .panel.panel-default.panel-teeth
+            .panel-body.teeth
+              .table-responsive
+                table.table
+                  thead
+                  tbody.tbody-teeth
+                    tr.tr-tooth.tr-large.tr-top-teeth-lg
+                      td.teeth-group-1
+                        = image_tag 'tooths/tooth_adult_1_lg.svg'
+                      td.teeth-group-1
+                        = image_tag 'tooths/tooth_adult_2_lg.svg'
+                      td.teeth-group-2
+                        = image_tag 'tooths/tooth_adult_3_lg.svg'
+                      td.teeth-group-3
+                        = image_tag 'tooths/tooth_adult_4_lg.svg'
+                      td.teeth-group-3
+                        = image_tag 'tooths/tooth_adult_5_lg.svg'
+                      td.teeth-group-4
+                        = image_tag 'tooths/tooth_adult_6_lg.svg'
+                      td.teeth-group-5
+                        = image_tag 'tooths/tooth_adult_7_lg.svg'
+                      td.teeth-group-5
+                        = image_tag 'tooths/tooth_adult_8_lg.svg'
+                      td.teeth-group-5
+                        = image_tag 'tooths/tooth_adult_9_lg.svg'
+                      td.teeth-group-5
+                        = image_tag 'tooths/tooth_adult_10_lg.svg'
+                      td.teeth-group-4
+                        = image_tag 'tooths/tooth_adult_11_lg.svg'
+                      td.teeth-group-3
+                        = image_tag 'tooths/tooth_adult_12_lg.svg'
+                      td.teeth-group-3
+                        = image_tag 'tooths/tooth_adult_13_lg.svg'
+                      td.teeth-group-2
+                        = image_tag 'tooths/tooth_adult_14_lg.svg'
+                      td.teeth-group-1
+                        = image_tag 'tooths/tooth_adult_15_lg.svg'
+                      td.teeth-group-1
+                        = image_tag 'tooths/tooth_adult_16_lg.svg'
+                    tr.tr-tooth.tr-middle.tr-top-teeth-md
+                      - (1..5).to_a.each do |i|
+                        td.overlay-img
+                          = image_tag "tooths/tooth_adult_#{i}_md.svg"
+                          - if policy(Procedure).create?
+                            = link_to '', add_patient_procedure_patient_treatments_path(id: @patient.id, tooth_num: i), remote: true, class: 'checker unchecked button-modal-open', 'data-target' => '#modal-patient-add-procedure'
+                      td
+                      td
+                      td
+                      td
+                      td
+                      td
+
+                      - (12..16).to_a.each do |i|
+                        td.overlay-img
+                          = image_tag "tooths/tooth_adult_#{i}_md.svg"
+                          - if policy(Procedure).create?
+                            = link_to '', add_patient_procedure_patient_treatments_path(id: @patient.id, tooth_num: i), remote: true, class: 'checker unchecked button-modal-open', 'data-target' => '#modal-patient-add-procedure'
+
+                    tr.tr-tooth.tr-middle.tr-top-teeth-xs
+                      - (1..5).to_a.each do |i|
+                        td
+                          = image_tag "tooths/tooth_adult_#{i}_xs.svg"
+
+                      - (6..11).to_a.each do |i|
+                        td.overlay-img
+                          = image_tag "tooths/tooth_adult_#{i}_xs.svg"
+                          - if policy(Procedure).create?
+                            = link_to '', add_patient_procedure_patient_treatments_path(id: @patient.id, tooth_num: i), remote: true, class: 'checker unchecked button-modal-open', 'data-target' => '#modal-patient-add-procedure'
+
+                      - (12..16).to_a.each do |i|
+                        td
+                          = image_tag "tooths/tooth_adult_#{i}_xs.svg"
+
+                    tr.tr-numbers
+                      - (1..16).to_a.each do |i|
+                        td
+                          p
+                            = i
+
+                    tr.tr-tooth.tr-middle.tr-bottom-teeth-xs
+                      - (0..4).to_a.each do |i|
+                        td
+                          = image_tag "tooths/tooth_adult_#{32 - i}_xs.svg"
+
+                      - (5..10).to_a.each do |i|
+                        td.overlay-img
+                          = image_tag "tooths/tooth_adult_#{32 - i}_xs.svg"
+                          - if policy(Procedure).create?
+                            = link_to '', add_patient_procedure_patient_treatments_path(id: @patient.id, tooth_num: 32 - i), remote: true, class: 'checker unchecked button-modal-open', 'data-target' => '#modal-patient-add-procedure'
+
+                      - (11..15).to_a.each do |i|
+                        td
+                          = image_tag "tooths/tooth_adult_#{32 - i}_xs.svg"
+
+                    tr.tr-tooth.tr-middle.tr-bottom-teeth-md
+                      - (0..4).to_a.each do |i|
+                        td.overlay-img
+                          = image_tag "tooths/tooth_adult_#{32 - i}_md.svg"
+                          - if policy(Procedure).create?
+                            = link_to '', add_patient_procedure_patient_treatments_path(id: @patient.id, tooth_num: 32 - i), remote: true, class: 'checker unchecked button-modal-open', 'data-target' => '#modal-patient-add-procedure'
+
+                      td
+                      td
+                      td
+                      td
+                      td
+                      td
+
+                      - (11..15).to_a.each do |i|
+                        td.overlay-img
+                          = image_tag "tooths/tooth_adult_#{32 - i}_xs.svg"
+                          - if policy(Procedure).create?
+                            = link_to '', add_patient_procedure_patient_treatments_path(id: @patient.id, tooth_num: 32 - i), remote: true, class: 'checker unchecked button-modal-open', 'data-target' => '#modal-patient-add-procedure'
+
+                    tr.tr-tooth.tr-large.tr-bottom-teeth-lg
+                      td.teeth-group-1
+                        = image_tag 'tooths/tooth_adult_32_lg.svg'
+                      td.teeth-group-1
+                        = image_tag 'tooths/tooth_adult_31_lg.svg'
+                      td.teeth-group-2
+                        = image_tag 'tooths/tooth_adult_30_lg.svg'
+                      td.teeth-group-3
+                        = image_tag 'tooths/tooth_adult_29_lg.svg'
+                      td.teeth-group-3
+                        = image_tag 'tooths/tooth_adult_28_lg.svg'
+                      td.teeth-group-4
+                        = image_tag 'tooths/tooth_adult_27_lg.svg'
+                      td.teeth-group-5
+                        = image_tag 'tooths/tooth_adult_26_lg.svg'
+                      td.teeth-group-5
+                        = image_tag 'tooths/tooth_adult_25_lg.svg'
+                      td.teeth-group-5
+                        = image_tag 'tooths/tooth_adult_24_lg.svg'
+                      td.teeth-group-5
+                        = image_tag 'tooths/tooth_adult_23_lg.svg'
+                      td.teeth-group-4
+                        = image_tag 'tooths/tooth_adult_22_lg.svg'
+                      td.teeth-group-3
+                        = image_tag 'tooths/tooth_adult_21_lg.svg'
+                      td.teeth-group-3
+                        = image_tag 'tooths/tooth_adult_20_lg.svg'
+                      td.teeth-group-2
+                        = image_tag 'tooths/tooth_adult_19_lg.svg'
+                      td.teeth-group-1
+                        = image_tag 'tooths/tooth_adult_18_lg.svg'
+                      td.teeth-group-1
+                        = image_tag 'tooths/tooth_adult_17_lg.svg'
+                    tr.tr-numbers
+                      td
+                        p 32
+                      td
+                        p 31
+                      td
+                        p 30
+                      td
+                        p 29
+                      td
+                        p 28
+                      td
+                        p 27
+                      td
+                        p 26
+                      td
+                        p 25
+                      td
+                        p 24
+                      td
+                        p 23
+                      td
+                        p 22
+                      td
+                        p 21
+                      td
+                        p 20
+                      td
+                        p 19
+                      td
+                        p 18
+                      td
+                        p 17
+          .additional-panel
+            div role="tabpanel"
+              ul.nav.nav-tabs.styled role="tablist"
+                li.active role="presentation"
+                  a aria-controls="treatmens" data-toggle="tab" href="#treatmentsTab" role="tab"  Treatments
+                li role="presentation"
+                  a aria-controls="encounter" data-toggle="tab" href="#encounterNotesTab" role="tab"  Encounter Notes
+              .tab-content
+                #treatmentsTab.tab-pane.fade.in.active role="tabpanel"
+                  .panel.panel-default
+                    .content
+                      .row.row-filters
+                        .col-xs-6
+                          p &nbsp;
+                        .col-xs-6
+                          .row
+                            .col-xs-6
+                              select.select2#dropdown-patients-dental-sort data-placeholder="Sort By" data-theme="green-dark" data-arrow="1x" data-padding="3x" data-font="2x"
+                                option value=""
+                                option value=="Empty list" Empty list
+                            .col-xs-6
+                              select.select2 data-placeholder="Export" data-theme="green-dark" data-arrow="1x" data-padding="3x" data-font="2x"
+                                option value=""
+                                option value="0" Export to CSV
+                                option value="0" Export to PDF
+                                option value="0" Print
+                                option value="0" Send to Patient Portal
+                                option value="0" Delete
+                      .row.row-treatment
+                        .bordered-container.bordered-container-actioned
+                          .treatment-content
+                            .table-responsive
+                              table.table
+                                thead
+                                  tr
+                                    th
+                                      p Date
+                                    th
+                                      p Tooth
+                                    th
+                                      p Surface
+                                    th
+                                      p Code
+                                    th
+                                      p Destination
+                                    th
+                                      p Provider
+                                    th
+                                      p Status
+                                    th
+                                      p N
+                                tbody
+                                  - @procedures.each do |procedure|
+                                    tr
+                                      td
+                                        p
+                                          = procedure.created_at.strftime('%m/%d/%Y')
+                                      td
+                                        p
+                                          = procedure.tooth_table.tooth_num
+                                      td
+                                        p B
+                                      td
+                                        p
+                                          = procedure.procedure_code
+                                      td
+                                        p
+                                          = PROCEDURE_CODES[procedure.procedure_code.try(:to_sym)]
+                                      td
+                                        p E.Johnson
+                                      td
+                                        p
+                                          = procedure.short_status
+                                      td.text-center
+                                        a href="#"
+                                          i.fa.fa-plus
+                #encounterNotesTab.tab-pane.fade.in role="tabpanel"
+                  .panel.panel-default.panel-encounters
+                    .content
+                      .row.row-filters
+                        .col-xs-6
+                        .col-xs-6
+                          .row
+                            .col-xs-6
+                              - if policy(Encounter).create?
+                                = link_to add_patient_encounter_patient_treatments_path(id: @patient.id), remote: true, class: 'pull-right plus-edit-right button button-dental-encounter button-modal-open', 'data-target' => '#modal-patient-add-encounter'
+                                  i.fa.fa-plus
+                            .col-xs-6
+                              select.select2 data-placeholder="Export" data-theme="green-dark" data-arrow="1x" data-padding="3x" data-font="2x"
+                                option value=""
+                                option value="0" Export to CSV
+                                option value="0" Export to PDF
+                                option value="0" Print
+                                option value="0" Send to Patient Portal
+                                option value="0" Delete
+                      - if @encounters.first.present?
+                        .row.row-encounters
+                          .row.equal
+                            .col-xs-5.semi-column.column-left
+                              .panel.panel-default.panel-nomargin.panel-left.panel-long
+                                .panel-heading
+                                  p.panel-title
+                                    | Date&nbsp;
+                                    i.fa.fa-angle-down
+                                .panel-heading.find-procedure
+                                  .form-group
+                                    .input-group
+                                      span.input-group-addon id="find-dental_encountment_date-button" Jump to
+                                      = text_field_tag :dental_encountment_proc, '', class: 'form-control text-centered date-picker', id: 'find-dental_encountment_proc-input', placeholder: 'yyyy/mm/dd', autocomplete: 'off'
+                                .panel-body.panel-body-long
+                                  ul.main-list#encounter-bottom-main-list
+                                    - @encounters.each do |encounter|
+                                      li
+                                        = link_to encounter.created_at.strftime('%m/%d/%Y'), '#', data: { id: encounter.id }
+                            .col-xs-7.semi-column.column-right
+                              .panel.panel-default.panel-nomargin.panel-right.panel-long
+                                .panel-heading.form-inline
+                                  p.panel-title Encounter Notes
+                                .panel-body#full-encounter-info
+                                  = render 'encounter_note', encounter: @encounters.first, patient: @patient
+        .col-lg-3.right-block
+          = render 'nav_patients_actions', title: 'Actions'
+          .panels-container
+            .panel.panel-default.panel-nomargin.panel-procedures
+              .panel-heading.form-inline
+                p.panel-title Procedures
+              .panel-heading.find-procedure
+                .form-group
+                  .input-group.input-group-custom
+                    = text_field_tag :search_procedure_code, '', class: 'form-control', placeholder: 'Search'
+                    span.input-group-addon.input-group-addon-right.input-group-addon-search id="search-procedure-code-button"
+              .panel-body.panel-body-long
+                ul.main-list#search-procedure-code-list
+            .panel.panel-default.panel-procedures-frequently
+              .panel-heading.form-inline
+                p.panel-title Frequently Used
+              .panel-body
+                ul.main-list
+                  - @procedures.each do |procedure|
+                    li
+                      - if policy(Procedure).update?
+                        = link_to "#{procedure.procedure_code} - #{PROCEDURE_CODES[procedure.procedure_code.try(:to_sym)]}", "#{show_patient_procedure_patient_treatments_path}?procedure_id=#{procedure.id}&id=#{@patient.id}", class: 'button-modal-open', 'data-target' => '#modal-patient-show-procedure', remote: true
+                      - else
+                        = link_to "#{procedure.procedure_code} - #{PROCEDURE_CODES[procedure.procedure_code.try(:to_sym)]}", '#'

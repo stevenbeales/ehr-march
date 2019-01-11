@@ -1,0 +1,48 @@
+{
+  "resource": "Appointments",
+  "http_method": "GET",
+  "route": "/appointments/patients",
+  "description": "Find patients by part of first or last name",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "part",
+      "description": "The beginning of a patient's first or last name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/appointments/patients?data[auth_token]=02ff6aa5b2ee64df3853d0d742d0337d&data[part]=De",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "02ff6aa5b2ee64df3853d0d742d0337d",
+          "part": "De"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lOYkHuL3YUl9\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lOYkHuL3YUl9\",\n        \"email\": \"waino@pouros.co\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Den\",\n        \"middle-name\": null,\n        \"last-name\": \"Brown\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+15497212651\",\n        \"primary-phone\": \"+13844656898\",\n        \"code\": null,\n        \"social-number\": \"295225521\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lOYkHuL3YUl9/avatar3.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lOYkHuL3YUl9\"\n      }\n    },\n    {\n      \"id\": \"33lOe22m804INf\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lOe22m804INf\",\n        \"email\": \"bernardo_sipes@ruelstiedemann.name\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Den\",\n        \"middle-name\": null,\n        \"last-name\": \"Crown\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+1866618715\",\n        \"primary-phone\": \"+16909656353\",\n        \"code\": null,\n        \"social-number\": \"189664485\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lOe22m804INf/avatar1.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lOe22m804INf\"\n      }\n    },\n    {\n      \"id\": \"33lOhkOsT3mjVT\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lOhkOsT3mjVT\",\n        \"email\": \"marilou@kreiger.io\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Den\",\n        \"middle-name\": null,\n        \"last-name\": \"Down\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+14495919928\",\n        \"primary-phone\": \"+19945154578\",\n        \"code\": null,\n        \"social-number\": \"693557874\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lOhkOsT3mjVT/avatar1.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lOhkOsT3mjVT\"\n      }\n    },\n    {\n      \"id\": \"33lOmW8C7HCC3f\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lOmW8C7HCC3f\",\n        \"email\": \"eliezer@green.biz\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Den\",\n        \"middle-name\": null,\n        \"last-name\": \"Xown\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+16273303400\",\n        \"primary-phone\": \"+12399637207\",\n        \"code\": null,\n        \"social-number\": \"848168444\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lOmW8C7HCC3f/avatar5.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lOmW8C7HCC3f\"\n      }\n    },\n    {\n      \"id\": \"33lOr69bX9tbFr\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lOr69bX9tbFr\",\n        \"email\": \"efrain@paucek.net\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Den\",\n        \"middle-name\": null,\n        \"last-name\": \"Unknown\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+15594407471\",\n        \"primary-phone\": \"+16399159043\",\n        \"code\": null,\n        \"social-number\": \"337235861\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lOr69bX9tbFr/avatar4.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lOr69bX9tbFr\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

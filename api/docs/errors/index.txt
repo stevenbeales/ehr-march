@@ -1,0 +1,22 @@
+Show
+----
+
+Parameters:
+  * auth_token - Authentication Token
+  * code - Error code(404, 500...)
+
+Request:
+  GET /errors/show?data[auth_token]=ebcd2b0ffea781e4bc2f9ba02d52ee33&data[code]=404
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"ebcd2b0ffea781e4bc2f9ba02d52ee33", "code"=>"404"}
+
+Response:
+  Status: 404 Not Found
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "code": "404"
+  }
+
+

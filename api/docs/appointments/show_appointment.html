@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointments API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Appointments API</h1>
+
+      <div class="article">
+        <h2>Show appointment</h2>
+        <h3>GET /appointments/:id</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[id]</span>
+                </td>
+                <td>
+                  <span class="description">Appointment id</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /appointments/33lNxHU3Xcfy9D?data[auth_token]=62bcd4630198b32b8551bd0c25ab3d89&amp;data[id]=33lNxHU3Xcfy9D</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;62bcd4630198b32b8551bd0c25ab3d89&quot;, &quot;id&quot;=&gt;&quot;33lNxHU3Xcfy9D&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33lNxHU3Xcfy9D&quot;,
+    &quot;type&quot;: &quot;appointments&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33lNxHU3Xcfy9D&quot;,
+      &quot;patient-id&quot;: &quot;33lNxHUDDhpL3T&quot;,
+      &quot;room-id&quot;: &quot;33lO5HBYGG53St&quot;,
+      &quot;appointment-type-id&quot;: &quot;33lO6binzhoPeF&quot;,
+      &quot;appointment-status-id&quot;: &quot;33lO7tRNCBRKSp&quot;,
+      &quot;location&quot;: &quot;52431 Brianne Plains&quot;,
+      &quot;reason&quot;: &quot;Laboriosam necessitatibus atque animi ipsam impedit fugit.&quot;,
+      &quot;appointment-datetime-date&quot;: &quot;2016-02-26&quot;,
+      &quot;appointment-datetime-time&quot;: &quot;16:53&quot;,
+      &quot;duration&quot;: &quot;1 hour&quot;,
+      &quot;contact-email&quot;: &quot;ana.balistreri@green.info&quot;,
+      &quot;contact-phone&quot;: &quot;+13946523112&quot;,
+      &quot;reminder&quot;: true,
+      &quot;colour&quot;: &quot;3BDB1E&quot;
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/appointments/33lNxHU3Xcfy9D&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

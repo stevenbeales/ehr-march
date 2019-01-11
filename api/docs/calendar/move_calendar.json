@@ -1,0 +1,63 @@
+{
+  "resource": "Calendar",
+  "http_method": "GET",
+  "route": "/calendars/:id/move",
+  "description": "Move calendar",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Calendar id"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "all_day",
+      "description": "Boolean, if true - all day calendar"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "minute_delta",
+      "description": "Delta between previous date and new date in minutes (can be negative)"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/calendars/33lTNNATHVB5L1/move?data[auth_token]=8d64ba2eeeff9fbdfed41232335ef130&data[id]=33lTNNATHVB5L1&data[all_day]=true&data[minute_delta]=10800",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "8d64ba2eeeff9fbdfed41232335ef130",
+          "id": "33lTNNATHVB5L1",
+          "all_day": "true",
+          "minute_delta": "10800"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

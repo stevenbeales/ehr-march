@@ -1,0 +1,6 @@
+FactoryGirl.define do
+  factory :procedure_completed do
+    association    :encounter
+    procedure_code { PROCEDURE_CODES.to_a.sample[0].to_s }
+  end
+end

@@ -1,0 +1,49 @@
+{
+  "resource": "Calendar",
+  "http_method": "GET",
+  "route": "/calendars/:id",
+  "description": "Show calendar",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Calendar id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/calendars/33lQkEkwApSWJv?data[auth_token]=22f0b7a93e73ef9e887dec615adb8c0f&data[id]=33lQkEkwApSWJv",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "22f0b7a93e73ef9e887dec615adb8c0f",
+          "id": "33lQkEkwApSWJv"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lQkEkwApSWJv\",\n    \"type\": \"calendars\",\n    \"attributes\": {\n      \"id\": \"33lQkEkwApSWJv\",\n      \"appointment-id\": \"33lQZAIJHgrLSl\",\n      \"title\": \"Prophy-Child\",\n      \"start-time\": \"2016-02-26T16:57:00.000+02:00\",\n      \"end-time\": \"2016-02-26T17:27:00.000+02:00\",\n      \"all-day\": false,\n      \"description\": \"Officia rerum voluptas quia totam.\"\n    },\n    \"links\": {\n      \"self\": \"/calendars/33lQkEkwApSWJv\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      p.title Open Message
+    = flash[:error]
+    .modal-body
+      .scrollable-container
+        .content
+          .row
+            .col-lg-12
+              .form-group
+                .input-group.input-group-custom
+                  span.input-group-addon To:
+                  input.form-control type="text" disabled="disabled" readonly="readonly" tabindex="-1" value="#{@message.from.person.full_name}"
+          .row
+            .col-lg-12
+              .form-group
+                .input-group.input-group-custom
+                  span.input-group-addon From:
+                  input.form-control type="text" disabled="disabled" readonly="readonly" tabindex="-1" value="#{@message.to.person.full_name}"
+          - if @message.from.role == 'Patient'
+            .row
+              .col-lg-12
+                .form-group
+                  .input-group.input-group-custom
+                    span.input-group-addon Patient:
+                    input.form-control type="text" disabled="disabled" readonly="readonly" tabindex="-1" value="#{@message.from.person.full_name}"
+          .row
+            .col-lg-12
+              .form-group-large
+                .input-group.input-group-custom.input-group-subject
+                  span.input-group-addon Subject:
+                  = select_tag :subject_id, options_for_select([@message.subject.try(:name), @message.subject.try(:id)]), 'data-theme': 'gray-light', 'data-arrow': '1x', 'data-padding': '3x', 'data-font': '1x', class: 'select2', tabindex: '-1', readonly: 'readonly', disabled: 'disabled'
+          .row
+            .col-lg-12
+              = text_area_tag :body, @message.body, class: 'form-control', rows: 4, disabled: 'disabled', readonly: 'readonly', tabindex: -1
+    .modal-footer
+      .controls
+        .checkbox-custom.checkbox-custom-danger.checkbox-urgent
+          = check_box_tag :urgent, @message.urgent, '', disabled: 'disabled', class: 'checkbox'
+          label for="urgent" disabled="disabled"
+            span.checkbox-icon-container
+              span.checkbox-icon
+            span.checkbox-label Urgent
+        a.button.button-cancel data-dismiss="modal" Cancel

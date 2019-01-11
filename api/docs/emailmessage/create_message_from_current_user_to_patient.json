@@ -1,0 +1,63 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "POST",
+  "route": "/email_messages",
+  "description": "Create message from current user to patient",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "name": "commit",
+      "description": "If commit = \"Send\", message will be sent to real email"
+    },
+    {
+      "scope": "email_message",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "email_message",
+      "name": "subject_id",
+      "description": "Subject id"
+    },
+    {
+      "scope": "email_message",
+      "name": "body",
+      "description": "Message"
+    },
+    {
+      "scope": "email_message",
+      "name": "urgent",
+      "description": "Boolean, if true - message is urgent"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/email_messages",
+      "request_body": "{\"data\":{\"auth_token\":\"1e23b68d470a0e505d86fa402cc7814d\",\"commit\":\"Save\",\"email_message\":{\"patient_id\":\"33lUH8PYTxirUR\",\"subject_id\":\"33lUMXnkGoQuJP\",\"body\":\"Doloremque unde voluptatem ratione illum consequatur.\",\"urgent\":true}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lUMXntwtaHDf\",\n    \"type\": \"email-messages\",\n    \"attributes\": {\n      \"id\": \"33lUMXntwtaHDf\",\n      \"subject-id\": \"33lUMXnkGoQuJP\",\n      \"to-id\": \"33lUH8PiA2sEOh\",\n      \"from-id\": \"33lUFrLQ50Edgh\",\n      \"body\": \"Doloremque unde voluptatem ratione illum consequatur.\",\n      \"draft\": true,\n      \"archive\": false,\n      \"urgent\": true,\n      \"read\": false\n    },\n    \"links\": {\n      \"self\": \"/email-messages/33lUMXntwtaHDf\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

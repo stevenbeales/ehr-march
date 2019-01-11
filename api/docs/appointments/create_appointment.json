@@ -1,0 +1,108 @@
+{
+  "resource": "Appointments",
+  "http_method": "POST",
+  "route": "/appointments",
+  "description": "Create appointment",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "location",
+      "description": "Location"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "room_id",
+      "description": "Room id"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "appointment_type_id",
+      "description": "Appointment type id"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "appointment_datetime",
+      "description": "Appointment datetime"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "reason",
+      "description": "Reason"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "duration",
+      "description": "Duration"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "contact_email",
+      "description": "Patient contact email"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "contact_phone",
+      "description": "Patient contact phone"
+    },
+    {
+      "scope": "appointment",
+      "name": "reminder",
+      "description": "Reminder"
+    },
+    {
+      "scope": "appointment",
+      "name": "colour",
+      "description": "Colour"
+    },
+    {
+      "scope": "appointment",
+      "required": true,
+      "name": "referral_id",
+      "description": "Referral id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/appointments",
+      "request_body": "{\"data\":{\"auth_token\":\"9c39ebc57126ad2baca227c5a952a778\",\"appointment\":{\"patient_id\":\"33lMzHTagkLFsR\",\"location\":\"746 Huel Fall\",\"room_id\":\"33lN7TWnitzbvv\",\"appointment_type_id\":\"33lN8lku2A9A2d\",\"appointment_datetime\":\"2016-02-26T16:52:00.000+02:00\",\"reason\":\"Illo adipisci aliquid nihil eligendi.\",\"duration\":\"3 hours\",\"contact_email\":\"+14410797159\",\"contact_phone\":\"+14410797159\",\"reminder\":false,\"colour\":\"641A30\",\"referral_id\":\"33lNC9KKDNMag7\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lNC9KTtSVxaN\",\n    \"type\": \"appointments\",\n    \"attributes\": {\n      \"id\": \"33lNC9KTtSVxaN\",\n      \"patient-id\": \"33lMzHTagkLFsR\",\n      \"room-id\": \"33lN7TWnitzbvv\",\n      \"appointment-type-id\": \"33lN8lku2A9A2d\",\n      \"appointment-status-id\": null,\n      \"location\": \"746 Huel Fall\",\n      \"reason\": \"Illo adipisci aliquid nihil eligendi.\",\n      \"appointment-datetime-date\": \"2016-02-26\",\n      \"appointment-datetime-time\": \"16:52\",\n      \"duration\": \"3 hours\",\n      \"contact-email\": \"+14410797159\",\n      \"contact-phone\": \"+14410797159\",\n      \"reminder\": false,\n      \"colour\": \"6888F0\"\n    },\n    \"links\": {\n      \"self\": \"/appointments/33lNC9KTtSVxaN\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

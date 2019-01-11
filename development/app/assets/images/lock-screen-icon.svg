@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="79px" height="101px" viewBox="0 0 79 101" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.35 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="nav-lock-screen-icon" sketch:type="MSLayerGroup" transform="translate(4.000000, 1.000000)" filter="url(#filter-1)" fill="#41B6A6">
+            <g id="Page-1" sketch:type="MSShapeGroup">
+                <g id="lock-screen-icon">
+                    <g id="Page-1">
+                        <g id="Doctor---Dashboard---Locked">
+                            <g id="Lock-Screen">
+                                <g id="Group">
+                                    <path d="M60.5,94 L10.4,94 C10.2,93.9 10.1,93.8 9.9,93.8 C4.3,92.6 0.6,88 0.6,82.2 L0.6,53.1 C0.6,49.4 2.2,46.4 5,44.1 C7.1,42.4 9.5,41.7 12.2,41.6 L12.2,40.8 L12.2,24.3 C12.1,13.9 19,4.7 29.1,1.8 C30.4,1.4 31.7,1.2 32.9,0.9 L38,0.9 C38.2,1 38.4,1.1 38.6,1.1 C50,2.6 58.7,12.5 58.7,24 L58.7,40.6 L58.7,41.6 C65.7,41.7 70.5,47.5 70.4,53.8 C70.2,63.3 70.4,72.9 70.4,82.4 C70.4,87.5 67.2,91.9 62.3,93.5 C61.7,93.7 61.1,93.8 60.5,94 L60.5,94 L60.5,94 Z M47.1,41.7 L47.1,41.3 L47.1,24 C47,17.9 41.8,12.8 35.7,12.8 C29.3,12.8 24.1,17.7 24,24 C23.9,29.8 24,35.6 24,41.4 C24,41.5 24,41.6 24.1,41.8 C31.6,41.7 39.3,41.7 47.1,41.7 L47.1,41.7 L47.1,41.7 Z M32.6,74.9 L32.6,79.2 L32.6,79.4 C32.7,80.8 33.4,81.9 34.6,82.3 C36.5,83 38.4,81.5 38.4,79.3 L38.4,70.7 C38.4,70.2 38.6,69.8 39,69.5 C40.5,68.4 41.3,66.9 41.3,65.1 C41.3,62.4 39.5,60 36.9,59.4 C34.2,58.8 31.5,60.1 30.3,62.6 C29.1,65.1 29.8,67.9 32.1,69.6 C32.6,69.9 32.7,70.3 32.7,70.8 C32.6,72 32.6,73.5 32.6,74.9 L32.6,74.9 L32.6,74.9 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

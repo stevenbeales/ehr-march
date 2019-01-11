@@ -1,0 +1,79 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "PATCH",
+  "route": "/patient_treatments/update_diagnosis",
+  "description": "Update patient diagnoses",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "diagnosis",
+      "required": true,
+      "name": "diagnosis_id",
+      "description": "Diagnosis id"
+    },
+    {
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "diagnosis",
+      "name": "diagnosis_code_id",
+      "description": "Diagnosis code id"
+    },
+    {
+      "scope": "diagnosis",
+      "name": "start_date",
+      "description": "Start date"
+    },
+    {
+      "scope": "diagnosis",
+      "name": "stop_date",
+      "description": "Stop date"
+    },
+    {
+      "scope": "diagnosis",
+      "name": "acute",
+      "description": "Boolean, if true - acute"
+    },
+    {
+      "scope": "diagnosis",
+      "name": "terminal",
+      "description": "Boolean, if true - terminal"
+    },
+    {
+      "scope": "diagnosis",
+      "name": "note",
+      "description": "Note"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/patient_treatments/update_diagnosis",
+      "request_body": "{\"data\":{\"auth_token\":\"ba2565358ff7dcd7e2b4026f90d777cd\",\"diagnosis\":{\"diagnosis_id\":\"33lXsGdDowpx5v\",\"diagnosis_code_id\":\"2pT2ppcd3ANtLc\",\"start_date\":\"2016-02-26T17:09:06.104+02:00\",\"stop_date\":\"2016-02-26T17:09:06.104+02:00\",\"acute\":true,\"terminal\":true,\"note\":\"Carry try-hard celiac loko bicycle rights blue bottle hella flexitarian.\"},\"patient_id\":\"33lXsGdNV1zK0B\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lXsGdDowpx5v\",\n    \"type\": \"diagnoses\",\n    \"attributes\": {\n      \"id\": \"33lXsGdDowpx5v\",\n      \"patient-id\": \"33lXsGdNV1zK0B\",\n      \"diagnosis-code-id\": \"2pT2ppcd3ANtLc\",\n      \"start-date\": \"2016-02-26T17:09:06.104+02:00\",\n      \"stop-date\": \"2016-02-26T17:09:06.104+02:00\",\n      \"acute\": true,\n      \"terminal\": true,\n      \"note\": \"Carry try-hard celiac loko bicycle rights blue bottle hella flexitarian.\"\n    },\n    \"links\": {\n      \"self\": \"/diagnoses/33lXsGdDowpx5v\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

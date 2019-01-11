@@ -1,0 +1,72 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title Appointment Details
+      a.close-button href="#" data-target="#modal-show-appointment-details" data-dismiss="modal"
+    = simple_form_for @appointment, remote: true do |a|
+      .modal-body
+        .scrollable-container
+          .content
+            .row.separated
+              .col-xs-6
+                .hidden-container
+                  = a.datetime_select :appointment_datetime, as: :date_picker, input_html: { type: 'hidden' }
+                .form-group
+                  = a.input :appointment_datetime_date, label: false, input_html: { class: 'form-control date-picker' }
+              .col-xs-3.col-starttime
+                .form-group
+                  = a.input :appointment_datetime_time, label: false, input_html: { class: 'form-control time-picker' }
+              .col-xs-3.col-exam
+                .form-group
+                  = a.input :room, as: :string, label: false, input_html: { class: 'form-control', value: @appointment.room.try(:room) }
+            .row
+              .col-xs-6
+                .form-group
+                  = text_field_tag :full_name, @appointment.patient.full_name, class: 'form-control'
+            .row.separated
+              .col-xs-6
+                .form-group
+                  = a.input :contact_phone, label: false, as: 'tel', input_html: { class: 'form-control input-phone' }
+              .col-xs-6
+                .form-group
+                  = a.input :contact_email, label: false, as: 'email', input_html: { class: 'form-control' }
+            .row
+              .col-xs-6
+                .form-group
+                  - if current_user.patient?
+                    = a.input :patient_id, as: :select, collection: current_user.patient.provider.all_patients.map{ |patient| [patient.full_name, patient.id] }, include_blank: false, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', id: 'show-patient-id', disabled: 'disabled'  }
+                  - else
+                    = a.input :patient_id, as: :select, collection: current_user.provider.all_patients.map{ |patient| [patient.full_name, patient.id] }, include_blank: false, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', id: 'show-provider-id', disabled: 'disabled'  }
+              .col-xs-6
+                .form-group
+                  select.select2#show-provider-second-id data-theme="gray-lighter" data-arrow="2x" data-padding="3x" data-font="1x" disabled="disabled"
+                    option value="Emily Johnson" Emily Johnson
+            .row
+              .col-xs-12
+                .form-group
+                  .input-group-custom.addon-left
+                    span.input-group-addon.input-group-addon-left
+                      | CC/Reason:
+                    = a.input :reason, label: false, as: 'string', input_html: { class: 'form-control' }
+            .row
+              .col-xs-12
+                .form-group
+                  .input-group-custom.addon-left
+                    span.input-group-addon.input-group-addon-left
+                      | Referred by:
+                    = a.input :referred_by, input_html: { value: @appointment.referrals.any? ? @appointment.referrals.first.last_name : '', class: 'form-control' }
+            .row
+              .col-xs-12
+                .form-group
+                  .input-group-custom.addon-left
+                    span.input-group-addon.input-group-addon-left
+                      | Appt Status:
+                    - person = current_user.patient? ? current_user.patient.provider : current_user.provider
+                    = a.input :appointment_status_id, as: :select, collection: person.appointment_statuses.map{ |status| [status.name, status.id] }, include_blank: false, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', id: 'show-appointment-status' }
+      .modal-footer
+        .controls
+          - if policy(@appointment).update?
+            a.button.appt-button-edit href="#" Edit
+            = a.submit 'Save', class: 'button appt-button-save'
+            a.button.appt-button-reshedule#reschedule-appointment href="#" data-id="#{@appointment.id}" Reschedule
+            = link_to "Cancel Appt", appointment_path, method: 'delete', class: 'button appt-button-cancel'

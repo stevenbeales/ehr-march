@@ -1,0 +1,192 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title Edit User
+    = flash[:error]
+    = simple_form_for current_user.provider do |p|
+      = hidden_field_tag :authenticity_token, form_authenticity_token
+      .modal-body
+        .scrollable-container
+          .content
+            .row-container.main-info
+              .row
+                .col-lg-2
+                  .avatar
+                    .attachment-container
+                      - if gravatar?(current_user)
+                        = gravatar_for(current_user, { class: 'avatar-image', alt: 'avatar' })
+                      - else
+                        - if current_user.provider.profile_image.present?
+                          a.button-attachment href="#"
+                            img src="#{current_user.provider.profile_image.url}" class='avatar-image' alt='avatar'
+                        - else
+                          .avatar-hint
+                            p.review-text File must be: JPG, PNG, GIF
+                            p.maxsize-text Max Size: 1MB
+                            p.minres-text Min. Res: 300x300 px.
+                            a.button.button-attachment
+                              | Upload Photo
+                        = p.file_field :profile_image
+                .col-lg-10
+                  .row
+                    .col-lg-4
+                      .form-group
+                        = p.input :first_name, label: false, input_html: { class: 'form-control', placeholder: 'First Name' }
+                    .col-lg-2
+                      .form-group
+                        = p.input :middle_name, label: false, input_html: { class: 'form-control', placeholder: 'M.I.' }
+                    .col-lg-4
+                      .form-group
+                        = p.input :last_name, label: false, input_html: { class: 'form-control', placeholder: 'Last Name' }
+                    .col-lg-2
+                      .form-group
+                        = p.input :title, as: 'select', collection: Provider.titles.map {|title| [title.to_s.titleize,title]}, selected: current_user.provider.title, input_html: { 'data-placeholder' => 'Title', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2' }
+                  .row
+                    .col-lg-2
+                      .form-group
+                        = p.input :degree, as: 'select', collection: Provider.degrees.map {|degree| ["#{degree.to_s.titleize == 'N/A Degree' ? 'N/A' : degree.to_s.titleize.upcase}",degree]}, selected: current_user.provider.degree, input_html: { 'data-placeholder' => 'Degree', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2' }
+                    .col-lg-5
+                      .form-group
+                        = p.input :speciality, as: 'select', collection: Provider.specialities.map {|speciality| ["#{speciality.to_s.titleize == 'N/A Speciality' ? 'N/A' : speciality.to_s.titleize}",speciality]}, selected: current_user.provider.speciality, input_html: { 'data-placeholder' => 'Speciality', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }
+                    .col-lg-5
+                      .form-group
+                        = p.input :secondary_speciality, label: false, input_html: { class: 'form-control', placeholder: 'Secondary speciality' }
+              .row
+                .col-lg-3
+                  .form-group
+                    = p.input :dental_licence, label: false, input_html: { class: 'form-control', placeholder: 'Dental Licence #' }
+                .col-lg-6
+                  .row
+                    .col-lg-3
+                      .form-group
+                        = p.input :state, as: 'select', collection: State.all.map {|state| [state.abbr, state.name]}, selected: current_user.provider.state, input_html: { 'data-placeholder' => 'State', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2' }
+                    .col-lg-9
+                      .form-group
+                        .input-group-custom
+                          = p.text_field :expiration_date, class: 'form-control date-picker', placeholder: 'Expiration Date'
+                          span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+                .col-lg-3
+                  .form-group
+                    = p.input :ein_tin, label: false, input_html: { class: 'form-control', placeholder: 'EIN/TIN' }
+              .row
+                .col-lg-3
+                  .form-group
+                    = p.input :npi, label: false, input_html: { class: 'form-control', placeholder: 'NPI' }
+                .col-lg-3
+                  .form-group
+                    = p.input :dea, label: false, input_html: { class: 'form-control', placeholder: 'DEA' }
+                .col-lg-3
+                  .form-group
+                    = p.input :upin, label: false, input_html: { class: 'form-control', placeholder: 'UPIN' }
+              .row
+                .col-lg-3
+                  .form-group
+                    = p.input :nadean, label: false, input_html: { class: 'form-control', placeholder: 'NADEAN' }
+            .row-container.online-profile-and-booking
+              .category-header
+                p.title Online Profile and Appointment Booking
+              .online-profile-content
+                .row
+                  .col-lg-4
+                    .form-group
+                      = p.input :status, as: 'select', collection: [['Active', true], ['Inactive', false]], selected: current_user.provider.status, input_html: { 'data-placeholder' => 'Status', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }
+                    .form-group
+                      .checkbox-custom
+                        = p.check_box :accepting_patient, label: false, id: 'accepting-new-patients'
+                        label[for="accepting-new-patients"]
+                          span.checkbox-icon-container
+                            span.checkbox-icon
+                          span.checkbox-label Accepting new patients
+                    .form-group
+                      .checkbox-custom
+                        = p.check_box :enable_online_booking, label: false, id: 'enable-online-booking'
+                        label[for="enable-online-booking"]
+                          span.checkbox-icon-container
+                            span.checkbox-icon
+                          span.checkbox-label Enable online Appt Booking
+                  .col-lg-8
+                    .form-group
+                      = p.input :biography, as: 'text', label: false, input_html: { class: 'form-control', rows: 6, placeholder: 'Biography' }
+            .row-container.practice-location
+              .bordered-container
+                .category-header
+                  .row
+                    .col-lg-10
+                      p.title Practice Location and Provider Schedule
+                    .col-lg-2
+                      = link_to form_locations_path(opened_from_practice: true), class: 'button-small button-modal-open', id: 'myaccount-add-practice-location', 'data-target' => '#modal-settings-add-edit-location-practice', remote: true
+                        i.fa.fa-plus
+                .practice-location-content
+                  .table-responsive
+                    table.table
+                      thead
+                        tr
+                          th
+                            p Location Name
+                          th
+                            p City, State
+                          th
+                            p Provider Schedule
+                          th
+                            p Primary Location?
+                      tbody
+                        - current_user.provider.all_practice_locations.each do |location|
+                          tr
+                            td
+                              p
+                                = "#{location.location_name}, #{location.location_address}"
+                            td
+                              p
+                                = "#{location.city}, #{location.state}"
+                            td
+                              - location.time_ranges_with_days.each do |range|
+                                p
+                                  = range
+                            td
+                              .checkbox-custom
+                                = check_box_tag "location_#{location.id}", '', location.id == current_user.provider.practice_location.try(:id), class: 'checkbox primary_location', data: { id: location.id }
+                                label[for="location_#{location.id}"]
+                                  span.checkbox-icon-container
+                                    span.checkbox-icon
+            .row-container.userlogin-info
+              .bordered-container
+                .category-header
+                  p.title User Login Info
+                .userlogin-info-content
+                  .row.first-row
+                    .col-lg-7
+                      .row
+                        .col-lg-6
+                          .form-group
+                            = p.input :username, label: false, input_html: { class: 'form-control', placeholder: 'Username' }
+                        .col-lg-6
+                          .form-group
+                            = p.input :practice_role, as: 'select', collection: Provider.practice_roles.to_a, selected: current_user.provider.practice_role, input_html: { 'data-placeholder' => 'Speciality', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }
+                    .col-lg-5
+                      .form-group
+                        .checkbox-custom.disabled
+                          = p.check_box :status, label: false, readonly: 'readonly', disabled: 'disabled', id: 'user_active'
+                          label[for="user_active"]
+                            span.checkbox-icon-container
+                              span.checkbox-icon
+                            span.checkbox-label Active
+                      .form-group
+                        = link_to 'Reset Password', edit_user_registration_path, class: 'button'
+                  .row.second-row
+                    .col-lg-7
+                      .row
+                        .col-lg-6
+                          = p.simple_fields_for :user, current_user do |u|
+                            = u.input :id, as: 'hidden', value: current_user.id
+                            .form-group
+                              = u.input :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Personal Email' }
+                        .col-lg-6
+                          .form-group
+                            = p.input :primary_phone, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Personal Phone' }
+                    - if !current_user.provider.emergency_access?
+                      .col-lg-5
+                        .form-group.pull-right
+                          = link_to 'Request Emergency Access', request_emergency_access_providers_path, class: 'button button-danger button-modal-open', 'data-target': '#modal-request-emergency-access', remote: true
+      .modal-footer
+        = p.submit 'Save Changes', class: 'button'
+        a.button.button-cancel data-target="#modal-myaccount" data-dismiss="modal" Cancel

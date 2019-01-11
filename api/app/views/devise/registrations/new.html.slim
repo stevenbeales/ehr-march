@@ -1,0 +1,37 @@
+.registrations-new-wrapper
+  .panel.panel-default
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .panel-header
+        h4 Sign up
+      - if devise_error_messages!.present?
+        .panel-body
+          = devise_error_messages!
+      .panel-body
+        .row
+          .col-lg-12
+            .form-group
+              = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'E-Mail'
+        .row
+          .col-lg-12
+            .form-group
+              - if @minimum_password_length
+                em 
+                  = @minimum_password_length  
+                  | characters minimum
+              = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: "Password"
+        .row
+          .col-lg-12
+            .form-group
+              = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Password Confirmation'
+        - if devise_mapping.rememberable?
+          .row
+            .col-lg-12
+              .form-group
+                = f.check_box :remember_me
+      .panel-footer
+        .actions
+          .row
+            .col-lg-12
+              = f.submit "Sign up", class: 'btn btn-success'
+              .pull-right
+                = render "devise/shared/links"

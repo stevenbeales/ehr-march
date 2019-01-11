@@ -1,0 +1,48 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/patients",
+  "description": "Search patients by part of first or last name",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "part",
+      "description": "Part of first or last name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/patients?data[auth_token]=83072e7c4537932e54f5251bd8369331&data[part]=Dav",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "83072e7c4537932e54f5251bd8369331",
+          "part": "Dav"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lVpghNf9QmPr\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lVpghNf9QmPr\",\n        \"email\": \"remington@bergstrom.org\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Dave\",\n        \"middle-name\": null,\n        \"last-name\": \"Stuart\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+19726809724\",\n        \"primary-phone\": \"+18739400972\",\n        \"code\": null,\n        \"social-number\": \"516348687\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lVpghNf9QmPr/avatar1.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lVpghNf9QmPr\"\n      }\n    },\n    {\n      \"id\": \"33lVuwPKcY5CKZ\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lVuwPKcY5CKZ\",\n        \"email\": \"rebekah@willfadel.name\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Timber\",\n        \"middle-name\": null,\n        \"last-name\": \"Davison\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+18463641647\",\n        \"primary-phone\": \"+13548316754\",\n        \"code\": null,\n        \"social-number\": \"897123412\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lVuwPKcY5CKZ/avatar3.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lVuwPKcY5CKZ\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments",
+  "description": "Index",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "page",
+      "description": "Pagination, page number"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments?data[auth_token]=e4c19011396a9b2e319c6ad4ae20379c&data[page]=0",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "e4c19011396a9b2e319c6ad4ae20379c",
+          "page": "0"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lWeDOToVzSxX\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lWeDOToVzSxX\",\n        \"email\": \"prudence@kihn.net\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Allen\",\n        \"middle-name\": null,\n        \"last-name\": \"Stracke\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+13576457743\",\n        \"primary-phone\": \"+16658536490\",\n        \"code\": null,\n        \"social-number\": \"229279466\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lWeDOToVzSxX/avatar2.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lWeDOToVzSxX\"\n      }\n    },\n    {\n      \"id\": \"33lWjhRJcz7fXf\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lWjhRJcz7fXf\",\n        \"email\": \"austin@shanahanwaters.co\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Nicola\",\n        \"middle-name\": null,\n        \"last-name\": \"Harber\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+18918396114\",\n        \"primary-phone\": \"+17984402881\",\n        \"code\": null,\n        \"social-number\": \"848754716\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lWjhRJcz7fXf/avatar6.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lWjhRJcz7fXf\"\n      }\n    },\n    {\n      \"id\": \"33lWp17lLZOUDr\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lWp17lLZOUDr\",\n        \"email\": \"ransom_hammes@williamson.com\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Velva\",\n        \"middle-name\": null,\n        \"last-name\": \"Hudson\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+15587360837\",\n        \"primary-phone\": \"+17250138423\",\n        \"code\": null,\n        \"social-number\": \"157774981\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lWp17lLZOUDr/avatar7.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lWp17lLZOUDr\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

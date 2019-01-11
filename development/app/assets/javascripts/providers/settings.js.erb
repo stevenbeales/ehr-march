@@ -1,0 +1,333 @@
+//= require_tree .
+
+var SchedulePracticeLocationController = function() {
+  var practice_location_select = $('#practice_address');
+  var color_input = $('#location_colour');
+
+  this.initialize = function() {
+    addPracticeLocationChange();
+    addColorChange();
+  };
+
+  var addPracticeLocationChange = function() {
+    practice_location_select.change(function(){
+      var option = $(this).find(':selected');
+      color_input.data('id', option.val());
+      setColorInput(option.data('color'));
+      setEditUrl(option.val());
+    });
+  };
+
+  var addColorChange = function() {
+    color_input.change(function() {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.settings_set_practice_location_color_path %>',
+        data: {
+          id: $(this).data('id'),
+          colour: $(this).val()
+        }
+      });
+      practice_location_select.find('option[value="' + $(this).data('id') + '"]').data('color', $(this).val());
+    });
+  };
+
+  var setColorInput = function(color) {
+    var colorResult = String(color).substring(0, 1)=='#'?color:'#'+color;
+    color_input.val(colorResult);
+    color_input.parent().find('span.minicolors-swatch span.minicolors-swatch-color').attr('style', 'background-color: ' + colorResult + ';');
+    color_input.parent().parent().find('.minicolors-grid').attr('style', 'background-color: ' + colorResult + ';');
+  };
+
+  var setEditUrl = function(id) {
+    var url = '<%= Rails.application.routes.url_helpers.form_locations_path %>';
+    url += '?id=' + id;
+    $('#item-settings-add-edit-provider-schedule').attr('href', url);
+  };
+};
+
+$(function() {
+  $('.users-content table tbody tr td:nth-child(5) .checkbox').change(function() {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.settings_set_admin_path %>',
+      data: {
+        id: $(this).data('id'),
+        admin: $(this).is(':checked')
+      }
+    });
+  });
+
+  $('.users-content table tbody tr td:nth-child(6) .status').click(function() {
+    var new_status = !$(this).hasClass('status-active');
+    var span = $(this);
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.set_status_providers_path %>',
+      data: {
+        id: $(this).data('id'),
+        status: new_status
+      }
+    }).done(function(){
+      if(new_status) {
+        span.removeClass('status-inactive');
+        span.addClass('status-active');
+        span.text('Active');
+      }
+      else {
+        span.removeClass('status-active');
+        span.addClass('status-inactive');
+        span.text('Inactive');
+      }
+    });
+  });
+
+  $('.users-content table tbody tr td:nth-child(7) .checkbox').change(function() {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.set_emergency_access_providers_path %>',
+      data: {
+        id: $(this).data('id'),
+        emergency_access: $(this).is(':checked')
+      }
+    });
+  });
+  initSelect2('.settings-wrapper');
+
+  var schedulePracticeLocationController = new SchedulePracticeLocationController();
+  schedulePracticeLocationController.initialize();
+});
+
+$(function() {
+  var roomsContainerPreset = $('\
+  <div class="row row-container row-content">\
+    <div class="col-xs-6">\
+      <div class="form-group">\
+        <input type="text" class="form-control form-control-blank form-control-edited" />\
+      </div>\
+    </div>\
+    <div class="col-xs-6">\
+      <div class="form-group">\
+        <a href="#" class="button button-edit">Edit</a>\
+        <a href="#" class="button button-remove">Remove</a>\
+      </div>\
+    </div>\
+  </div>');
+
+  var typesStatusesContainerPreset = $('\
+  <div class="row row-container row-content">\
+    <div class="col-xs-5 col-lg-5">\
+      <div class="form-group">\
+        <input type="text" class="form-control form-control-blank form-control-edited" />\
+      </div>\
+    </div>\
+    <div class="col-xs-3 col-lg-3">\
+      <div class="form-group">\
+        <input type="text" class="minicolor-picker" />\
+      </div>\
+    </div>\
+    <div class="col-xs-4 col-lg-4">\
+      <div class="form-group">\
+        <a href="#" class="button button-edit">Edit</a>\
+        <a href="#" class="button button-remove">Remove</a>\
+      </div>\
+    </div>\
+  </div>');
+
+
+  var addContainer = function(id, value, colour, isEdit, type) {
+    var container = '', parent = '', color = false, insertBefore = false;
+    switch(type) {
+      case 'room':
+        container = roomsContainerPreset.clone();
+        parent = $('#rooms');
+      break;
+      case 'status':
+        container = typesStatusesContainerPreset.clone();
+        parent = $('#appointment_statuses');
+        insertBefore = true;
+        color = true;
+      break;
+      case 'type':
+        container = typesStatusesContainerPreset.clone();
+        parent = $('#appointment_types');
+        insertBefore = true;
+        color = true;
+      break;
+    }
+    if(container != '' && parent != '') {
+      if(insertBefore)
+        parent.find('.row-container:last-child').before(container);
+      else
+        parent.append(container);
+      var control = container.find('.form-control.form-control-edited');
+      control.val(value);
+      control.data('id', id);
+      if(colour != null && color) {
+        var colorControl = container.find('.minicolor-picker');
+        colorControl.val(colour);
+      }
+      initControls($(container));
+      if(isEdit) {
+        var textInput = container.find('.form-control');
+        var button = container.find('.button-edit');
+        textInput.removeClass('form-control-blank');
+        enableControl(textInput);
+        textInput.focus();
+        textInput.select();
+        button.text('Save');
+        $(textInput).data('isEditing', true);
+      }
+    }
+  }
+
+  var buttonAddHandler = function(e) {
+    e.preventDefault();
+    var type = '';
+    if($(this).hasClass('button-add-room'))
+      type = 'room';
+    if($(this).hasClass('button-add-status'))
+      type = 'status';
+    if($(this).hasClass('button-add-type'))
+      type = 'type';
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.settings_add_schedule_fields_path %>',
+        data: {
+          type: type
+        }
+      }).done(function(field) {
+        if(type == 'room')
+          addContainer(field['id'], '', null, true, type);
+        if(type == 'status' || type == 'type')
+          addContainer(field['id'], '', field['colour'], true, type); 
+      });
+  }
+
+  var editDoneHandler = function(textInput, button) {
+    textInput.addClass('form-control-blank');
+    disableControl(textInput);
+    button.focus();
+    button.text('Edit');
+    $(textInput).data('isEditing', false);
+  }
+
+  var buttonEditHandler = function(e) {
+    var textInput = $(this).closest('.row').find('.form-control');
+    var button = $(this);
+    if(textInput[0]) {
+      e.preventDefault();
+      switch($(textInput).data('isEditing')) {
+        case false:
+          textInput.removeClass('form-control-blank');
+          enableControl(textInput);
+          textInput.focus();
+          textInput.select();
+          button.text('Save');
+          $(textInput).data('isEditing', true);
+        break;
+        case true:
+          var type = '';
+          if($(this).closest('#rooms').length > 0)
+            type = 'room';
+          if($(this).closest('#appointment_statuses').length > 0)
+            type = 'status';
+          if($(this).closest('#appointment_types').length > 0)
+            type = 'type';
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.settings_update_schedule_fields_path %>',
+              data: {
+                id: textInput.data('id'),
+                name: textInput.val(),
+                type: type
+              }
+            }).done(editDoneHandler(textInput, button))
+        break;
+      }
+    }
+  }
+
+  var colorChangeHandler = function(e) {
+    var textInput = $(this).closest('.row').find('.form-control');
+    var colorInput = $(this);
+    var type = '';
+    if($(this).closest('#rooms').length > 0)
+      type = 'room';
+    if($(this).closest('#appointment_statuses').length > 0)
+      type = 'status';
+    if($(this).closest('#appointment_types').length > 0)
+      type = 'type';
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.settings_update_schedule_color_fields_path %>',
+      data: {
+        id: textInput.data('id'),
+        colour: colorInput.val().substring(1),
+        type: type
+      }
+    });
+  }
+
+  var buttonRemoveHandler = function(e) {
+    e.preventDefault();
+    var container = $(this).closest('.row-content');
+    var control = $(this).closest('.row-content').find('.form-control');
+    var type = '';
+    if($(this).closest('#rooms').length > 0)
+      type = 'room';
+    if($(this).closest('#appointment_statuses').length > 0)
+      type = 'status';
+    if($(this).closest('#appointment_types').length > 0)
+      type = 'type';
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.settings_destroy_schedule_fields_path %>',
+      data: {
+        id: control.data('id'),
+        type: type
+      }
+    }).done(function() {
+      container.remove();
+    });
+  } 
+
+  var initControls = function(container) {
+    $(typeof container != 'undefined'?container.find('.form-control-edited'):'#settings-schedule-container .form-control-edited').addClass('form-control-blank');
+    $(typeof container != 'undefined'?container.find('.button-edit'):'#settings-schedule-container .button-edit').on('click', buttonEditHandler);
+    $(typeof container != 'undefined'?container.find('.button-add-association'):'#settings-schedule-container .button-add-association').on('click', buttonAddHandler);
+    $(typeof container != 'undefined'?container.find('.button-remove'):'#settings-schedule-container .button-remove').on('click', buttonRemoveHandler);
+    $(typeof container != 'undefined'?container.find('.minicolor-picker'):'#settings-schedule-container .minicolor-picker').minicolors();
+    $(typeof container != 'undefined'?container.find('.minicolor-picker'):'#settings-schedule-container .minicolor-picker').change(colorChangeHandler);
+    $(typeof container != 'undefined'?container.find('.form-control-edited'):'#settings-schedule-container .form-control-edited').data('isEditing', false);
+    disableControl($(typeof container != 'undefined'?container.find('.form-control-edited'):'#settings-schedule-container .form-control-edited'));
+  }
+  initControls();
+
+  var getContainers = function() {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.settings_get_schedule_fields_path %>',
+      data: {
+        type: 'room'
+      }
+    }).done(function(rooms) {
+      $('#rooms').html('');
+      $.each(rooms, function() {
+        addContainer($(this)[0]['id'], $(this)[0]['room'], null, false, 'room');
+      });
+    });
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.settings_get_schedule_fields_path %>',
+      data: {
+        type: 'status'
+      }
+    }).done(function(statuses) {
+      $.each(statuses, function() {
+        addContainer($(this)[0]['id'], $(this)[0]['name'], $(this)[0]['colour'], false, 'status');
+      });
+    });
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.settings_get_schedule_fields_path %>',
+      data: {
+        type: 'type'
+      }
+    }).done(function(types) {
+      $.each(types, function() {
+        addContainer($(this)[0]['id'], $(this)[0]['appt_type'], $(this)[0]['colour'], false, 'type');
+      });
+    });
+  }
+  getContainers();
+});

@@ -1,0 +1,11 @@
+- provider.appointment_statuses.each do |status|
+  li data-provider_id="#{provider.id}"
+    input.color-picker
+    = link_to '#', role: 'menuitem', tabindex: -1, class: 'filter_item', data: { option: status.id }
+      .checkbox-custom
+        input.checkbox type="checkbox" id="status_#{status.id}" checked="checked"
+        label for="status_#{status.id}"
+          span.checkbox-icon-container
+            span.checkbox-icon
+          span.checkbox-label
+            = status.name

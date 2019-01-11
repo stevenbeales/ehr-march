@@ -1,0 +1,49 @@
+{
+  "resource": "Locations",
+  "http_method": "GET",
+  "route": "/locations/form",
+  "description": "Get location for edit",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Location id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/locations/form?data[auth_token]=1f6d2726fa90ca75630ef93f478bf4a7&data[id]=33lWKskw58CjkB",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "1f6d2726fa90ca75630ef93f478bf4a7",
+          "id": "33lWKskw58CjkB"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lWKskw58CjkB\",\n    \"type\": \"locations\",\n    \"attributes\": {\n      \"id\": \"33lWKskw58CjkB\",\n      \"provider-id\": null,\n      \"location-name\": \"Ivy Alley\",\n      \"location-phone\": \"+19681147083\",\n      \"location-fax\": \"+19050578030\",\n      \"location-address\": \"Albin Coves\",\n      \"city\": \"Port Fae\",\n      \"state\": \"Connecticut\",\n      \"zip\": 38844,\n      \"location-npi\": \"21-7459751\",\n      \"location-tin-en\": \"17-0893743\",\n      \"colour\": \"ADAE92\"\n    },\n    \"links\": {\n      \"self\": \"/locations/33lWKskw58CjkB\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+$("#modal-add-patient-invite-to-portal").html("<%= escape_javascript(render 'form_invite_to_portal') %>");
+$("#modal-add-patient-invite-to-portal").modal("show");
+$('#modal-add-patient').modal("hide");
+$('#modal-add-patient-invite-to-portal .modal-close').on('click', function() {
+  $('#modal-add-patient-invite-to-portal, #modal-add-patient').modal('hide');
+});
+$('#invite-portal-name').html($('#user_patient_attributes_first_name').val());
+$('#invite-portal-last-name').val($('#user_patient_attributes_last_name').val());
+$('#invite-portal-dob').html($('#user_patient_attributes_birth').val());
+$('#invite-portal-code').html($('#user_patient_attributes_code').val());
+var PDFUrls = function() {
+  this.initialize = function() {
+    var name = $('#invite-portal-name').text();
+    var last_name = $('#invite-portal-last-name').val();
+    var birth = $('#invite-portal-dob').text();
+    var code = $('#invite-portal-code').text();
+    var email = $('#invite-portal-patient_email').val();
+    var download_href = add_params('<%= download_pdf_providers_path %>', name, birth, code);
+    var send_mail_href = add_params('<%= send_invite_email_providers_path %>', name, birth, code) + '&last_name=' + last_name + '&email=' + email;
+    $('#download-invite-pdf').attr('href', download_href);
+    $('#send-invite-with-pdf').attr('href', send_mail_href);
+  };
+
+  var add_params = function(base_url, name, birth, code) {
+    return base_url + '?' + 'name=' + name + '&birth=' + birth + '&code=' + code;
+  };
+};
+
+pdf_urls = new PDFUrls();
+pdf_urls.initialize();

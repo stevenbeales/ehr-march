@@ -1,0 +1,52 @@
+Authorization
+-------------
+
+Parameters:
+  * email - User email
+  * password - User password
+
+Request:
+  POST /sessions/create
+  Content-Type: application/vnd.api+json
+
+  {"data":{"email":"doctor@email.com","password":"doctor"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfx0Y6bK6yOp",
+      "type": "users",
+      "attributes": {
+        "id": "33lfx0Y6bK6yOp",
+        "email": "doctor@email.com",
+        "role": "Provider",
+        "locked": false
+      },
+      "links": {
+        "self": "/users/33lfx0Y6bK6yOp"
+      }
+    },
+    "auth_token": "5e098283100e5c7d2956ae7f190cdc69"
+  }
+
+
+Log out
+-------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  DELETE /sessions/destroy
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"7c1563abc884980e85e22f497d714986"}}
+
+Response:
+  Status: 204 No Content
+
+
+

@@ -1,0 +1,24 @@
+.error-wrapper
+  .error-top
+    .string
+      .string-top
+        .image-center
+          = image_tag('ehr.svg', width: 232, height: 88, alt: "EHR1 Logo")
+      .container
+        .string-top-container
+          = link_to root_path, class: 'string-top-home-link'
+            = image_tag('num-top.svg', width: 146, height: 248, alt: "EHR1 One Num Logo")
+  .error-content
+    .container
+      .message
+        .block
+          div
+            h4 The page you were looking for doesn't exist.
+            h5 You may have mistyped the address or the page may have moved.
+  .error-bottom
+    .container
+      .owner-info
+        p If you are the application owner check the logs for more information.
+.error-footer
+  .container
+    span.copyright Copyright IT Med., Inc. 2015

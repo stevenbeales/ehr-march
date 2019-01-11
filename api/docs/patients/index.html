@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patients API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patients API</h1>
+
+      <div class="article">
+        <h2>Index</h2>
+        <h3>GET /patients</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /patients?data[auth_token]=3e6be69bfa221f5c7ce9e2bbe455e14b</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;3e6be69bfa221f5c7ce9e2bbe455e14b&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;appointments&quot;: [
+      {
+        &quot;appointment_datetime&quot;: &quot;2016-02-26T17:16:00.000+02:00&quot;,
+        &quot;appointment_status_id&quot;: &quot;33lciowC05G403&quot;,
+        &quot;appointment_type_id&quot;: &quot;33lchXLtm0djH9&quot;,
+        &quot;colour&quot;: &quot;A1C7F2&quot;,
+        &quot;contact_email&quot;: &quot;kenneth@eichmann.co&quot;,
+        &quot;contact_phone&quot;: &quot;+12100268729&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:16:29.802+02:00&quot;,
+        &quot;duration&quot;: &quot;2 hours&quot;,
+        &quot;id&quot;: &quot;33lcfSwL2nUYTr&quot;,
+        &quot;location&quot;: &quot;76246 Aiyana Prairie&quot;,
+        &quot;patient_id&quot;: &quot;33lcc9gdw4Rm0x&quot;,
+        &quot;provider_id&quot;: &quot;33lcfSwUisdvO7&quot;,
+        &quot;reason&quot;: &quot;Dolorem ut eius sequi.&quot;,
+        &quot;reminder&quot;: false,
+        &quot;room_id&quot;: &quot;33lcgqD7uTLA5T&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:16:29.802+02:00&quot;
+      },
+      {
+        &quot;appointment_datetime&quot;: &quot;2016-02-26T17:16:00.000+02:00&quot;,
+        &quot;appointment_status_id&quot;: &quot;33lcoqbObs9U1r&quot;,
+        &quot;appointment_type_id&quot;: &quot;33lcmp8U1roasV&quot;,
+        &quot;colour&quot;: &quot;76BE71&quot;,
+        &quot;contact_email&quot;: &quot;gavin_howe@beatty.biz&quot;,
+        &quot;contact_phone&quot;: &quot;+1958039389&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:16:38.428+02:00&quot;,
+        &quot;duration&quot;: &quot;2 hours 45 min&quot;,
+        &quot;id&quot;: &quot;33lckM0iHCQ24J&quot;,
+        &quot;location&quot;: &quot;13053 Bartell Falls&quot;,
+        &quot;patient_id&quot;: &quot;33lcc9gdw4Rm0x&quot;,
+        &quot;provider_id&quot;: &quot;33lckM0rxHZOyZ&quot;,
+        &quot;reason&quot;: &quot;Ut officia quia ullam qui iste.&quot;,
+        &quot;reminder&quot;: false,
+        &quot;room_id&quot;: &quot;33lclZBofsZmrb&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:16:38.428+02:00&quot;
+      },
+      {
+        &quot;appointment_datetime&quot;: &quot;2016-02-26T17:16:00.000+02:00&quot;,
+        &quot;appointment_status_id&quot;: &quot;33lcuBFweRbY3P&quot;,
+        &quot;appointment_type_id&quot;: &quot;33lcsxY3iJiChv&quot;,
+        &quot;colour&quot;: &quot;0A30CD&quot;,
+        &quot;contact_email&quot;: &quot;ole_hackett@orn.co&quot;,
+        &quot;contact_phone&quot;: &quot;+15495557185&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:16:45.812+02:00&quot;,
+        &quot;duration&quot;: &quot;1 hour&quot;,
+        &quot;id&quot;: &quot;33lcq5Jj3EUcKZ&quot;,
+        &quot;location&quot;: &quot;2353 Morissette Ridges&quot;,
+        &quot;patient_id&quot;: &quot;33lcc9gdw4Rm0x&quot;,
+        &quot;provider_id&quot;: &quot;33lcq5JsjJdzEp&quot;,
+        &quot;reason&quot;: &quot;Excepturi placeat quia amet aut est.&quot;,
+        &quot;reminder&quot;: true,
+        &quot;room_id&quot;: &quot;33lcrd3SWHY7wx&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:16:45.812+02:00&quot;
+      }
+    ],
+    &quot;notifications&quot;: {
+      &quot;appointment&quot;: {
+        &quot;appointment_datetime&quot;: &quot;2016-02-26T17:16:00.000+02:00&quot;,
+        &quot;appointment_status_id&quot;: &quot;33lciowC05G403&quot;,
+        &quot;appointment_type_id&quot;: &quot;33lchXLtm0djH9&quot;,
+        &quot;colour&quot;: &quot;A1C7F2&quot;,
+        &quot;contact_email&quot;: &quot;kenneth@eichmann.co&quot;,
+        &quot;contact_phone&quot;: &quot;+12100268729&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:16:29.802+02:00&quot;,
+        &quot;duration&quot;: &quot;2 hours&quot;,
+        &quot;id&quot;: &quot;33lcfSwL2nUYTr&quot;,
+        &quot;location&quot;: &quot;76246 Aiyana Prairie&quot;,
+        &quot;patient_id&quot;: &quot;33lcc9gdw4Rm0x&quot;,
+        &quot;provider_id&quot;: &quot;33lcfSwUisdvO7&quot;,
+        &quot;reason&quot;: &quot;Dolorem ut eius sequi.&quot;,
+        &quot;reminder&quot;: false,
+        &quot;room_id&quot;: &quot;33lcgqD7uTLA5T&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:16:29.802+02:00&quot;
+      },
+      &quot;message&quot;: null
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

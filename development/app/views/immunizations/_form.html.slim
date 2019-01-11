@@ -1,0 +1,296 @@
+= simple_form_for @immunization, remote: true do |f|
+  = f.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+  .modal-body
+    .scrollable-container
+      .content
+        .row
+          .col-lg-12
+            .form-group
+              .vaccine-types-radio-buttons
+                .radiobutton-custom
+                  = f.radio_button :name, 'Administered', checked: type_general == 'Administered', class: 'immunization-name'
+                  label for="immunization_name_administered"
+                    span.radio-icon
+                    span.radio-label
+                      | Administered
+                .radiobutton-custom
+                  = f.radio_button :name, 'Historical', checked: type_general == 'Historical', class: 'immunization-name'
+                  label for="immunization_name_historical"
+                    span.radio-icon
+                    span.radio-label
+                      | Historical
+                .radiobutton-custom
+                  = f.radio_button :name, 'Refused', checked: type_general == 'Refused', class: 'immunization-name'
+                  label for="immunization_name_refused"
+                    span.radio-icon
+                    span.radio-label
+                      | Refused
+        .row
+          .col-lg-12
+            .form-group
+              p.title
+                | Vaccine:
+                span *
+              .dropdown.dropdown-custom
+                .input-group-custom.input-group-green
+                  = f.input :vaccine_id, as: :hidden
+                  input.form-control.form-control-green#find-vaccine-input type="text" placeholder="Start typing to search for vaccine"
+                  span.input-group-addon.input-group-addon-right.input-group-addon-small.input-group-addon-search id="find-vaccine-button"
+                  ul.dropdown-menu id="find-vaccine-list"
+        - if type_general == 'Refused'
+          .row
+            .col-lg-6
+              .form-group
+                p.title
+                  | Reason Refused:
+                  span *
+                = f.input :reason_refused, as: :select, collection: Immunization.reason_refuseds, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x', placeholder: 'Select Refusal Reason' } }
+        .row
+          .col-lg-5
+            .form-group
+              - if type_general == 'Refused'
+                p.title
+                  | Date Refused:
+                  span *
+                .input-group-custom.input-group-green
+                  = f.input :refused_at, input_html: { class: 'form-control form-control-green date-picker', placeholder: 'yyyy/mm/dd' }
+                  span.input-group-addon.input-group-addon-right.input-group-addon-large.input-group-addon-calendar
+              - else
+                p.title
+                  | Date Administered:
+                  span *
+                .input-group-custom.input-group-green
+                  = f.input :administered_at, input_html: { class: 'form-control form-control-green date-picker', placeholder: 'yyyy/mm/dd' }
+                  span.input-group-addon.input-group-addon-right.input-group-addon-large.input-group-addon-calendar
+          - if type_general == 'Refused'
+            .col-lg-1
+          .col-lg-5
+            .form-group
+              - if type_general == 'Administered'
+                p.title
+                  | Time administered:
+                  span *
+                .input-group-custom.input-group-green
+                  = f.input :administered_at, input_html: { class: 'form-control form-control-green time-picker', placeholder: 'hh:mm xm' }
+                  span.input-group-addon.input-group-addon-right.input-group-addon-large.input-group-addon-alarm
+              - if type_general == 'Historical'
+                p.title
+                  | Source of Information:
+                  span *
+                = f.input :source_of_information, as: :select, collection: Immunization.source_of_informations, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x', placeholder: 'Select a source' } }
+              - if type_general == 'Refused'
+                p.title
+                  | Status:
+                p.title-bolder
+                  | Refused
+        - if type_general == 'Administered'
+          .row
+            .col-lg-6
+              .form-group
+                p.title
+                  | Administered by:
+                  span *
+                = f.input :administered_by_id, as: :select, collection: current_user.provider.all_providers, selected: current_user.provider.id, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x' } }
+            .col-lg-6
+              .form-group
+                p.title
+                  | Ordered by:
+                  span *
+                = f.input :ordered_by_id, as: :select, collection: current_user.provider.all_providers, selected: current_user.provider.id, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x' } }
+        .row
+          .col-lg-12
+            .form-group
+              - if type_general == 'Refused'
+                p.title
+                  | Facility:
+                  span *
+                = f.input :facility_id, as: :select, collection: current_user.provider.all_practice_locations, selected: current_user.provider.try(:location).try(:id), input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x' } }
+              - else
+                p.title
+                  | Administered Facility:
+                  span *
+                = f.input :administered_facility_id, as: :select, collection: current_user.provider.all_practice_locations, selected: current_user.provider.try(:location).try(:id), input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x' } }
+        - if type_general == 'Refused'
+          .row
+            .col-lg-5
+              .form-group.disabled
+                p.title
+                  | VIS Edition:
+                  span *
+                .input-group-custom.input-group-green
+                  = f.input :created_at, input_html: { class: 'form-control form-control-green date-picker', placeholder: 'yyyy/mm/dd', readonly: true, tabindex: -1 }
+                  span.input-group-addon.input-group-addon-right.input-group-addon-large.input-group-addon-calendar
+        - if type_general == 'Administered'
+          .row
+            .col-lg-6
+              .form-group
+                p.title
+                  | Manufacturer:
+                  span *
+                = f.input :manufacturer, as: :select, collection: Immunization.manufacturers, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x' } }
+            .col-lg-6
+              .form-group
+                p.title
+                  | Lot:
+                  span *
+                = f.input :lot, input_html: { class: 'form-control form-control-green' }
+          .row
+            .col-lg-6
+              .form-group
+                p.title
+                  | Quantity:
+                  span *
+                = f.input :quantity, input_html: { class: 'form-control form-control-green' }
+          .row
+            .col-lg-4
+              .form-group
+                p.title
+                  | Dose:
+                  span *
+                = f.input :dose, input_html: { class: 'form-control form-control-green' }
+            .col-lg-4
+              .form-group
+                p.title
+                  | Units:
+                  span *
+                = f.input :unit, as: :select, collection: Immunization.units, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x' } }
+            .col-lg-4
+              .form-group
+                p.title
+                  | Expiration Date:
+                  span *
+                .input-group-custom.input-group-green
+                  = f.input :expiration_at, input_html: { class: 'form-control form-control-green date-picker', placeholder: 'yyyy/mm/dd' }
+                  span.input-group-addon.input-group-addon-right.input-group-addon-large.input-group-addon-calendar
+          .row
+            .col-lg-12
+              .form-group
+                p.title Route:
+                = f.input :route, as: :select, collection: Immunization.routes, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x', placeholder: 'Select a Value' } }
+          .row
+            .col-lg-12
+              .form-group
+                p.title Body Site:
+                = f.input :body_site, as: :select, collection: Immunization.body_sites, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x', placeholder: 'Select a Value' } }
+          .row
+            .col-lg-12
+              .form-group
+                p.title Funding Source:
+                = f.input :funding_source, as: :select, collection: Immunization.funding_sources, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x', placeholder: 'Select a funding source' } }
+          .row
+            .col-lg-12
+              .form-group
+                p.title Registry Notifications:
+                = f.input :registry_notification, as: :select, collection: Immunization.registry_notifications, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x', placeholder: 'Notify me' } }
+          .row
+            .col-lg-12
+              .form-group
+                p.title VFC Financial Class
+                = f.input :vfc_class, as: :select, collection: Immunization.vfc_classes, input_html: { class: 'select2', data: { theme: 'green-white-light', arrow: '4x', padding: '3x', font: '1x', placeholder: 'Class Selection' } }
+        .row
+          .col-lg-12
+            .form-group
+              p.title Comments
+              = f.input :comments, as: :text, input_html: { class: 'form-control form-control-green', row: 3, placeholder: 'Comments' }
+        - if type == 'Edit'
+          .log-container
+            .row
+              .col-lg-12
+                p.title Change Log:
+                p.log-record
+                  | 3/8/2016 04:16 PM - By: Dr. Williams -  
+                  = link_to 'View Changes', '#'
+  .modal-footer
+    .row
+      .col-lg-12
+        .controls
+          = f.submit 'Save', class: 'button'
+          a.button.button-danger href="#" data-dismiss="modal" Cancel
+
+javascript:
+
+  var VaccineSearchController = function () {
+    var search_input;
+    var search_button;
+    var search_list;
+    var id_input;
+
+    var url;
+
+    this.initialize = function (input, button, list, path, id) {
+      search_input = $(input);
+      search_button = $(button);
+      search_list = $(list);
+      id_input = $(id);
+      url = path;
+      findAll();
+      initSearchOnInput();
+    };
+
+    var initKeyDownListeners = function () {
+      search_input.on('keydown', function (e) {
+        if (e.keyCode == '40' && search_list.css('display') == 'block') {
+          e.preventDefault();
+          $(search_list.find('a').first()).focus();
+          return false;
+        }
+      });
+      search_list.find('a').each(function () {
+        $(this).on('click', function (e) {
+          e.preventDefault();
+          search_input.val($(this).text()).change();
+          id_input.val($(this).data('id'));
+          search_list.fadeOut('fast');
+          search_input.focus();
+        })
+      });
+    };
+
+    var listFill = function (elements) {
+      if (elements.length > 0)
+        search_list.css('display', 'block');
+      else
+        search_list.css('display', 'none');
+      search_list.empty();
+      for (var i in elements) {
+        var li = $('<li/>');
+        var link = $('<a href="#" data-id="' + elements[i]['id'] + '">' + elements[i]['name'].trim() + '</a>');
+        li.append(link);
+        search_list.append(li);
+      }
+      initKeyDownListeners();
+    };
+
+    var findAll = function () {
+      search_button.on('click', function () {
+        $.ajax({
+          type: 'POST',
+          url: url
+        }).done(function (elements) {
+          listFill(elements);
+        });
+      });
+    };
+
+    var initSearchOnInput = function () {
+      search_input.on('keyup', function () {
+        var search_part = $(this).val();
+        $.ajax({
+          type: 'POST',
+          url: url,
+          data: {
+            part: search_part
+          }
+        }).done(function (elements) {
+          listFill(elements);
+        });
+      });
+    };
+  };
+
+  var vaccineSearchController = new VaccineSearchController();
+  vaccineSearchController.initialize('input#find-vaccine-input',
+          'span#find-vaccine-button',
+          'ul#find-vaccine-list',
+          '#{Rails.application.routes.url_helpers.vaccines_immunizations_path(immunization: { patient_id: @patient.id }) }',
+          'input#immunization_vaccine_id');

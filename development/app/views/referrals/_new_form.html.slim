@@ -1,0 +1,45 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title Add New Referral Contact
+    = flash[:error]
+    = simple_form_for @referral, remote: true do |r|
+      .modal-body
+        .scrollable-container
+          .content
+            .row
+              .col-xs-4
+                .form-group
+                  = r.input :normal, label: false, input_html: { class: 'form-control placeholder-hiding', placeholder: 'Normal' }
+              .col-xs-2
+                .form-group
+                  = r.input :middle_name, label: false, input_html: { class: 'form-control placeholder-hiding', placeholder: 'M. I.' }
+              .col-xs-6
+                .form-group
+                  = r.input :last_name, label: false, input_html: { class: 'form-control placeholder-hiding', placeholder: 'Last Name' }
+            .row
+              .col-xs-4
+                .form-group
+                  = r.input :individual_npi, label: false, input_html: { class: 'form-control', placeholder: 'Individual NPI' }
+              .col-xs-8
+                .form-group
+                  = r.input :speciality, as: :select, collection: Referral.specialities.map {|speciality| [speciality, speciality]}, include_blank: false, input_html: { 'data-placeholder': 'Speciality', 'data-theme': 'gray-lighter', 'data-arrow': '2x', 'data-padding': '3x', 'data-font': '1x', class: 'select2' }
+            .row
+              .col-xs-6
+                .form-group
+                  = r.input :phone, as: 'tel', label: false, input_html: { class: 'form-control input-phone', placeholder: 'Phone #' }
+              .col-xs-6
+                .form-group
+                  = r.input :fax, as: 'tel', label: false, input_html: { class: 'form-control input-phone', placeholder: 'Fax #' }
+            .row
+              .col-xs-12
+                .form-group
+                  = r.input :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Email Address' }
+            .row
+              .col-xs-12
+                .form-group
+                  = mail_to '', 'Direct Address', class: 'button', id: 'direct-address-button'
+      .modal-footer
+        .buttons
+          = r.button :submit, 'Save Changes', class: 'button', id: 'modal-add-referral-button'
+          a.button.modal-close data-target="#modal-add-referral" data-dismiss="modal" Cancel

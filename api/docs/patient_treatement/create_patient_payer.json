@@ -1,0 +1,133 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "POST",
+  "route": "/patient_treatments/create_payer",
+  "description": "Create patient payer",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "required": true,
+      "name": "payer",
+      "description": "Payer params"
+    },
+    {
+      "required": true,
+      "name": "claim",
+      "description": "Claim params"
+    },
+    {
+      "scope": "payer",
+      "name": "name",
+      "description": "Name"
+    },
+    {
+      "scope": "payer",
+      "name": "plan",
+      "description": "Plan"
+    },
+    {
+      "scope": "payer",
+      "name": "plan_type",
+      "description": "Plan type"
+    },
+    {
+      "scope": "claim",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "scope": "claim",
+      "name": "middle_name",
+      "description": "Middle name"
+    },
+    {
+      "scope": "claim",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "claim",
+      "name": "street_address1",
+      "description": "Street address #1"
+    },
+    {
+      "scope": "claim",
+      "name": "street_address2",
+      "description": "Street address #2"
+    },
+    {
+      "scope": "claim",
+      "name": "phone",
+      "description": "Phone"
+    },
+    {
+      "scope": "claim",
+      "name": "fax",
+      "description": "Fax"
+    },
+    {
+      "scope": "claim",
+      "name": "ext1",
+      "description": "Ext 1"
+    },
+    {
+      "scope": "claim",
+      "name": "ext2",
+      "description": "Ext 2"
+    },
+    {
+      "scope": "claim",
+      "name": "city",
+      "description": "City"
+    },
+    {
+      "scope": "claim",
+      "name": "state",
+      "description": "State"
+    },
+    {
+      "scope": "claim",
+      "name": "zip",
+      "description": "Zip"
+    },
+    {
+      "scope": "claim",
+      "name": "notes",
+      "description": "Notes"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/patient_treatments/create_payer",
+      "request_body": "{\"data\":{\"auth_token\":\"121d0fe875cb6c5479065e8eb178f60b\",\"patient_id\":\"33lZvNEGWZjJJr\",\"payer\":{\"name\":\"Lelah\",\"plan\":\"Tristin\",\"plan_type\":\"Type2\"},\"claim\":{\"first_name\":\"Mauricio\",\"middle_name\":\"Estel\",\"last_name\":\"Zemlak\",\"street_address1\":\"28113 Lindsey Knolls\",\"street_address2\":\"44236 Sonny Mission\",\"phone\":\"+12744993812\",\"fax\":\"+1572198169\",\"ext1\":\"fixie\",\"ext2\":\"kinfolk\",\"city\":\"East Otis\",\"state\":\"Delaware\",\"zip\":15353,\"notes\":\"Lo-fi sustainable actually viral scenester vhs knausgaard vinegar venmo.\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33laBtvKWMefRL\",\n    \"type\": \"payers\",\n    \"attributes\": {\n      \"id\": \"33laBtvKWMefRL\",\n      \"patient-id\": \"33lZvNEGWZjJJr\",\n      \"name\": \"Lelah\",\n      \"plan\": \"Tristin\",\n      \"plan-type\": \"Type2\"\n    },\n    \"links\": {\n      \"self\": \"/payers/33laBtvKWMefRL\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+$("#modal-patient-diagnoses").html("<%= escape_javascript(render 'patient_show_diagnoses_form') %>")
+$("#modal-patient-diagnoses").modal("show")
+
+initModalFadeInOut('#modal-patient-diagnoses');
+$('.scrollable').slimScroll();
+
+var SearchCodeController = function() {
+  var search_input;
+  var search_button;
+  var search_list;
+  var url ;
+
+  var liFocusIn = false;
+
+  this.initialize = function(input, button, list, path) {
+    search_input = $(input);
+    search_button = $(button);
+    search_list = $(list);
+    url = path;
+    initFind10Click();
+    initSearchOnInput();
+    initSelectClick('.used-diagnosis-code', true);
+  };
+
+  var listFill = function(elements) {
+    if(elements.length>0) {
+      search_list.closest('.scrollable-padding-container').removeClass('collapse');
+      search_input.addClass('open');
+    }
+    else {
+      search_list.closest('.scrollable-padding-container').addClass('collapse');
+      search_input.removeClass('open');
+    }
+    search_list.empty();
+    for(var i in elements) {
+      var id = 'dcode' + elements[i]['id'];
+      var link = $('<a/>').attr('href','#').attr('id', id);
+      link.text('(' + elements[i]['code'] + ')' + ' ' + elements[i]['description'].trim());
+      link.data('id', elements[i]['id']);
+      search_list.append(link);
+      initSelectClick('#' + id, false);
+    }
+  };
+
+  var initFind10Click = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: url
+      }).done(function(elements){
+        listFill(elements);
+        search_list.find('a').first().focus();
+      });
+    })
+  };
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part
+        }
+      }).done(function(elements){
+        listFill(elements);
+      });
+    });
+  };
+
+  var initSelectClick = function(selector, flag) {
+    $(selector).click(function() {
+      $('.used-diagnosis-code').removeClass('active');
+      search_list.closest('.scrollable-padding-container').find('a').removeClass('active');
+      $(this).addClass('active');
+      var add_button = $('#add-custom-diagnosis-button');
+      var url = '<%= Rails.application.routes.url_helpers.add_patient_diagnoses_patient_treatments_path(id: @patient.id) %>';
+      url += '&diagnosis_code_id=' + $(this).data('id');
+      if(flag) {
+        url += '&diagnosis_id=' + $(this).data('diagnosis-id');
+        add_button.text('Edit Custom Dx');
+      }
+      else
+        add_button.text('Add Custom Dx');
+      add_button.attr('href', url)
+    });
+  };
+};
+
+var diagnosisSearchController = new SearchCodeController();
+diagnosisSearchController.initialize('input#search-diagnoses-input', 'span#search-diagnoses-button', '#search-diagnoses-list', '<%= Rails.application.routes.url_helpers.diagnosis_codes_patient_treatments_path %>');

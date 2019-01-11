@@ -1,0 +1,42 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/get_subjects",
+  "description": "Get all subjects",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/get_subjects?data[auth_token]=f97adc6fd6b6fe77af4970167c656e06",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "f97adc6fd6b6fe77af4970167c656e06"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lVeXn45Hx76x\",\n      \"type\": \"subjects\",\n      \"attributes\": {\n        \"id\": \"33lVeXn45Hx76x\",\n        \"name\": \"Ipsa\"\n      },\n      \"links\": {\n        \"self\": \"/subjects/33lVeXn45Hx76x\"\n      }\n    },\n    {\n      \"id\": \"33lVeXnDlN6U1D\",\n      \"type\": \"subjects\",\n      \"attributes\": {\n        \"id\": \"33lVeXnDlN6U1D\",\n        \"name\": \"Sit\"\n      },\n      \"links\": {\n        \"self\": \"/subjects/33lVeXnDlN6U1D\"\n      }\n    },\n    {\n      \"id\": \"33lVeXnNRSFqvT\",\n      \"type\": \"subjects\",\n      \"attributes\": {\n        \"id\": \"33lVeXnNRSFqvT\",\n        \"name\": \"Dolores\"\n      },\n      \"links\": {\n        \"self\": \"/subjects/33lVeXnNRSFqvT\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

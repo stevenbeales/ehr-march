@@ -1,0 +1,20 @@
+Index
+-----
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /landings/index?data[auth_token]=89e73ab1b376b751e46b31dd52ea7a65
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"89e73ab1b376b751e46b31dd52ea7a65"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+

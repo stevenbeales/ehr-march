@@ -1,0 +1,33 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title Invite to Patient Health Portal (PHP)
+    .modal-body
+      .row.patient-info
+        = hidden_field_tag :email, @patient.user.email, id: 'invite-portal-patient_email'
+        .col-xs-4
+          p Patient Name:
+          p
+            |
+            span id="invite-portal-name"
+              = @patient.full_name
+        .col-xs-4
+          p Date of Birth:
+          p
+            |
+            span id="invite-portal-dob"
+              = @patient.birth.strftime('%m/%d/%Y')
+        .col-xs-4
+          p Patient ID:
+          p
+            |
+            span id="invite-portal-code"
+              = @patient.code
+      hr
+      .row.buttons
+        = link_to 'Download Invite as PDF', '#', class: 'button', id: 'download-invite-pdf'
+        = link_to 'Send Invite to Email Address', '#', class: 'button', id: 'send-invite-with-pdf', remote: true
+    .modal-footer
+      .buttons
+        a.button.modal-add-patient-invite-to-portal-done data-target="#modal-add-patient-invite-to-portal" data-dismiss="modal" Done
+        a.button.modal-close Cancel

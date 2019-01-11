@@ -1,0 +1,97 @@
+#myhealth-wrapper.container.content
+  .row
+    .col-lg-3.left-block
+      h4 Basic Info
+      .panel.panel-default.myhealth-photo-panel
+        .panel-body
+          .photo-container
+            - if gravatar?(current_user)
+              = gravatar_for(current_user, { class: 'avatar', alt: 'avatar' })
+            - else
+              - if current_user.patient.profile_image.present?
+                img src="#{current_user.patient.profile_image.url}" class='photo-patient' alt='avatar'
+              - else
+                = image_tag 'avatar-empty.svg', size: 500, class: 'photo-patient'
+          .row
+            .col-xs-6
+              p FullName
+              p Age:
+              p Gender:
+              p Height:
+              p Weight: lbs
+              p Blood type:
+            .col-xs-6
+              p
+                = current_user.patient.full_name
+              - if current_user.patient.birth.present?
+                p
+                  = "#{(Time.now.to_date - current_user.patient.birth.to_date).to_i / 365} Years"
+              p
+                = current_user.patient.gender
+              p
+                = "#{current_user.patient.encounters.last.try(:vital).try(:height)}\”"
+              p
+                = "#{current_user.patient.encounters.last.try(:vital).try(:weight)} ibs"
+              p
+                = current_user.patient.encounters.last.try(:vital).try(:blood)
+    .col-lg-9.right-block
+      h4
+        p
+          | Vital Stats Recorded:&nbsp;
+          span
+            = current_user.patient.appointments.where(:appointment_datetime.gt => Time.now).order_by(:appointment_datetime).first
+      .panel.panel-default
+        .panel-body
+          .row
+            .col-xs-12
+              .row
+                .col-xs-12
+                  p
+                    = "Temperature: #{current_user.patient.encounters.last.try(:vital).try(:temp)}"
+              .row
+                .col-xs-5
+                  p
+                    = "Heart Rate: #{current_user.patient.encounters.last.try(:vital).try(:pulse)} BPM"
+                .col-xs-7
+                  p SYS (mmHg)
+              .row
+                .col-xs-5
+                  p
+                    = "Blood Pressure: #{current_user.patient.encounters.last.try(:vital).try(:sat)}"
+                .col-xs-7
+                  p DIAS (mmHg)
+      h4 Current Allergies
+      .panel.panel-default
+        .panel-body
+          div
+            - if current_user.patient.allergies.where(allergen_type: Allergy.allergen_types.first).any?
+              p
+                | Drug Allergies:
+                span
+                  '
+                  = current_user.patient.allergies.where(allergen_type: Allergy.allergen_types.first).map(&:allergen_type).join(' ')
+            - if current_user.patient.allergies.where(not: { allergen_type: Allergy.allergen_types.first}).any?
+              p
+                | Non Drug Allergies:
+                span
+                  '
+                  = current_user.patient.allergies.where.not(allergen_type: Allergy.allergen_types.first).map(&:allergen_type).join(' ')
+      - if @medications.any?
+        h4 Current Medications & Supplements
+        .panel.panel-default
+          .panel-body
+            .row
+              .col-lg-6
+                - @medications.each do |medication|
+                  ul
+                    li
+                      p
+                        = " - #{medication.shorthand}"
+              /.col-lg-6
+                ul
+                  li
+                    p Fish Oil
+                  li
+                    p Vitamin A+D
+javascript:
+  $('.item-myhealth').parent().addClass('active');

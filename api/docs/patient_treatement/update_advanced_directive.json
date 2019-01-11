@@ -1,0 +1,59 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "PATCH",
+  "route": "/patient_treatments/update_advanced_directive",
+  "description": "Update advanced directive",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "advanced_directive",
+      "description": "Advanced directive params"
+    },
+    {
+      "scope": "advanced_directive",
+      "required": true,
+      "name": "id",
+      "description": "Advanced directive id"
+    },
+    {
+      "scope": "advanced_directive",
+      "name": "record_date",
+      "description": "Record date"
+    },
+    {
+      "scope": "advanced_directive",
+      "name": "notes",
+      "description": "Notes"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/patient_treatments/update_advanced_directive",
+      "request_body": "{\"data\":{\"auth_token\":\"52fd264b1aaa66c8808b06d8f5fc202c\",\"advanced_directive\":{\"id\":\"33lcWw46fY4eKB\",\"record_date\":\"2016-02-26T17:16:14.778+02:00\",\"notes\":null}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lcWw46fY4eKB\",\n    \"type\": \"advanced-directives\",\n    \"attributes\": {\n      \"id\": \"33lcWw46fY4eKB\",\n      \"patient-id\": \"33lcWw4GLdE1ER\",\n      \"record-date\": \"2016-02-26T17:16:14.778+02:00\",\n      \"notes\": null\n    },\n    \"links\": {\n      \"self\": \"/advanced-directives/33lcWw46fY4eKB\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

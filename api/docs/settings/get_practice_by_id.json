@@ -1,0 +1,49 @@
+{
+  "resource": "Settings",
+  "http_method": "GET",
+  "route": "/settings/add_user_added_practice",
+  "description": "Get practice by id",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "User id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/settings/add_user_added_practice?data[auth_token]=5f2db476df98edce967c5577b2135de6&data[id]=33lh17g3w1ol0d",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "5f2db476df98edce967c5577b2135de6",
+          "id": "33lh17g3w1ol0d"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lh17fuFwfO6N\",\n    \"type\": \"providers\",\n    \"attributes\": {\n      \"id\": \"33lh17fuFwfO6N\",\n      \"email\": \"rigoberto@marvin.org\",\n      \"role\": \"Provider\",\n      \"user-id\": \"33lh17g3w1ol0d\",\n      \"title\": \"Mr\",\n      \"first-name\": \"Casimer\",\n      \"middle-name\": null,\n      \"last-name\": \"Quitzon\",\n      \"degree\": \"DDS\",\n      \"speciality\": \"Endodontics\",\n      \"street-address\": \"Cormier Parkways\",\n      \"suit-apt-number\": \"9290\",\n      \"city\": \"Port Javier\",\n      \"state\": \"Ohio\",\n      \"zip\": null,\n      \"practice-street-address\": \"O'Keefe Island\",\n      \"practice-suit-apt-number\": \"24836\",\n      \"practice-city\": \"South Brayan\",\n      \"practice-state\": \"Louisiana\",\n      \"practice-zip\": null,\n      \"primary-phone\": null,\n      \"mobile-phone\": null,\n      \"alt-email\": null,\n      \"username\": null,\n      \"secondary-speciality\": null,\n      \"dental-licence\": null,\n      \"expiration-date\": null,\n      \"ein-tin\": null,\n      \"npi\": null,\n      \"dea\": null,\n      \"upin\": null,\n      \"nadean\": null,\n      \"status\": true,\n      \"biography\": null,\n      \"accepting-patient\": false,\n      \"enable-online-booking\": false,\n      \"profile-image\": {\n        \"url\": \"/uploads/provider/profile_image/33lh17fuFwfO6N/avatar5.jpg\"\n      }\n    },\n    \"links\": {\n      \"self\": \"/providers/33lh17fuFwfO6N\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

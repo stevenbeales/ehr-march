@@ -1,0 +1,28 @@
+.authy-wrapper
+  .panel.panel-default
+    = enable_authy_form do |f|
+      .panel-header
+        h4 
+          = I18n.t('authy_register_title', {:scope => 'devise'})
+      .panel-body
+        .row
+          .col-lg-12
+            .form-group
+              = text_field_tag :token, "", :autocomplete => :off, :id => 'authy-token', class: 'form-control', placeholder: 'Token'
+        .row
+          .col-lg-12
+            .form-group
+              .checkbox-custom
+                = check_box_tag :remember_device
+                label for="remember_device"
+                  span.checkbox-icon-container
+                    span.checkbox-icon
+                  span.checkbox-label
+                    = I18n.t('remember_device', {:scope => 'devise'})
+      .panel-footer
+        .actions
+          .row
+            .col-lg-12
+              = submit_tag I18n.t('submit_token', {:scope => 'devise'}), class: 'btn btn-success'
+              .pull-right
+                = authy_request_sms_link({ class: 'btn btn-info' })

@@ -1,0 +1,42 @@
+{
+  "resource": "Calendar",
+  "http_method": "GET",
+  "route": "/calendars/schedule",
+  "description": "Schedule",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/calendars/schedule?data[auth_token]=befc1c7689297db991205c0f479bd010",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "befc1c7689297db991205c0f479bd010"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"calendars\": [\n      {\n        \"id\": \"33lRerCRsk1ufz\",\n        \"title\": \"Prophy-Child\",\n        \"description\": \"Ad modi odio dicta voluptatem in dolores quo ratione.\",\n        \"start\": \"2016-02-26T16:59:00+02:00\",\n        \"end\": \"2016-02-26T19:29:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"853119\",\n        \"statusColor\": \"649EC9\",\n        \"patientName\": \"Anais Koelpin\",\n        \"patientPhone\": \"+12072520805\",\n        \"providerName\": \"Imogene Rippin\",\n        \"type\": \"Prophy-Child\",\n        \"status\": \"Reschedule\",\n        \"room\": \"Apt. 854\",\n        \"roomId\": \"33lRb0WPF5rMdH\"\n      },\n      {\n        \"id\": \"33lRoifDFBLw4R\",\n        \"title\": \"New Patient – Child\",\n        \"description\": \"Aut corrupti omnis accusamus.\",\n        \"start\": \"2016-02-26T16:59:00+02:00\",\n        \"end\": \"2016-02-26T19:59:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"41E79C\",\n        \"statusColor\": \"6DBD16\",\n        \"patientName\": \"Jackeline Corwin\",\n        \"patientPhone\": \"+18404470767\",\n        \"providerName\": \"Imogene Rippin\",\n        \"type\": \"New Patient – Child\",\n        \"status\": \"Oral Surgery\",\n        \"room\": \"Suite 375\",\n        \"roomId\": \"33lRk4rU0aowst\"\n      },\n      {\n        \"id\": \"33lS09VeIvPjbn\",\n        \"title\": \"New Patient\",\n        \"description\": \"Eaque dolor quo sed maiores asperiores qui qui ullam.\",\n        \"start\": \"2016-02-26T16:59:00+02:00\",\n        \"end\": \"2016-02-26T17:29:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"173500\",\n        \"statusColor\": \"BDB52C\",\n        \"patientName\": \"Claudia Welch\",\n        \"patientPhone\": \"+16053328603\",\n        \"providerName\": \"Imogene Rippin\",\n        \"type\": \"New Patient\",\n        \"status\": \"Oral Surgery\",\n        \"room\": \"Apt. 642\",\n        \"roomId\": \"33lRukfnqLwyPb\"\n      }\n    ],\n    \"settings\": {\n      \"minTime\": \"10:00:00\",\n      \"maxTime\": \"19:00:00\",\n      \"snapDuration\": \"00:30:00\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

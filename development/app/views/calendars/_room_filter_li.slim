@@ -1,0 +1,10 @@
+- provider.rooms.each do |room|
+  li role="presentation" data-provider_id="#{provider.id}"
+    = link_to '#', role: 'menuitem', tabindex: -1, class: 'filter_item', data: { option: room.id }
+      .checkbox-custom
+        input.checkbox type="checkbox" id="#{room.room}" checked="checked"
+        label for="#{room.room}"
+          span.checkbox-icon-container
+            span.checkbox-icon
+          span.checkbox-label
+            = room.room

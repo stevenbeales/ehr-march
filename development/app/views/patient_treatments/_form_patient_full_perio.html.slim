@@ -1,0 +1,148 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      p.title
+        = flash[:error]
+        span Tooth:
+        = text_field_tag :tooth_num, tooth.tooth_num, class: 'form-control'
+        span Full Perio
+      a.close-button href="#" data-target="#modal-schedule-reschedule" data-dismiss="modal"
+    = simple_form_for tooth, url: update_full_perio_patient_treatments_path, remote: true do |t|
+      = t.input :id, as: :hidden, input_html: { value: tooth.id }
+      .modal-body
+        .scrollable-container
+          .content
+            .table-responsive
+              table.table
+                tbody
+                  tr
+                    td.table-input-container
+                      table
+                        tbody
+                          = render 'simple_field_for_tooth_field', t: t, tooth_field: 'pd', tooth_field_type: 'b', tooth: tooth, header: true
+                          tr.title-main-bottom
+                            td rowspan="3"
+                              p.rotated Buccal
+                    td.table-input-container
+                      table
+                        tbody
+                          = render 'simple_field_for_tooth_field', t: t, tooth_field: 'gm', tooth_field_type: 'b', tooth: tooth, header: false
+                    td.table-input-container
+                      table
+                        tbody
+                          = render 'simple_field_for_tooth_field', t: t, tooth_field: 'cal', tooth_field_type: 'b', tooth: tooth, header: false
+                    td.table-input-container
+                      table
+                        tbody
+                          = render 'simple_field_for_tooth_field', t: t, tooth_field: 'mgl', tooth_field_type: 'b', tooth: tooth, header: false
+                    td.table-input-container.table-radio-buttons-container
+                      table
+                        tbody
+                          tr
+                            td
+                            td
+                              .radiobutton-custom
+                                = t.radio_button :fm_f, 0
+                                label for="tooth_table_fm_f_0"
+                                  span.radio-icon
+                                  span.radio-label F0
+                          tr
+                            td
+                              .triangle-icon.triangle-icon-normal
+                            td
+                              .radiobutton-custom
+                                = t.radio_button :fm_f, 1
+                                label for="tooth_table_fm_f_1"
+                                  span.radio-icon
+                                  span.radio-label F1
+                          tr
+                            td
+                              .triangle-icon.triangle-icon-bordered-red
+                            td
+                              .radiobutton-custom
+                                = t.radio_button :fm_f, 2
+                                label for="tooth_table_fm_f_2"
+                                  span.radio-icon
+                                  span.radio-label F2
+                          tr
+                            td
+                              .triangle-icon.triangle-icon-filled-black
+                            td
+                              .radiobutton-custom
+                                = t.radio_button :fm_f, 3
+                                label for="tooth_table_fm_f_3"
+                                  span.radio-icon
+                                  span.radio-label F3
+                          tr
+                            td
+                              .triangle-icon.triangle-icon-filled-red
+                            td
+                              .radiobutton-custom.radiobutton-red
+                                = t.radio_button :fm_f, 4
+                                label for="tooth_table_fm_f_4"
+                                  span.radio-icon
+                                  span.radio-label F4
+                          tr.titles-bottom
+                            td colspan="2"
+                              p.text-heavy Furcation
+                  tr
+                    td.table-input-container
+                      table
+                        tbody
+                          = render 'simple_field_for_tooth_field', t: t, tooth_field: 'pd', tooth_field_type: 'l', tooth: tooth, header: true
+                          tr.title-main-bottom
+                            td rowspan="3"
+                              p.rotated Lingual
+                          tr.titles-bottom
+                            td colspan="4"
+                              p.text-heavy PD
+                    td.table-input-container
+                      table
+                        tbody
+                          = render 'simple_field_for_tooth_field', t: t, tooth_field: 'gm', tooth_field_type: 'l', tooth: tooth, header: false
+                          tr.titles-bottom
+                            td colspan="4"
+                              p.text-heavy GM
+                    td.table-input-container
+                      table
+                        tbody
+                          = render 'simple_field_for_tooth_field', t: t, tooth_field: 'cal', tooth_field_type: 'l', tooth: tooth, header: false
+                          tr.titles-bottom
+                            td colspan="4"
+                              p.text-heavy CAL
+                    td.table-input-container
+                      table
+                        tbody
+                          = render 'simple_field_for_tooth_field', t: t, tooth_field: 'mgl', tooth_field_type: 'l', tooth: tooth, header: false
+                          tr.titles-bottom
+                            td colspan="4"
+                              p.text-heavy MGL
+                    td.table-input-container.table-radio-buttons-container
+                      table
+                        tbody
+                          - [0, 1, 2, 3, 4].each do |mobility|
+                            tr
+                              td
+                              td
+                                - if mobility == 2 || mobility == 3 || mobility == 4
+                                  .radiobutton-custom.radiobutton-red
+                                    = t.radio_button :fm_m, mobility
+                                    label for="tooth_table_fm_m_#{mobility}"
+                                      span.radio-icon
+                                      span.radio-label
+                                        = mobility
+                                - else
+                                  .radiobutton-custom
+                                    = t.radio_button :fm_m, mobility
+                                    label for="tooth_table_fm_m_#{mobility}"
+                                      span.radio-icon
+                                      span.radio-label
+                                        = mobility
+                          tr
+                            td colspan="4"
+                              p.text-heavy Mobility
+      .modal-footer
+        .controls
+          - if policy(:chart).perio_update?
+            = t.submit 'Save', class: 'button'
+          a.button href="#" data-dismiss="modal" Cancel

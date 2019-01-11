@@ -1,0 +1,26 @@
+$green: #41b6a6;
+
+.slimScrollDiv--green-lighter {
+  .slimScrollBar {
+    width: 20px;
+    border: 1px solid  #33998a;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .slimScrollRail {
+    width: 10px;
+    border-radius: 5px;
+    box-shadow: none;
+    background-color: $green;
+    border: none;
+    .slimRailTop {
+      width: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #D9D9D9;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+tr.dots
+  td.secondary-title colspan="2"
+    p
+      = type_name
+  - bottom_index = is_bottom ? 16 : 0
+  - teeth.each_with_index do |tooth, index|
+    = p.simple_fields_for "tooth_tables[#{index + bottom_index}]", tooth do |t|
+      = t.simple_fields_for :tooth_field, tooth.send(field) do |f|
+        td
+          .checkbox-dots
+            = f.check_box field_names[0], disabled: !tooth.active, id: "tooth#{tooth}_tooth_field#{field_names[0]}"
+            label for="tooth#{tooth}_tooth_field#{field_names[0]}"
+              span.checkbox-dot class="dot-#{color}"
+        td
+          .checkbox-dots
+            = f.check_box field_names[1], disabled: !tooth.active, id: "tooth#{tooth}_tooth_field#{field_names[1]}"
+            label for="tooth#{tooth}_tooth_field#{field_names[1]}"
+              span.checkbox-dot class="dot-#{color}"
+        td
+          .checkbox-dots
+            = f.check_box field_names[2], disabled: !tooth.active, id: "tooth#{tooth}_tooth_field#{field_names[2]}"
+            label for="tooth#{tooth}_tooth_field#{field_names[2]}"
+              span.checkbox-dot class="dot-#{color}"

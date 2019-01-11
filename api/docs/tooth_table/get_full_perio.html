@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tooth table API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tooth table API</h1>
+
+      <div class="article">
+        <h2>Get full perio</h2>
+        <h3>GET /patient_treatments/show_patient_perio_data_entry</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[patient_id]</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[field]</span>
+                </td>
+                <td>
+                  <span class="description">mgl/cal/pd/gm</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /patient_treatments/show_patient_perio_data_entry?data[auth_token]=7b027d6c68bdd751df4ea0342d75a3fc&amp;data[patient_id]=33linWVJmO0RVr&amp;data[field]=mgl</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;7b027d6c68bdd751df4ea0342d75a3fc&quot;, &quot;patient_id&quot;=&gt;&quot;33linWVJmO0RVr&quot;, &quot;field&quot;=&gt;&quot;mgl&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;patient&quot;: {
+      &quot;active&quot;: true,
+      &quot;birth&quot;: &quot;2006-02-26T17:25:53.569+02:00&quot;,
+      &quot;created_at&quot;: &quot;2016-02-26T17:25:53.664+02:00&quot;,
+      &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+      &quot;first_name&quot;: &quot;Dedric&quot;,
+      &quot;gender&quot;: &quot;Male&quot;,
+      &quot;id&quot;: &quot;33linWVJmO0RVr&quot;,
+      &quot;immunization_registry&quot;: &quot;NotSend&quot;,
+      &quot;last_name&quot;: &quot;Jones&quot;,
+      &quot;mobile_phone&quot;: &quot;+12225630272&quot;,
+      &quot;primary_phone&quot;: &quot;+15999044950&quot;,
+      &quot;profile_image&quot;: {
+        &quot;url&quot;: &quot;/uploads/patient/profile_image/33linWVJmO0RVr/avatar5.jpg&quot;
+      },
+      &quot;provider_id&quot;: null,
+      &quot;social_number&quot;: &quot;417483469&quot;,
+      &quot;updated_at&quot;: &quot;2016-02-26T17:25:53.664+02:00&quot;,
+      &quot;user_id&quot;: &quot;33linWVTST9oQ7&quot;,
+      &quot;work_phone&quot;: null
+    },
+    &quot;field&quot;: &quot;mgl&quot;,
+    &quot;top_teeth&quot;: [
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.678+02:00&quot;,
+        &quot;id&quot;: &quot;33lipylO2TPuBH&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 18,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.678+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.733+02:00&quot;,
+        &quot;id&quot;: &quot;33lipymAQtAkiZ&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 19,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.733+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.792+02:00&quot;,
+        &quot;id&quot;: &quot;33lipymwpIvbFr&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 20,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.792+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.845+02:00&quot;,
+        &quot;id&quot;: &quot;33lipynjDigRn9&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 21,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.845+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.901+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyoVc8RIKR&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 22,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.901+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.953+02:00&quot;,
+        &quot;id&quot;: &quot;33lipypI0YC8rj&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 23,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.953+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.009+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnFWqMXEDj&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 24,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.009+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.068+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnGJEmI4l1&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 25,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.068+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.121+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnH5dC2vIJ&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 26,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.121+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.210+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnHs1bnlpb&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 27,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.210+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.259+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnIeQ1YcMt&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 28,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.259+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.316+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnJQoRJSuB&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 29,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.316+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.371+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnKDCr4JRT&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 30,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.371+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.428+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnKzbGp9yl&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 31,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.428+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:58.486+02:00&quot;,
+        &quot;id&quot;: &quot;33liqnLlzga0W3&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 32,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:58.486+02:00&quot;
+      }
+    ],
+    &quot;bottom_teeth&quot;: [
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.513+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyj2rE9MZP&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 15,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.513+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.456+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyiGSoOW27&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 14,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.456+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.401+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyhU4OdfUp&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 13,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.401+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.341+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyghfysoxX&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 12,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.341+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.286+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyfvHZ7yQF&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 11,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.286+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.233+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyf8t9N7sx&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 10,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.233+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.153+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyeMUjcHLf&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 9,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.153+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.095+02:00&quot;,
+        &quot;id&quot;: &quot;33lipyda6JrQoN&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 8,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.095+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:57.036+02:00&quot;,
+        &quot;id&quot;: &quot;33lipycnhu6aH5&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 7,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:57.036+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:56.974+02:00&quot;,
+        &quot;id&quot;: &quot;33lipZtBZhUs5r&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 6,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:56.974+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:56.914+02:00&quot;,
+        &quot;id&quot;: &quot;33lipZsPBHk1YZ&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 5,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:56.914+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:56.859+02:00&quot;,
+        &quot;id&quot;: &quot;33lipZrcmrzB1H&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 4,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:56.859+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:56.808+02:00&quot;,
+        &quot;id&quot;: &quot;33lipZqqOSEKTz&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 3,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:56.808+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:56.753+02:00&quot;,
+        &quot;id&quot;: &quot;33lipZq402TTwh&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 2,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:56.753+02:00&quot;
+      },
+      {
+        &quot;active&quot;: true,
+        &quot;b_bsp1&quot;: false,
+        &quot;b_bsp2&quot;: false,
+        &quot;b_bsp3&quot;: false,
+        &quot;b_bsp4&quot;: false,
+        &quot;b_bsp5&quot;: false,
+        &quot;b_bsp6&quot;: false,
+        &quot;b_bsp7&quot;: false,
+        &quot;b_bsp8&quot;: false,
+        &quot;b_bsp9&quot;: false,
+        &quot;created_at&quot;: &quot;2016-02-26T17:25:56.700+02:00&quot;,
+        &quot;id&quot;: &quot;33lipZpHbcidPP&quot;,
+        &quot;l_bsp1&quot;: false,
+        &quot;l_bsp2&quot;: false,
+        &quot;l_bsp3&quot;: false,
+        &quot;l_bsp4&quot;: false,
+        &quot;l_bsp5&quot;: false,
+        &quot;l_bsp6&quot;: false,
+        &quot;l_bsp7&quot;: false,
+        &quot;l_bsp8&quot;: false,
+        &quot;l_bsp9&quot;: false,
+        &quot;patient_id&quot;: &quot;33linWVJmO0RVr&quot;,
+        &quot;tooth_num&quot;: 1,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:25:56.700+02:00&quot;
+      }
+    ]
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

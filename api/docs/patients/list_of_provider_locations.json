@@ -1,0 +1,49 @@
+{
+  "resource": "Patients",
+  "http_method": "GET",
+  "route": "/patients/provider_full_info",
+  "description": "List of provider locations",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "provider_id",
+      "description": "Provider id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patients/provider_full_info?data[auth_token]=dbf9a8dc6f49c2f3b7bbc79ac65bb124&data[provider_id]=33le1XMWYnkkNv",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "dbf9a8dc6f49c2f3b7bbc79ac65bb124",
+          "provider_id": "33le1XMWYnkkNv"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"locations\": [\n      {\n        \"city\": \"Josefaberg\",\n        \"colour\": \"F8BF28\",\n        \"created_at\": \"2016-02-26T17:18:31.582+02:00\",\n        \"id\": \"33le2hGqFYbYTz\",\n        \"location_address\": \"Harris Points\",\n        \"location_fax\": \"+18001364447\",\n        \"location_name\": \"Elouise Lane\",\n        \"location_npi\": \"49-4223248\",\n        \"location_phone\": \"+14325065136\",\n        \"location_tin_en\": \"39-2753518\",\n        \"provider_id\": \"33le1XMWYnkkNv\",\n        \"state\": \"Florida\",\n        \"updated_at\": \"2016-02-26T17:18:31.582+02:00\",\n        \"zip\": 57631\n      },\n      {\n        \"city\": \"Eddiefort\",\n        \"colour\": \"B0FA32\",\n        \"created_at\": \"2016-02-26T17:18:32.270+02:00\",\n        \"id\": \"33le3IMnPc4123\",\n        \"location_address\": \"Crona Meadows\",\n        \"location_fax\": \"+12697255674\",\n        \"location_name\": \"Torp Haven\",\n        \"location_npi\": \"54-1473409\",\n        \"location_phone\": \"+13510835971\",\n        \"location_tin_en\": \"60-1709963\",\n        \"provider_id\": \"33le1XMWYnkkNv\",\n        \"state\": \"North Carolina\",\n        \"updated_at\": \"2016-02-26T17:18:32.270+02:00\",\n        \"zip\": 13026\n      },\n      {\n        \"city\": \"North Herman\",\n        \"colour\": \"0B4B86\",\n        \"created_at\": \"2016-02-26T17:18:32.923+02:00\",\n        \"id\": \"33le44c07YgVUp\",\n        \"location_address\": \"Terry Ridges\",\n        \"location_fax\": \"+15647272134\",\n        \"location_name\": \"Jessie Mills\",\n        \"location_npi\": \"97-4237844\",\n        \"location_phone\": \"+13212942789\",\n        \"location_tin_en\": \"25-6732395\",\n        \"provider_id\": \"33le1XMWYnkkNv\",\n        \"state\": \"Connecticut\",\n        \"updated_at\": \"2016-02-26T17:18:32.923+02:00\",\n        \"zip\": 1583\n      }\n    ]\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

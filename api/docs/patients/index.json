@@ -1,0 +1,42 @@
+{
+  "resource": "Patients",
+  "http_method": "GET",
+  "route": "/patients",
+  "description": "Index",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patients?data[auth_token]=3e6be69bfa221f5c7ce9e2bbe455e14b",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "3e6be69bfa221f5c7ce9e2bbe455e14b"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"appointments\": [\n      {\n        \"appointment_datetime\": \"2016-02-26T17:16:00.000+02:00\",\n        \"appointment_status_id\": \"33lciowC05G403\",\n        \"appointment_type_id\": \"33lchXLtm0djH9\",\n        \"colour\": \"A1C7F2\",\n        \"contact_email\": \"kenneth@eichmann.co\",\n        \"contact_phone\": \"+12100268729\",\n        \"created_at\": \"2016-02-26T17:16:29.802+02:00\",\n        \"duration\": \"2 hours\",\n        \"id\": \"33lcfSwL2nUYTr\",\n        \"location\": \"76246 Aiyana Prairie\",\n        \"patient_id\": \"33lcc9gdw4Rm0x\",\n        \"provider_id\": \"33lcfSwUisdvO7\",\n        \"reason\": \"Dolorem ut eius sequi.\",\n        \"reminder\": false,\n        \"room_id\": \"33lcgqD7uTLA5T\",\n        \"updated_at\": \"2016-02-26T17:16:29.802+02:00\"\n      },\n      {\n        \"appointment_datetime\": \"2016-02-26T17:16:00.000+02:00\",\n        \"appointment_status_id\": \"33lcoqbObs9U1r\",\n        \"appointment_type_id\": \"33lcmp8U1roasV\",\n        \"colour\": \"76BE71\",\n        \"contact_email\": \"gavin_howe@beatty.biz\",\n        \"contact_phone\": \"+1958039389\",\n        \"created_at\": \"2016-02-26T17:16:38.428+02:00\",\n        \"duration\": \"2 hours 45 min\",\n        \"id\": \"33lckM0iHCQ24J\",\n        \"location\": \"13053 Bartell Falls\",\n        \"patient_id\": \"33lcc9gdw4Rm0x\",\n        \"provider_id\": \"33lckM0rxHZOyZ\",\n        \"reason\": \"Ut officia quia ullam qui iste.\",\n        \"reminder\": false,\n        \"room_id\": \"33lclZBofsZmrb\",\n        \"updated_at\": \"2016-02-26T17:16:38.428+02:00\"\n      },\n      {\n        \"appointment_datetime\": \"2016-02-26T17:16:00.000+02:00\",\n        \"appointment_status_id\": \"33lcuBFweRbY3P\",\n        \"appointment_type_id\": \"33lcsxY3iJiChv\",\n        \"colour\": \"0A30CD\",\n        \"contact_email\": \"ole_hackett@orn.co\",\n        \"contact_phone\": \"+15495557185\",\n        \"created_at\": \"2016-02-26T17:16:45.812+02:00\",\n        \"duration\": \"1 hour\",\n        \"id\": \"33lcq5Jj3EUcKZ\",\n        \"location\": \"2353 Morissette Ridges\",\n        \"patient_id\": \"33lcc9gdw4Rm0x\",\n        \"provider_id\": \"33lcq5JsjJdzEp\",\n        \"reason\": \"Excepturi placeat quia amet aut est.\",\n        \"reminder\": true,\n        \"room_id\": \"33lcrd3SWHY7wx\",\n        \"updated_at\": \"2016-02-26T17:16:45.812+02:00\"\n      }\n    ],\n    \"notifications\": {\n      \"appointment\": {\n        \"appointment_datetime\": \"2016-02-26T17:16:00.000+02:00\",\n        \"appointment_status_id\": \"33lciowC05G403\",\n        \"appointment_type_id\": \"33lchXLtm0djH9\",\n        \"colour\": \"A1C7F2\",\n        \"contact_email\": \"kenneth@eichmann.co\",\n        \"contact_phone\": \"+12100268729\",\n        \"created_at\": \"2016-02-26T17:16:29.802+02:00\",\n        \"duration\": \"2 hours\",\n        \"id\": \"33lcfSwL2nUYTr\",\n        \"location\": \"76246 Aiyana Prairie\",\n        \"patient_id\": \"33lcc9gdw4Rm0x\",\n        \"provider_id\": \"33lcfSwUisdvO7\",\n        \"reason\": \"Dolorem ut eius sequi.\",\n        \"reminder\": false,\n        \"room_id\": \"33lcgqD7uTLA5T\",\n        \"updated_at\": \"2016-02-26T17:16:29.802+02:00\"\n      },\n      \"message\": null\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

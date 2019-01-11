@@ -1,0 +1,166 @@
+var AppointmentSorterController = function() {
+  this.initialize = function() {
+    initEventsHandlers();
+  };
+
+  var initEventsHandlers = function() {
+    addUpSortClick();
+    addDownSortClick();
+    initPageClick();
+  };
+
+  var addUpSortClick = function() {
+    $('#table-appointments-for-today .sort-arrows .fa-angle-up').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.sorter_appointments_path %>',
+        data: getData($(this).parent(), 'ASC')
+      }).done(function (my_appointment) {
+        resetMyAppointmentForm(my_appointment);
+      });
+    });
+  };
+
+  var addDownSortClick = function() {
+    $('#table-appointments-for-today .sort-arrows .fa-angle-down').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.sorter_appointments_path %>',
+        data: getData($(this).parent(), 'DESC')
+      }).done(function (my_appointment) {
+        resetMyAppointmentForm(my_appointment);
+      });
+    });
+  };
+
+  var initPageClick = function () {
+    $('ul.pagination li a').click(function() {
+      $.ajax({
+        url: $(this).attr('href')
+      }).done(function (my_appointment) {
+        resetMyAppointmentForm(my_appointment);
+      });
+    });
+  };
+
+  var getData = function(parent, type) {
+    return {
+      field: parent.data('field'),
+      type: type,
+      page: $('ul.pagination li.active').text()
+    }
+  };
+
+  var resetMyAppointmentForm = function(my_appointment) {
+    var container = $('.windows .left-block');
+    container.find('.window-my-appointments').remove();
+    container.find(' ul.pagination').remove();
+    container.append(my_appointment);
+    initEventsHandlers();
+  };
+};
+
+var MessagesSorterController = function() {
+  this.initialize = function() {
+    initEventsHandlers();
+  };
+
+  var initEventsHandlers = function() {
+    addUpSortClick();
+    addDownSortClick();
+  };
+
+  var addUpSortClick = function() {
+    $('#table-my-messages .sort-arrows .fa-angle-up').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.sorter_messages_path %>',
+        data: getData($(this).parent(), 'ASC')
+      }).done(function(my_messages) {
+        resetMyMessagesForm(my_messages);
+      });
+    });
+  };
+
+  var addDownSortClick = function() {
+    $('#table-my-messages .sort-arrows .fa-angle-down').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.sorter_messages_path %>',
+        data: getData($(this).parent(), 'DESC')
+      }).done(function(my_messages) {
+        resetMyMessagesForm(my_messages);
+      });
+    });
+  };
+
+  var resetMyMessagesForm = function(my_messages) {
+    var container = $('.windows .right-block');
+    container.find('.window-my-messages .content').html('').append($(my_messages).find('.content'));
+    initEventsHandlers();
+  };
+
+  var getData = function(parent, type) {
+    return {
+      field: parent.data('field'),
+      type: type
+    }
+  };
+};
+
+var ToDosSorterController = function() {
+  this.initialize = function() {
+    initEventsHandlers();
+  };
+
+  var initEventsHandlers = function() {
+    addUpSortClick();
+    addDownSortClick();
+  };
+
+  var addUpSortClick = function() {
+    $('#table-my-todo-s .sort-arrows .fa-angle-up').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.sorter_todos_path %>',
+        data: getData($(this).parent(), 'ASC')
+      }).done(function(my_todos) {
+        resetMyToDosForm(my_todos);
+      });
+    });
+  };
+
+  var addDownSortClick = function() {
+    $('#table-my-todo-s .sort-arrows .fa-angle-down').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.sorter_todos_path %>',
+        data: getData($(this).parent(), 'DESC')
+      }).done(function(my_todos) {
+        resetMyToDosForm(my_todos);
+      });
+    });
+  };
+
+  var resetMyToDosForm = function(my_todos) {
+    var container = $('.windows .right-block');
+    container.find('.window-my-todo .content').html('').append($(my_todos).find('.content'));
+    initEventsHandlers();
+  };
+
+  var getData = function(parent, type) {
+    return {
+      field: parent.data('field'),
+      type: type
+    }
+  };
+};
+
+$(function() {
+  var appointmentSorterController = new AppointmentSorterController();
+  var messagesSorterController = new MessagesSorterController();
+  var toDosSorterController = new ToDosSorterController();
+  appointmentSorterController.initialize();
+  messagesSorterController.initialize();
+  toDosSorterController.initialize();
+});

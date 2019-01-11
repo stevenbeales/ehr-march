@@ -1,0 +1,11 @@
+- provider.appointment_types.each do |type|
+  li role="presentation" data-provider_id="#{provider.id}"
+    input.color-picker
+    = link_to '#', role: 'menuitem', tabindex: -1, class: 'filter_item', data: { option: type.id }
+      .checkbox-custom
+        input.checkbox type="checkbox" id="type_#{type.id}" checked="checked"
+        label for="type_#{type.id}"
+          span.checkbox-icon-container
+            span.checkbox-icon
+          span.checkbox-label
+            = type.appt_type

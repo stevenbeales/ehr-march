@@ -1,0 +1,74 @@
+.modal-dialog.modal-md
+  .modal-content
+    .modal-header
+      p.title New Contact
+    .modal-body
+      .scrollable-container
+        .content
+          .row
+            .col-lg-12
+              .form-group
+                .dropdown-custom
+                  .input-group.input-group-custom
+                    = hidden_field_tag :practice_id, '', id: 'contacts-new-contact-practice-id'
+                    input#find-contacts-new-contact-practice-input.form-control placeholder="Search Practice Staff" autocomplete="off" value=(@practice.full_name if @practice.present?)
+                    span#find-contacts-new-contact-practice-button.input-group-addon.input-group-addon-right.input-group-addon-search
+                    ul.dropdown-menu id="find-contacts-new-contact-practice-list"
+          .row
+            .col-lg-4
+              .form-group
+                = text_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control disabled', id: 'contacts-new-contact-first-name', placeholder: 'First Name'
+            .col-lg-2
+              .form-group
+                = text_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control disabled', id: 'contacts-new-contact-middle-name', placeholder: 'M.I.'
+            .col-lg-6
+              .form-group
+                = text_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control disabled', id: 'contacts-new-contact-last-name', placeholder: 'Last Name'
+          .row
+            .col-lg-4
+              .form-group
+                .disabled
+                  = select_tag nil, options_for_select(Provider.degrees.map {|degree| ["#{degree.to_s.titleize == 'N/A Degree' ? 'N/A' : degree.to_s.titleize.upcase}",degree]}), readonly: 'readonly', tabindex: -1, 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2 disabled', id: 'contacts-new-contact-degree', 'data-placeholder' => 'Degree'
+            .col-lg-8
+              .form-group
+                .disabled
+                  = select_tag nil, options_for_select(Provider.specialities.map {|speciality| ["#{speciality.to_s.titleize == 'N/A Speciality' ? 'N/A' : speciality.to_s.titleize}",speciality]}), readonly: 'readonly', tabindex: -1, 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2 disabled', id: 'contacts-new-contact-speciality', 'data-placeholder' => 'Speciality'
+          .row
+            .col-lg-12
+              .form-group
+                = email_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control input-email disabled', id: 'contacts-new-contact-email', placeholder: 'Email Address'
+          .row
+            .col-lg-6
+              .form-group
+                = telephone_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control input-phone disabled', id: 'contacts-new-contact-phone', placeholder: 'Phone'
+            .col-lg-6
+              .form-group
+                = telephone_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control input-phone disabled', id: 'contacts-new-contact-fax', placeholder: 'Fax'
+          .row
+            .col-lg-12
+              .form-group
+                = text_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control disabled', id: 'contacts-new-contact-street', placeholder: 'Street Address 1'
+          .row
+            .col-lg-12
+              .form-group
+                = text_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control disabled', id: 'contacts-new-contact-practice-street', placeholder: 'Street Address 2'
+          .row
+            .col-lg-7
+              .form-group
+                = text_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control disabled', id: 'contacts-new-contact-city', placeholder: 'City'
+            .col-lg-2
+              .form-group
+                .disabled
+                  = select_tag nil, options_for_select(State.all.map { |state| [state.abbr, state.name] }), readonly: 'readonly', tabindex: -1, class: 'select2', 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '1x', 'data-font' => '1x', id: 'contacts-new-contact-state', 'data-placeholder' => 'State'
+            .col-lg-3
+              .form-group
+                = text_field_tag nil, nil, readonly: 'readonly', tabindex: -1, class: 'form-control disabled', id: 'contacts-new-contact-zip', placeholder: 'Zip'
+    .modal-footer
+      .controls
+        .checkbox-heart.checkbox-fav.pull-left
+          = check_box_tag nil, nil, false, id: 'contact_favorite', class: 'checkbox'
+          label for="contact_favorite"
+            span.checkbox-icon
+            span.checkbox-label Favorite
+        a.button.button-save#contact-save Save
+        a.button.button-cancel data-dismiss="modal" Cancel

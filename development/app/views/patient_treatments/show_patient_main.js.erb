@@ -1,0 +1,641 @@
+$("#modal-patient-main").html("<%= escape_javascript(render 'form_patient_main') %>");
+$("#modal-patient-main").modal("show");
+
+$("#modal-patient-perio-data-entry").modal("hide");
+$("#modal-patient-full-perio").modal("hide");
+$("#modal-patient-add-encounter").modal("hide");
+$("#modal-patient-add-procedure").modal("hide");
+$("#modal-patient-add-insurance").modal("hide");
+$("#modal-patient-add-advanced-directives").modal("hide");
+$("#modal-patient-add-medical-history").modal("hide");
+$("#modal-patient-smoking").modal("hide");
+$("#modal-patient-add-message").modal("hide");
+$("#modal-patient-allergy").modal("hide");
+$("#modal-patient-add-diagnoses").modal("hide");
+$("#modal-patient-diagnoses").modal("hide");
+$("#modal-patient-show-procedure").modal("hide");
+$('#modal-patient-immunization-vaccine').modal("hide");
+$("#modal-patient-immunizations").modal("hide");
+
+initPickers('#modal-patient-main');
+initSelect2('#modal-patient-main');
+initModalFadeInOut('#modal-patient-main');
+
+var DentalChartSearchController = function() {
+  var search_input;
+  var search_button;
+  var search_list;
+
+  var url;
+
+  this.initialize = function(input, button, list, path) {
+    search_input = $(input);
+    search_button = $(button);
+    search_list = $(list);
+    url = path;
+    findAll();
+    initSearchOnInput();
+  };
+
+  var listFill = function(elements) {
+    if(elements.length>0)
+      search_list.css('display', 'block');
+    else
+      search_list.css('display', 'none');
+    search_list.empty();
+    for(var i in elements) {
+      var li = $('<li/>');
+      var link;
+      <% if policy(Procedure).update? %>
+        var path = '<%= show_patient_procedure_patient_treatments_path %>?procedure_id=' + elements[i]['id'] + '&id=' + '<%= @patient.id %>';
+        link = $('<a class="button-modal-open" data-target="#modal-patient-show-procedure" data-remote="true" href="' + path + '">' + elements[i]['full_name'].trim() + '</a>');
+      <% else %>
+        link = $('<a  href="#">' + elements[i]['full_name'].trim() + '</a>');
+      <% end %>
+      li.append(link);
+      search_list.append(li);
+    }
+  };
+
+  var findAll = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: url
+      }).done(function(elements){
+        listFill(elements);
+      });
+    });
+  };
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part
+        }
+      }).done(function(elements){
+        listFill(elements);
+      });
+    });
+  };
+};
+
+var providerSearchController = new DentalChartSearchController();
+providerSearchController.initialize('input#search_procedure_code',
+  'span#search-procedure-code-button',
+  'ul#search-procedure-code-list',
+  '<%= Rails.application.routes.url_helpers.procedures_patient_treatments_path(id: @patient.id) %>');
+
+var DentalChartEncounterSearchController = function() {
+  var search_input;
+  var search_list;
+
+  var url;
+
+  this.initialize = function(input, list, path) {
+    search_input = $(input);
+    search_list = $(list);
+    url = path;
+    initSearchOnInput();
+  };
+
+  var listFill = function(elements) {
+    if(elements.length > 0)
+      search_list.css('display', 'block');
+    else
+      search_list.css('display', 'none');
+    search_list.empty();
+    for(var i in elements) {
+      var li = $('<li/>');
+      var link = $('<a href="#">' + elements[i]['created_at'] + '</a>').data('id', elements[i]['id']);
+      li.append(link);
+      search_list.append(li);
+    }
+  };
+
+  var searchPartHandler = function(e) {
+    var search_part = $(this).val();
+    $.ajax({
+      url: url,
+      data: {
+        created_at: search_part,
+        id: '<%= @patient.id %>'
+      }
+    }).done(function(elements){
+      listFill(elements);
+    });
+  } 
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', searchPartHandler);
+    search_input.datepicker().on('changeDate', searchPartHandler);
+  };
+};
+
+var encounterSearchController = new DentalChartEncounterSearchController();
+encounterSearchController.initialize('input#find-dental_encountment_proc-input',
+  'ul#encounter-bottom-main-list',
+  '<%= Rails.application.routes.url_helpers.encounters_patient_treatments_path %>');
+
+var BMIController = function() {
+  var height_major;
+  var height_minor;
+  var height_major_unit_system;
+  var height_minor_unit_system;
+  var weight_unit_system;
+  var weight;
+  var unit_system;
+  var bmi;
+  // unit_system.data('system') - shows prev units system, before we select a new one, don't forget to change it too!
+
+  this.initialize = function(major_height, minor_height, major_unit_system_height, minor_unit_system_height, unit_system_weight, weig, b, parent) {
+    height_major = $(parent+' '+major_height);
+    height_minor = $(parent+' '+minor_height);
+    height_major_unit_system = $(parent+' '+major_unit_system_height);
+    height_minor_unit_system = $(parent+' '+minor_unit_system_height);
+    weight_unit_system = $(parent+' '+unit_system_weight);
+    weight       = $(parent+' '+weig);
+    bmi          = $(parent+' '+b);
+    bmi.data('system', 'us');
+    SetOnChange();
+  };
+
+  var SetOnChange = function() {
+    height_major.keyup(CountBMI);
+    height_minor.keyup(CountBMI);
+    weight.keyup(CountBMI);
+    height_major_unit_system.change(UnitSystemChange);
+    height_minor_unit_system.change(UnitSystemChange);
+    weight_unit_system.change(UnitSystemChange);
+  };
+
+  var UnitSystemChange = function(e) {
+    var control = $(e.currentTarget);
+    var id = control.attr('id');
+    switch(id) {
+      case 'height_major_unit_system':
+        if(height_minor_unit_system.val() != control.val() && weight_unit_system.val() != control.val()) {
+          height_minor_unit_system.val(control.val()).change();
+          weight_unit_system.val(control.val()).change();
+        }
+      break;
+      case 'height_minor_unit_system':
+        if(height_major_unit_system.val() != control.val() && weight_unit_system.val() != control.val()) {
+          height_major_unit_system.val(control.val()).change();
+          weight_unit_system.val(control.val()).change();
+        }
+      break;
+      case 'weight_unit_system':
+        if(height_minor_unit_system.val() != control.val() && height_major_unit_system.val() != control.val()) {
+          height_minor_unit_system.val(control.val()).change();
+          height_major_unit_system.val(control.val()).change();
+        }
+      break;
+    }
+    switch(control.val()) {
+      case 0:
+        bmi.data('system', 'us');
+      break;
+      case 1:
+        bmi.data('system', 'euro');
+      break;
+    }
+    RecountValues();
+  };
+
+  var RecountValues = function() {
+    var total;
+    var major;
+    var minor;
+    var height_major_val = parseFloat(height_major.val());
+    var height_minor_val = parseFloat(height_minor.val());
+    var weight_val;
+
+    if(bmi.data('system') == 'us') {
+      total = RoundFour((height_major_val * 12 + height_minor_val) * 2.54);
+      major = Math.floor(total / 100.0);
+      minor = total - major * 100;
+      weight_val = weight.val() * 0.453592;
+      bmi.data('system', 'euro');
+    } else {
+      total = RoundFour((height_major_val * 100 + height_minor_val) * 0.393701);
+      major = Math.floor(total / 12.0);
+      minor = total - major * 12;
+      weight_val = weight.val() * 2.20462;
+      bmi.data('system', 'us');
+    }
+    height_major.val(RoundFour(parseInt(major)));
+    height_minor.val(minor);
+    weight.val(RoundFour(weight_val));
+    CountBMI();
+    //console.log(height_major.val(), height_minor.val(), weight.val(), unit_system.data('system'), bmi.val());
+  };
+
+  var RoundFour = function(num) {
+    return Math.round(num * 10000) / 10000
+  };
+
+  var CountBMI = function() {
+    var h = parseInt(height_major.val());
+    if(bmi.data('system') == 'euro')
+      h = h * 100 + h;
+    else
+      h = h * 12 + h;
+    var w = parseInt(weight.val());
+    if(w && h) {
+      bmi.val(((w * 703) / Math.pow(h, 2)).toFixed(2));
+    }
+  };
+};
+
+var bmiController = new BMIController();
+bmiController.initialize('input#encounter_vital_height_major', 'input#encounter_vital_height_minor', 'select#height_major_unit_system', 'select#height_minor_unit_system', 
+  'select#weight_unit_system', 'input#encounter_vital_weight', 'input#encounter_vital_bmi', '#patientDentalChartTab');
+
+var PerioChartController = function() {
+
+  this.initialize = function() {
+    AddPerioButtonClick();
+    AddToothFullPerioClick();
+  };
+
+  var AddPerioButtonClick = function() {
+    $('.button-modal-open[data-target="#modal-patient-perio-data-entry"]').click(function(e) {
+      e.preventDefault();
+      PerioFieldEventHandler($(this).data('field'));
+    });
+  };
+
+  var PerioFieldEventHandler = function(field) {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.show_patient_perio_data_entry_patient_treatments_path %>',
+      data: {
+        id: '<%= @patient.id %>',
+        field: field
+      }
+    }).done(function(partial) {
+      InitModalPatientPerioDataEntryPartial(partial);
+    });
+  };
+
+  var rowsTop = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11];
+  var rowsBottom = [13, 14, 15, 16, 17, 19, 20, 21, 22, 23];
+
+  var InitModalPatientPerioDataEntryPartial = function(partial) {
+    var modal_perio_data = $("#modal-patient-perio-data-entry");
+    modal_perio_data.html(partial);
+    initSelect2('#modal-patient-perio-data-entry');
+    if(!modal_perio_data.hasClass('in'))
+      modal_perio_data.modal("show");
+
+    modal_perio_data.find('.input-tooth').inputmask({
+      mask: ["9", "x", "X"]
+    });
+
+    $('#modal-patient-perio-data-entry .table-responsive table tr td .number').click(function() {
+      $('#modal-patient-perio-data-entry .table-responsive table tr td .number').removeClass('active');
+      $('#modal-patient-perio-data-entry .table-responsive table tr:not(.separator) td:not(.main-title):not(.main-title-buccal):not(.main-title-lingual):not(.secondary-title)').removeClass('active');
+      $(this).addClass('active');
+      var toothNumber = Number($(this).text());
+      var toothPosition = $(this).parent()[0].cellIndex;
+      for(row=0; row<24; row++) {
+        if(toothNumber<=16) {
+          if(rowsTop.indexOf(row) != -1) {
+            for(i=0; i<3; i++) {
+              if(row == 1 || row == 7) {
+                if(i == 0)
+                  $($('#modal-patient-perio-data-entry .table-responsive table tr:nth-child('+row+') td:not(.main-title):not(.main-title-buccal):not(.main-title-lingual):not(.secondary-title)').get(toothPosition-1)).addClass('active');
+              }
+              else
+                $($('#modal-patient-perio-data-entry .table-responsive table tr:nth-child('+row+') td:not(.main-title):not(.main-title-buccal):not(.main-title-lingual):not(.secondary-title)').get(toothPosition==1?toothPosition-1+i:(toothPosition*3)-3+i)).addClass('active');
+            }
+          }
+        }
+        else {
+          if(rowsBottom.indexOf(row) != -1) {
+            for(i=0; i<3; i++) {
+              if(row == 13 || row == 19) {
+                if(i == 0)
+                  $($('#modal-patient-perio-data-entry .table-responsive table tr:nth-child('+row+') td:not(.main-title):not(.main-title-buccal):not(.main-title-lingual):not(.secondary-title)').get(toothPosition-1)).addClass('active');
+              }
+              else
+                $($('#modal-patient-perio-data-entry .table-responsive table tr:nth-child('+row+') td:not(.main-title):not(.main-title-buccal):not(.main-title-lingual):not(.secondary-title)').get(toothPosition==1?toothPosition-1+i:(toothPosition*3)-3+i)).addClass('active');
+            }
+          }
+        }
+      }
+    })
+
+    $('#modal-patient-perio-data-entry .table-responsive table tr td .number').first().trigger('click');
+
+    modal_perio_data.find('#field').change(function() {
+      PerioFieldEventHandler($(this).find(':selected').val());
+    });
+  };
+
+  var AddToothFullPerioClick = function() {
+    $('.button-modal-open[data-target="#modal-patient-full-perio"]').click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.show_patient_full_perio_patient_treatments_path %>',
+        data: {
+          id: $('.tooth_number.active').first().data('id')
+        }
+      }).done(function(partial) {
+        InitModalToothFullPerio(partial);
+      });
+    });
+  };
+
+  var InitModalToothFullPerio = function(partial) {
+    if(partial.length) {
+      $("#modal-patient-full-perio").html(partial);
+      $("#modal-patient-full-perio").modal("show");
+
+      disableControl($('#modal-patient-full-perio .modal-header input.form-control'));
+
+      $('#modal-patient-full-perio .input-tooth').inputmask({
+        mask: ["9", "x", "X"]
+      });
+    }
+  };
+};
+
+var languagesMenuController = new LanguagesMenuController();
+languagesMenuController.initialize('#languages-container-patient-profile', '#user_patient_preferred_language');
+
+var zipcode_controller_patient_attrs = new ZipcodeController();
+zipcode_controller_patient_attrs.initialize(
+  '#user_patient_city',
+  '#user_patient_state',
+  '#user_patient_zip',
+  '#user_patient_city_list',
+  '#user_patient_zip_list',
+  false);
+
+var zipcode_controller_emergency_attrs = new ZipcodeController();
+zipcode_controller_emergency_attrs.initialize(
+  '#user_patient_emergency_contact_city',
+  '#user_patient_emergency_contacts_state',
+  '#user_patient_emergency_contacts_zip',
+  '#user_patient_emergency_contact_city_list',
+  '#user_patient_emergency_contact_zip_list',
+  false);
+
+var zipcode_controller_next_kin_attrs = new ZipcodeController();
+zipcode_controller_next_kin_attrs.initialize(
+  '#user_patient_next_kin_city',
+  '#user_patient_next_kin_state',
+  '#user_patient_next_kin_zip',
+  '#user_patient_next_kin_city_list',
+  '#user_patient_next_kin_zip_list',
+  false);
+
+var zipcode_controller_guarantor = new ZipcodeController();
+zipcode_controller_guarantor.initialize(
+  '#guarantor_city',
+  '#guarantor_state',
+  '#guarantor_zip',
+  '#guarantor_city_list',
+  '#guarantor_zip_list',
+  false);
+
+$(function() {
+  $('body').on('click', 'ul#encounter-bottom-main-list li a', function() {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.encounter_full_info_patient_treatments_path %>',
+      data: {
+        encounter_id: $(this).data('id'),
+        id: '<%= @patient.id %>'
+      }
+    }).done(function(partial) {
+      $('#full-encounter-info').html(partial);
+      var bmiController = new BMIController();
+      bmiController.initialize('input#encounter_vital_height_major', 'input#encounter_vital_height_minor',
+        'input#encounter_vital_weight', 'select#encounter_vital_units_system',
+        'input#encounter_vital_bmi');
+      initSelect2('#modal-patient-main #patientDentalChartTab');
+    });
+  });
+});
+
+$(function() {
+  var perioChartController = new PerioChartController();
+  perioChartController.initialize();
+
+  <% if policy(:chart).perio_update? %>
+    $('.main_bsp').click(function() {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.set_tooth_bsp_patient_treatments_path %>',
+        data: {
+          id: $(this).data('id'),
+          field_name: $(this).data('field')
+        }
+      });
+    });
+  <% end %>
+});
+
+$(function() {
+  $('#modal-patient-main .nav-tabs-main li a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    $('#modal-patient-main .controls-container .controls').css('display', 'none');
+    $('#modal-patient-main .controls-container .controls').removeClass('active');
+    $('#modal-patient-main .controls-container .controls[data-target="'+$(this).attr('href')+'"]').css('display', 'block');
+    $('#modal-patient-main .controls-container .controls[data-target="'+$(this).attr('href')+'"]').addClass('active');
+    $('#modal-patient-main .scrollable-container').slimScroll({
+      'destroy': true
+    });
+
+    if($(this).attr('href') == '#patientDentalChartTab' ||
+      $(this).attr('href') == '#patientPerioChartTab' ||
+      $(this).attr('href') == '#patientActivityTab')
+      $('#modal-patient-main').find('.modal-body').css('padding-top', '85px');
+    else
+      $('#modal-patient-main').find('.modal-body').css('padding-top', '0');
+
+    if($(this).attr('href') == '#patientPerioChartTab' ||
+      $(this).attr('href') == '#patientProfileTab' ||
+      $(this).attr('href') == '#patientDentalChartTab' ||
+      $(this).attr('href') == '#patientInsuranceTab')
+        $('#modal-patient-main .nav-tabs-main').css('padding-bottom', 0);
+
+    if($(this).attr('href') == '#patientChartTab')
+      $('#modal-patient-main .nav-tabs-main').css('padding-bottom', 10);
+
+    repositionModal($('#modal-patient-main'));
+  })
+
+  $('#modal-patient-main #patientPerioChartTab .scrollable-container, #modal-patient-main #patientDentalChartTab .scrollable-container, #modal-patient-main #patientProfileTab .scrollable-container, #modal-patient-main #patientInsuranceTab .scrollable-container').slimScroll().bind('slimscroll', function(e, pos){
+    if(pos>0)
+      $('#modal-patient-main .nav-tabs-main').css('padding-bottom', 10);
+    else
+      $('#modal-patient-main .nav-tabs-main').css('padding-bottom', 0);
+  });
+});
+
+var disabledTooths = <%= @diactive_ids %>;
+
+$(function() {
+  InitDiactiveTooth();
+
+  $('#modal-patient-main #patientPerioChartTab table tr.numbers.numbers-top .button-tooth-extracted').click(function() {
+    var active_number_elem = $('#modal-patient-main #patientPerioChartTab table tr.numbers td.active');
+    var toothNumber = Number(active_number_elem.find('a.number').text());
+    var tdNumbers = active_number_elem.parent().find('td:not(.controls)');
+    var toothPosition;
+    if(toothNumber < 17)
+      toothPosition = active_number_elem[0].cellIndex-1+1;
+    else
+      toothPosition = active_number_elem[0].cellIndex+1;
+    var active = false;
+    if(!$(this).hasClass('active')) {
+      $(this).addClass('active');
+      switchToothState(toothNumber, false, toothPosition);
+      disabledTooths.push(toothNumber);
+    }
+    else {
+      $(this).removeClass('active');
+      switchToothState(toothNumber, true, toothPosition);
+      var i = disabledTooths.indexOf(toothNumber);
+      if(i != -1)
+        disabledTooths.splice(i, 1);
+      active = true;
+    }
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.tooth_activity_patient_treatments_path %>',
+      data: {
+        id: active_number_elem.data('id'),
+        active: active
+      }
+    });
+  })
+});
+
+function InitDiactiveTooth() {
+  disabledTooths.forEach(function(number) {
+    var pos = number;
+    if(pos > 16)
+      pos = 17 - (pos - 16);
+    switchToothState(number, false, pos);
+  });
+}
+
+function switchToothState(toothNumber, enable, toothPosition, highlight) {
+  var rows = [1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 36, 37, 38, 39, 40, 41, 42];
+
+  var switchFunction = function(control) {
+    if(enable) {
+      control.removeClass('disabled');
+      control.find('input.input-tooth').prop('readonly', false);
+    }
+    else {
+      control.addClass('disabled');
+      control.find('input.input-tooth').prop('readonly', true);
+    }
+  };
+  var highlightFunction = function(control) {
+    if(highlight) {
+      control.addClass('active');
+    }
+    else {
+      control.removeClass('active');
+    }
+  };
+
+  if(toothNumber <= 16 && toothNumber > 0)
+    rows.splice(rows.indexOf(22), 18);
+  else
+    rows.splice(rows.indexOf(1), 18);
+  for(i = 1; i <= 3; i++) {
+    for(row = 1; row <= 42; row++) {
+      var tdSvg;
+      if(i == 1 && row >= 19 && row <= 24) {
+        tdSvg = $('#modal-patient-main #patientPerioChartTab table tr:nth-child('+row+') td.tooth-'+(toothNumber));
+      }
+      var td = $($('#modal-patient-main #patientPerioChartTab table tr:nth-child('+row+') td:not(.title):not(.main-title)').get(((toothPosition*3)+i)-4));
+
+      if(rows.indexOf(row) != -1) {
+        if(row >= 19 && row <= 24) {
+          if(i == 1 && !highlight) {
+            switchFunction(tdSvg);
+          }
+        }
+        else {
+          if(i == 3) {
+            if(row != 1 && row != 26) {
+              if(highlight) {
+                highlightFunction(td);
+              }
+              else {
+                switchFunction(td);
+              }
+            }
+          }
+          else {
+            if(row == 1 || row == 26 && toothPosition != 1) {
+              td = $($('#modal-patient-main #patientPerioChartTab table tr:nth-child('+row+') td:not(.title):not(.main-title)').get(((toothPosition*2)+i)-3));
+            }
+            if(highlight) {
+              highlightFunction(td);
+            }
+            else {
+              switchFunction(td);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+$(function() {
+  switchToothState(1, false, 1, true);
+
+  $('#modal-patient-main #patientPerioChartTab table .numbers .number').click(function(e) {
+    e.preventDefault();
+
+    $('#modal-patient-main #patientPerioChartTab table tr:not(.numbers) td.active').removeClass('active');
+
+    var table = $('#modal-patient-main #patientPerioChartTab table');
+    table.find('.numbers td').removeClass('active');
+    $(this).parent().addClass('active');
+    var toothNumber = Number($(this).text());
+    var buttonExtracted = $('#modal-patient-main #patientPerioChartTab table tr.numbers.numbers-top .button-tooth-extracted');
+    var i = disabledTooths.indexOf(toothNumber);
+    if(i == -1)
+      buttonExtracted.removeClass('active');
+    else
+      buttonExtracted.addClass('active');
+
+    var pos = toothNumber;
+    if(toothNumber > 16)
+      pos = 17 - (toothNumber - 16);
+    switchToothState(toothNumber, false, pos, true);
+  })
+})
+
+$(function() {
+  $('.button-save').on('click', function(e) {
+    e.preventDefault();
+    switch($(this).closest('.controls').attr('data-target')) {
+      case '#patientProfileTab':
+        $('#patientProfileTab').find('form.edit_user').first().submit();
+      break
+      case '#patientInsuranceTab':
+        $('#patientInsuranceTab').find('form.edit_guarantor').first().submit();
+      break
+    }
+  })
+})
+
+$('#modal-patient-main .input-tooth').inputmask({
+  mask: ["9", "x", "X"]
+});
+
+<% if @dosespot.valid_url? %>
+  $(function() {
+      $('iframe#erx-iframe').attr('src', 'http://<%= @dosespot.url %>');
+  });
+<% end %>

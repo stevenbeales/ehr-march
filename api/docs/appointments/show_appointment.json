@@ -1,0 +1,49 @@
+{
+  "resource": "Appointments",
+  "http_method": "GET",
+  "route": "/appointments/:id",
+  "description": "Show appointment",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Appointment id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/appointments/33lNxHU3Xcfy9D?data[auth_token]=62bcd4630198b32b8551bd0c25ab3d89&data[id]=33lNxHU3Xcfy9D",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "62bcd4630198b32b8551bd0c25ab3d89",
+          "id": "33lNxHU3Xcfy9D"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lNxHU3Xcfy9D\",\n    \"type\": \"appointments\",\n    \"attributes\": {\n      \"id\": \"33lNxHU3Xcfy9D\",\n      \"patient-id\": \"33lNxHUDDhpL3T\",\n      \"room-id\": \"33lO5HBYGG53St\",\n      \"appointment-type-id\": \"33lO6binzhoPeF\",\n      \"appointment-status-id\": \"33lO7tRNCBRKSp\",\n      \"location\": \"52431 Brianne Plains\",\n      \"reason\": \"Laboriosam necessitatibus atque animi ipsam impedit fugit.\",\n      \"appointment-datetime-date\": \"2016-02-26\",\n      \"appointment-datetime-time\": \"16:53\",\n      \"duration\": \"1 hour\",\n      \"contact-email\": \"ana.balistreri@green.info\",\n      \"contact-phone\": \"+13946523112\",\n      \"reminder\": true,\n      \"colour\": \"3BDB1E\"\n    },\n    \"links\": {\n      \"self\": \"/appointments/33lNxHU3Xcfy9D\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

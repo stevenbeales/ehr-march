@@ -1,0 +1,49 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/guarantor",
+  "description": "Get tooth and procedure code for creating procedure",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/guarantor?data[auth_token]=c6fa30faf20ce1357c0d47e9e75e5b67&data[patient_id]=33lc8EE1zVtwo7",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "c6fa30faf20ce1357c0d47e9e75e5b67",
+          "patient_id": "33lc8EE1zVtwo7"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lc9bm9CPWZ8N\",\n    \"type\": \"guarantors\",\n    \"attributes\": {\n      \"id\": \"33lc9bm9CPWZ8N\",\n      \"patient-id\": \"33lc8EE1zVtwo7\",\n      \"first-name\": \"Ray\",\n      \"middle-name\": \"Haylie\",\n      \"last-name\": \"Rowe\",\n      \"birth\": \"2016-02-26T17:15:34.552+02:00\",\n      \"gender\": \"Male\",\n      \"social-number\": \"219744898\",\n      \"relation\": \"Friend\",\n      \"phone\": \"+16164131384\",\n      \"email\": \"alize.walker@sanfordheidenreich.com\",\n      \"street-address\": \"11843 Cary Rue\",\n      \"city\": \"Lovelaceville\",\n      \"state\": \"Idaho\",\n      \"zip\": 10963\n    },\n    \"links\": {\n      \"self\": \"/guarantors/33lc9bm9CPWZ8N\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

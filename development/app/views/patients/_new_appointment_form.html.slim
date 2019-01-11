@@ -1,0 +1,47 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      button.modal-close.close type="button" data-dismiss="modal" &times;
+      h4 Make an Appointment
+    = simple_form_for PatientAppointment.new, remote: true do |pa|
+      .modal-body
+        .scrollable-container
+          .content
+            = pa.input :patient_id, as: :hidden, input_html: { value: current_user.patient.id }
+            .row
+              .col-lg-6
+                .form-group
+                  input.form-control.date-picker type="text" placeholder="Date"
+              .col-lg-6
+                .form-group
+                  = pa.input :provider_id, as: :select, collection: @providers, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+            .row
+              .col-lg-6
+                .form-group
+                  input.form-control.time-picker type="text" placeholder="Time"
+              .col-lg-6
+                .form-group
+                  = pa.input :location, as: :select, collection: [["Location", nil]], input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+            .row
+              .col-lg-12
+                .form-group
+                  = pa.input :appointment_type, as: :select, collection:  PatientAppointment.appointment_types.map {|type| [type, type]}, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+            .row
+              .col-lg-12
+                .form-group
+                  = pa.input :note, as: 'text', label: false, input_html: { class: 'form-control', rows: 4, placeholder: 'Notes' }
+            .row
+              .col-lg-6
+                .form-group
+                  = pa.input :phone, as: 'tel', label: false, input_html: { class: 'form-control input-phone', placeholder: 'Phone' }
+              .col-lg-6
+                .form-group
+                  = pa.input :email, as: 'email', label: false, input_html: { class: 'form-control input-email', placeholder: 'Email' }
+      .modal-footer
+        .row
+          .col-lg-12
+            .buttons
+              .btn-group
+                a.button.button-medium href="#" data-dismiss="modal" Cancel
+              .btn-group
+                = pa.submit 'Submit', class: 'button button-medium'

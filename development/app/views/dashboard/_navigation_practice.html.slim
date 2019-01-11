@@ -1,0 +1,11 @@
+nav.navbar-practice.navbar
+  .navbar-header
+      button.navbar-toggle.collapsed type="navbar-toggle button" data-toggle="collapse" data-target="#navbar-practice-main"
+        span.fa.fa-bars.fa-2x
+  #navbar-practice-main.collapse.navbar-collapse
+    .left-block
+      ul.main-menu.nav.navbar-nav
+        li
+          = link_to 'Dashboard', dashboard_index_path, class: 'item-dashboard'
+        li
+          = link_to 'Logout', destroy_user_session_path, method: 'delete', class: 'item-logout'

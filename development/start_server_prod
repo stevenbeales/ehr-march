@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+HOSTNAME=''
+PORT=''
+IP=''
+
+# ===> IMPORTANT BEFORE START_SERVER RUN RETHINKDB <===
+service nginx stop
+ps aux | grep 'unicorn' | awk '{print $2}' | xargs kill -9
+
+killall ruby
+  rm -rf .bundle
+  rm -rf tmp/cache/
+  rm -rf vendor/bundle/
+  rm -rf public/assets/
+  rm -f  Gemfile.lock
+  rm -f  app/services/*
+
+  bundle
+
+  bundle exec rake tmp:clear
+  bundle exec rake log:clear
+  bundle exec rake assets:clean
+
+  bundle install --deployment --without development test
+
+  # ===> IMPORTANT BEFORE START_SERVER RUN RETHINKDB SCRIPTS FOR CREATE TABLES <===
+
+  # cp -v lib/tasks/admin_service.rb      app/services/
+  # cp -v lib/tasks/provider_service.rb   app/services/
+  # cp -v lib/tasks/patient_service.rb    app/services/
+  # cp -v lib/tasks/practice_service.rb   app/services/
+
+  # bundle exec rake nobrainer:drop RAILS_ENV=production
+
+  #
+  # Start import script on DB server has name db1.ehr1.us
+  # to the directory /root/import-rethinkdb/import_data_to_ehr_production.sh
+  # you can see data explyer rethinkdb => http://db1.ehr1.us:8080/
+  #
+  #
+  # rethinkdb import -f countries.json        --table ehr_production.countries       --force
+  # rethinkdb import -f countries.json        --table ehr_production.countries       --force
+  # rethinkdb import -f states.json           --table ehr_production.states          --force
+  # rethinkdb import -f zipcodes.json         --table ehr_production.zipcodes        --force
+  # rethinkdb import -f diagnosis_codes.json  --table ehr_production.diagnosis_codes --force
+
+  # bundle exec rake nobrainer:seed RAILS_ENV=production
+  # bundle exec rake db:procedures  RAILS_ENV=production
+  # bundle exec rake db:subjects    RAILS_ENV=production
+  # bundle exec rake db:portions    RAILS_ENV=production
+
+  # rm -f  app/services/*
+
+  bundle exec rake assets:precompile RAILS_ENV=production
+
+  touch /var/www/html/tmp/restart.txt
+
+  echo -en "\n"
+  echo -en "\nStart Production Server and open browser with this url:\n"
+  echo -en "\thttps://$HOSTNAME\n"
+  echo -en "\n"
+
+  service nginx start
+  /etc/init.d/unicorn_ehr1medical start

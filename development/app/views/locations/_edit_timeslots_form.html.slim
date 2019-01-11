@@ -1,0 +1,15 @@
+- location.timeslots.each_with_index do |timeslot, index|
+  = l.simple_fields_for "timeslots[#{index}]", timeslot do |t|
+    .row
+      = t.input :id, as: :hidden, label: false, input_html: { class: 'form-control', value: timeslot.id }
+      .col-xs-2
+        .form-group
+          p
+            = timeslot.weekday
+      .col-xs-3
+        = t.time_select :from, { combined: true, ampm: true, time_separator: "", prompt: '' }, { 'data-placeholder' => 'From', 'data-theme' => 'gray-light', 'data-arrow' => '3x', 'data-padding' => '1x', 'data-arrow-padding' => '05x','data-font' => '2x', class: 'select2' }
+      .col-xs-3
+        = t.time_select :to, { combined: true, ampm: true, time_separator: "", prompt: '' }, { 'data-placeholder' => 'To', 'data-theme' => 'gray-light', 'data-arrow' => '3x', 'data-padding' => '1x', 'data-arrow-padding' => '05x','data-font' => '2x', class: 'select2' }
+      .col-xs-4
+        .form-group
+          = t.input :specific_hour, as: :select, collection: Timeslot.specific_hours.to_a, selected: timeslot.specific_hour, input_html: { 'data-placeholder' => 'Specific Hours', 'data-theme' => 'gray-light', 'data-arrow' => '3x', 'data-padding' => '1x', 'data-arrow-padding' => '05x','data-font' => '2x', class: 'select2 select-new-user-specific-hours' }

@@ -1,0 +1,242 @@
+function ZipcodeController() {
+  var status = 'changed';
+
+  var cityId; var stateId; var zipId;
+  var practiceCityId; var practiceStateId; var practiceZipId;
+
+  var city; var state; var zip;
+  var practice_city; var practice_state; var practice_zip;
+
+  var city_list; var zip_list;
+  var practice_city_list; var practice_zip_list;
+
+  var practiceGroup = false;
+
+  var checkbox_same_as_practice = $('.checkbox-same-as-practice input[type="checkbox"]');
+
+  this.initialize = function (city_id, state_id, zip_id, citylist, ziplist,
+      practice_group,
+      practice_city_id, practice_state_id, practice_zip_id, practice_citylist, practice_ziplist
+    ) {
+    practiceGroup = practice_group;
+    //Main fields
+    cityId = city_id;
+    stateId = state_id;
+    zipId = zip_id;
+    city_list = $(citylist);
+    zip_list = $(ziplist);
+    if(practice_group) {
+      practiceCityId = practice_city_id;
+      practiceStateId = practice_state_id;
+      practiceZipId = practice_zip_id;
+      practice_city_list = practice_citylist;
+      practice_zip_list = practice_ziplist;
+      practiceGroup = practice_group;
+    }
+    varInitialize();
+  };
+
+  var varInitialize = function() {
+    city  = $(cityId).data(status, false);
+    state = $(stateId).data(status, false);
+    zip   = $(zipId).data(status, false);
+    //Init fields listeners
+    addInputOnCity();
+    addInputOnZip();
+    if(practiceGroup) {
+      practice_city  = $(practiceCityId).data(status, false);
+      practice_state = $(practiceStateId).data(status, false);
+      practice_zip   = $(practiceZipId).data(status, false);
+      //Init fields listeners
+      addInputOnPracticeCity();
+      addInputOnPracticeZip();
+    }
+  }
+
+  var addInputOnCity = function () {
+    $(city).on('input', function() {
+
+        if($(this).val().length>0) {
+        $.ajax({
+          type: 'POST',
+          url:  '<%= Rails.application.routes.url_helpers.zipcode_city_set_path %>',
+          data: {
+            city: $(this).val()
+          }
+        }).done(function(zip_data) {
+          FillList($(city_list), city, zip_data, true, false);
+        });
+      }
+      else {
+        city_list.css('display', 'none');
+        city_list.empty();
+      }
+    });
+  };
+
+  var addInputOnZip = function () {
+    $(zip).on('input', function() {
+        if($(this).val().length>0) {
+        $.ajax({
+          type: 'POST',
+          url:  '<%= Rails.application.routes.url_helpers.zipcode_zip_set_path %>',
+          data: {
+            zip: $(this).val()
+          }
+        }).done(function(zip_data) {
+          FillList($(zip_list), zip, zip_data, false, false);
+        });
+      }
+      else {
+        zip_list.css('display', 'none');
+        zip_list.empty();
+      }
+    });
+  };
+
+  var addInputOnPracticeCity = function () {
+    $(practice_city).on('input', function() {
+        if($(this).val().length>0) {
+        $.ajax({
+          type: 'POST',
+          url:  '<%= Rails.application.routes.url_helpers.zipcode_city_set_path %>',
+          data: {
+            city: $(this).val()
+          }
+        }).done(function(zip_data) {
+          FillList($(practice_city_list), practice_city, zip_data, true, true);
+        });
+      }
+      else {
+        practice_city_list.css('display', 'none');
+        practice_city_list.empty();
+      }
+    });
+  };
+
+  var addInputOnPracticeZip = function () {
+    $(practice_zip).on('input', function() {
+        if($(this).val().length>0) {
+        $.ajax({
+          type: 'POST',
+          url:  '<%= Rails.application.routes.url_helpers.zipcode_zip_set_path %>',
+          data: {
+            zip: $(this).val()
+          }
+        }).done(function(zip_data) {
+          FillList($(practice_zip_list), practice_zip, zip_data, false, true);
+        });
+      }
+      else {
+        practice_zip_list.css('display', 'none');
+        practice_zip_list.empty();
+      }
+    });
+  };
+
+  var liFocusIn = false;
+
+  function FillList(list, listInput, zip_data, isCity, isPractice) {
+    if(zip_data['status'] == 'Ok') {
+      if(zip_data['data'].length > 0)
+      {
+        listInput.on('keydown', function(e) {
+          if(e.keyCode == '40' && list.css('display') == 'block') {
+            $(list.find('li a').first()).focus();
+            return false;
+          }
+        });
+        list.find('li').focusin(function() {
+          liFocusIn = true;
+        })
+        list.find('li').focusout(function() {
+          liFocusIn = false;
+        })
+        list.focusout(function() {
+          setTimeout(function() {
+            if(!liFocusIn)
+              list.fadeOut({
+                'duration': 0
+              });
+          }, 100);
+        });
+        list.blur(function() {
+          $(this).css('display', 'none');
+        })
+        list.css('display', 'block');
+        list.empty();
+        for(var i = 0; i < zip_data['data'].length; i++)
+        {
+          var item = $('<li/>');
+          var linkItem = $('<a/>').attr('href', '#');
+          item.append(linkItem);
+          if(isCity)
+            linkItem.text(zip_data['data'][i]['city']);
+          else
+            linkItem.text(zip_data['data'][i]['code']);
+          linkItem.data('city', zip_data['data'][i]['city']);
+          linkItem.data('state_name', zip_data['data'][i]['state_name']);
+          linkItem.data('code', zip_data['data'][i]['code']);
+          list.append(item);
+        }
+        list.find('li a').each(function() {
+          $(this).on('click', function(e) {
+            e.preventDefault();
+            FillFields($(this), isPractice);
+            list.css('display', 'none');
+            listInput.focus();
+          });
+        })
+        list.find('li').each(function() {
+          $(this).on('keydown', function(e) {
+            switch(e.keyCode)
+            {
+              case 38:
+                if(this.previousElementSibling == null)
+                  listInput.focus();
+                else
+                $(this).prev().find('a').focus();
+                return false;
+              break
+              case 40:
+                if(this.nextElementSibling == null)
+                  list.find('li a').first().focus();
+                else
+                  $(this).next().find('a').focus();
+                return false;
+              break
+            }
+          });
+        })
+      }
+    if(zip_data['data'].length == 0 || zip_data['status'] != 'Ok') {
+        list.css('display', 'none');
+        list.empty();
+      }
+    }
+  }
+
+  function FillFields(element, isPractice) {
+      if(checkbox_same_as_practice.is(':checked') && practiceGroup) {
+        SetPracticeFields(element.data('city'),element.data('state_name'),element.data('code'));
+        SetMainFields(element.data('city'),element.data('state_name'),element.data('code'));
+      } else {
+        if(isPractice)
+          SetPracticeFields(element.data('city'),element.data('state_name'),element.data('code'));
+        else
+          SetMainFields(element.data('city'),element.data('state_name'),element.data('code'));
+    }
+  }
+
+  var SetMainFields = function(city_val, state_val, zip_val) {
+     city.val(city_val).change();
+     state.val(state_val).change();
+     zip.val(zip_val).change();
+  };
+
+  var SetPracticeFields = function(city_val, state_val, zip_val) {
+    practice_city.val(city_val).change();
+    practice_state.val(state_val).change();
+    practice_zip.val(zip_val).change();
+  }
+}

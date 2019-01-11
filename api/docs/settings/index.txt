@@ -1,0 +1,1052 @@
+Practices and locations settings
+--------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /settings/practice?data[auth_token]=843fe394b3870c2c0f27e67ad71348e2
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"843fe394b3870c2c0f27e67ad71348e2"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "locations": [
+        {
+          "city": "Gorczanyhaven",
+          "colour": "841A1F",
+          "created_at": "2016-02-26T17:21:43.786+02:00",
+          "id": "33lg6bThYA1eyZ",
+          "location_address": "Odie Freeway",
+          "location_fax": "+1855819297",
+          "location_name": "Klocko Manor",
+          "location_npi": "86-6143691",
+          "location_phone": "+17663113388",
+          "location_tin_en": "32-2286038",
+          "provider_id": "33lfzuKI1Q7Pud",
+          "state": "Arkansas",
+          "updated_at": "2016-02-26T17:21:43.786+02:00",
+          "zip": 50109
+        },
+        {
+          "city": "North Erikahaven",
+          "colour": "FB2D00",
+          "created_at": "2016-02-26T17:21:44.803+02:00",
+          "id": "33lg79buoQcFWt",
+          "location_address": "Wisoky Tunnel",
+          "location_fax": "+14473739672",
+          "location_name": "Barrows Lakes",
+          "location_npi": "07-8876700",
+          "location_phone": "+17934748662",
+          "location_tin_en": "78-9117104",
+          "provider_id": "33lfzuKI1Q7Pud",
+          "state": "Montana",
+          "updated_at": "2016-02-26T17:21:44.803+02:00",
+          "zip": 48316
+        },
+        {
+          "city": "South Angelinefurt",
+          "colour": "376A53",
+          "created_at": "2016-02-26T17:21:45.914+02:00",
+          "id": "33lg7pwGR86TdD",
+          "location_address": "Mariana Field",
+          "location_fax": "+1006412177",
+          "location_name": "Terence Ramp",
+          "location_npi": "75-8821971",
+          "location_phone": "+14908655921",
+          "location_tin_en": "89-2452148",
+          "provider_id": "33lfzuKI1Q7Pud",
+          "state": "Rhode Island",
+          "updated_at": "2016-02-26T17:21:45.914+02:00",
+          "zip": 17337
+        }
+      ],
+      "practices": [
+        {
+          "accepting_patient": false,
+          "admin": false,
+          "city": "East Rosieland",
+          "created_at": "2016-02-26T17:21:36.566+02:00",
+          "degree": "DDS",
+          "emergency_access": false,
+          "enable_online_booking": false,
+          "first_name": "Buck",
+          "id": "33lg1qaMvbwEaJ",
+          "last_name": "Ernser",
+          "mobile_phone": null,
+          "practice_city": "Mablemouth",
+          "practice_role": "Provider",
+          "practice_state": "Minnesota",
+          "practice_street_address": "Weimann Dale",
+          "practice_suit_apt_number": "925",
+          "primary_phone": null,
+          "profile_image": {
+            "url": "/uploads/provider/profile_image/33lg1qaMvbwEaJ/avatar9.jpg"
+          },
+          "provider_id": "33lfzuKI1Q7Pud",
+          "speciality": "Endodontics",
+          "state": "Utah",
+          "status": true,
+          "street_address": "Melisa Oval",
+          "suit_apt_number": "4845",
+          "title": "Mr",
+          "updated_at": "2016-02-26T17:21:36.566+02:00",
+          "user_id": "33lg1qaWbh5bUZ"
+        },
+        {
+          "accepting_patient": false,
+          "admin": false,
+          "city": "North Murlhaven",
+          "created_at": "2016-02-26T17:21:38.868+02:00",
+          "degree": "DDS",
+          "emergency_access": false,
+          "enable_online_booking": false,
+          "first_name": "Orrin",
+          "id": "33lg3fEzytNEwd",
+          "last_name": "Littel",
+          "mobile_phone": null,
+          "practice_city": "Lake Chanelleville",
+          "practice_role": "Provider",
+          "practice_state": "Georgia",
+          "practice_street_address": "Gusikowski Prairie",
+          "practice_suit_apt_number": "8466",
+          "primary_phone": null,
+          "profile_image": {
+            "url": "/uploads/provider/profile_image/33lg3fEzytNEwd/avatar7.jpg"
+          },
+          "provider_id": "33lfzuKI1Q7Pud",
+          "speciality": "Endodontics",
+          "state": "Vermont",
+          "status": true,
+          "street_address": "Angel Cove",
+          "suit_apt_number": "6944",
+          "title": "Mr",
+          "updated_at": "2016-02-26T17:21:38.868+02:00",
+          "user_id": "33lg3fF9eyWbqt"
+        },
+        {
+          "accepting_patient": false,
+          "admin": false,
+          "city": "New Teresa",
+          "created_at": "2016-02-26T17:21:40.819+02:00",
+          "degree": "DDS",
+          "emergency_access": false,
+          "enable_online_booking": false,
+          "first_name": "Keara",
+          "id": "33lg5FdQXarXrH",
+          "last_name": "Marks",
+          "mobile_phone": null,
+          "practice_city": "New Aric",
+          "practice_role": "Provider",
+          "practice_state": "Missouri",
+          "practice_street_address": "Hammes Points",
+          "practice_suit_apt_number": "45135",
+          "primary_phone": null,
+          "profile_image": {
+            "url": "/uploads/provider/profile_image/33lg5FdQXarXrH/avatar2.jpg"
+          },
+          "provider_id": "33lfzuKI1Q7Pud",
+          "speciality": "Endodontics",
+          "state": "Iowa",
+          "status": true,
+          "street_address": "Von Land",
+          "suit_apt_number": "4910",
+          "title": "Mr",
+          "updated_at": "2016-02-26T17:21:40.819+02:00",
+          "user_id": "33lg5FdaDg0ulX"
+        }
+      ]
+    }
+  }
+
+
+Practices and locations settings
+--------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /settings/access_permissions?data[auth_token]=679bc0230787bf90ce4a150070dfc1db
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"679bc0230787bf90ce4a150070dfc1db"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lgD8G6GgT2VX",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8G6GgT2VX",
+          "presentation": "To do update?",
+          "policy-name": "ToDoPolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8G6GgT2VX"
+        }
+      },
+      {
+        "id": "33lgD8H2LBNFx5",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8H2LBNFx5",
+          "presentation": "To do show?",
+          "policy-name": "ToDoPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8H2LBNFx5"
+        }
+      },
+      {
+        "id": "33lgD8HyPgHTOd",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8HyPgHTOd",
+          "presentation": "Appointment create?",
+          "policy-name": "AppointmentPolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8HyPgHTOd"
+        }
+      },
+      {
+        "id": "33lgD8IuUBBgqB",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8IuUBBgqB",
+          "presentation": "Appointment update?",
+          "policy-name": "AppointmentPolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8IuUBBgqB"
+        }
+      },
+      {
+        "id": "33lgD8JqYg5uHj",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8JqYg5uHj",
+          "presentation": "Appointment show?",
+          "policy-name": "AppointmentPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8JqYg5uHj"
+        }
+      },
+      {
+        "id": "33lgD8KmdB07jH",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8KmdB07jH",
+          "presentation": "Appointment reschedule?",
+          "policy-name": "AppointmentPolicy#reschedule?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8KmdB07jH"
+        }
+      },
+      {
+        "id": "33lgD8LihfuLAp",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8LihfuLAp",
+          "presentation": "Calendar show?",
+          "policy-name": "CalendarPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8LihfuLAp"
+        }
+      },
+      {
+        "id": "33lgD8MemAoYcN",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8MemAoYcN",
+          "presentation": "Diagnosis create?",
+          "policy-name": "DiagnosisPolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8MemAoYcN"
+        }
+      },
+      {
+        "id": "33lgD8Naqfim3v",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8Naqfim3v",
+          "presentation": "Diagnosis update?",
+          "policy-name": "DiagnosisPolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8Naqfim3v"
+        }
+      },
+      {
+        "id": "33lgD8OWvAczVT",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8OWvAczVT",
+          "presentation": "Diagnosis show?",
+          "policy-name": "DiagnosisPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8OWvAczVT"
+        }
+      },
+      {
+        "id": "33lgD8PSzfXCx1",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8PSzfXCx1",
+          "presentation": "Advanced directive update?",
+          "policy-name": "AdvancedDirectivePolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8PSzfXCx1"
+        }
+      },
+      {
+        "id": "33lgD8QP4ARQOZ",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8QP4ARQOZ",
+          "presentation": "Advanced directive show?",
+          "policy-name": "AdvancedDirectivePolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8QP4ARQOZ"
+        }
+      },
+      {
+        "id": "33lgD8RL8fLdq7",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8RL8fLdq7",
+          "presentation": "Medication create?",
+          "policy-name": "MedicationPolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8RL8fLdq7"
+        }
+      },
+      {
+        "id": "33lgD8SHDAFrHf",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8SHDAFrHf",
+          "presentation": "Medication update?",
+          "policy-name": "MedicationPolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8SHDAFrHf"
+        }
+      },
+      {
+        "id": "33lgD8TDHfA4jD",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8TDHfA4jD",
+          "presentation": "Medication show?",
+          "policy-name": "MedicationPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8TDHfA4jD"
+        }
+      },
+      {
+        "id": "33lgD8U9MA4IAl",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgD8U9MA4IAl",
+          "presentation": "Allergy create?",
+          "policy-name": "AllergyPolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgD8U9MA4IAl"
+        }
+      },
+      {
+        "id": "33lgDjOhy9UmTz",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjOhy9UmTz",
+          "presentation": "Allergy show?",
+          "policy-name": "AllergyPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjOhy9UmTz"
+        }
+      },
+      {
+        "id": "33lgDjPe2eOzvX",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjPe2eOzvX",
+          "presentation": "Setting show?",
+          "policy-name": "SettingPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjPe2eOzvX"
+        }
+      },
+      {
+        "id": "33lgDjQa79JDN5",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjQa79JDN5",
+          "presentation": "Setting schedule?",
+          "policy-name": "SettingPolicy#schedule?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjQa79JDN5"
+        }
+      },
+      {
+        "id": "33lgDjRWBeDQod",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjRWBeDQod",
+          "presentation": "Procedure create?",
+          "policy-name": "ProcedurePolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjRWBeDQod"
+        }
+      },
+      {
+        "id": "33lgDjSSG97eGB",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjSSG97eGB",
+          "presentation": "Procedure show?",
+          "policy-name": "ProcedurePolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjSSG97eGB"
+        }
+      },
+      {
+        "id": "33lgDjTOKe1rhj",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjTOKe1rhj",
+          "presentation": "Procedure update?",
+          "policy-name": "ProcedurePolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjTOKe1rhj"
+        }
+      },
+      {
+        "id": "33lgDjUKP8w59H",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjUKP8w59H",
+          "presentation": "Encounter create?",
+          "policy-name": "EncounterPolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjUKP8w59H"
+        }
+      },
+      {
+        "id": "33lgDjVGTdqIap",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjVGTdqIap",
+          "presentation": "Encounter update?",
+          "policy-name": "EncounterPolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjVGTdqIap"
+        }
+      },
+      {
+        "id": "33lgDjWCY8kW2N",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjWCY8kW2N",
+          "presentation": "Encounter show?",
+          "policy-name": "EncounterPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjWCY8kW2N"
+        }
+      },
+      {
+        "id": "33lgDjX8cdejTv",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjX8cdejTv",
+          "presentation": "Email message create?",
+          "policy-name": "EmailMessagePolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjX8cdejTv"
+        }
+      },
+      {
+        "id": "33lgDjY4h8YwvT",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjY4h8YwvT",
+          "presentation": "Email message show?",
+          "policy-name": "EmailMessagePolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjY4h8YwvT"
+        }
+      },
+      {
+        "id": "33lgDjZ0ldTAN1",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjZ0ldTAN1",
+          "presentation": "Profile show?",
+          "policy-name": "ProfilePolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjZ0ldTAN1"
+        }
+      },
+      {
+        "id": "33lgDjZwq8NNoZ",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjZwq8NNoZ",
+          "presentation": "Profile update?",
+          "policy-name": "ProfilePolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjZwq8NNoZ"
+        }
+      },
+      {
+        "id": "33lgDjasudHbG7",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjasudHbG7",
+          "presentation": "Patient create?",
+          "policy-name": "PatientPolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjasudHbG7"
+        }
+      },
+      {
+        "id": "33lgDjboz8Bohf",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjboz8Bohf",
+          "presentation": "Patient update?",
+          "policy-name": "PatientPolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjboz8Bohf"
+        }
+      },
+      {
+        "id": "33lgDjcl3d629D",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjcl3d629D",
+          "presentation": "Patient patient?",
+          "policy-name": "PatientPolicy#patient?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjcl3d629D"
+        }
+      },
+      {
+        "id": "33lgDjdh880Fal",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjdh880Fal",
+          "presentation": "Past medical history update?",
+          "policy-name": "PastMedicalHistoryPolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjdh880Fal"
+        }
+      },
+      {
+        "id": "33lgDjedCcuT2J",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjedCcuT2J",
+          "presentation": "Past medical history show?",
+          "policy-name": "PastMedicalHistoryPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjedCcuT2J"
+        }
+      },
+      {
+        "id": "33lgDjfZH7ogTr",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjfZH7ogTr",
+          "presentation": "Smoking status update?",
+          "policy-name": "SmokingStatusPolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjfZH7ogTr"
+        }
+      },
+      {
+        "id": "33lgDjgVLcitvP",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjgVLcitvP",
+          "presentation": "Smoking status show?",
+          "policy-name": "SmokingStatusPolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjgVLcitvP"
+        }
+      },
+      {
+        "id": "33lgDjhRQ7d7Mx",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjhRQ7d7Mx",
+          "presentation": "Chart main show?",
+          "policy-name": "ChartPolicy#main_show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjhRQ7d7Mx"
+        }
+      },
+      {
+        "id": "33lgDjiNUcXKoV",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjiNUcXKoV",
+          "presentation": "Chart dental show?",
+          "policy-name": "ChartPolicy#dental_show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjiNUcXKoV"
+        }
+      },
+      {
+        "id": "33lgDjjJZ7RYG3",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjjJZ7RYG3",
+          "presentation": "Chart perio show?",
+          "policy-name": "ChartPolicy#perio_show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjjJZ7RYG3"
+        }
+      },
+      {
+        "id": "33lgDjkFdcLlhb",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjkFdcLlhb",
+          "presentation": "Chart profile show?",
+          "policy-name": "ChartPolicy#profile_show?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjkFdcLlhb"
+        }
+      },
+      {
+        "id": "33lgDjlBi7Fz99",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgDjlBi7Fz99",
+          "presentation": "Chart perio update?",
+          "policy-name": "ChartPolicy#perio_update?"
+        },
+        "links": {
+          "self": "/permissions/33lgDjlBi7Fz99"
+        }
+      },
+      {
+        "id": "33lgERHNO7DyRX",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgERHNO7DyRX",
+          "presentation": "Chart insurance show?",
+          "policy-name": "ChartPolicy#insurance_show?"
+        },
+        "links": {
+          "self": "/permissions/33lgERHNO7DyRX"
+        }
+      },
+      {
+        "id": "33lgERIJSc8Bt5",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgERIJSc8Bt5",
+          "presentation": "Practice create?",
+          "policy-name": "PracticePolicy#create?"
+        },
+        "links": {
+          "self": "/permissions/33lgERIJSc8Bt5"
+        }
+      },
+      {
+        "id": "33lgERJFX72PKd",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgERJFX72PKd",
+          "presentation": "Practice show?",
+          "policy-name": "PracticePolicy#show?"
+        },
+        "links": {
+          "self": "/permissions/33lgERJFX72PKd"
+        }
+      },
+      {
+        "id": "33lgERKBbbwcmB",
+        "type": "permissions",
+        "attributes": {
+          "id": "33lgERKBbbwcmB",
+          "presentation": "Practice update?",
+          "policy-name": "PracticePolicy#update?"
+        },
+        "links": {
+          "self": "/permissions/33lgERKBbbwcmB"
+        }
+      }
+    ]
+  }
+
+
+Set practice as an admin
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Practice id
+  * admin - Boolean, set true if practice is an admin
+
+Request:
+  GET /settings/set_admin?data[auth_token]=704ec5ae4e91ddf3ac29091fce7a3adb&data[id]=33lgGLheTjsRd5&data[admin]=true
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"704ec5ae4e91ddf3ac29091fce7a3adb", "id"=>"33lgGLheTjsRd5", "admin"=>"true"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Practices with role "Provider"
+------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /settings/schedule?data[auth_token]=a8993304ba4d8fc6473ef1df35a6b059
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"a8993304ba4d8fc6473ef1df35a6b059"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lgKzeR59ArRb",
+        "type": "providers",
+        "attributes": {
+          "id": "33lgKzeR59ArRb",
+          "email": "kylee@murraydouglas.info",
+          "role": "Provider",
+          "user-id": "33lgKzealEKELr",
+          "title": "Mr",
+          "first-name": "Jerrell",
+          "middle-name": null,
+          "last-name": "Jacobson",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Bret Ranch",
+          "suit-apt-number": "547",
+          "city": "West Suzanne",
+          "state": "Hawaii",
+          "zip": null,
+          "practice-street-address": "Blick Hills",
+          "practice-suit-apt-number": "99422",
+          "practice-city": "Manteville",
+          "practice-state": "Nevada",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33lgKzeR59ArRb/avatar2.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33lgKzeR59ArRb"
+        }
+      },
+      {
+        "id": "33lgMzOG29qI7v",
+        "type": "providers",
+        "attributes": {
+          "id": "33lgMzOG29qI7v",
+          "email": "rocio@harrishilpert.net",
+          "role": "Provider",
+          "user-id": "33lgMzOPiEzf2B",
+          "title": "Mr",
+          "first-name": "Kaylee",
+          "middle-name": null,
+          "last-name": "Hilpert",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Green Run",
+          "suit-apt-number": "78831",
+          "city": "Makenzieburgh",
+          "state": "Ohio",
+          "zip": null,
+          "practice-street-address": "Angela Knolls",
+          "practice-suit-apt-number": "89708",
+          "practice-city": "Fisherborough",
+          "practice-state": "Georgia",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33lgMzOG29qI7v/avatar4.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33lgMzOG29qI7v"
+        }
+      },
+      {
+        "id": "33lgOPDoCKNeXz",
+        "type": "providers",
+        "attributes": {
+          "id": "33lgOPDoCKNeXz",
+          "email": "janick@dooleyhammes.name",
+          "role": "Provider",
+          "user-id": "33lgOPDxsPX1SF",
+          "title": "Mr",
+          "first-name": "Vladimir",
+          "middle-name": null,
+          "last-name": "Mante",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Conroy Estate",
+          "suit-apt-number": "414",
+          "city": "MacGyverfurt",
+          "state": "Ohio",
+          "zip": null,
+          "practice-street-address": "Shanahan Rue",
+          "practice-suit-apt-number": "974",
+          "practice-city": "Boscoburgh",
+          "practice-state": "Oklahoma",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33lgOPDoCKNeXz/avatar8.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33lgOPDoCKNeXz"
+        }
+      }
+    ]
+  }
+
+
+Set colours settings
+--------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * schedule_general_attributes - Array of schedule generals
+  * id - Schedule general id
+  * slot_size - Slot size
+  * past_apps - Past apps
+  * calendar_from - Schedule from time
+  * calendar_to - Schedule to time
+  * outside_practice_hour - Outside practice hour
+  * multiple_apps - Multiple appointments
+  * reschedule_for_patient - Reschedule for patient
+  * reschedule_time - Reschedule time
+  * rooms_attributes - Array of rooms
+  * room_id - Room id
+  * room - Room
+  * _destroy - Boolean, if true - delete
+  * appointment_types_attributes - Array of appointment types
+  * appointment_type_id - Appointment type id
+  * appt_type - Appointment type
+  * colour - Appointment type color
+  * _destroy - Boolean, if true - delete
+  * appointment_statuses_attributes - Array of appointment statuses
+  * appointment_status_id - Appointment status id
+  * name - Appointment status
+  * colour - Appointment status color
+  * _destroy - Boolean, if true - delete
+
+Request:
+  PATCH /settings/update_schedule
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"b8ce0851f07e3997b8dadebe6ac05ba1","schedule_general_attributes":{"id":"33lgitiOMiqQnz","slot_size":30,"past_apps":true,"calendar_from":"2016-02-26T10:00:00.000+02:00","calendar_to":"2016-02-26T19:00:00.000+02:00","outside_practice_hour":true,"multiple_apps":true,"reschedule_for_patient":true,"reschedule_time":24},"rooms_attributes":[{"room_id":"33lgUJPMtMRjdL","room":"Apt. 881","_destroy":false},{"room_id":"33lgVbIYFULm9T","room":"Apt. 398","_destroy":false},{"room_id":"33lgXCYWcgfoId","room":"Apt. 408","_destroy":false}],"appointment_types_attributes":[{"appointment_type_id":"33lgYOgqKt7EWp","appt_type":"Endo","colour":"9836A3","_destroy":false},{"appointment_type_id":"33lgaLU18gyNZD","appt_type":"New Patient","colour":"E8BB72","_destroy":false},{"appointment_type_id":"33lgbahj0kgmFn","appt_type":"Prophy Appointment","colour":"D0017A","_destroy":false}],"appointment_statuses_attributes":[{"appointment_status_id":"33lgd4RFFhSp7r","name":"Cancelled","colour":"8AF103","_destroy":false},{"appointment_status_id":"33lgeH1VSlxNmF","name":"Prophy-Child","colour":"BED0C7","_destroy":false},{"appointment_status_id":"33lggtqIRJAQ1z","name":"Oral Surgery","colour":"1C0ADA","_destroy":false}]}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Get practice by id
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - User id
+
+Request:
+  GET /settings/add_user_added_practice?data[auth_token]=5f2db476df98edce967c5577b2135de6&data[id]=33lh17g3w1ol0d
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"5f2db476df98edce967c5577b2135de6", "id"=>"33lh17g3w1ol0d"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lh17fuFwfO6N",
+      "type": "providers",
+      "attributes": {
+        "id": "33lh17fuFwfO6N",
+        "email": "rigoberto@marvin.org",
+        "role": "Provider",
+        "user-id": "33lh17g3w1ol0d",
+        "title": "Mr",
+        "first-name": "Casimer",
+        "middle-name": null,
+        "last-name": "Quitzon",
+        "degree": "DDS",
+        "speciality": "Endodontics",
+        "street-address": "Cormier Parkways",
+        "suit-apt-number": "9290",
+        "city": "Port Javier",
+        "state": "Ohio",
+        "zip": null,
+        "practice-street-address": "O'Keefe Island",
+        "practice-suit-apt-number": "24836",
+        "practice-city": "South Brayan",
+        "practice-state": "Louisiana",
+        "practice-zip": null,
+        "primary-phone": null,
+        "mobile-phone": null,
+        "alt-email": null,
+        "username": null,
+        "secondary-speciality": null,
+        "dental-licence": null,
+        "expiration-date": null,
+        "ein-tin": null,
+        "npi": null,
+        "dea": null,
+        "upin": null,
+        "nadean": null,
+        "status": true,
+        "biography": null,
+        "accepting-patient": false,
+        "enable-online-booking": false,
+        "profile-image": {
+          "url": "/uploads/provider/profile_image/33lh17fuFwfO6N/avatar5.jpg"
+        }
+      },
+      "links": {
+        "self": "/providers/33lh17fuFwfO6N"
+      }
+    }
+  }
+
+
+Set location color
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Location id
+  * colour - Location color
+
+Request:
+  GET /settings/set_practice_location_color?data[auth_token]=c4009b8c6c45b2216020b8380480204b&data[id]=33lh70qi5ZywPz&data[colour]=%23ffffff
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"c4009b8c6c45b2216020b8380480204b", "id"=>"33lh70qi5ZywPz", "colour"=>"#ffffff"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+

@@ -1,0 +1,17 @@
+provider:
+  emai: "doctor@ehr1medical.com"
+  password: "doctor"
+  password_confirmation: "doctor"
+  role: 0
+
+patient:
+  emai: "patient@ehr1medical.com"
+  password: "patient"
+  password_confirmation: "patient"
+  role: 1
+
+admin:
+  emai: "admin@ehr1medical.com"
+  password: "admin"
+  password_confirmation: "admin"
+  role: 2

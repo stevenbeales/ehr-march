@@ -1,0 +1,46 @@
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+  = f.hidden_field :reset_password_token
+  .passwords-wrapper
+    .passwords-top
+      .string
+        .string-top
+          .image-center
+            = image_tag('ehr.svg', width: 232, height: 88, alt: "EHR1 Logo")
+        .container
+          .string-top-container
+            = link_to root_path, class: 'string-top-home-link'
+              = image_tag('num-top.svg', width: 146, height: 248, alt: "EHR1 One Num Logo")
+    .passwords-content
+      .content-top
+        .container
+          .main-title
+            h1 RESET YOUR PASSWORD
+            - if devise_mapping.registerable?
+              p
+                'Changed your mind?
+                |
+                = link_to 'Sign in here', user_enable_authy_path
+      .content
+        .container
+          .row
+            .col-lg-4
+            .col-lg-4
+              .form-group
+                = flash[:error]
+                = devise_error_messages!
+          .row
+            .col-lg-4
+            .col-lg-4
+              .form-group
+                = f.text_field :username, autocomplete: 'true', class: 'form-control', placeholder: 'Username'
+              .form-group
+                = f.text_field :captcha, autocomplete: 'true', class: 'form-control', placeholder: 'Security Code'
+              .form-group
+                = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'New Password'
+              .form-group
+                = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'Confirm New Password'
+              .controls
+                .form-group
+                  = f.submit 'Submit', class: 'button'
+            .col-lg-4
+/= render 'modal_edit_complete'

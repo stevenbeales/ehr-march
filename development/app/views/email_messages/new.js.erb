@@ -1,0 +1,5 @@
+$("#modal-patient-add-message").html("<%= escape_javascript(render 'new_form') %>")
+$("#modal-patient-add-message").modal("show")
+
+var smc = new SubjectMenuController();
+smc.initialize('#modal-patient-add-message');

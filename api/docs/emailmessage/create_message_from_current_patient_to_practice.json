@@ -1,0 +1,63 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "POST",
+  "route": "/email_messages/create_from_patient_to_practice",
+  "description": "Create message from current patient to practice",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "name": "commit",
+      "description": "If commit == \"Send\", message will be sent to real email"
+    },
+    {
+      "scope": "email_message",
+      "required": true,
+      "name": "to_id",
+      "description": "Practice id"
+    },
+    {
+      "scope": "email_message",
+      "name": "subject_id",
+      "description": "Subject id"
+    },
+    {
+      "scope": "email_message",
+      "name": "body",
+      "description": "Message"
+    },
+    {
+      "scope": "email_message",
+      "name": "urgent",
+      "description": "Boolean, if true - message is urgent"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/email_messages/create_from_patient_to_practice",
+      "request_body": "{\"data\":{\"auth_token\":\"387958d0ac4e110fb2def9696406a480\",\"commit\":\"Save\",\"email_message\":{\"to_id\":\"33lUlGuy4yDvsJ\",\"subject_id\":\"33lUnAlxloitzX\",\"body\":\"Vel nihil quidem fugit nulla totam non accusamus.\",\"urgent\":true}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lUnfNmRqtb6p\",\n    \"type\": \"email-messages\",\n    \"attributes\": {\n      \"id\": \"33lUnfNmRqtb6p\",\n      \"subject-id\": \"33lUnAlxloitzX\",\n      \"to-id\": \"33lUlGv7l3NImZ\",\n      \"from-id\": \"33lUZCJPjGollr\",\n      \"body\": \"Vel nihil quidem fugit nulla totam non accusamus.\",\n      \"draft\": true,\n      \"archive\": false,\n      \"urgent\": true,\n      \"read\": false\n    },\n    \"links\": {\n      \"self\": \"/email-messages/33lUnfNmRqtb6p\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

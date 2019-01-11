@@ -1,0 +1,62 @@
+{
+  "resource": "Sorter",
+  "http_method": "GET",
+  "route": "/sorter/appointments",
+  "description": "Sort appointments and paginate",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "page",
+      "description": "Pagination page number"
+    },
+    {
+      "scope": "data",
+      "name": "field",
+      "description": "Field order by, can be: \"appointment_datetime_time\", \"patient\", \"appointment_type\" other variants return all appointments"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "type",
+      "description": "Type of order: \"asc\" or \"desc\""
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/sorter/appointments?data[auth_token]=cc56f32a583c6f1a081dd266fee1e325&data[page]=0&data[field]=patient&data[type]=desc",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "cc56f32a583c6f1a081dd266fee1e325",
+          "page": "0",
+          "field": "patient",
+          "type": "desc"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lhOpjXDNnJ2J\",\n      \"type\": \"appointments\",\n      \"attributes\": {\n        \"id\": \"33lhOpjXDNnJ2J\",\n        \"patient-id\": \"33lhOpjgtSwfwZ\",\n        \"room-id\": \"33lhWMZrfoCqmJ\",\n        \"appointment-type-id\": \"33lhXgeOVy8E0B\",\n        \"appointment-status-id\": \"33lhYLmHN2XDHP\",\n        \"location\": \"36443 Kuphal Views\",\n        \"reason\": \"Fuga perferendis voluptatem nisi.\",\n        \"appointment-datetime-date\": \"2016-02-26\",\n        \"appointment-datetime-time\": \"17:23\",\n        \"duration\": \"15 min\",\n        \"contact-email\": \"haan.feest@douglas.info\",\n        \"contact-phone\": \"+13139621766\",\n        \"reminder\": false,\n        \"colour\": \"FBF537\"\n      },\n      \"links\": {\n        \"self\": \"/appointments/33lhOpjXDNnJ2J\"\n      }\n    },\n    {\n      \"id\": \"33lhZjGKvmEE0x\",\n      \"type\": \"appointments\",\n      \"attributes\": {\n        \"id\": \"33lhZjGKvmEE0x\",\n        \"patient-id\": \"33lhZjGUbrNavD\",\n        \"room-id\": \"33lhdXleniyuyx\",\n        \"appointment-type-id\": \"33lhfX9mPBdzXP\",\n        \"appointment-status-id\": \"33lhgBCNiRujjP\",\n        \"location\": \"839 Brakus Burg\",\n        \"reason\": \"Saepe est sint aperiam quam accusamus ut cum ut.\",\n        \"appointment-datetime-date\": \"2016-02-26\",\n        \"appointment-datetime-time\": \"17:23\",\n        \"duration\": \"3 hours\",\n        \"contact-email\": \"broderick.konopelski@padbergconnelly.com\",\n        \"contact-phone\": \"+127634530\",\n        \"reminder\": true,\n        \"colour\": \"A8952A\"\n      },\n      \"links\": {\n        \"self\": \"/appointments/33lhZjGKvmEE0x\"\n      }\n    },\n    {\n      \"id\": \"33lhCy0dOjWN87\",\n      \"type\": \"appointments\",\n      \"attributes\": {\n        \"id\": \"33lhCy0dOjWN87\",\n        \"patient-id\": \"33lhCy0n4ofk2N\",\n        \"room-id\": \"33lhJWPPYg8K71\",\n        \"appointment-type-id\": \"33lhLdTM1NPYO3\",\n        \"appointment-status-id\": \"33lhNdaR6lb2Gp\",\n        \"location\": \"85558 Dennis Viaduct\",\n        \"reason\": \"Nihil voluptatum perspiciatis aut omnis aliquid.\",\n        \"appointment-datetime-date\": \"2016-02-26\",\n        \"appointment-datetime-time\": \"17:23\",\n        \"duration\": \"3 hours\",\n        \"contact-email\": \"delores@eichmann.co\",\n        \"contact-phone\": \"+13368401110\",\n        \"reminder\": true,\n        \"colour\": \"E795BE\"\n      },\n      \"links\": {\n        \"self\": \"/appointments/33lhCy0dOjWN87\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

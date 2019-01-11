@@ -1,0 +1,38 @@
+Create text message
+-------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * To - To(email)
+  * From - From(email)
+  * Body - Message
+
+Request:
+  POST /text_messages
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"ed70d196f1881121304b93b4a39b28a9","To":"valentin@pacocha.biz","From":"thomas@pollichtillman.biz","Body":"Vel expedita possimus ipsam similique odit ea. Aut amet omnis quis quae. Earum dolorem illo. Quod aspernatur nihil sit in."}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33liUFXqiO0VzX",
+      "type": "text-messages",
+      "attributes": {
+        "id": "33liUFXqiO0VzX",
+        "provider-id": null,
+        "patient-id": null,
+        "to": "valentin@pacocha.biz",
+        "from": "thomas@pollichtillman.biz",
+        "body": "vel expedita possimus ipsam similique odit ea. aut amet omnis quis quae. earum dolorem illo. quod aspernatur nihil sit in."
+      },
+      "links": {
+        "self": "/text-messages/33liUFXqiO0VzX"
+      }
+    }
+  }
+
+

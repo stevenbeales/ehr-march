@@ -1,0 +1,56 @@
+= flash[:error]
+= simple_form_for @allergy, url: @url, remote: true do |a|
+  = a.input :id, as: :hidden, input_html: { value: @allergy.id } if @allergy.present?
+  = a.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+  .modal-content
+    .modal-header
+      p.title Record Allergy
+    .modal-body
+      .scrollable-container
+        .content
+          .row
+            .col-lg-12
+              .form-group
+                = a.input :allergen_type, as: :select, label: false, collection: Allergy.allergen_types.to_a, include_blank: false, input_html: { class: 'select2', 'data-theme' => 'white-light', 'data-arrow' => '1x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', 'data-placeholder' => 'Allergen Type' }
+            /.col-lg-8
+              .form-group
+                .input-group-custom.input-group-search
+                  input.form-control.open type="text" placeholder="Search Allergens" id="search-allergens-input"
+                  span.input-group-addon.input-group-addon-right.input-group-addon-search id="search-allergens-button"
+          .row
+            .col-lg-12
+              .form-group
+                = a.input :severity_level, as: :select, label: false, collection: Allergy.severity_levels.to_a, include_blank: false, input_html: { class: 'select2', 'data-theme' => 'white-light', 'data-arrow' => '1x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', 'data-placeholder' => 'Severity Level' }
+            /.col-lg-8
+              .form-group
+                .input-group-custom.input-group-search
+                  input.form-control.open type="text" placeholder="Search Allergens" id="search-reactions-input"
+                  span.input-group-addon.input-group-addon-right.input-group-addon-search id="search-reactions-button"
+          .row
+            .col-lg-4
+              .form-group
+                = a.input :onset_at, as: :select, label: false, collection: Allergy.onset_ats.to_a, include_blank: false, input_html: { class: 'select2', 'data-theme' => 'white-light', 'data-arrow' => '1x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', 'data-placeholder' => 'Onset At' }
+            .col-lg-5
+              .form-group
+                .input-group-custom
+                  = a.input :start_date, label: false, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Start Date' }
+                  span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+            .col-lg-3
+              .form-group
+                a.button.button-today href="#" Today
+          .row
+            .col-lg-12
+              .form-group
+                .checkbox-custom
+                  = a.check_box :active, id: 'patients_record_allergy_active'
+                  label for="patients_record_allergy_active"
+                    span.checkbox-icon-container
+                      span.checkbox-icon
+                    span.checkbox-label Active
+          .row
+            .col-lg-12
+              = a.input :note, as: :text, label: false, input_html: { rows: 4, placeholder: 'Notes', class: 'form-control' }
+    .modal-footer
+      .controls
+        = a.submit 'Save', class: 'button button-save'
+        .button.button-cancel data-dismiss="modal" type="button"  Cancel

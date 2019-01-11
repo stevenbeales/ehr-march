@@ -1,0 +1,44 @@
+nav.navbar-patient.navbar
+  .navbar-header
+      button.navbar-toggle.collapsed type="navbar-toggle button" data-toggle="collapse" data-target="#navbar-patient-main"
+        span.fa.fa-bars.fa-2x
+  #navbar-patient-main.collapse.navbar-collapse
+    .left-block
+      ul.main-menu.nav.navbar-nav
+        li
+          = link_to 'Dashboard', patients_path, class: 'item-dashboard'
+        li
+          = link_to 'Appointments', appointments_show_patients_path, class: 'item-appointments'
+        li
+          = link_to 'Messages', email_messages_path  , class: 'item-messages'
+        li
+          = link_to 'My Health', myhealth_patients_path, class: 'item-myhealth'
+        li
+          = link_to 'My Profile', myprofile_patients_path, class: 'item-myprofile'
+        li
+          a.item-mydocuments href="#" My Documents
+  ul.profile-menu.nav.navbar-nav.navbar-right
+    li
+      .dropdown
+        a.profile-user.dropdown-toggle data-toggle="dropdown"
+          span.name
+            - if current_user.present?
+              span = current_user.patient.last_name
+          - if gravatar?(current_user)
+            = gravatar_for(current_user, { class: 'avatar', alt: 'avatar' })
+          - else
+            - if current_user.patient.profile_image.present?
+              img src="#{current_user.patient.profile_image.url}" class='avatar' alt='avatar'
+            - else
+              = image_tag 'avatar-empty.svg', size: "100", class: "avatar avatar-empty"
+          i.arrow.fa.fa-angle-down
+        ul.dropdown-menu
+          li
+            = link_to 'My Profile', myprofile_patients_path, class: 'item-myprofile'
+          li
+            = link_to 'My Health', myhealth_patients_path, class: 'item-myhealth'
+          li
+            a href="#" Account
+          li
+            = link_to 'Log out', destroy_user_session_path, method: 'delete'
+#modal-make-an-appt.modal.modal.fade

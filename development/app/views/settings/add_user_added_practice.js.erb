@@ -1,0 +1,17 @@
+modalBackward('#modal-settings-add-user-practice');
+$("#modal-settings-add-user-added-practice").html("<%= escape_javascript(render 'form_add_user_added_practice') %>");
+$('#modal-settings-add-user-practice').modal('hide');
+$('.modal-backdrop').remove();
+$('#modal-settings-add-user-added-practice').on('shown.bs.modal', function(e) {
+  modalForward('#modal-settings-add-user-added-practice');
+})
+$("#modal-settings-add-user-added-practice").modal("show");
+
+$('#modal-settings-add-user-added-practice').on('hidden.bs.modal', function(e) {
+  $.ajax({
+    url: '<%= Rails.application.routes.url_helpers.settings_add_user_added_practice_path %>',
+    data: {
+      redirect_main: true
+    }
+  });
+})

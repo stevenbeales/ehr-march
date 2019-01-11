@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[name="description" content="#{content_for?(:description) ? yield(:description) : 'Doctor Portal'}"]
+    title
+      = content_for?(:title) ? yield(:title) : "Doctor Portal"
+    = stylesheet_link_tag 'mailer', media: 'all'
+  body
+    = yield

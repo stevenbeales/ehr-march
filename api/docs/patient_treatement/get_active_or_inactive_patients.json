@@ -1,0 +1,49 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/add_patient_encounter",
+  "description": "Get active or inactive patients",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/add_patient_encounter?data[auth_token]=0345972293b61b536cbf106fd37a2087&data[patient_id]=33laF9nDNQasNP",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "0345972293b61b536cbf106fd37a2087",
+          "patient_id": "33laF9nDNQasNP"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33laKXWNBRZ4K3\",\n      \"type\": \"procedures\",\n      \"attributes\": {\n        \"id\": \"33laKXWNBRZ4K3\",\n        \"tooth-table-id\": \"33laIcr6vqP81j\",\n        \"procedure-code\": \"D2150\",\n        \"description\": \"Amalgam - Two Surfaces\",\n        \"date-of-service\": \"2016-02-26T17:12:44.676+02:00\",\n        \"status\": \"Existing\"\n      },\n      \"links\": {\n        \"self\": \"/procedures/33laKXWNBRZ4K3\"\n      }\n    },\n    {\n      \"id\": \"33laKXVu9C6xbH\",\n      \"type\": \"procedures\",\n      \"attributes\": {\n        \"id\": \"33laKXVu9C6xbH\",\n        \"tooth-table-id\": \"33laIcr6vqP81j\",\n        \"procedure-code\": \"D2332\",\n        \"description\": \"Resin-three Surfaces, Anterior\",\n        \"date-of-service\": \"2016-02-26T17:12:44.369+02:00\",\n        \"status\": \"Treatment planned\"\n      },\n      \"links\": {\n        \"self\": \"/procedures/33laKXVu9C6xbH\"\n      }\n    },\n    {\n      \"id\": \"33laKXVR6weqsV\",\n      \"type\": \"procedures\",\n      \"attributes\": {\n        \"id\": \"33laKXVR6weqsV\",\n        \"tooth-table-id\": \"33laIcr6vqP81j\",\n        \"procedure-code\": \"D2140\",\n        \"description\": \"Amalgam - One Surface\",\n        \"date-of-service\": \"2016-02-26T17:12:44.319+02:00\",\n        \"status\": \"Existing\"\n      },\n      \"links\": {\n        \"self\": \"/procedures/33laKXVR6weqsV\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

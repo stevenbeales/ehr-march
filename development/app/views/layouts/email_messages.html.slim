@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[name="description" content="#{content_for?(:description) ? yield(:description) : 'Doctor Portal'}"]
+    title
+      = content_for?(:title) ? yield(:title) : "Doctor Portal"
+    - if current_user.role == :Provider
+      = stylesheet_link_tag 'providers', media: 'all'
+    - if current_user.patient?
+      = stylesheet_link_tag 'patients', media: 'all'
+    = stylesheet_link_tag 'email_messages/main', media: 'all'
+    = javascript_include_tag 'email_messages/main'
+    = csrf_meta_tags
+  body
+    main[role="main"]
+      = render 'layouts/messages'
+      - if current_user.role == :Provider
+        = render 'providers/navigation_provider'
+      - elsif current_user.patient?
+        = render 'patients/navigation_patient'
+      .dashboard-wrapper.messages-wrapper.wrapper
+        - if current_user.role == :Provider
+          .header
+            .categories-container
+              ul.categories
+                li
+                  = link_to 'Home', providers_path
+                li
+                  i.category-arrow.fa.fa-angle-right
+                li
+                  = link_to 'Messages', email_messages_path, class: 'active'
+        = yield
+        .footer
+      javascript:
+        $('.item-messages').parent().addClass('active');
+      - if current_user.locked
+        javascript:
+          $(function () {
+            $('a[data-target="#modal-lockscreen"]').trigger('click');
+          });
+    = render 'layouts/debug', landing: false, authorization: false, patient: false

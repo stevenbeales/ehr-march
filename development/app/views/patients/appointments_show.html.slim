@@ -1,0 +1,83 @@
+#appointments-wrapper.container.content
+  .top-block
+    h4.h4-title
+      | Welcome  
+      - if  current_user.present?
+        span.authorization-welcome-username
+          = current_user.patient.last_name
+    .row
+      .col-lg-12
+        h4 
+          | Today/
+          = Time.now.strftime("%B %d, %Y")
+    .row
+      .tabs
+        ul.nav.nav-tabs
+          li.active
+            a href="#tab-appointments-upcoming" data-toggle="tab" Upcoming Appts
+          li
+            a href="#tab-appointments-past" data-toggle="tab" id="tab-appts-past-toggle" Past Appts
+        .row
+          .col-lg-12
+            .buttons
+              .btn-group
+                = link_to 'Make an Appt', new_appointment_patients_path, remote: true, class: 'button button-medium'
+              .btn-group
+                select.select2#actions-menu data-placeholder="Action" data-theme="green-dark" data-arrow="2x" data-padding="3x" data-font="2x" data-width="146px"
+                  option value=""
+                  option value="0" Confirm
+                  option value="1" Reschedule
+                  option value="2" Cancel
+  .content-block
+    .tab-content
+      #tab-appointments-upcoming.tab-pane.active.fade.in
+        .panel.panel-default
+          .table-responsive
+            table.table.table-grayed.table-grayed-checkboxed#appointments-upcoming
+              = render 'appointments_upcoming'
+      #tab-appointments-past.tab-pane.fade
+        .panel.panel-default
+          .table-responsive
+            table.table.table-grayed
+              thead
+                tr
+                  th
+                    p Date
+                  th
+                    p Time
+                  th
+                    p ApptType
+                  th
+                    p Prov
+                  th
+                    p Status
+              tbody
+                - if !@appointments_past.any?
+                  tr
+                    td colspan="5"
+                      p.table-empty You doesn't have any past appointments.
+                - @appointments_past.each do |appointment|
+                  tr
+                    td
+                      p
+                        = appointment.try(:appointment_datetime).try(:strftime, '%m/%d/%Y')
+                    td
+                      p
+                        = local_time(appointment.appointment_datetime, '%l:%M %p')
+                    td
+                      p
+                        = appointment.appointment_type.try(:appt_type)
+                    td
+                      p
+                        = "#{appointment.try(:patient).try(:provider).try(:title)}. #{appointment.try(:patient).try(:provider).try(:first_name)} #{appointment.try(:patient).try(:provider).try(:last_name)}"
+                    td
+                      p
+                        = appointment.appointment_status.try(:name)
+/ #actions-no-appt-selected-modal.modal.fade
+/   .modal-dialog.modal-lg
+/     .modal-header
+/       button.modal-close.close type="button" data-dismiss="modal" &times;
+/       h4 No Appt Selected
+#modal-make-an-appt.modal.fade
+javascript:
+  $('.item-appointments').parent().addClass('active');

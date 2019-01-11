@@ -1,0 +1,158 @@
+{
+  "resource": "Settings",
+  "http_method": "PATCH",
+  "route": "/settings/update_schedule",
+  "description": "Set colours settings",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "schedule_general_attributes",
+      "description": "Array of schedule generals"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "id",
+      "description": "Schedule general id"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "slot_size",
+      "description": "Slot size"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "past_apps",
+      "description": "Past apps"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "calendar_from",
+      "description": "Schedule from time"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "calendar_to",
+      "description": "Schedule to time"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "outside_practice_hour",
+      "description": "Outside practice hour"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "multiple_apps",
+      "description": "Multiple appointments"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "reschedule_for_patient",
+      "description": "Reschedule for patient"
+    },
+    {
+      "scope": "schedule_general_attributes",
+      "name": "reschedule_time",
+      "description": "Reschedule time"
+    },
+    {
+      "required": true,
+      "name": "rooms_attributes",
+      "description": "Array of rooms"
+    },
+    {
+      "scope": "rooms_attributes",
+      "name": "room_id",
+      "description": "Room id"
+    },
+    {
+      "scope": "rooms_attributes",
+      "name": "room",
+      "description": "Room"
+    },
+    {
+      "scope": "rooms_attributes",
+      "name": "_destroy",
+      "description": "Boolean, if true - delete"
+    },
+    {
+      "required": true,
+      "name": "appointment_types_attributes",
+      "description": "Array of appointment types"
+    },
+    {
+      "scope": "appointment_types_attributes",
+      "name": "appointment_type_id",
+      "description": "Appointment type id"
+    },
+    {
+      "scope": "appointment_types_attributes",
+      "name": "appt_type",
+      "description": "Appointment type"
+    },
+    {
+      "scope": "appointment_types_attributes",
+      "name": "colour",
+      "description": "Appointment type color"
+    },
+    {
+      "scope": "appointment_types_attributes",
+      "name": "_destroy",
+      "description": "Boolean, if true - delete"
+    },
+    {
+      "required": true,
+      "name": "appointment_statuses_attributes",
+      "description": "Array of appointment statuses"
+    },
+    {
+      "scope": "appointment_statuses_attributes",
+      "name": "appointment_status_id",
+      "description": "Appointment status id"
+    },
+    {
+      "scope": "appointment_statuses_attributes",
+      "name": "name",
+      "description": "Appointment status"
+    },
+    {
+      "scope": "appointment_statuses_attributes",
+      "name": "colour",
+      "description": "Appointment status color"
+    },
+    {
+      "scope": "appointment_statuses_attributes",
+      "name": "_destroy",
+      "description": "Boolean, if true - delete"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/settings/update_schedule",
+      "request_body": "{\"data\":{\"auth_token\":\"b8ce0851f07e3997b8dadebe6ac05ba1\",\"schedule_general_attributes\":{\"id\":\"33lgitiOMiqQnz\",\"slot_size\":30,\"past_apps\":true,\"calendar_from\":\"2016-02-26T10:00:00.000+02:00\",\"calendar_to\":\"2016-02-26T19:00:00.000+02:00\",\"outside_practice_hour\":true,\"multiple_apps\":true,\"reschedule_for_patient\":true,\"reschedule_time\":24},\"rooms_attributes\":[{\"room_id\":\"33lgUJPMtMRjdL\",\"room\":\"Apt. 881\",\"_destroy\":false},{\"room_id\":\"33lgVbIYFULm9T\",\"room\":\"Apt. 398\",\"_destroy\":false},{\"room_id\":\"33lgXCYWcgfoId\",\"room\":\"Apt. 408\",\"_destroy\":false}],\"appointment_types_attributes\":[{\"appointment_type_id\":\"33lgYOgqKt7EWp\",\"appt_type\":\"Endo\",\"colour\":\"9836A3\",\"_destroy\":false},{\"appointment_type_id\":\"33lgaLU18gyNZD\",\"appt_type\":\"New Patient\",\"colour\":\"E8BB72\",\"_destroy\":false},{\"appointment_type_id\":\"33lgbahj0kgmFn\",\"appt_type\":\"Prophy Appointment\",\"colour\":\"D0017A\",\"_destroy\":false}],\"appointment_statuses_attributes\":[{\"appointment_status_id\":\"33lgd4RFFhSp7r\",\"name\":\"Cancelled\",\"colour\":\"8AF103\",\"_destroy\":false},{\"appointment_status_id\":\"33lgeH1VSlxNmF\",\"name\":\"Prophy-Child\",\"colour\":\"BED0C7\",\"_destroy\":false},{\"appointment_status_id\":\"33lggtqIRJAQ1z\",\"name\":\"Oral Surgery\",\"colour\":\"1C0ADA\",\"_destroy\":false}]}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

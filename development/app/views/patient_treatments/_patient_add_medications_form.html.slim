@@ -1,0 +1,13 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      .row
+        .col-xs-4
+          p.title Frequently Used Rx
+        .col-xs-8
+          .row
+            p.title
+              | Record Medication (Rx)
+    = flash[:error]
+    = simple_form_for @medication, url: params[:medication_id].present? ? update_medication_patient_treatments_path : create_medication_patient_treatments_path, remote: true do |m|
+      = render 'form_patient_add_medications', m: m, medication: @medication, patient: @patient, diagnosis: @diagnosis

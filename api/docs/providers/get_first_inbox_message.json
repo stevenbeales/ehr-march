@@ -1,0 +1,42 @@
+{
+  "resource": "Providers",
+  "http_method": "GET",
+  "route": "/providers/first_message",
+  "description": "Get first inbox message",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/providers/first_message?data[auth_token]=a18f1686c80065f8647a9faf1ba6f83e",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "a18f1686c80065f8647a9faf1ba6f83e"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lfQYYCBWOws7\",\n    \"type\": \"email-messages\",\n    \"attributes\": {\n      \"id\": \"33lfQYYCBWOws7\",\n      \"subject-id\": \"33lfQYYLrbYJmN\",\n      \"to-id\": \"33lfP6EZ5LhurL\",\n      \"from-id\": null,\n      \"body\": \"Quisquam sequi autem sint eum.\",\n      \"draft\": false,\n      \"archive\": false,\n      \"urgent\": false,\n      \"read\": false\n    },\n    \"links\": {\n      \"self\": \"/email-messages/33lfQYYCBWOws7\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

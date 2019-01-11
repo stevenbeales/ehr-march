@@ -1,0 +1,8 @@
+#any_login.any-login class='#{any_login_klasses}'
+  = form_tag any_login.sign_in_path, :method => :post, :id => 'any_login_form' do
+    = image_tag 'avatar-empty-white.svg', :alt => AnyLogin.klass, :class => 'avatar avatar-empty avatar-empty-dark', :onclick => "AnyLogin.on_image_click();"
+    .hidden_box#any_login_box
+      span.any_login_container
+        = any_login_select
+      span.any_login_container
+        = any_login_submit

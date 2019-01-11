@@ -1,0 +1,98 @@
+.modal-content
+  .modal-header
+    .row
+      .col-xs-4
+        p.title Frequently Used Rx
+      .col-xs-8 
+        .row
+          p.title Record Diagnosis (Dx)
+  = flash[:error]
+  = simple_form_for @diagnosis, url: params[:diagnosis_id].present? ? update_diagnosis_patient_treatments_path : create_diagnosis_patient_treatments_path, remote: true do |d|
+    .modal-body
+      .scrollable-container
+        .content
+          - if params[:diagnosis_id].present?
+            = d.input :diagnosis_id, as: :hidden, input_html: { value: params[:diagnosis_id] }
+          = d.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+          = d.input :diagnosis_code_id, as: :hidden, input_html: { value: @diagnosis_code.id }
+          .row
+            .col-xs-4.left-block
+              ul
+                - policy(Medication).update?
+                  - if @diagnosis.medications.any?
+                    - @diagnosis.medications.each do |medication|
+                      li
+                        = link_to "#{medication.shorthand} #{medication.signature}", add_patient_medications_patient_treatments_path(id: @patient.id, diagnosis_id: params[:diagnosis_id], medication_id: medication.id), remote: true, class: 'button-modal-open underlined', 'data-target': '#modal-patient-add-medications'
+            .col-xs-8.right-block
+              .row
+                .col-xs-12
+                  .form-group
+                    .input-group-custom.input-group-search
+                      input.form-control type="text" placeholder="Search Diagnosis" id="search-diagnoses-input"
+                      span.input-group-addon.input-group-addon-right.input-group-addon-search id="search-diagnoses-button"
+                      .scrollable-padding-container.collapse
+                        .scrollable id="search-diagnoses-list"
+              .row
+                .col-xs-12
+                  .form-group
+                    input.form-control#diagnosis-code-description type="text" placeholder="Description" value="#{@diagnosis_code.description}"
+              .row
+                .col-xs-12
+                  .form-group
+                    input.form-control#diagnosis-code-code type="text" placeholder="Code" value="#{@diagnosis_code.code}"
+              .row
+                .col-xs-8
+                  .form-group-large
+                    .input-group-custom.input-group-calendar
+                      = d.input :start_date, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Start Date' }
+                      span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+                .col-xs-4
+                  .form-group
+                    a.button.button-today href="#" Today
+              .row
+                .col-xs-8
+                  .form-group
+                    .input-group-custom.input-group-calendar
+                      = d.input :stop_date, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Stop Date' }
+                      span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+                .col-xs-4
+                  .form-group
+                    a.button.button-today href="#" Today
+              .row
+                .col-xs-12
+                  .checkbox-group
+                    p.checkbox-group-title Acuity
+                    .checkbox-custom
+                      = d.check_box :acute, class: 'checkbox'
+                      label for="diagnosis_acute"
+                        span.checkbox-icon-container
+                          span.checkbox-icon
+                        span.checkbox-label Acute
+                    .checkbox-custom
+                      = d.check_box :terminal, class: 'checkbox'
+                      label for="diagnosis_terminal"
+                        span.checkbox-icon-container
+                          span.checkbox-icon
+                        span.checkbox-label Terminal
+              - if params[:diagnosis_id].present? && policy(Medication).create?
+                .row.links
+                  .col-xs-12
+                    = link_to 'Record Medication', add_patient_medications_patient_treatments_path(id: @patient.id, diagnosis_id: params[:diagnosis_id]), remote: true, class: 'button-modal-open underlined', 'data-target': '#modal-patient-add-medications'
+              .row
+                .col-xs-12
+                  .form-group-large
+                    = d.input :note, as: :text, input_html: { class: 'form-control', placeholder: 'Diagnosis Notes:' }
+              .row.links
+                .col-lg-3.col-md-3.col-sm-3
+                  p Resources:
+                .col-lg-3.col-md-3.col-sm-3
+                  a.underlined href="#" Medicine Plus
+                .col-lg-6.col-md-6.col-sm-6
+                  a.underlined href="#" Patient Education Materials
+    .modal-footer
+      .row
+        .col-xs-4.left-block
+        .col-xs-8.right-block
+          .controls
+            = d.submit 'Save', class: 'button button-save'
+            a.button.button-cancel href="#" data-dismiss="modal" Cancel

@@ -1,0 +1,37 @@
+{
+  "resource": "Session",
+  "http_method": "DELETE",
+  "route": "/sessions/destroy",
+  "description": "Log out",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/sessions/destroy",
+      "request_body": "{\"data\":{\"auth_token\":\"7c1563abc884980e85e22f497d714986\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+      },
+      "response_content_type": null,
+      "curl": null
+    }
+  ]
+}

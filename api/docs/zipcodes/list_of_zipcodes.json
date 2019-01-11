@@ -1,0 +1,49 @@
+{
+  "resource": "Zipcodes",
+  "http_method": "GET",
+  "route": "/zipcodes/zip_set",
+  "description": "List of zipcodes",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "zip",
+      "description": "The beginning of a zip code"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/zipcodes/zip_set?data[auth_token]=3ef58d04bed9219e643cb5d23592c490&data[zip]=132",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "3ef58d04bed9219e643cb5d23592c490",
+          "zip": "132"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"city\": \"Syracuse\",\n    \"code\": \"13201\",\n    \"county_id\": \"2kVu8vLSgWptoQ\",\n    \"created_at\": \"2015-12-08T23:47:44.664+02:00\",\n    \"id\": \"2kXGQEcpWSheLz\",\n    \"lat\": \"43.02143\",\n    \"lon\": \"-76.197701\",\n    \"state_id\": \"2kVlT9OTg3Oauf\",\n    \"updated_at\": \"2015-12-08T23:47:44.671+02:00\",\n    \"state_abbr\": \"NY\"\n  },\n  {\n    \"city\": \"Syracuse\",\n    \"code\": \"13202\",\n    \"county_id\": \"2kVu8vLSgWptoQ\",\n    \"created_at\": \"2015-12-08T23:47:44.855+02:00\",\n    \"id\": \"2kXGQEd8sd0OAV\",\n    \"lat\": \"43.043116\",\n    \"lon\": \"-76.150796\",\n    \"state_id\": \"2kVlT9OTg3Oauf\",\n    \"updated_at\": \"2015-12-08T23:47:44.861+02:00\",\n    \"state_abbr\": \"NY\"\n  },\n  {\n    \"city\": \"Syracuse\",\n    \"code\": \"13203\",\n    \"county_id\": \"2kVu8vLSgWptoQ\",\n    \"created_at\": \"2015-12-08T23:47:45.019+02:00\",\n    \"id\": \"2kXGQpNF13J7gR\",\n    \"lat\": \"43.062016\",\n    \"lon\": \"-76.134145\",\n    \"state_id\": \"2kVlT9OTg3Oauf\",\n    \"updated_at\": \"2015-12-08T23:47:45.023+02:00\",\n    \"state_abbr\": \"NY\"\n  },\n  {\n    \"city\": \"Syracuse\",\n    \"code\": \"13204\",\n    \"county_id\": \"2kVu8vLSgWptoQ\",\n    \"created_at\": \"2015-12-08T23:47:45.206+02:00\",\n    \"id\": \"2kXGQpNYNDbrUx\",\n    \"lat\": \"43.055766\",\n    \"lon\": \"-76.177597\",\n    \"state_id\": \"2kVlT9OTg3Oauf\",\n    \"updated_at\": \"2015-12-08T23:47:45.210+02:00\",\n    \"state_abbr\": \"NY\"\n  },\n  {\n    \"city\": \"Syracuse\",\n    \"code\": \"13205\",\n    \"county_id\": \"2kVu8vLSgWptoQ\",\n    \"created_at\": \"2015-12-08T23:47:45.395+02:00\",\n    \"id\": \"2kXGQpNrjNubJT\",\n    \"lat\": \"43.006816\",\n    \"lon\": \"-76.142495\",\n    \"state_id\": \"2kVlT9OTg3Oauf\",\n    \"updated_at\": \"2015-12-08T23:47:45.401+02:00\",\n    \"state_abbr\": \"NY\"\n  }\n]",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

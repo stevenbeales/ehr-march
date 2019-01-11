@@ -1,0 +1,15 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title 
+        = "Add #{@class_name}" 
+      a.close-button href="#" data-dismiss="modal"
+    = simple_form_for @class_name.new, url: tables_path do |f|
+      .modal-body
+        .scrollable-container
+          .content
+            = render 'form', f: f, class_name: @class_name, fields: @fields, associations: @associations
+      .modal-footer
+        .controls
+          = f.button :submit, 'Add', class: 'button'
+          a.button href="#" data-dismiss="modal" Cancel

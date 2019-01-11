@@ -1,0 +1,49 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/remove_subject",
+  "description": "Delete subject",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "subject_id",
+      "description": "Subject id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/remove_subject?data[auth_token]=e96e13c19e46d74a2f6dde2f9bc2a38d&data[subject_id]=33lVn6Nv3HaN0t",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "e96e13c19e46d74a2f6dde2f9bc2a38d",
+          "subject_id": "33lVn6Nv3HaN0t"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": null,
+      "response_headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "response_content_type": "text/plain; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

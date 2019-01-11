@@ -1,0 +1,48 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/find_practices",
+  "description": "Search practice by part of first or last name",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "part",
+      "description": "Part of first or last name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/find_practices?data[auth_token]=e37565eba0ad8ad5bc9e502f8fe17815&data[part]=Dav",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "e37565eba0ad8ad5bc9e502f8fe17815",
+          "part": "Dav"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lV988g2kHMnL\",\n      \"type\": \"providers\",\n      \"attributes\": {\n        \"id\": \"33lV988g2kHMnL\",\n        \"email\": \"jarrod_roob@lakinwitting.net\",\n        \"role\": \"Provider\",\n        \"user-id\": \"33lV988pipQjhb\",\n        \"title\": \"Mr\",\n        \"first-name\": \"Dave\",\n        \"middle-name\": null,\n        \"last-name\": \"Stuart\",\n        \"degree\": \"DDS\",\n        \"speciality\": \"Endodontics\",\n        \"street-address\": \"Jacobson Way\",\n        \"suit-apt-number\": \"69499\",\n        \"city\": \"Rodrigueztown\",\n        \"state\": \"Washington\",\n        \"zip\": null,\n        \"practice-street-address\": \"Samson Fields\",\n        \"practice-suit-apt-number\": \"33440\",\n        \"practice-city\": \"East Dameonside\",\n        \"practice-state\": \"New Jersey\",\n        \"practice-zip\": null,\n        \"primary-phone\": null,\n        \"mobile-phone\": null,\n        \"alt-email\": null,\n        \"username\": null,\n        \"secondary-speciality\": null,\n        \"dental-licence\": null,\n        \"expiration-date\": null,\n        \"ein-tin\": null,\n        \"npi\": null,\n        \"dea\": null,\n        \"upin\": null,\n        \"nadean\": null,\n        \"status\": true,\n        \"biography\": null,\n        \"accepting-patient\": false,\n        \"enable-online-booking\": false,\n        \"profile-image\": {\n          \"url\": \"/uploads/provider/profile_image/33lV988g2kHMnL/avatar3.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/providers/33lV988g2kHMnL\"\n      }\n    },\n    {\n      \"id\": \"33lVAPxB2NeK5j\",\n      \"type\": \"providers\",\n      \"attributes\": {\n        \"id\": \"33lVAPxB2NeK5j\",\n        \"email\": \"deon@balistreri.io\",\n        \"role\": \"Provider\",\n        \"user-id\": \"33lVAPxKiSngzz\",\n        \"title\": \"Mr\",\n        \"first-name\": \"Timber\",\n        \"middle-name\": null,\n        \"last-name\": \"Davison\",\n        \"degree\": \"DDS\",\n        \"speciality\": \"Endodontics\",\n        \"street-address\": \"Brakus Turnpike\",\n        \"suit-apt-number\": \"24861\",\n        \"city\": \"Gislasonberg\",\n        \"state\": \"Nebraska\",\n        \"zip\": null,\n        \"practice-street-address\": \"Xander Lock\",\n        \"practice-suit-apt-number\": \"179\",\n        \"practice-city\": \"Horaciohaven\",\n        \"practice-state\": \"Idaho\",\n        \"practice-zip\": null,\n        \"primary-phone\": null,\n        \"mobile-phone\": null,\n        \"alt-email\": null,\n        \"username\": null,\n        \"secondary-speciality\": null,\n        \"dental-licence\": null,\n        \"expiration-date\": null,\n        \"ein-tin\": null,\n        \"npi\": null,\n        \"dea\": null,\n        \"upin\": null,\n        \"nadean\": null,\n        \"status\": true,\n        \"biography\": null,\n        \"accepting-patient\": false,\n        \"enable-online-booking\": false,\n        \"profile-image\": {\n          \"url\": \"/uploads/provider/profile_image/33lVAPxB2NeK5j/avatar2.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/providers/33lVAPxB2NeK5j\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

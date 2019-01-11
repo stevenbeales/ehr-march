@@ -1,0 +1,46 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title Procedure Details
+      a.close-button href="#" data-dismiss="modal"
+    = flash[:error]
+    = simple_form_for @procedure, url: update_procedure_patient_treatments_path, remote: true do |f|
+      = f.input :id, as: :hidden, input_html: { value: @procedure.id }
+      = f.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+      = f.input :encounter_id, as: :hidden
+      .modal-body
+        .scrollable-container
+          .content
+            .row
+              .col-lg-3.col-md-3.col-sm-3.col-xs-4
+                .form-group
+                  = f.input :procedure_code, as: :select, collection: PROCEDURE_CODES.keys, selected: @procedure.procedure_code.to_sym, input_html: { 'data-theme' => 'white-light', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', 'data-placeholder' => 'Code' }
+              .col-lg-9.col-md-9.col-sm-9.col-xs-8
+                .form-group
+                  = f.input :description, input_html: { class: "form-control", placeholder: 'Description' }
+            .row
+              .col-lg-3.col-md-3.col-sm-3.col-xs-4
+                .form-group
+                  = f.input :tooth_table_id, as: :select, collection: @procedure.tooth_table.patient.tooth_tables.map{ |procedure| [procedure.tooth_num, procedure.id] }, input_html: { 'data-theme' => 'white-light', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', 'data-placeholder' => 'Tooth #' }
+              - if @procedure.surface.get_all_true_fields.present?
+                .col-lg-9.col-md-9.col-sm-9.col-xs-8
+                  .form-group
+                    input.form-control.disabled disabled="disabled" readonly="true" tabindex="-1" value="#{@procedure.surface.get_all_true_fields}" placeholder="Surface(s)"
+            .row
+              .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                .form-group
+                  input.form-control.disabled type="text" placeholder="Provider" value="#{current_user.provider.first_name} #{current_user.provider.last_name}" readonly="readonly" tabindex="-1" disabled="disabled"
+              .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                .form-group
+                  = f.input :status, as: :select, collection: Procedure.statuses, selected: @procedure.status, input_html: { 'data-theme' => 'green-dark', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', 'data-placeholder' => 'Status' }
+            .row
+              .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                - if policy(Encounter).create?
+                  = link_to 'Add to Encounter Note', add_patient_encounter_patient_treatments_path(id: @patient.id), remote: true, id: 'add-to-encounter-note', class: "button button-modal-open", 'data-target' => '#modal-patient-add-encounter'
+              .col-lg-6.col-md-6.col-sm-6.col-xs-6#date_of_service_container class="#{'hidden' if @procedure.status!='Completed'}"
+                = f.input :date_of_service, as: :hidden
+                = text_field_tag :date_of_service_date, '', class: 'form-control disabled', placeholder: 'Date of Service', 'z-index' => -1
+      .modal-footer
+        .controls
+          = f.submit 'Save', class: "button button-save"
+          a.button.button-cancel href="#" data-dismiss="modal" Cancel

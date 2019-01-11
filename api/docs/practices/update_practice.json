@@ -1,0 +1,243 @@
+{
+  "resource": "Practices",
+  "http_method": "PATCH",
+  "route": "/practices/:id",
+  "description": "Update practice",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "name": "user",
+      "description": "User parameters"
+    },
+    {
+      "scope": "user",
+      "required": true,
+      "name": "user_id",
+      "description": "User id"
+    },
+    {
+      "name": "practice",
+      "description": "Practice parameters"
+    },
+    {
+      "scope": "practice",
+      "required": true,
+      "name": "practice_id",
+      "description": "Practice id"
+    },
+    {
+      "scope": "user",
+      "name": "email",
+      "description": "Practice email"
+    },
+    {
+      "scope": "user",
+      "name": "password",
+      "description": "Practice password"
+    },
+    {
+      "scope": "user",
+      "name": "password_confirmation",
+      "description": "Practice password confirmation"
+    },
+    {
+      "scope": "practice",
+      "name": "practice_role",
+      "description": "Practice role"
+    },
+    {
+      "scope": "practice",
+      "name": "provider_id",
+      "description": "Provider id"
+    },
+    {
+      "scope": "practice",
+      "name": "title",
+      "description": "Mr/Ms/Dr"
+    },
+    {
+      "scope": "practice",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "scope": "practice",
+      "name": "middle_name",
+      "description": "Middle name"
+    },
+    {
+      "scope": "practice",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "practice",
+      "name": "degree",
+      "description": "Degree"
+    },
+    {
+      "scope": "practice",
+      "name": "speciality",
+      "description": "Speciality"
+    },
+    {
+      "scope": "practice",
+      "name": "secondary_speciality",
+      "description": "Secondary speciality"
+    },
+    {
+      "scope": "practice",
+      "name": "dental_licence",
+      "description": "Dental licence"
+    },
+    {
+      "scope": "practice",
+      "name": "street_address",
+      "description": "Street address"
+    },
+    {
+      "scope": "practice",
+      "name": "suit_apt_number",
+      "description": "Suit apt number"
+    },
+    {
+      "scope": "practice",
+      "name": "city",
+      "description": "City"
+    },
+    {
+      "scope": "practice",
+      "name": "state",
+      "description": "State"
+    },
+    {
+      "scope": "practice",
+      "name": "zip",
+      "description": "Zip"
+    },
+    {
+      "scope": "practice",
+      "name": "practice_street_address",
+      "description": "Practice street address"
+    },
+    {
+      "scope": "practice",
+      "name": "practice_suit_apt_number",
+      "description": "Practice suit apt number"
+    },
+    {
+      "scope": "practice",
+      "name": "practice_city",
+      "description": "Practice city"
+    },
+    {
+      "scope": "practice",
+      "name": "practice_state",
+      "description": "Practice state"
+    },
+    {
+      "scope": "practice",
+      "name": "practice_zip",
+      "description": "Practice zip"
+    },
+    {
+      "scope": "practice",
+      "name": "expiration_date",
+      "description": "Expiration date"
+    },
+    {
+      "scope": "practice",
+      "name": "ein_tin",
+      "description": "EIN TIN"
+    },
+    {
+      "scope": "practice",
+      "name": "npi",
+      "description": "NPI"
+    },
+    {
+      "scope": "practice",
+      "name": "dea",
+      "description": "DEA"
+    },
+    {
+      "scope": "practice",
+      "name": "upin",
+      "description": "UPIN"
+    },
+    {
+      "scope": "practice",
+      "name": "nadean",
+      "description": "NADEAN"
+    },
+    {
+      "scope": "practice",
+      "name": "accepting_patient",
+      "description": "Accepting patient"
+    },
+    {
+      "scope": "practice",
+      "name": "enable_online_booking",
+      "description": "Enable online booking"
+    },
+    {
+      "scope": "practice",
+      "name": "biography",
+      "description": "Biography"
+    },
+    {
+      "scope": "practice",
+      "name": "primary_phone",
+      "description": "Primay phone"
+    },
+    {
+      "scope": "practice",
+      "name": "mobile_phone",
+      "description": "mobile phone"
+    },
+    {
+      "scope": "practice",
+      "name": "alt_email",
+      "description": "Alternative email"
+    },
+    {
+      "scope": "practice",
+      "name": "username",
+      "description": "Username"
+    },
+    {
+      "scope": "practice",
+      "name": "profile_image",
+      "description": "Profile image"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/practices/:id",
+      "request_body": "{\"data\":{\"auth_token\":\"e3513bf409174a917bfebbe754a53ca9\",\"user\":{\"user_id\":\"33leVQznj2aKpP\",\"email\":\"keanu.botsford@tillmanmuller.io\",\"password\":\"doctor\",\"password_confirmation\":\"doctor\"},\"practice\":{\"practice_id\":\"33leVQze2xQxv9\",\"practice_role\":\"Provider\",\"provider_id\":null,\"title\":\"Mr\",\"first_name\":\"Adeline\",\"middle_name\":null,\"last_name\":\"Jacobi\",\"degree\":\"DDS\",\"speciality\":\"Endodontics\",\"secondary_speciality\":null,\"dental_licence\":null,\"street_address\":\"D'Amore Mill\",\"suit_apt_number\":\"586\",\"city\":\"Demarcofurt\",\"state\":\"Kansas\",\"zip\":null,\"practice_street_address\":\"D'Amore Mill\",\"practice_suit_apt_number\":\"586\",\"practice_city\":\"Demarcofurt\",\"practice_state\":\"Kansas\",\"practice_zip\":null,\"expiration_date\":null,\"ein_tin\":null,\"npi\":null,\"dea\":null,\"upin\":null,\"nadean\":null,\"accepting_patient\":false,\"enable_online_booking\":false,\"biography\":null,\"primary_phone\":null,\"mobile_phone\":null,\"alt_email\":null,\"username\":null}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33leVQze2xQxv9\",\n    \"type\": \"providers\",\n    \"attributes\": {\n      \"id\": \"33leVQze2xQxv9\",\n      \"email\": \"keanu.botsford@tillmanmuller.io\",\n      \"role\": \"Provider\",\n      \"user-id\": \"33leVQznj2aKpP\",\n      \"title\": \"Mr\",\n      \"first-name\": \"Adeline\",\n      \"middle-name\": null,\n      \"last-name\": \"Jacobi\",\n      \"degree\": \"DDS\",\n      \"speciality\": \"Endodontics\",\n      \"street-address\": \"D'Amore Mill\",\n      \"suit-apt-number\": \"586\",\n      \"city\": \"Demarcofurt\",\n      \"state\": \"Kansas\",\n      \"zip\": null,\n      \"practice-street-address\": \"D'Amore Mill\",\n      \"practice-suit-apt-number\": \"586\",\n      \"practice-city\": \"Demarcofurt\",\n      \"practice-state\": \"Kansas\",\n      \"practice-zip\": null,\n      \"primary-phone\": null,\n      \"mobile-phone\": null,\n      \"alt-email\": null,\n      \"username\": null,\n      \"secondary-speciality\": null,\n      \"dental-licence\": null,\n      \"expiration-date\": null,\n      \"ein-tin\": null,\n      \"npi\": null,\n      \"dea\": null,\n      \"upin\": null,\n      \"nadean\": null,\n      \"status\": true,\n      \"biography\": null,\n      \"accepting-patient\": false,\n      \"enable-online-booking\": false,\n      \"profile-image\": {\n        \"url\": \"/uploads/provider/profile_image/33leVQze2xQxv9/avatar6.jpg\"\n      }\n    },\n    \"links\": {\n      \"self\": \"/providers/33leVQze2xQxv9\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

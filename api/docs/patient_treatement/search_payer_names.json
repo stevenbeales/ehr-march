@@ -1,0 +1,56 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/payers",
+  "description": "Search payer names",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "part",
+      "description": "A part of payer name"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/payers?data[auth_token]=35b6aec1a36d06a970a44baedea08e07&data[part]=Gae&data[patient_id]=33lbL1UR8ZT0eh",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "35b6aec1a36d06a970a44baedea08e07",
+          "part": "Gae",
+          "patient_id": "33lbL1UR8ZT0eh"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lbQEHIjaoq03\",\n      \"type\": \"payers\",\n      \"attributes\": {\n        \"id\": \"33lbQEHIjaoq03\",\n        \"patient-id\": \"33lbL1UR8ZT0eh\",\n        \"name\": \"Gaetano\",\n        \"plan\": \"Alberta\",\n        \"plan-type\": \"Type5\"\n      },\n      \"links\": {\n        \"self\": \"/payers/33lbQEHIjaoq03\"\n      }\n    },\n    {\n      \"id\": \"33lbQEHSPfyCuJ\",\n      \"type\": \"payers\",\n      \"attributes\": {\n        \"id\": \"33lbQEHSPfyCuJ\",\n        \"patient-id\": \"33lbL1UR8ZT0eh\",\n        \"name\": \"Gaetano\",\n        \"plan\": \"Therese\",\n        \"plan-type\": \"Type5\"\n      },\n      \"links\": {\n        \"self\": \"/payers/33lbQEHSPfyCuJ\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

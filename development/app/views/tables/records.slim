@@ -1,0 +1,57 @@
+.container-fluid.tables-container.tables-records-container
+  .row
+    .col-lg-3.col-md-3.col-sm-3.left-block
+      .panel.panel-default
+        .panel-heading
+          | Tables List
+        .panel-body
+          ul
+            - @models.each do |model_name|
+              li
+                = link_to model_name, records_tables_path(model_name: model_name)
+        .panel-footer
+          = "Tables Count: #{@models.length}"
+    .col-lg-9.col-md-9.col-sm-9.right-block
+      .panel
+        .panel-heading
+          .row
+            .col-lg-8.col-md-8.col-sm-8.col-xs-6
+              p.title
+                = @class_name.to_s
+            .col-lg-4.col-md-4.col-sm-4.col-xs-6
+              .controls
+                = link_to "Add", new_table_path(model_name: @class_name.to_s), class: 'button button-success button-new', remote: true
+        .panel-body
+          .table-responsive
+            table.table
+              thead
+                tr
+                  - @fields.each do |field, _|
+                    th
+                      = field
+                  - @associations.each do |class_name, target_name|
+                    th
+                      = class_name
+                  th
+                  th
+              tbody
+                - if @records.any?
+                  - @records.each do |record|
+                    tr
+                      - @fields.each do |field, _|
+                        td
+                          = record.send(field)
+                      - @associations.each do |class_name, target_name|
+                        td
+                          = link_to record.send(target_name).to_s, records_tables_path(model_name: class_name.underscore.humanize)
+                      td
+                        = link_to 'Edit', edit_table_path(record, model_name: @class_name.to_s), class: 'button button-info', remote: true
+                      td
+                        = link_to 'Delete', table_path(record, model_name: @class_name.to_s), method: :delete, class: 'button button-danger'
+                - else
+                  tr.message
+                    td colspan="#{@fields.size + @associations.size + 2}"
+                      | Records don't found. Please add new.
+          = will_paginate @records, renderer: BootstrapPagination::Rails, previous_label: I18n.t('previous_label'), next_label: I18n.t('next_label')
+#modal-tables-new-record.modal-tables.modal.fade
+#modal-tables-edit-record.modal-tables.modal.fade

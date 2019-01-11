@@ -1,0 +1,23 @@
+.modal-body
+  = flash[:error]
+  .scrollable-container
+    = simple_form_for @patient.advanced_directive, url: update_advanced_directive_patient_treatments_path, remote: true do |ad|
+      = ad.input :id, as: :hidden, input_html: { value: @patient.advanced_directive.id }
+      = ad.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+      .content
+        .row
+          .col-lg-8
+            .form-group
+              .input-group-custom
+                = ad.input :record_date, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Date Recorded', value: @patient.advanced_directive.record_date.try(:strftime, '%Y/%m/%d') }
+                span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+          .col-lg-4
+            .form-group
+              a.button.button-today href="#" Today
+        .row
+          .col-lg-12
+            = ad.input :notes, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Advanced Directive Notes' }
+      .modal-footer
+        .controls
+          = ad.submit 'Save', class: 'button button-save'
+          a.button.button-cancel data-dismiss="modal" Cancel

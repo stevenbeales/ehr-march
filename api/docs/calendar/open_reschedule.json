@@ -1,0 +1,56 @@
+{
+  "resource": "Calendar",
+  "http_method": "GET",
+  "route": "/calendars/open_reschedule",
+  "description": "Open reschedule",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Calendar id"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "days",
+      "description": "Amount of days past"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/calendars/open_reschedule?data[auth_token]=de04aab0d72896567b9ef8631fcfe20a&data[id]=33lR2mYagk6vpr&data[days]=3",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "de04aab0d72896567b9ef8631fcfe20a",
+          "id": "33lR2mYagk6vpr",
+          "days": "3"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lR2mYagk6vpr\",\n    \"type\": \"calendars\",\n    \"attributes\": {\n      \"id\": \"33lR2mYagk6vpr\",\n      \"appointment-id\": \"33lQs9UH1SYGSB\",\n      \"title\": \"New Patient – Child\",\n      \"start-time\": \"2016-02-26T16:58:00.000+02:00\",\n      \"end-time\": \"2016-02-26T17:43:00.000+02:00\",\n      \"all-day\": false,\n      \"description\": \"Sed maxime sapiente et.\"\n    },\n    \"links\": {\n      \"self\": \"/calendars/33lR2mYagk6vpr\"\n    }\n  },\n  \"start_time\": \"2016-02-29T16:58:00.000+02:00\",\n  \"days\": \"3\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

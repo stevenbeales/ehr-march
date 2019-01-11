@@ -1,0 +1,46 @@
+Create patient appointment
+--------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * provider_id - Provider id
+  * patient_id - Patient id
+  * date - Appointment date
+  * location - Location
+  * appointment_type - Appointment type
+  * note - Note
+  * phone - Provider phone
+  * email - Provider email
+
+Request:
+  POST /patient_appointments
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"51cbcc12615c865f1d4cc7b5f16955e7","patient_appointment":{"provider_id":"33lWXm2L8x3vwR","patient_id":"33lWSNTVfR4ReN","date":"2016-02-26T17:06:53.460+02:00","location":"Rodriguez Mount, 521, Torranceberg, Florida","appointment_type":"Prophy-Child","note":"Ipsam quia ducimus soluta ut. Porro laboriosam deserunt voluptate error. Voluptas eligendi consequatur veritatis. Ipsam nobis provident aliquid facilis rerum.","phone":"939-448-2078","email":"francis@willfeeney.io"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lWaDYMAWtOvj",
+      "type": "patient-appointments",
+      "attributes": {
+        "id": "33lWaDYMAWtOvj",
+        "provider-id": "33lWXm2L8x3vwR",
+        "patient-id": "33lWSNTVfR4ReN",
+        "date": "2016-02-26T17:06:53.460+02:00",
+        "location": "Rodriguez Mount, 521, Torranceberg, Florida",
+        "appointment-type": "Prophy-Child",
+        "note": "Ipsam quia ducimus soluta ut. Porro laboriosam deserunt voluptate error. Voluptas eligendi consequatur veritatis. Ipsam nobis provident aliquid facilis rerum.",
+        "phone": "+19394482078",
+        "email": "francis@willfeeney.io"
+      },
+      "links": {
+        "self": "/patient-appointments/33lWaDYMAWtOvj"
+      }
+    }
+  }
+
+

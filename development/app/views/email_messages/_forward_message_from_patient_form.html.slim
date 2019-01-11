@@ -1,0 +1,54 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      p.title Forward Message
+    = flash[:error]
+    = simple_form_for EmailMessage.new, url: create_reply_email_messages_path, remote: true do |f|
+      = f.input :message_id, as: :hidden, input_html: { value: @message.id }
+      .modal-body
+        .scrollable-container
+          .content
+            .row
+              .col-lg-12
+                .form-group
+                  .dropdown-custom
+                    .input-group.input-group-custom
+                      span.input-group-addon To:
+                      = hidden_field_tag :practice_id
+                      input#find-message-patients-input.form-control autocomplete="off"
+                      span#find-message-patients-button.input-group-addon.input-group-addon-right.input-group-addon-search
+                      ul.dropdown-menu id="find-message-patients-list"
+            .row
+              .col-lg-12
+                .form-group
+                  .input-group.input-group-custom
+                    span.input-group-addon From:
+                    input.form-control type="text" value="#{@message.to.person.full_name}"
+            .row
+              .col-lg-12
+                .form-group
+                  = f.input :subject_id, as: :hidden
+                  .input-group.input-group-custom.input-group-subject
+                    span.input-group-addon Subject:
+                    a.form-control#subject-button href="#"
+                    #subjects-container
+                      ul.dropdown-menu#subjects-list data-selected="#{@message.subject.id}"
+                      .controls
+                        input.form-control#subject-add-input type="text" placeholder="Add New Subject"
+                        a.button#subject-add-button href="#" Add
+            .row
+              .col-lg-12
+                .text-areas.form-control
+                  = f.input :body, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Message:' }
+                  = text_area_tag :original, @message.body, class: 'form-control', rows: 4, readonly: 'readonly', tabindex: -1
+      .modal-footer
+        .controls
+          .checkbox-custom.checkbox-custom-danger.checkbox-urgent
+            = f.check_box :urgent, input_html: { class: 'checkbox' }
+            label for="email_message_urgent"
+              span.checkbox-icon-container
+                span.checkbox-icon
+              span.checkbox-label Urgent
+          = f.submit 'Send', class: 'button button-send'
+          = f.submit 'Save', class: 'button button-save'
+          a.button.button-cancel data-dismiss="modal" Cancel

@@ -1,0 +1,91 @@
+{
+  "resource": "Patients",
+  "http_method": "POST",
+  "route": "/patients",
+  "description": "Create new patient",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "user",
+      "required": true,
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "scope": "user",
+      "required": true,
+      "name": "password",
+      "description": "Password"
+    },
+    {
+      "scope": "user",
+      "required": true,
+      "name": "password_confirmation",
+      "description": "Password confirmation"
+    },
+    {
+      "scope": "patient",
+      "name": "first_name",
+      "description": "First_name"
+    },
+    {
+      "scope": "patient",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "patient",
+      "name": "middle_name",
+      "description": "Middle name"
+    },
+    {
+      "scope": "patient",
+      "name": "birth",
+      "description": "Birth date"
+    },
+    {
+      "scope": "patient",
+      "name": "gender",
+      "description": "Gender"
+    },
+    {
+      "scope": "patient",
+      "name": "mobile_phone",
+      "description": "Mobile phone"
+    },
+    {
+      "scope": "patient",
+      "name": "primary_phone",
+      "description": "Primary phone"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/patients",
+      "request_body": "{\"data\":{\"auth_token\":\"7e574ea7fad098e0180fdc3039463201\",\"user\":{\"email\":\"test@email.com\",\"password\":\"patient\",\"password_confirmation\":\"patient\"},\"patient\":{\"first_name\":\"Dayna\",\"last_name\":\"Langosh\",\"middle_name\":null,\"birth\":\"2006-02-26T17:17:08.311+02:00\",\"gender\":\"Male\",\"mobile_phone\":\"+14527817450\",\"primary_phone\":\"+14387026993\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33ldDZYTId7Ubz\",\n    \"type\": \"patients\",\n    \"attributes\": {\n      \"id\": \"33ldDZYTId7Ubz\",\n      \"email\": \"test@email.com\",\n      \"role\": \"Patient\",\n      \"first-name\": \"Dayna\",\n      \"middle-name\": null,\n      \"last-name\": \"Langosh\",\n      \"gender\": \"Male\",\n      \"mobile-phone\": \"+14527817450\",\n      \"primary-phone\": \"+14387026993\",\n      \"code\": 88596,\n      \"social-number\": null,\n      \"active\": true,\n      \"declined-portal-access\": null,\n      \"preferred-language\": null,\n      \"ethnicity\": \"Hispanic of Latino\",\n      \"american-race\": null,\n      \"asian-race\": null,\n      \"african-race\": null,\n      \"hawaiian-race\": null,\n      \"white-race\": null,\n      \"undetermined-race\": null,\n      \"email-reminder\": null,\n      \"sms-reminder\": null,\n      \"immunization-registry\": \"NotSend\",\n      \"work-phone\": null,\n      \"ext\": null,\n      \"street-address\": null,\n      \"city\": null,\n      \"state\": null,\n      \"zip\": null,\n      \"profile-image\": {\n        \"url\": null\n      }\n    },\n    \"links\": {\n      \"self\": \"/patients/33ldDZYTId7Ubz\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

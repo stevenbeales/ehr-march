@@ -1,0 +1,8 @@
+$('#modal-tables-edit-record').html("<%= escape_javascript(render 'form_edit') %>");
+
+initPickers();
+initModalsReposition();
+initSelect2('#modal-tables-edit-record');
+
+if(!$('#modal-tables-edit-record').hasClass('in'))
+  $('#modal-tables-edit-record').modal("show");

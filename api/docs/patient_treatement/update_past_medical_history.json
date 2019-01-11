@@ -1,0 +1,74 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "PATCH",
+  "route": "/patient_treatments/update_medical_history",
+  "description": "Update past medical history",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "past_medical_history",
+      "description": "Medical history params"
+    },
+    {
+      "scope": "past_medical_history",
+      "required": true,
+      "name": "id",
+      "description": "Medical history id"
+    },
+    {
+      "scope": "past_medical_history",
+      "name": "major_events",
+      "description": "Major events"
+    },
+    {
+      "scope": "past_medical_history",
+      "name": "ongoing_problems",
+      "description": "Ongoing problems"
+    },
+    {
+      "scope": "past_medical_history",
+      "name": "preventitive_care",
+      "description": "Preventitive care"
+    },
+    {
+      "scope": "past_medical_history",
+      "name": "nutrition_history",
+      "description": "Nutrition history"
+    },
+    {
+      "scope": "past_medical_history",
+      "name": "developmental_history",
+      "description": "Development history"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/patient_treatments/update_medical_history",
+      "request_body": "{\"data\":{\"auth_token\":\"014e033e72851a921cbed355a40c1695\",\"past_medical_history\":{\"id\":\"33lcR31Q8EcJBz\",\"major_events\":\"Error provident corrupti quam at itaque iste dolor.\",\"ongoing_problems\":\"Est error et quia.\",\"preventitive_care\":\"Molestias quia voluptatum natus porro quam delectus occaecati in.\",\"nutrition_history\":\"Repudiandae consequatur enim nisi rem.\",\"developmental_history\":\"Et ut cum soluta et aut est.\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lcR31Q8EcJBz\",\n    \"type\": \"past-medical-histories\",\n    \"attributes\": {\n      \"id\": \"33lcR31Q8EcJBz\",\n      \"patient-id\": \"33lcR31ZoJlg6F\",\n      \"major-events\": \"Error provident corrupti quam at itaque iste dolor.\",\n      \"ongoing-problems\": \"Est error et quia.\",\n      \"preventitive-care\": \"Molestias quia voluptatum natus porro quam delectus occaecati in.\",\n      \"nutrition-history\": \"Repudiandae consequatur enim nisi rem.\",\n      \"developmental-history\": \"Et ut cum soluta et aut est.\"\n    },\n    \"links\": {\n      \"self\": \"/past-medical-histories/33lcR31Q8EcJBz\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

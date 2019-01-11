@@ -1,0 +1,271 @@
+$("#modal-patient-add-insurance").html("<%= escape_javascript(render 'patient_add_insurance_form') %>")
+$("#modal-patient-add-insurance").modal("show");
+$("#modal-patient-add-payer").modal("hide");
+
+initPickers('#modal-patient-add-insurance');
+initSelect2('#modal-patient-add-insurance');
+
+$('#patients_insurance_copay_type').change(function(e) {
+  $('#patients_insurance_copay_amount').attr('placeholder', $('#patients_insurance_copay_type option:selected').first().text().trim())
+});
+
+$('#patients_add_insurance_same_as_guarantor').change(function(){
+  var is_as_guarantor = $(this).is(':checked');
+  var FillSubscriberForm = function(guarantor) {
+    for(var prop in guarantor) {
+      var elem = $('#insurance_subscriber_attributes_' + prop);
+      if(elem.length)
+        elem.val(guarantor[prop])
+    }
+  };
+
+  if(is_as_guarantor) {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.guarantor_patient_treatments_path %>',
+      data: { id: '<%= @patient.id %>' }
+    }).done(function(guarantor) {
+      FillSubscriberForm(guarantor);
+    });
+  }
+});
+
+var FindPayersController = function() {
+  var findInput = $('#find-payers-input');
+  var findButton = $('#find-payers-button');
+  var findList = $('#find-payers-list');
+
+  var liFocusIn = false;
+
+  var findHandler = function(e) {
+    if(e.type != 'click') {
+
+    }
+    else {
+      findList.html('');
+      findList.html('<li><p><span>Not Found</span><%= link_to 'Add New Payer', add_patient_payer_patient_treatments_path(id: @patient.id), remote: true, class: 'button-modal-open', 'data-target' => '#modal-patient-add-payer' %></p></li>')
+      findList.css('display', 'block');
+      findList.addClass('empty');
+      findInput.parent().parent().addClass('open');
+      initModalFadeInOut('#find-payers-list');
+    }
+    findInput.on('keydown', function(e) {
+      if(e.keyCode == '40' && findList.css('display') == 'block') {
+        $(findList.find('li a').first()).focus();
+        return false;
+      }
+    });
+    findList.find('li').focusin(function() {
+      liFocusIn = true;
+    })
+    findList.find('li').focusout(function() {
+      liFocusIn = false;
+    })
+    findList.focusout(function() {
+      setTimeout(function() {
+        if(!liFocusIn)
+          findList.fadeOut({
+            'duration': 0
+          });
+      }, 100);
+    });
+    findList.blur(function() {
+      $(this).css('display', 'none');
+      findInput.parent().parent().removeClass('open');
+    })
+    findList.find('li a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        findList.css('display', 'none');
+        findInput.parent().parent().removeClass('open');
+        findInput.focus();
+      });
+    })
+    findList.find('li').each(function() {
+      $(this).on('keydown', function(e) {
+        switch(e.keyCode)
+        {
+          case 38:
+            if(this.previousElementSibling == null)
+              findInput.focus();
+            else
+            $(this).prev().find('a').focus();
+            return false;
+          break
+          case 40:
+            if(this.nextElementSibling == null)
+              findList.find('li a').first().focus();
+            else
+              $(this).next().find('a').focus();
+            return false;
+          break
+        }
+      });
+    })
+    findInput.focus();
+  };
+
+  this.initialize = function() {
+    addEventListeners();
+  }
+
+  function addEventListeners() {
+    findInput.keyup(findHandler);
+    findButton.click(findHandler);
+  };
+}
+
+$(function() {
+  var findPayersController = new FindPayersController();
+  findPayersController.initialize();
+});
+
+var SearchController = function() {
+  var id_input;
+  var search_input;
+  var search_button;
+  var search_list;
+  var url ;
+
+  var plan_input;
+
+  var liFocusIn = false;
+
+  this.initialize = function(id, input, button, list, path, plan) {
+    id_input = $(id);
+    search_input = $(input);
+    search_button = $(button);
+    search_list = $(list);
+    url = path;
+    plan_input = $(plan);
+    find10();
+    initSearchOnInput();
+  };
+
+  var initKeyDownListeners = function() {
+    search_input.on('keydown', function(e) {
+      if(e.keyCode == '40' && search_list.css('display') == 'block') {
+        e.preventDefault();
+        $(search_list.find('li a').first()).focus();
+        return false;
+      }
+    });
+    search_list.find('li a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        search_input.val($(this).text()).change();
+        id_input.val($(this).data('id'));
+        search_list.fadeOut('fast');
+        search_input.focus();
+      })
+    });
+    search_list.find('li').focusin(function() {
+      liFocusIn = true;
+    });
+    search_list.find('li').focusout(function() {
+      liFocusIn = false;
+    });
+    search_list.focusout(function() {
+      setTimeout(function() {
+        if(!liFocusIn)
+          search_list.fadeOut({
+            'duration': 0
+          });
+      }, 100);
+    });
+    search_list.find('li').each(function() {
+      $(this).on('keydown', function(e) {
+        switch(e.keyCode)
+        {
+          case 38:
+            if(this.previousElementSibling == null)
+              search_input.focus();
+            else
+              $(this).prev().find('a').focus();
+            return false;
+            break;
+          case 40:
+            if(this.nextElementSibling == null)
+              search_list.find('li a').first().focus();
+            else
+              $(this).next().find('a').focus();
+            return false;
+            break
+        }
+      });
+    });
+  };
+
+  var listFill = function(elements) {
+    if(elements.length>0)
+      search_list.css('display', 'block');
+    else
+      search_list.css('display', 'none');
+    search_list.empty();
+    for(var i in elements) {
+      var li = $('<li/>');
+      var link = $('<a/>').attr('href','#');
+      link.text(elements[i]['full_name'].trim());
+      link.data('id', elements[i]['id']);
+      li.append(link);
+      search_list.append(li);
+      plan_input.val(elements[i]['plan']);
+    }
+  };
+
+  var find10 = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: url,
+        data: {
+          patient_id: '<%= @patient.id %>'
+        }
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+        search_list.find('li a').first().focus();
+      });
+    })
+  };
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part,
+          patient_id: '<%= @patient.id %>'
+        }
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+      });
+    });
+  };
+};
+
+var providerSearchController = new SearchController();
+providerSearchController.initialize('input#insurance_payer_id',
+                                    'input#find-payers-input',
+                                    'span#find-payers-button',
+                                    'ul#find-payers-list',
+                                    '<%= Rails.application.routes.url_helpers.payers_patient_treatments_path %>',
+                                    '#payer_plan');
+
+var zipcode_controller_employer = new ZipcodeController();
+  zipcode_controller_employer.initialize(
+                                    '#insurance_employer_attributes_city',
+                                    '#insurance_employer_attributes_state',
+                                    '#insurance_employer_attributes_zip',
+                                    '#insurance_employer_attributes_city_list',
+                                    '#insurance_employer_attributes_zip_list',
+                                    false);
+
+var zipcode_controller_subscriber = new ZipcodeController();
+  zipcode_controller_subscriber.initialize(
+                                    '#insurance_subscriber_attributes_city',
+                                    '#insurance_subscriber_attributes_state',
+                                    '#insurance_subscriber_attributes_zip',
+                                    '#insurance_subscriber_attributes_city_list',
+                                    '#insurance_subscriber_attributes_zip_list',
+                                    false);

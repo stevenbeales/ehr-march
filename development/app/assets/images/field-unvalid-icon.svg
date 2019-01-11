@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 16 + Shape Copy 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="UI_Kit" sketch:type="MSArtboardGroup" transform="translate(-475.000000, -512.000000)">
+            <g id="Elements" sketch:type="MSLayerGroup" transform="translate(80.000000, 139.000000)">
+                <g id="Textfilds" transform="translate(82.000000, 73.000000)" sketch:type="MSShapeGroup">
+                    <g id="Textbox---Invalid-Data" transform="translate(0.000000, 289.000000)">
+                        <g id="Oval-16-+-Shape-Copy-3" transform="translate(313.000000, 11.000000)">
+                            <circle id="Oval-16" fill="#D9534E" cx="12" cy="12" r="12"></circle>
+                            <path d="M17.5,16.124919 L13.375081,12 L17.5,7.87508102 L16.124919,6.5 L12,10.624919 L7.87508102,6.5 L6.5,7.87508102 L10.624919,12 L6.5,16.124919 L7.87508102,17.5 L12,13.375081 L16.124919,17.5 L17.5,16.124919 Z" id="Shape-Copy-3" fill="#FFFFFF"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,1195 @@
+Get first 25 inbox messages
+---------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /email_messages?data[auth_token]=ea9f286e28fe678ba5d606f8627c5984
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"ea9f286e28fe678ba5d606f8627c5984"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lU5FLRt1tzwh",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lU5FLRt1tzwh",
+          "subject-id": "33lU5FLbZ73Mqx",
+          "to-id": "33lU40FOH2ahil",
+          "from-id": null,
+          "body": "Maiores ex explicabo sint enim eum.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lU5FLRt1tzwh"
+        }
+      },
+      {
+        "id": "33lU5lZKeJwWhP",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lU5lZKeJwWhP",
+          "subject-id": "33lU5lZUKP5tbf",
+          "to-id": "33lU40FOH2ahil",
+          "from-id": null,
+          "body": "Aperiam est facere exercitationem aut.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lU5lZKeJwWhP"
+        }
+      },
+      {
+        "id": "33lU5lZe0UFGVv",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lU5lZe0UFGVv",
+          "subject-id": "33lU5lZngZOdQB",
+          "to-id": "33lU40FOH2ahil",
+          "from-id": null,
+          "body": "A rerum qui doloribus.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lU5lZe0UFGVv"
+        }
+      }
+    ]
+  }
+
+
+Get patient by id
+-----------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Patient id
+
+Request:
+  GET /email_messages/new?data[auth_token]=27d48729971f2828a527b4ffde154c4e&data[id]=33lU8VRNpZRSXz
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"27d48729971f2828a527b4ffde154c4e", "id"=>"33lU8VRNpZRSXz"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lU8VRNpZRSXz",
+      "type": "patients",
+      "attributes": {
+        "id": "33lU8VRNpZRSXz",
+        "email": "freeda@reingerfadel.name",
+        "role": "Patient",
+        "first-name": "Arthur",
+        "middle-name": null,
+        "last-name": "Gibson",
+        "gender": "Male",
+        "mobile-phone": "+12542778838",
+        "primary-phone": "+17779772373",
+        "code": null,
+        "social-number": "882785939",
+        "active": true,
+        "declined-portal-access": null,
+        "preferred-language": null,
+        "ethnicity": "Hispanic of Latino",
+        "american-race": null,
+        "asian-race": null,
+        "african-race": null,
+        "hawaiian-race": null,
+        "white-race": null,
+        "undetermined-race": null,
+        "email-reminder": null,
+        "sms-reminder": null,
+        "immunization-registry": "NotSend",
+        "work-phone": null,
+        "ext": null,
+        "street-address": null,
+        "city": null,
+        "state": null,
+        "zip": null,
+        "profile-image": {
+          "url": "/uploads/patient/profile_image/33lU8VRNpZRSXz/avatar3.jpg"
+        }
+      },
+      "links": {
+        "self": "/patients/33lU8VRNpZRSXz"
+      }
+    }
+  }
+
+
+Create message from current user to patient
+-------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * commit - If commit = "Send", message will be sent to real email
+  * patient_id - Patient id
+  * subject_id - Subject id
+  * body - Message
+  * urgent - Boolean, if true - message is urgent
+
+Request:
+  POST /email_messages
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"1e23b68d470a0e505d86fa402cc7814d","commit":"Save","email_message":{"patient_id":"33lUH8PYTxirUR","subject_id":"33lUMXnkGoQuJP","body":"Doloremque unde voluptatem ratione illum consequatur.","urgent":true}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lUMXntwtaHDf",
+      "type": "email-messages",
+      "attributes": {
+        "id": "33lUMXntwtaHDf",
+        "subject-id": "33lUMXnkGoQuJP",
+        "to-id": "33lUH8PiA2sEOh",
+        "from-id": "33lUFrLQ50Edgh",
+        "body": "Doloremque unde voluptatem ratione illum consequatur.",
+        "draft": true,
+        "archive": false,
+        "urgent": true,
+        "read": false
+      },
+      "links": {
+        "self": "/email-messages/33lUMXntwtaHDf"
+      }
+    }
+  }
+
+
+Create message from current user to patient and practice
+--------------------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * commit - If commit = "Send", message will be sent to real email
+  * patient_id - Patient id
+  * practice_id - Practice id
+  * subject_id - Subject id
+  * body - Message
+  * urgent - Boolean, if true - message is urgent
+
+Request:
+  POST /email_messages/create_to_practice
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"648c4e6c3235f95385ee161f84a23e48","commit":"Save","email_message":{"patient_id":"33lUQNtG51F01j","practice_id":"33lUUcihNaxXjn","subject_id":"33lUWO5IIHse8p","body":"Unde quia temporibus tenetur veniam suscipit dicta nisi.","urgent":true}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "subject_id": "33lUWO5IIHse8p",
+        "body": "Unde quia temporibus tenetur veniam suscipit dicta nisi.",
+        "urgent": true,
+        "from_id": "33lUOgjg3EzemB",
+        "to_id": "33lUQNtPl6OMvz",
+        "id": "33lUWO5RyN2135",
+        "draft": true,
+        "archive": false,
+        "read": false,
+        "created_at": "2016-02-26T17:03:43.384+02:00",
+        "updated_at": "2016-02-26T17:03:43.384+02:00"
+      },
+      {
+        "subject_id": "33lUWO5IIHse8p",
+        "body": "Unde quia temporibus tenetur veniam suscipit dicta nisi.",
+        "urgent": true,
+        "from_id": "33lUOgjg3EzemB",
+        "to_id": "33lUUcir3g6ue3",
+        "id": "33lUWO5beSBNxL",
+        "draft": true,
+        "archive": false,
+        "read": false,
+        "created_at": "2016-02-26T17:03:43.498+02:00",
+        "updated_at": "2016-02-26T17:03:43.498+02:00"
+      }
+    ]
+  }
+
+
+Create message from current patient to practice
+-----------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * commit - If commit == "Send", message will be sent to real email
+  * to_id - Practice id
+  * subject_id - Subject id
+  * body - Message
+  * urgent - Boolean, if true - message is urgent
+
+Request:
+  POST /email_messages/create_from_patient_to_practice
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"387958d0ac4e110fb2def9696406a480","commit":"Save","email_message":{"to_id":"33lUlGuy4yDvsJ","subject_id":"33lUnAlxloitzX","body":"Vel nihil quidem fugit nulla totam non accusamus.","urgent":true}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lUnfNmRqtb6p",
+      "type": "email-messages",
+      "attributes": {
+        "id": "33lUnfNmRqtb6p",
+        "subject-id": "33lUnAlxloitzX",
+        "to-id": "33lUlGv7l3NImZ",
+        "from-id": "33lUZCJPjGollr",
+        "body": "Vel nihil quidem fugit nulla totam non accusamus.",
+        "draft": true,
+        "archive": false,
+        "urgent": true,
+        "read": false
+      },
+      "links": {
+        "self": "/email-messages/33lUnfNmRqtb6p"
+      }
+    }
+  }
+
+
+Create reply message
+--------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * commit - If commit == "Send", message will be sent to real email
+  * practice_id - Practice id, if present - message will be sent to this practice, but not to the addresser
+  * message_id - Message id, the message you are repling on
+  * subject_id - Subject id
+  * body - Message
+  * urgent - Boolean, if true - message is urgent
+
+Request:
+  POST /email_messages/create_reply
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"036881da907b097f4b555c485c28617d","commit":"Save","email_message":{"practice_id":"33lUr4QzjuyHI3","message_id":"33lUtBp4lKkAcN","subject_id":"33lUtBpO7V2uQt","body":"Quisquam excepturi alias sed nesciunt.","urgent":true}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lUtBpXnaCHL9",
+      "type": "email-messages",
+      "attributes": {
+        "id": "33lUtBpXnaCHL9",
+        "subject-id": "33lUtBpO7V2uQt",
+        "to-id": "33lUr4R9Q07eCJ",
+        "from-id": null,
+        "body": "Quisquam excepturi alias sed nesciunt.",
+        "draft": true,
+        "archive": false,
+        "urgent": true,
+        "read": false
+      },
+      "links": {
+        "self": "/email-messages/33lUtBpXnaCHL9"
+      }
+    }
+  }
+
+
+Get certain amount of certain type email messages with pagination
+-----------------------------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * amount - Amount of messages
+  * page - Page pagination number
+  * type - Type: inbox, sent, draft, archive or urgent
+
+Request:
+  GET /email_messages/new_tab?data[auth_token]=fcb95411718876c8f7b0ce4384e1a27a&data[amount]=2&data[page]=0&data[type]=inbox
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"fcb95411718876c8f7b0ce4384e1a27a", "amount"=>"2", "page"=>"0", "type"=>"inbox"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lUxA9gpYJv7b",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lUxA9gpYJv7b",
+          "subject-id": "33lUxA9qVdTI1r",
+          "to-id": "33lUvAqicpe2Vf",
+          "from-id": null,
+          "body": "Qui qui quaerat quam totam fugiat dolorem ut officia.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lUxA9gpYJv7b"
+        }
+      },
+      {
+        "id": "33lUxAA0Bicew7",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lUxAA0Bicew7",
+          "subject-id": "33lUxAA9rnm1qN",
+          "to-id": "33lUvAqicpe2Vf",
+          "from-id": null,
+          "body": "Tempora dolor ipsam optio cupiditate rem.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lUxAA0Bicew7"
+        }
+      }
+    ]
+  }
+
+
+Get certain amount of certain type email messages with pagination
+-----------------------------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * amount - Amount of messages
+  * page - Page pagination number
+  * type - Type: inbox, sent, draft, archive or urgent
+
+Request:
+  GET /email_messages/new_tab?data[auth_token]=6654ef86adc70a23a4dc158937365b1e&data[amount]=2&data[page]=0&data[type]=inbox
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"6654ef86adc70a23a4dc158937365b1e", "amount"=>"2", "page"=>"0", "type"=>"inbox"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lV0QTpXec0IN",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lV0QTpXec0IN",
+          "subject-id": "33lV0QTzDjlNCd",
+          "to-id": "33lUyQtNJd0k3X",
+          "from-id": null,
+          "body": "Incidunt qui atque eius sit mollitia amet nemo.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lV0QTpXec0IN"
+        }
+      },
+      {
+        "id": "33lV0QU8touk6t",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lV0QU8touk6t",
+          "subject-id": "33lV0QUIZu4719",
+          "to-id": "33lUyQtNJd0k3X",
+          "from-id": null,
+          "body": "Consequatur rem impedit voluptatem expedita placeat enim.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lV0QU8touk6t"
+        }
+      }
+    ]
+  }
+
+
+Get practice by id
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * practice_id - Practice id
+
+Request:
+  GET /email_messages/practice?data[auth_token]=aee23d75f645a1313759f0305db58fed&data[practice_id]=33lV1jigiJW5Ap
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"aee23d75f645a1313759f0305db58fed", "practice_id"=>"33lV1jigiJW5Ap"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lV1jigiJW5Ap",
+      "type": "providers",
+      "attributes": {
+        "id": "33lV1jigiJW5Ap",
+        "email": "quentin@metz.net",
+        "role": "Provider",
+        "user-id": "33lV1jiqOOfS55",
+        "title": "Mr",
+        "first-name": "Eva",
+        "middle-name": null,
+        "last-name": "Ziemann",
+        "degree": "DDS",
+        "speciality": "Endodontics",
+        "street-address": "Terry Circles",
+        "suit-apt-number": "863",
+        "city": "Alexisborough",
+        "state": "Kentucky",
+        "zip": null,
+        "practice-street-address": "Kacie Shores",
+        "practice-suit-apt-number": "90984",
+        "practice-city": "Trompshire",
+        "practice-state": "Montana",
+        "practice-zip": null,
+        "primary-phone": null,
+        "mobile-phone": null,
+        "alt-email": null,
+        "username": null,
+        "secondary-speciality": null,
+        "dental-licence": null,
+        "expiration-date": null,
+        "ein-tin": null,
+        "npi": null,
+        "dea": null,
+        "upin": null,
+        "nadean": null,
+        "status": true,
+        "biography": null,
+        "accepting-patient": false,
+        "enable-online-booking": false,
+        "profile-image": {
+          "url": "/uploads/provider/profile_image/33lV1jigiJW5Ap/avatar1.jpg"
+        }
+      },
+      "links": {
+        "self": "/providers/33lV1jigiJW5Ap"
+      }
+    }
+  }
+
+
+Get 25 contacts with pagination
+-------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * page - Page number
+
+Request:
+  GET /email_messages/contacts?data[auth_token]=486970ab5f293efc85c6588d8dd379be&data[page]=0
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"486970ab5f293efc85c6588d8dd379be", "page"=>"0"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lV6IabG90Gmp",
+        "type": "contacts",
+        "attributes": {
+          "id": "33lV6IabG90Gmp",
+          "provider-id": "33lV4VhP16VGVP",
+          "favorite": false
+        },
+        "links": {
+          "self": "/contacts/33lV6IabG90Gmp"
+        }
+      },
+      {
+        "id": "33lV6IakwE9dh5",
+        "type": "contacts",
+        "attributes": {
+          "id": "33lV6IakwE9dh5",
+          "provider-id": "33lV4VhP16VGVP",
+          "favorite": false
+        },
+        "links": {
+          "self": "/contacts/33lV6IakwE9dh5"
+        }
+      },
+      {
+        "id": "33lV6IaucJJ0bL",
+        "type": "contacts",
+        "attributes": {
+          "id": "33lV6IaucJJ0bL",
+          "provider-id": "33lV4VhP16VGVP",
+          "favorite": false
+        },
+        "links": {
+          "self": "/contacts/33lV6IaucJJ0bL"
+        }
+      }
+    ]
+  }
+
+
+Search practice by part of first or last name
+---------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - Part of first or last name
+
+Request:
+  GET /email_messages/find_practices?data[auth_token]=e37565eba0ad8ad5bc9e502f8fe17815&data[part]=Dav
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"e37565eba0ad8ad5bc9e502f8fe17815", "part"=>"Dav"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lV988g2kHMnL",
+        "type": "providers",
+        "attributes": {
+          "id": "33lV988g2kHMnL",
+          "email": "jarrod_roob@lakinwitting.net",
+          "role": "Provider",
+          "user-id": "33lV988pipQjhb",
+          "title": "Mr",
+          "first-name": "Dave",
+          "middle-name": null,
+          "last-name": "Stuart",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Jacobson Way",
+          "suit-apt-number": "69499",
+          "city": "Rodrigueztown",
+          "state": "Washington",
+          "zip": null,
+          "practice-street-address": "Samson Fields",
+          "practice-suit-apt-number": "33440",
+          "practice-city": "East Dameonside",
+          "practice-state": "New Jersey",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33lV988g2kHMnL/avatar3.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33lV988g2kHMnL"
+        }
+      },
+      {
+        "id": "33lVAPxB2NeK5j",
+        "type": "providers",
+        "attributes": {
+          "id": "33lVAPxB2NeK5j",
+          "email": "deon@balistreri.io",
+          "role": "Provider",
+          "user-id": "33lVAPxKiSngzz",
+          "title": "Mr",
+          "first-name": "Timber",
+          "middle-name": null,
+          "last-name": "Davison",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Brakus Turnpike",
+          "suit-apt-number": "24861",
+          "city": "Gislasonberg",
+          "state": "Nebraska",
+          "zip": null,
+          "practice-street-address": "Xander Lock",
+          "practice-suit-apt-number": "179",
+          "practice-city": "Horaciohaven",
+          "practice-state": "Idaho",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33lVAPxB2NeK5j/avatar2.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33lVAPxB2NeK5j"
+        }
+      }
+    ]
+  }
+
+
+Create contact
+--------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * favorite - Boolean, if true - contact is favorite
+
+Request:
+  GET /email_messages/add_contact?data[auth_token]=9fa6004cee1055311eb522c4712f421c&data[favorite]=false
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"9fa6004cee1055311eb522c4712f421c", "favorite"=>"false"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lVIYsLNGSQGR",
+      "type": "contacts",
+      "attributes": {
+        "id": "33lVIYsLNGSQGR",
+        "provider-id": "33lVH8lmE2RmwF",
+        "favorite": false
+      },
+      "links": {
+        "self": "/contacts/33lVIYsLNGSQGR"
+      }
+    }
+  }
+
+
+Switch contact favorite flag
+----------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * contact_id - Contact id
+  * favorite - Boolean, if true - contact is favorite
+
+Request:
+  GET /email_messages/favorite_contact?data[auth_token]=6a6ab4b14ff53aace7ada1e2bcbad989&data[contact_id]=33lVL8IhNnxPMJ&data[favorite]=true
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"6a6ab4b14ff53aace7ada1e2bcbad989", "contact_id"=>"33lVL8IhNnxPMJ", "favorite"=>"true"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lVL8IhNnxPMJ",
+      "type": "contacts",
+      "attributes": {
+        "id": "33lVL8IhNnxPMJ",
+        "provider-id": "33lVL8Ir3t6mGZ",
+        "favorite": true
+      },
+      "links": {
+        "self": "/contacts/33lVL8IhNnxPMJ"
+      }
+    }
+  }
+
+
+Remove messages to archive
+--------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * message_ids - Array of email message ids that should be removed to archive
+  * message_id - Email message id that should be removed to archive
+
+Request:
+  GET /email_messages/to_archive?data[auth_token]=c604af8b4bcd3b2ba49e1812796bb071&data[message_ids][][id]=33lVPErwfmqhvf&data[message_ids][][id]=33lVPEsG1x9RkB&data[message_ids][][id]=33lVPEsZO7SBYh
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"c604af8b4bcd3b2ba49e1812796bb071", "message_ids"=>[{"id"=>"33lVPErwfmqhvf"}, {"id"=>"33lVPEsG1x9RkB"}, {"id"=>"33lVPEsZO7SBYh"}]}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Delete messages
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * message_ids - Array of email message ids that should be deleted
+  * message_id - Email message id that should be deleted
+
+Request:
+  GET /email_messages/delete_message?data[auth_token]=e3c82abf5703d444983d008c1e7714f5&data[message_ids][][id]=33lVRaoBFKwn3L&data[message_ids][][id]=33lVRaoUbVFWrr&data[message_ids][][id]=33lVRaonxfYGgN
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"e3c82abf5703d444983d008c1e7714f5", "message_ids"=>[{"id"=>"33lVRaoBFKwn3L"}, {"id"=>"33lVRaoUbVFWrr"}, {"id"=>"33lVRaonxfYGgN"}]}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Mark messages as read
+---------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * message_ids - Array of email message ids that should be marked as read
+  * message_id - Email message id that should be marked as read
+  * read - Boolean, if true - messages will be marked as read
+
+Request:
+  GET /email_messages/mark_as_read?data[auth_token]=f4c30e85018c48c234563bf48e18f5af&data[message_ids][][id]=33lVUPjhNPtcw7&data[message_ids][][id]=33lVUPk0jaCMkd&data[message_ids][][id]=33lVUPkK5kV6Z9&data[read]=true
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"f4c30e85018c48c234563bf48e18f5af", "message_ids"=>[{"id"=>"33lVUPjhNPtcw7"}, {"id"=>"33lVUPk0jaCMkd"}, {"id"=>"33lVUPkK5kV6Z9"}], "read"=>"true"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Search messages
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * amount - Amount of messages
+  * page - Pagination page number
+  * type - Type should be one of following: inbox, sent, draft, urgent or archive
+  * part - Part of user email
+
+Request:
+  GET /email_messages/search_message?data[auth_token]=a1731d7bf7bea2ab112d246f8f862bb7&data[amount]=25&data[page]=1&data[type]=inbox&data[part]=te
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"a1731d7bf7bea2ab112d246f8f862bb7", "amount"=>"25", "page"=>"1", "type"=>"inbox", "part"=>"te"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lVZeD041LdK7",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lVZeD041LdK7",
+          "subject-id": "33lVZeD9k6V0EN",
+          "to-id": "33lVX3T9k6xmZX",
+          "from-id": "33lVX3TcmMPtIJ",
+          "body": "Sint aut ut amet.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lVZeD041LdK7"
+        }
+      },
+      {
+        "id": "33lVZeDJQBeN8d",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lVZeDJQBeN8d",
+          "subject-id": "33lVZeDT6Gnk2t",
+          "to-id": "33lVX3T9k6xmZX",
+          "from-id": "33lVX3TcmMPtIJ",
+          "body": "Voluptates at adipisci possimus aliquid nihil beatae voluptatibus minima.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lVZeDJQBeN8d"
+        }
+      },
+      {
+        "id": "33lVZeDcmLx6x9",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lVZeDcmLx6x9",
+          "subject-id": "33lVZeDmSR6TrP",
+          "to-id": "33lVX3T9k6xmZX",
+          "from-id": "33lVX3TcmMPtIJ",
+          "body": "Sed et corporis ex deserunt quam occaecati.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lVZeDcmLx6x9"
+        }
+      }
+    ]
+  }
+
+
+Get all subjects
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /email_messages/get_subjects?data[auth_token]=89ee9c9ed4375968cdbc6a2a49a15ff8
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"89ee9c9ed4375968cdbc6a2a49a15ff8"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lVba3JyVEUHD",
+        "type": "subjects",
+        "attributes": {
+          "id": "33lVba3JyVEUHD",
+          "name": "Sed"
+        },
+        "links": {
+          "self": "/subjects/33lVba3JyVEUHD"
+        }
+      },
+      {
+        "id": "33lVba3TeaNrBT",
+        "type": "subjects",
+        "attributes": {
+          "id": "33lVba3TeaNrBT",
+          "name": "Consectetur"
+        },
+        "links": {
+          "self": "/subjects/33lVba3TeaNrBT"
+        }
+      },
+      {
+        "id": "33lVba3dKfXE5j",
+        "type": "subjects",
+        "attributes": {
+          "id": "33lVba3dKfXE5j",
+          "name": "Porro"
+        },
+        "links": {
+          "self": "/subjects/33lVba3dKfXE5j"
+        }
+      }
+    ]
+  }
+
+
+Get all subjects
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /email_messages/get_subjects?data[auth_token]=f97adc6fd6b6fe77af4970167c656e06
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"f97adc6fd6b6fe77af4970167c656e06"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lVeXn45Hx76x",
+        "type": "subjects",
+        "attributes": {
+          "id": "33lVeXn45Hx76x",
+          "name": "Ipsa"
+        },
+        "links": {
+          "self": "/subjects/33lVeXn45Hx76x"
+        }
+      },
+      {
+        "id": "33lVeXnDlN6U1D",
+        "type": "subjects",
+        "attributes": {
+          "id": "33lVeXnDlN6U1D",
+          "name": "Sit"
+        },
+        "links": {
+          "self": "/subjects/33lVeXnDlN6U1D"
+        }
+      },
+      {
+        "id": "33lVeXnNRSFqvT",
+        "type": "subjects",
+        "attributes": {
+          "id": "33lVeXnNRSFqvT",
+          "name": "Dolores"
+        },
+        "links": {
+          "self": "/subjects/33lVeXnNRSFqvT"
+        }
+      }
+    ]
+  }
+
+
+Create new subject
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * name - Subject name
+
+Request:
+  GET /email_messages/add_subject?data[auth_token]=7695d6cb5b8a5c98c6465d90f63a5fc4&data[name]=Test
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"7695d6cb5b8a5c98c6465d90f63a5fc4", "name"=>"Test"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lViTsaNTsf8F",
+      "type": "subjects",
+      "attributes": {
+        "id": "33lViTsaNTsf8F",
+        "name": "Test"
+      },
+      "links": {
+        "self": "/subjects/33lViTsaNTsf8F"
+      }
+    }
+  }
+
+
+Update subject
+--------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * name - Subject name
+  * subject_id - Subject id
+
+Request:
+  GET /email_messages/update_subject?data[auth_token]=9cc4fab29791c1af524eca8641d9d23c&data[name]=Test&data[subject_id]=33lVl6J1T3W3pj
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"9cc4fab29791c1af524eca8641d9d23c", "name"=>"Test", "subject_id"=>"33lVl6J1T3W3pj"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Delete subject
+--------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * subject_id - Subject id
+
+Request:
+  GET /email_messages/remove_subject?data[auth_token]=e96e13c19e46d74a2f6dde2f9bc2a38d&data[subject_id]=33lVn6Nv3HaN0t
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"e96e13c19e46d74a2f6dde2f9bc2a38d", "subject_id"=>"33lVn6Nv3HaN0t"}
+
+Response:
+  Status: 200 OK
+  Content-Type: text/plain; charset=utf-8
+
+
+Search patients by part of first or last name
+---------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - Part of first or last name
+
+Request:
+  GET /email_messages/patients?data[auth_token]=83072e7c4537932e54f5251bd8369331&data[part]=Dav
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"83072e7c4537932e54f5251bd8369331", "part"=>"Dav"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lVpghNf9QmPr",
+        "type": "patients",
+        "attributes": {
+          "id": "33lVpghNf9QmPr",
+          "email": "remington@bergstrom.org",
+          "role": "Patient",
+          "first-name": "Dave",
+          "middle-name": null,
+          "last-name": "Stuart",
+          "gender": "Male",
+          "mobile-phone": "+19726809724",
+          "primary-phone": "+18739400972",
+          "code": null,
+          "social-number": "516348687",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lVpghNf9QmPr/avatar1.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lVpghNf9QmPr"
+        }
+      },
+      {
+        "id": "33lVuwPKcY5CKZ",
+        "type": "patients",
+        "attributes": {
+          "id": "33lVuwPKcY5CKZ",
+          "email": "rebekah@willfadel.name",
+          "role": "Patient",
+          "first-name": "Timber",
+          "middle-name": null,
+          "last-name": "Davison",
+          "gender": "Male",
+          "mobile-phone": "+18463641647",
+          "primary-phone": "+13548316754",
+          "code": null,
+          "social-number": "897123412",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lVuwPKcY5CKZ/avatar3.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lVuwPKcY5CKZ"
+        }
+      }
+    ]
+  }
+
+

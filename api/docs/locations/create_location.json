@@ -1,0 +1,118 @@
+{
+  "resource": "Locations",
+  "http_method": "POST",
+  "route": "/locations",
+  "description": "Create location",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "location",
+      "name": "provider_id",
+      "description": "Provider id"
+    },
+    {
+      "scope": "location",
+      "name": "practice_id",
+      "description": "Practice id"
+    },
+    {
+      "scope": "location",
+      "name": "location_name",
+      "description": "Location name"
+    },
+    {
+      "scope": "location",
+      "name": "location_phone",
+      "description": "Location phone"
+    },
+    {
+      "scope": "location",
+      "name": "location_fax",
+      "description": "Location fax"
+    },
+    {
+      "scope": "location",
+      "name": "location_address",
+      "description": "Location address"
+    },
+    {
+      "scope": "location",
+      "name": "city",
+      "description": "City"
+    },
+    {
+      "scope": "location",
+      "name": "state",
+      "description": "State"
+    },
+    {
+      "scope": "location",
+      "name": "zip",
+      "description": "Zip"
+    },
+    {
+      "scope": "location",
+      "name": "location_npi",
+      "description": "Location NPI"
+    },
+    {
+      "scope": "location",
+      "name": "location_tin_en",
+      "description": "Location TIN EN"
+    },
+    {
+      "scope": "location",
+      "name": "timeslots",
+      "description": "Array of timeslots"
+    },
+    {
+      "scope": "timeslots",
+      "name": "weekday",
+      "description": "Weekday"
+    },
+    {
+      "scope": "timeslots",
+      "name": "from",
+      "description": "From time"
+    },
+    {
+      "scope": "timeslots",
+      "name": "to",
+      "description": "To time"
+    },
+    {
+      "scope": "timeslots",
+      "name": "specific_hour",
+      "description": "Specific hour type"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/locations",
+      "request_body": "{\"data\":{\"auth_token\":\"c3930749a5a73e0c0f78333ca515a897\",\"location\":{\"provider_id\":\"33lWFZCIIhUOQt\",\"location_name\":\"Schowalter Turnpike\",\"location_phone\":\"+18320161660\",\"location_fax\":\"+15911218111\",\"location_address\":\"Gloria Pike\",\"city\":\"Boyerville\",\"state\":\"West Virginia\",\"zip\":50108,\"location_npi\":\"83-2609178\",\"location_tin_en\":\"78-7665682\",\"timeslots\":[{\"weekday\":\"Sunday\",\"from\":\"2016-01-27T03:15:00.000+02:00\",\"to\":\"2016-01-27T12:00:00.000+02:00\",\"specific_hour\":\"Closed/NA\"},{\"weekday\":\"Tuesday\",\"from\":\"2016-01-27T01:00:00.000+02:00\",\"to\":\"2016-01-27T23:45:00.000+02:00\",\"specific_hour\":\"Open 24 Hrs\"},{\"weekday\":\"Tuesday\",\"from\":\"2016-01-27T10:15:00.000+02:00\",\"to\":\"2016-01-27T19:00:00.000+02:00\",\"specific_hour\":\"Closed/NA\"},{\"weekday\":\"Saturday\",\"from\":\"2016-01-27T11:00:00.000+02:00\",\"to\":\"2016-01-27T14:15:00.000+02:00\",\"specific_hour\":\"Open 24 Hrs\"},{\"weekday\":\"Saturday\",\"from\":\"2016-01-27T08:30:00.000+02:00\",\"to\":\"2016-01-27T22:00:00.000+02:00\",\"specific_hour\":\"Open 24 Hrs\"},{\"weekday\":\"Friday\",\"from\":\"2016-01-27T04:30:00.000+02:00\",\"to\":\"2016-01-27T21:15:00.000+02:00\",\"specific_hour\":\"Closed/NA\"},{\"weekday\":\"Tuesday\",\"from\":\"2016-01-27T03:00:00.000+02:00\",\"to\":\"2016-01-27T19:15:00.000+02:00\",\"specific_hour\":\"Closed/NA\"}]}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

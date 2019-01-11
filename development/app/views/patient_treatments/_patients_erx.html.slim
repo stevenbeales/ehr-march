@@ -1,0 +1,10 @@
+#patientErxTab.tab-pane.fade role="tabpanel"
+  .scrollable-container
+    .content
+      - if @dosespot.valid_url?
+        .controls
+          a.button#erx-registration.disabled href="#" Registration tabindex="-1"
+        .dosespot-container
+          iframe#erx-iframe width="100%" height="100%" src=""
+      - else
+        = @dosespot.full_message

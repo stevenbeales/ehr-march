@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointments API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Appointments API</h1>
+
+      <div class="article">
+        <h2>Update appointment</h2>
+        <h3>PATCH /appointments/:id</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">id</span>
+                </td>
+                <td>
+                  <span class="description">Appointment id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[patient_id]</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[location]</span>
+                </td>
+                <td>
+                  <span class="description">Location</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[room_id]</span>
+                </td>
+                <td>
+                  <span class="description">Room id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[appointment_type_id]</span>
+                </td>
+                <td>
+                  <span class="description">Appointment type id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[reason]</span>
+                </td>
+                <td>
+                  <span class="description">Reason</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[duration]</span>
+                </td>
+                <td>
+                  <span class="description">Duration</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[contact_email]</span>
+                </td>
+                <td>
+                  <span class="description">Patient contact email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[contact_phone]</span>
+                </td>
+                <td>
+                  <span class="description">Patient contact phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[reminder]</span>
+                </td>
+                <td>
+                  <span class="description">Reminder</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[colour]</span>
+                </td>
+                <td>
+                  <span class="description">Colour</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[referral_id]</span>
+                </td>
+                <td>
+                  <span class="description">Referral id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">referral[normal]</span>
+                </td>
+                <td>
+                  <span class="description">Referral normal</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">referral[middle_name]</span>
+                </td>
+                <td>
+                  <span class="description">Referral middle name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">referral[last_name]</span>
+                </td>
+                <td>
+                  <span class="description">Referral last name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">referral[individual_npi]</span>
+                </td>
+                <td>
+                  <span class="description">Referral npi</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">referral[speciality]</span>
+                </td>
+                <td>
+                  <span class="description">Referral speciality</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">referral[phone]</span>
+                </td>
+                <td>
+                  <span class="description">Referral phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">referral[fax]</span>
+                </td>
+                <td>
+                  <span class="description">Referral fax</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">referral[email]</span>
+                </td>
+                <td>
+                  <span class="description">Referral email</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PATCH /appointments/33lNW2CdiW5QYd</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"1a753aa439d20193ede62ce5868b9113","appointment":{"patient_id":"33lNJYcx6t1Bsx","location":"12904 Armstrong Station","room_id":"33lNRHlFaq38aZ","appointment_type_id":"33lNSkZ0h2uTj9","reason":"Quos necessitatibus eos amet quod neque eveniet.","duration":"2 hours 45 min","contact_email":"+14898726838","contact_phone":"+14898726838","reminder":true,"colour":"37604E","referral_id":"33lNimxlrBYK9b"},"referral":{"normal":"Dino","middle_name":"Keshaun","last_name":"Russel","individual_npi":"21-7857820","speciality":"Prosthodontics","phone":"+17964849645","fax":"+13915050935","email":"aleandra_langosh@croninstiedemann.info"}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33lNW2CdiW5QYd&quot;,
+    &quot;type&quot;: &quot;appointments&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33lNW2CdiW5QYd&quot;,
+      &quot;patient-id&quot;: &quot;33lNJYcx6t1Bsx&quot;,
+      &quot;room-id&quot;: &quot;33lNRHlFaq38aZ&quot;,
+      &quot;appointment-type-id&quot;: &quot;33lNSkZ0h2uTj9&quot;,
+      &quot;appointment-status-id&quot;: &quot;33lNhDGtffE6Ox&quot;,
+      &quot;location&quot;: &quot;12904 Armstrong Station&quot;,
+      &quot;reason&quot;: &quot;Quos necessitatibus eos amet quod neque eveniet.&quot;,
+      &quot;appointment-datetime-date&quot;: &quot;2016-02-26&quot;,
+      &quot;appointment-datetime-time&quot;: &quot;16:52&quot;,
+      &quot;duration&quot;: &quot;2 hours 45 min&quot;,
+      &quot;contact-email&quot;: &quot;+14898726838&quot;,
+      &quot;contact-phone&quot;: &quot;+14898726838&quot;,
+      &quot;reminder&quot;: true,
+      &quot;colour&quot;: &quot;5C7D77&quot;
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/appointments/33lNW2CdiW5QYd&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

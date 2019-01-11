@@ -1,0 +1,138 @@
+$green: #41b6a6;
+$greendark: #2e877b;
+$greenlight: rgba(65,182,166, 0.49);
+$greenregular: #417505;
+$greendarksecondary: #22645b;
+$greenhighlight: rgba(59, 167, 153, 0.07);
+$blue: #4cb8db;
+$orange: #fe8f00;
+$orangelight: #F0AD4E;
+$red: #d64841;
+$redregular: #D0021B;
+$gray: #f2f2f2;
+$graytext: #74757e;
+$graymedium: #7D7D7D;
+$graylight: #EDEDED;
+$confirmed: #5BB85C;
+$unconfirmed: #D9534E;
+
+#any_login {
+  position: fixed;
+  padding: 4px;
+  color: white;
+  font-size: 16px;
+  line-height: 20px;
+  z-index: 9999;
+  background: $green;
+  border-radius: 0 50% 50% 0;
+  .form-control,
+  .button,
+  .select2-selection__rendered,
+  .any_login_container {
+    font-size: 14px;
+    font-family: 'SF UI Text Regular';
+  }
+  .button,
+  .form-control {
+    height: 28px;
+    line-height: 26px;
+  }
+  .title,
+  .button,
+  .form-control,
+  .select2-container {
+    margin: 0;
+  }
+  .any_login_container {
+    margin: 0 5px;
+  }
+  .title {
+    line-height: 28px;
+    padding: 0 0 0 3px;
+  }
+  .button {
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .form-control {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .select2-container {
+    margin-top: -1px;
+    height: 27px;
+    .select2-selection {
+      height: 27px;
+      line-height: 25px;
+      .select2-selection__rendered,
+      .select2-selection__arrow {
+        line-height: 25px;
+        height: 27px;
+      }
+    }
+  }
+  form {
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+  }
+  .hidden_box {
+    display: none;
+  }
+  .visible_box {
+    display: inline-block;
+  }
+  &.any_login_top_left {
+    top: 0;
+    left: 0;
+  }
+  &.any_login_top_right {
+    top: 0;
+    right: 0;
+  }
+  &.any_login_bottom_left {
+    bottom: 0;
+    left: 0;
+  }
+  &.any_login_bottom_right {
+    bottom: 0;
+    right: 0;
+  }
+  img {
+    cursor: pointer;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+  }
+  &:hover {
+    background: $greendark;
+  }
+  &.any_login_visible {
+    background: $greendark;
+    padding: 4px 6px 4px 4px;
+    border-radius: 0 5px 6px 0;
+    .avatar {
+      border-radius: 0;
+      padding: 0 0 3px 0;
+    }
+  }
+  #any_login_box .any_login_container {
+    display: inline-block;
+  }
+  &.any_login_user_information {
+    padding-left: 10px;
+  }
+  #any_login_id_input {
+    width: 30px;
+  }
+  span#current_user_information {
+    display: inline-block;
+  }
+  span#current_user_information span {
+    display: inline-block;
+  }
+}

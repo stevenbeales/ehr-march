@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+HOSTNAME1=''
+HOSTNAME2=''
+PORT=''
+MAIL_PORT=''
+IP1=''
+IP2=''
+
+# ===> IMPORTANT BEFORE START_SERVER RUN RETHINKDB <===
+
+killall ruby
+  echo -en "\nStart Mailcatcher on port $MAIL_PORT:\n"
+  ./start_server_mail
+  rm -rf .bundle
+  rm -rf tmp/cache/
+  rm -rf vendor/bundle/
+  rm -rf public/assets/
+  rm -f  Gemfile.lock
+  bundle
+  bundle exec rake tmp:clear
+  bundle exec rake log:clear
+  bundle exec rake assets:clean
+  rm -f app/services/*
+  cp -v lib/tasks/admin_service.rb      app/services/
+  cp -v lib/tasks/provider_service.rb   app/services/
+  cp -v lib/tasks/patient_service.rb    app/services/
+  cp -v lib/tasks/practice_service.rb   app/services/
+
+  rake nobrainer:drop
+  rethinkdb import -f countries.json        --table ehr_development.countries       --force
+  rethinkdb import -f states.json           --table ehr_development.states          --force
+  rethinkdb import -f zipcodes.json         --table ehr_development.zipcodes        --force
+  rethinkdb import -f diagnosis_codes.json  --table ehr_development.diagnosis_codes --force
+  rethinkdb import -f vaccines.json         --table ehr_development.vaccines        --force
+  rethinkdb import -f area_codes.json       --table ehr_development.area_codes      --force
+
+  bundle exec rake nobrainer:seed
+  bundle exec rake db:procedures
+  bundle exec rake db:subjects
+  bundle exec rake db:portions
+
+  echo -en "\nStart Development Environment on $HOSTNAME1:$PORT\n"
+  echo -en "\t$HOSTNAME1:$PORT\n"
+  foreman start
+  # rails s -b $IP2 -p $PORT

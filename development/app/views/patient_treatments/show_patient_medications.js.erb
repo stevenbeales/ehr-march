@@ -1,0 +1,89 @@
+$("#modal-patient-medications").html("<%= escape_javascript(render 'patient_show_medications_form') %>")
+$("#modal-patient-medications").modal("show")
+
+initModalFadeInOut('#modal-patient-medications');
+$('.scrollable').slimScroll();
+
+var SearchController = function() {
+  var search_input;
+  var search_button;
+  var search_list;
+  var url ;
+
+  var liFocusIn = false;
+
+  this.initialize = function(input, button, list, path) {
+    search_input = $(input);
+    search_button = $(button);
+    search_list = $(list);
+    url = path;
+    initFind10Click();
+    initSearchOnInput();
+  };
+
+  var initKeyDownListeners = function() {
+    search_input.on('keydown', function(e) {
+      if(e.keyCode == '40' && search_list.css('display') == 'block') {
+        e.preventDefault();
+        $(search_list.find('a').first()).focus();
+        return false;
+      }
+    });
+    search_list.find('a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        search_input.val($(this).text()).change();
+        search_list.closest('.scrollable-padding-container').fadeOut('fast');
+        search_input.removeClass('open');
+        search_input.focus();
+      })
+    });
+  };
+
+  var listFill = function(elements) {
+    if(elements.length > 0) {
+      search_list.closest('.scrollable-padding-container').addClass('in');
+      search_list.closest('.scrollable-padding-container').fadeIn('fast');
+      search_input.addClass('open');
+    }
+    else {
+      search_list.closest('.scrollable-padding-container').fadeOut('fast');
+      search_input.removeClass('open');
+    }
+    search_list.empty();
+    for(var i in elements) {
+      var link = $('<a href="#" data-id="' + elements[i]['id'] + '">' + elements[i]['full_name'] + '</a>');
+      search_list.append(link);
+    }
+  };
+
+  var initFind10Click = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: url
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+        search_list.find('a').first().focus();
+      });
+    })
+  };
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part
+        }
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+      });
+    });
+  };
+};
+
+var medicationPortionSearchController = new SearchController();
+medicationPortionSearchController.initialize('input#search-medications-input', 'span#search-medications-button', '#search-medications-list', '<%= Rails.application.routes.url_helpers.medications_patient_treatments_path %>');

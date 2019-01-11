@@ -1,0 +1,63 @@
+{
+  "resource": "Providers",
+  "http_method": "POST",
+  "route": "/providers/save_message",
+  "description": "Save email message",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "email_message",
+      "required": true,
+      "name": "to_id",
+      "description": "User id"
+    },
+    {
+      "scope": "email_message",
+      "name": "subject_id",
+      "description": "Subject id"
+    },
+    {
+      "scope": "email_message",
+      "name": "body",
+      "description": "Message"
+    },
+    {
+      "scope": "email_message",
+      "name": "urgent",
+      "description": "Boolean, if true - message is urgent"
+    },
+    {
+      "name": "commit",
+      "description": "If \"Send\" message will be sent to real email"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/providers/save_message",
+      "request_body": "{\"data\":{\"auth_token\":\"8f35eb9ce539abf5af1a53d432a4fcec\",\"email_message\":{\"to_id\":\"33lfIiMASbczqt\",\"subject_id\":\"33lfIiMdUr56Zf\",\"body\":\"Quis consequatur qui ipsam eos.\",\"urgent\":false}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lfIiMnAwETTv\",\n    \"type\": \"email-messages\",\n    \"attributes\": {\n      \"id\": \"33lfIiMnAwETTv\",\n      \"subject-id\": \"33lfIiMdUr56Zf\",\n      \"to-id\": \"33lfIiMASbczqt\",\n      \"from-id\": \"33lfHFVHmjkGZ9\",\n      \"body\": \"Quis consequatur qui ipsam eos.\",\n      \"draft\": true,\n      \"archive\": false,\n      \"urgent\": false,\n      \"read\": false\n    },\n    \"links\": {\n      \"self\": \"/email-messages/33lfIiMnAwETTv\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

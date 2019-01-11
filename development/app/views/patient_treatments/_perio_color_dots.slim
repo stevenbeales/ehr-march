@@ -1,0 +1,16 @@
+tr.dots
+  td.title
+    p
+      = type_name
+  - teeth.each do |tooth|
+    - 3.times do |i|
+      td colspan="2"
+        .checkbox-dots
+          = check_box_tag "tooth#{tooth.id}_#{field_names[i]}", '', tooth.send(field_names[i]), data: { id: tooth.id, field: field_names[i] }, disabled: !policy(:chart).perio_update?, class: 'main_bsp'
+          label for="tooth#{tooth.id}_#{field_names[i]}"
+            - if type_name == 'Bleed'
+              span.checkbox-dot.dot-red
+            - if type_name == 'Supp.'
+              span.checkbox-dot.dot-yellow
+            - if type_name == 'Plaq.'
+              span.checkbox-dot.dot-purple

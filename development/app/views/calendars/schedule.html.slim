@@ -1,0 +1,162 @@
+= render 'providers/navigation_provider'
+.dashboard-wrapper
+  .header
+    .categories-container
+      ul.categories
+        li
+          a href="/providers" Home
+        li
+          i.category-arrow.fa.fa-angle-right
+        li
+          a.active href="#" Schedule
+  .content
+    .container-fluid.content-container
+      .schedule-wrapper
+        .aside.col-lg-3.col-md-4
+          #sandbox-container
+            #small-calendar
+            .input-group.date
+              input.form-control.date-picker id="jumptodate-calendar" type="text" value="Jump to Date" data-role="none"
+                .input-group-addon.input-group-addon-calendar
+          .panel-group id="accordion"
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  a.collapsed data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+                    | Provider
+                    i.fa.fa-angle-right
+              .panel-collapse.collapse id="collapseTwo"
+                .panel-body
+                  ul#provider_filter
+                    - if @providers.any?
+                      li role="presentation"
+                        = link_to '#', class: 'select_all'
+                          .checkbox-custom
+                            input.checkbox type="checkbox" id="provider_select_all" checked="checked"
+                            label for="provider_select_all"
+                              span.checkbox-icon-container
+                                span.checkbox-icon
+                              span.checkbox-label Select All
+                      hr
+                    - @providers.each do |provider|
+                      li role="presentation"
+                        = link_to '#', role: 'menuitem', tabindex: -1, class: 'filter_item', data: { option: provider.id }
+                          .checkbox-custom
+                            = check_box_tag "provider_#{provider.id}", nil, provider.id == current_user.provider.id, class: 'checkbox'
+                            label for="provider_#{provider.id}"
+                              span.checkbox-icon-container
+                                span.checkbox-icon
+                              span.checkbox-label
+                                = "#{provider.first_name} #{provider.last_name}"
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  a.collapsed data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                    | Location
+                    i.fa.fa-angle-right
+              .panel-collapse.collapse id="collapseOne"
+                .panel-body
+                  ul#location_filter
+                    - if current_user.provider.locations.length > 0
+                      li role="presentation"
+                        = link_to '#', class: 'select_all'
+                          .checkbox-custom
+                            input.checkbox type="checkbox" id="location_select_all" checked="checked"
+                            label for="location_select_all"
+                              span.checkbox-icon-container
+                                span.checkbox-icon
+                              span.checkbox-label Select All
+                      hr
+                    = render 'location_filter_li', provider: current_user.provider
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  a.collapsed data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+                    | Room
+                    i.fa.fa-angle-right
+              .panel-collapse.collapse id="collapseThree"
+                .panel-body
+                  ul#room_filter
+                    - if current_user.provider.rooms.length > 0
+                      li role="presentation"
+                        = link_to '#', class: 'select_all'
+                          .checkbox-custom
+                            input.checkbox type="checkbox" id="room_select_all" checked="checked"
+                            label for="room_select_all"
+                              span.checkbox-icon-container
+                                span.checkbox-icon
+                              span.checkbox-label Select All
+                      hr
+                    = render 'room_filter_li', provider: current_user.provider
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  a.collapsed data-toggle="collapse" data-parent="#accordion" href="#collapseFour"
+                    | Appointment Status
+                    i.fa.fa-angle-right
+              .panel-collapse.collapse id="collapseFour"
+                .panel-body
+                  ul.cpicker#status_filter
+                    - if current_user.provider.appointment_statuses.length > 0
+                      li.wocpicker role="presentation"
+                        = link_to '#', role: 'menuitem', tabindex: -1, class: 'select_all'
+                          .checkbox-custom
+                            input.checkbox type="checkbox" id="appt_status_select_all" checked="checked"
+                              label for="appt_status_select_all"
+                                span.checkbox-icon-container
+                                  span.checkbox-icon
+                                span.checkbox-label Select All
+                      hr
+                    = render 'appointment_status_filter_li', provider: current_user.provider
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  a.collapsed data-toggle="collapse" data-parent="#accordion" href="#collapseFive"
+                    | Appointment Type
+                    i.fa.fa-angle-right
+              .panel-collapse.collapse id="collapseFive"
+                .panel-body
+                  ul.cpicker#type_filter
+                    - if current_user.provider.appointment_types.length > 0
+                      li role="presentation"
+                        = link_to '#', class: 'select_all'
+                          .checkbox-custom
+                            input.checkbox type="checkbox" id="appt_type_select_all" checked="checked"
+                            label for="appt_type_select_all"
+                              span.checkbox-icon-container
+                                span.checkbox-icon
+                              span.checkbox-label Select All
+                      hr
+                    = render 'appointment_type_filter_li', provider: current_user.provider
+        .main-content.col-lg-9.col-md-8
+          .actions.pull-right
+            .buttons
+              - if policy(Appointment).create?
+                = link_to 'New Appointment', new_appointment_path, remote: true, class: 'button button-modal-open', 'data-target' => '#modal-add-appointment'
+              = select_tag :actions, options_for_select([ [''], ['Print'], ['Download CSV'] ]), 'data-placeholder': 'Actions', 'data-theme': 'green-dark', 'data-arrow': '1x', 'data-padding': '3x', 'data-font': '2x', 'data-width': '165px', class: 'select2'
+          .fc-ltr.fc-unthemed#calendar
+
+  .footer
+#modal-add-appointment.modal.fade
+#modal-new-patient.modal.fade
+#modal-new-referral.modal.fade
+#modal-show-appointment-details.modal-provider.modal.fade
+#modal-schedule-reschedule.modal.fade data-keyboard="false"
+
+javascript:
+  $(function () {
+    $('.item-schedule').parent().addClass('active');
+    var scheduleController = new ScheduleController();
+    scheduleController.initialize(#{@calendars.to_json.html_safe}, #{@settings.to_json.html_safe});
+    var filterController = new FilterController();
+    filterController.initialize(#{[current_user.provider.id].to_json.html_safe},
+                                #{current_user.provider.locations.to_json.html_safe},
+                                #{current_user.provider.rooms.map(&:id).to_json.html_safe},
+                                #{current_user.provider.appointment_statuses.map(&:id).to_json.html_safe},
+                                #{current_user.provider.appointment_types.map(&:id).to_json.html_safe})
+  });
+- if current_user.locked
+  javascript:
+    $(function () {
+      $('a[data-target="#modal-lockscreen"]').trigger('click');
+    });

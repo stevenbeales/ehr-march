@@ -1,0 +1,27 @@
+$('#modal-patient-immunization-vaccine').html('<%= escape_javascript(render 'immunization', type_general: 'Administered', type: 'Add') %>')
+
+$(function initModal() {
+  initPickers('#modal-patient-immunization-vaccine');
+  initSelect2('#modal-patient-immunization-vaccine');
+
+  if(!$('#modal-patient-immunization-vaccine').hasClass('in'))
+    $('#modal-patient-immunization-vaccine').modal("show")
+
+  $(function() {
+    $('#modal-patient-immunization-vaccine .immunization-name').click(function(e) {
+        if($(this).prop('checked')) {
+          $.ajax({
+            url: '<%= Rails.application.routes.url_helpers.name_block_immunizations_path(immunization: { patient_id: @patient.id }) %>',
+            data: {
+              type_general: $(this).val(),
+              type: 'Add'
+            }
+          }).done(function(partial) {
+            $('#immunization-container').html(partial);
+            initModal();
+            repositionModal($('#modal-patient-immunization-vaccine'), false);
+          });
+        }
+      })
+  })
+});

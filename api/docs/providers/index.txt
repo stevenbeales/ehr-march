@@ -1,0 +1,492 @@
+Index
+-----
+
+Parameters:
+  * auth_token - Authentication Token
+  * page - Page pagination
+
+Request:
+  GET /providers?data[auth_token]=a26807b6f7557b4b9f4f5e537149db7a&data[page]=0
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"a26807b6f7557b4b9f4f5e537149db7a", "page"=>"0"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "appointments": [
+        {
+          "appointment_datetime": "2016-02-26T17:19:00.000+02:00",
+          "appointment_status_id": "33leedNno4Wl5n",
+          "appointment_type_id": "33lee1kkkP1yB1",
+          "colour": "4DCDC9",
+          "contact_email": "hyman.conroy@goyetteconnelly.io",
+          "contact_phone": "+13991037714",
+          "created_at": "2016-02-26T17:19:29.676+02:00",
+          "duration": "2 hours 45 min",
+          "id": "33leZF5WHMYQz5",
+          "location": "820 Sabryna Throughway",
+          "patient_id": "33leZF5fxRhntL",
+          "provider_id": "33leY1rIJ1NI2d",
+          "reason": "Voluptatum esse voluptas officiis beatae quo.",
+          "reminder": false,
+          "room_id": "33leck3u0q47LH",
+          "updated_at": "2016-02-26T17:19:29.676+02:00"
+        },
+        {
+          "appointment_datetime": "2016-02-26T17:19:00.000+02:00",
+          "appointment_status_id": "33lemTp8386v2J",
+          "appointment_type_id": "33lelPnTwSHCb5",
+          "colour": "706A39",
+          "contact_email": "jackson@nikolaus.info",
+          "contact_phone": "+17810446992",
+          "created_at": "2016-02-26T17:19:41.348+02:00",
+          "duration": "2 hours",
+          "id": "33lefs0CSH7quh",
+          "location": "1051 Hauck Camp",
+          "patient_id": "33lefs0M8MHDox",
+          "provider_id": "33leY1rIJ1NI2d",
+          "reason": "Quibusdam perferendis et accusantium et totam consequatur qui voluptatem.",
+          "reminder": true,
+          "room_id": "33lejEM47HCSNH",
+          "updated_at": "2016-02-26T17:19:41.348+02:00"
+        },
+        {
+          "appointment_datetime": "2016-02-26T17:19:00.000+02:00",
+          "appointment_status_id": "33letKpEstCXnn",
+          "appointment_type_id": "33les1fNQt8Hxb",
+          "colour": "44497D",
+          "contact_email": "breanne.treutel@reynolds.org",
+          "contact_phone": "+17570062429",
+          "created_at": "2016-02-26T17:19:50.769+02:00",
+          "duration": "1 hour",
+          "id": "33leo273ANGLND",
+          "location": "8524 Price Stream",
+          "patient_id": "33leo27CqSPiHT",
+          "provider_id": "33leY1rIJ1NI2d",
+          "reason": "Quia dolore id labore fugiat aut nesciunt doloribus libero.",
+          "reminder": false,
+          "room_id": "33leqiHcZUc9MR",
+          "updated_at": "2016-02-26T17:19:50.769+02:00"
+        }
+      ],
+      "messages": [
+        {
+          "archive": false,
+          "body": "Sunt repellat corporis et mollitia vitae.",
+          "created_at": "2016-02-26T17:19:19.023+02:00",
+          "draft": false,
+          "from_id": null,
+          "id": "33leZF4aCreDXX",
+          "read": false,
+          "subject_id": "33leZF4jswnaRn",
+          "to_id": "33leY1rRz6Wewt",
+          "updated_at": "2016-02-26T17:19:19.023+02:00",
+          "urgent": false
+        },
+        {
+          "archive": false,
+          "body": "Recusandae eveniet officia omnis nihil dolorum exercitationem.",
+          "created_at": "2016-02-26T17:19:19.144+02:00",
+          "draft": false,
+          "from_id": null,
+          "id": "33leZF4tZ1wxM3",
+          "read": false,
+          "subject_id": "33leZF53F76KGJ",
+          "to_id": "33leY1rRz6Wewt",
+          "updated_at": "2016-02-26T17:19:19.144+02:00",
+          "urgent": false
+        },
+        {
+          "archive": false,
+          "body": "Sapiente deleniti ratione sit consequatur odit delectus officia impedit.",
+          "created_at": "2016-02-26T17:19:19.220+02:00",
+          "draft": false,
+          "from_id": null,
+          "id": "33leZF5CvCFhAZ",
+          "read": false,
+          "subject_id": "33leZF5MbHP44p",
+          "to_id": "33leY1rRz6Wewt",
+          "updated_at": "2016-02-26T17:19:19.220+02:00",
+          "urgent": false
+        }
+      ],
+      "to_dos": [
+        {
+          "appointment_id": "33leZF5WHMYQz5",
+          "created_at": "2016-02-26T17:19:29.729+02:00",
+          "done": false,
+          "id": "33lefs02mByU0R",
+          "updated_at": "2016-02-26T17:19:29.729+02:00"
+        },
+        {
+          "appointment_id": "33lefs0CSH7quh",
+          "created_at": "2016-02-26T17:19:41.359+02:00",
+          "done": false,
+          "id": "33leo26tUI6ySx",
+          "updated_at": "2016-02-26T17:19:41.359+02:00"
+        },
+        {
+          "appointment_id": "33leo273ANGLND",
+          "created_at": "2016-02-26T17:19:50.865+02:00",
+          "done": false,
+          "id": "33letzPiUBGStn",
+          "updated_at": "2016-02-26T17:19:50.865+02:00"
+        }
+      ]
+    }
+  }
+
+
+Add patient
+-----------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /providers/add_patient?data[auth_token]=c2e8b926976858362f296e8dfee62d80
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"c2e8b926976858362f296e8dfee62d80"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "code": "54114",
+      "user": {
+        "id": "33lfB9wa8Q4Go7",
+        "role": "Provider"
+      }
+    }
+  }
+
+
+Download pdf
+------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * name - Patient full name
+  * birth - Patient birth date
+  * code - Activation code
+
+Request:
+  GET /providers/download_pdf?data[auth_token]=f7799894c4a98e0b16304dc986ca79be&data[name]=Mia+Cartwright&data[birth]=2016-02-26+17%3A20%3A19+%2B0200&data[code]=13247
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"f7799894c4a98e0b16304dc986ca79be", "name"=>"Mia Cartwright", "birth"=>"2016-02-26 17:20:19 +0200", "code"=>"13247"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/pdf
+
+  [binary data]
+
+
+Send invitation email
+---------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * first_name - Patient first name
+  * last_name - Patient last name
+  * birth - Patient birth date
+  * code - Activation code
+  * email - Patient email
+
+Request:
+  GET /providers/send_invite_email?data[auth_token]=9e64cac217caefa337f715305ca01779&data[first_name]=Wendell&data[last_name]=Cummings&data[birth]=2016-02-26+17%3A20%3A23+%2B0200&data[code]=54569&data[email]=jonathan.davis%40sanfordhuel.biz
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"9e64cac217caefa337f715305ca01779", "first_name"=>"Wendell", "last_name"=>"Cummings", "birth"=>"2016-02-26 17:20:23 +0200", "code"=>"54569", "email"=>"jonathan.davis@sanfordhuel.biz"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Save email message
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * to_id - User id
+  * subject_id - Subject id
+  * body - Message
+  * urgent - Boolean, if true - message is urgent
+  * commit - If "Send" message will be sent to real email
+
+Request:
+  POST /providers/save_message
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"8f35eb9ce539abf5af1a53d432a4fcec","email_message":{"to_id":"33lfIiMASbczqt","subject_id":"33lfIiMdUr56Zf","body":"Quis consequatur qui ipsam eos.","urgent":false}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfIiMnAwETTv",
+      "type": "email-messages",
+      "attributes": {
+        "id": "33lfIiMnAwETTv",
+        "subject-id": "33lfIiMdUr56Zf",
+        "to-id": "33lfIiMASbczqt",
+        "from-id": "33lfHFVHmjkGZ9",
+        "body": "Quis consequatur qui ipsam eos.",
+        "draft": true,
+        "archive": false,
+        "urgent": false,
+        "read": false
+      },
+      "links": {
+        "self": "/email-messages/33lfIiMnAwETTv"
+      }
+    }
+  }
+
+
+Get previous message
+--------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * message_id - message id
+
+Request:
+  GET /providers/prev_message?data[auth_token]=159b86000f0c43f06cfc3b891e32de0a&data[message_id]=33lfL82h1marAZ
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"159b86000f0c43f06cfc3b891e32de0a", "message_id"=>"33lfL82h1marAZ"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfL83Jk7CKnb",
+      "type": "email-messages",
+      "attributes": {
+        "id": "33lfL83Jk7CKnb",
+        "subject-id": "33lfL83TQCLhhr",
+        "to-id": "33lfJ66HA4h8WR",
+        "from-id": null,
+        "body": "Qui velit ut tenetur.",
+        "draft": false,
+        "archive": false,
+        "urgent": false,
+        "read": false
+      },
+      "links": {
+        "self": "/email-messages/33lfL83Jk7CKnb"
+      }
+    }
+  }
+
+
+Get next message
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * message_id - message id
+
+Request:
+  GET /providers/next_message?data[auth_token]=0d89d94d6370847dde690b99de368d4e&data[message_id]=33lfO2suZ1WaVX
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"0d89d94d6370847dde690b99de368d4e", "message_id"=>"33lfO2suZ1WaVX"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfO2sHqgv6sV",
+      "type": "email-messages",
+      "attributes": {
+        "id": "33lfO2sHqgv6sV",
+        "subject-id": "33lfO2sRWm4Tml",
+        "to-id": "33lfLyRAKeGF0d",
+        "from-id": null,
+        "body": "Rem quidem sint ipsum itaque veritatis dolores est facilis.",
+        "draft": false,
+        "archive": false,
+        "urgent": false,
+        "read": false
+      },
+      "links": {
+        "self": "/email-messages/33lfO2sHqgv6sV"
+      }
+    }
+  }
+
+
+Get first inbox message
+-----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /providers/first_message?data[auth_token]=a18f1686c80065f8647a9faf1ba6f83e
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"a18f1686c80065f8647a9faf1ba6f83e"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfQYYCBWOws7",
+      "type": "email-messages",
+      "attributes": {
+        "id": "33lfQYYCBWOws7",
+        "subject-id": "33lfQYYLrbYJmN",
+        "to-id": "33lfP6EZ5LhurL",
+        "from-id": null,
+        "body": "Quisquam sequi autem sint eum.",
+        "draft": false,
+        "archive": false,
+        "urgent": false,
+        "read": false
+      },
+      "links": {
+        "self": "/email-messages/33lfQYYCBWOws7"
+      }
+    }
+  }
+
+
+Update provider
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Provider id
+  * provider - Provider params
+  * user - User params
+  * patient - Patient params
+  * block_out - Block out params
+  * appointment - Appointment params
+  * referral - Referral params
+
+Request:
+  PATCH /providers/33lfRoBLh7kZSl
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"72c20885222c2b958f364dd4e6a2c3b4","provider":{"title":"Mr","first_name":"Erna","middle_name":null,"last_name":"Dooley","degree":"DDS","speciality":"Endodontics","secondary_speciality":null,"dental_licence":null,"street_address":"Dietrich Locks","suit_apt_number":"4792","city":"Port German","state":"Texas","zip":null,"practice_street_address":"Wilkinson Skyway","practice_suit_apt_number":"781","practice_city":"North Destineehaven","practice_state":"Hawaii","practice_zip":null,"expiration_date":null,"ein_tin":null,"npi":null,"dea":null,"upin":null,"nadean":null,"accepting_patient":false,"enable_online_booking":false,"biography":null,"primary_phone":null,"mobile_phone":null,"alt_email":null,"username":null},"user":{"id":"33lfRoBVNCtwN1","email":"richmond@cainward.name","password":null,"password_confirmation":null},"patient":{"id":"33lfTnboTpgBd5","user_id":"33lfTnby9upYXL","provider_id":"33lfRoBLh7kZSl","first_name":"Iva","last_name":"Rau","middle_name":null,"birth":"2006-02-26T17:20:44.322+02:00","gender":"Male","mobile_phone":"+13183906267","primary_phone":"+13012984831","code":null},"block_out":{"id":"33lfYeRFcI6pdr","time_for":"Individual Providers","block_datetime":"2016-02-26T17:20:00.000+02:00","duration":"1 hour 15 min","description":"Aut odio natus rerum ipsam facilis quisquam doloribus unde.","note":"Est accusantium ipsum rerum quos.","recurring":false,"recur_every":"magnam","range_day":"T"},"appointment":{"id":"33lfYeRPINGCY7","patient_id":"33lfTnboTpgBd5","location":"661 Paris Circles","room":{"created_at":"2016-02-26T17:20:56.063+02:00","id":"33lfaeZjoQedgx","provider_id":"33lfaeZtUVo0bD","room":"Apt. 990","updated_at":"2016-02-26T17:20:56.063+02:00"},"appointment_type":{"appt_type":"Consultation","colour":"409725","created_at":"2016-02-26T17:20:58.555+02:00","id":"33lfbrtjtqQSCx","provider_id":"33lfbrttZvZp7D","updated_at":"2016-02-26T17:20:58.555+02:00"},"reason":"Cupiditate praesentium blanditiis consequatur.","appointment_datetime":"2016-02-26T17:20:00.000+02:00","duration":"15 min","contact_email":"kraig@hermiston.co","contact_phone":"+16185002734","reminder":true,"colour":"39D894"},"referral":{"id":"33lfebnCBqHiDr","normal":"Walter","middle_name":"Edwin","last_name":"Gulgowski","individual_npi":"33-4675951","speciality":"Periodontics","phone":"+16011739392","fax":"+16482069373","email":"aurelia@cartersanford.net"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfRoBLh7kZSl",
+      "type": "providers",
+      "attributes": {
+        "id": "33lfRoBLh7kZSl",
+        "email": "richmond@cainward.name",
+        "role": "Provider",
+        "user-id": "33lfRoBVNCtwN1",
+        "title": "Mr",
+        "first-name": "Erna",
+        "middle-name": null,
+        "last-name": "Dooley",
+        "degree": "DDS",
+        "speciality": "Endodontics",
+        "street-address": "Dietrich Locks",
+        "suit-apt-number": "4792",
+        "city": "Port German",
+        "state": "Texas",
+        "zip": null,
+        "practice-street-address": "Wilkinson Skyway",
+        "practice-suit-apt-number": "781",
+        "practice-city": "North Destineehaven",
+        "practice-state": "Hawaii",
+        "practice-zip": null,
+        "primary-phone": null,
+        "mobile-phone": null,
+        "alt-email": null,
+        "username": null,
+        "secondary-speciality": null,
+        "dental-licence": null,
+        "expiration-date": null,
+        "ein-tin": null,
+        "npi": null,
+        "dea": null,
+        "upin": null,
+        "nadean": null,
+        "status": true,
+        "biography": null,
+        "accepting-patient": false,
+        "enable-online-booking": false,
+        "profile-image": {
+          "url": "/uploads/provider/profile_image/33lfRoBLh7kZSl/avatar8.jpg"
+        }
+      },
+      "links": {
+        "self": "/providers/33lfRoBLh7kZSl"
+      }
+    }
+  }
+
+
+Lock provider user
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /providers/lock?data[auth_token]=19e9bab83a3eac2f7350f4c3f9fd56fe
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"19e9bab83a3eac2f7350f4c3f9fd56fe"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Unlock provider user
+--------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * password - Current user password
+
+Request:
+  POST /providers/unlock
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"25f3fea44789166d6b9b11cfaf2fbb8a","password":"tester"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+

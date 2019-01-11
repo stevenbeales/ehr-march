@@ -1,0 +1,7 @@
+$("#modal-patient-show-authorized-representative").html("<%= escape_javascript(render 'form', type: 'View') %>")
+$("#modal-patient-show-authorized-representative").modal("show")
+
+initPickers('#modal-patient-show-authorized-representative');
+initSelect2('#modal-patient-show-authorized-representative');
+
+$('#modal-patient-show-authorized-representative input').attr('disabled', true);

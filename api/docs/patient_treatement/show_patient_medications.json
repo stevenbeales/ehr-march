@@ -1,0 +1,49 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/show_patient_medications",
+  "description": "Show patient medications",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/show_patient_medications?data[auth_token]=8bc42038186632c6e0f1ec220865e799&data[patient_id]=33lY2nExn2cY7P",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "8bc42038186632c6e0f1ec220865e799",
+          "patient_id": "33lY2nExn2cY7P"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lY0hh9cRT6zz\",\n      \"type\": \"portions\",\n      \"attributes\": {\n        \"id\": \"33lY0hh9cRT6zz\",\n        \"drug\": \"Veritatis\",\n        \"dose\": \"118 mg.\",\n        \"instruction\": \"Blue bottle chicharrones meggings sustainable letterpress twee pabst.\"\n      },\n      \"links\": {\n        \"self\": \"/portions/33lY0hh9cRT6zz\"\n      }\n    },\n    {\n      \"id\": \"33lY0hhJIWcTuF\",\n      \"type\": \"portions\",\n      \"attributes\": {\n        \"id\": \"33lY0hhJIWcTuF\",\n        \"drug\": \"Velit\",\n        \"dose\": \"384 mg.\",\n        \"instruction\": \"Swag everyday banjo portland hammock.\"\n      },\n      \"links\": {\n        \"self\": \"/portions/33lY0hhJIWcTuF\"\n      }\n    },\n    {\n      \"id\": \"33lY0hhSyblqoV\",\n      \"type\": \"portions\",\n      \"attributes\": {\n        \"id\": \"33lY0hhSyblqoV\",\n        \"drug\": \"Voluptas\",\n        \"dose\": \"351 mg.\",\n        \"instruction\": \"Banjo microdosing neutra flannel seitan fingerstache.\"\n      },\n      \"links\": {\n        \"self\": \"/portions/33lY0hhSyblqoV\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

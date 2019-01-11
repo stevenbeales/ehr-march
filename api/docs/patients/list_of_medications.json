@@ -1,0 +1,42 @@
+{
+  "resource": "Patients",
+  "http_method": "GET",
+  "route": "/patients/myhealth",
+  "description": "List of medications",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patients/myhealth?data[auth_token]=d99ce87211a1a830cb53230a023f2d9e",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "d99ce87211a1a830cb53230a023f2d9e"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33le0o81eDs99n\",\n      \"type\": \"medications\",\n      \"attributes\": {\n        \"id\": \"33le0o81eDs99n\",\n        \"diagnosis-id\": \"33ldy3cTjx8jjv\",\n        \"portion-id\": \"33le0o8BKJ1W43\",\n        \"shorthand\": \"Occupy\",\n        \"signature\": \"DtH4Fk8aInLpMzZn\",\n        \"start-date\": \"2016-02-26T16:18:27.668+02:00\",\n        \"stop-date\": \"2016-02-26T18:18:27.668+02:00\",\n        \"note\": \"Aut quibusdam qui maxime doloribus omnis et optio officiis.\"\n      },\n      \"links\": {\n        \"self\": \"/medications/33le0o81eDs99n\"\n      }\n    },\n    {\n      \"id\": \"33le0o8L0OAsyJ\",\n      \"type\": \"medications\",\n      \"attributes\": {\n        \"id\": \"33le0o8L0OAsyJ\",\n        \"diagnosis-id\": \"33ldzX2nUgKL0F\",\n        \"portion-id\": \"33le0o8UgTKFsZ\",\n        \"shorthand\": \"Gluten-free\",\n        \"signature\": \"PmPrF9HuKqTxBpLb\",\n        \"start-date\": \"2016-02-26T16:18:27.686+02:00\",\n        \"stop-date\": \"2016-02-26T18:18:27.686+02:00\",\n        \"note\": \"Provident aut possimus et qui aperiam ea.\"\n      },\n      \"links\": {\n        \"self\": \"/medications/33le0o8L0OAsyJ\"\n      }\n    },\n    {\n      \"id\": \"33le0o8eMYTcmp\",\n      \"type\": \"medications\",\n      \"attributes\": {\n        \"id\": \"33le0o8eMYTcmp\",\n        \"diagnosis-id\": \"33ldzuHN5MrqNf\",\n        \"portion-id\": \"33le0o8o2dczh5\",\n        \"shorthand\": \"Artisan\",\n        \"signature\": \"CeUnVbZg5g6bHrDu\",\n        \"start-date\": \"2016-02-26T16:18:27.838+02:00\",\n        \"stop-date\": \"2016-02-26T18:18:27.838+02:00\",\n        \"note\": \"Ea dicta suscipit enim perspiciatis.\"\n      },\n      \"links\": {\n        \"self\": \"/medications/33le0o8eMYTcmp\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

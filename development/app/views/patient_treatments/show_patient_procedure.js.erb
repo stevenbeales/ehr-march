@@ -1,0 +1,70 @@
+$("#modal-patient-show-procedure").html("<%= escape_javascript(render 'patient_show_procedure_form') %>")
+$("#modal-patient-show-procedure").modal("show")
+
+initPickers('#modal-patient-show-procedure');
+initModalFadeInOut('#modal-patient-show-procedure');
+initSelect2('#modal-patient-show-procedure');
+initModal();
+
+function initModal() {
+  var status = $('#procedure_status');
+  var addToEncounter = $('#add-to-encounter-note');
+  var encounter = $('#procedure_encounter_id');
+
+  var dateOfService = $('#procedure_date_of_service');
+  var dateOfServiceDate = $('#date_of_service_date');
+  var dateOfServiceDateContainer = $('#date_of_service_container');
+
+  var code = $('#procedure_procedure_code');
+  var toothNum = $('#procedure_tooth_table_id');
+  var status = $('#procedure_status');
+  var description = $('#procedure_description');
+  var submit = $('#modal-patient-show-procedure input[type=submit]');
+
+  function initForm() {
+    if(encounter.val()) {
+      disableControl(description);
+      disableControl(code);
+      disableControl(toothNum);
+      disableControl(status);
+      addToEncounter.addClass('disabled');
+      submit.addClass('disabled');
+    }
+  }
+  initForm();
+
+  function initDate() {
+    if(dateOfService.val()) {
+      var date = dateOfService.val().substring(0,10).split('-');
+      dateOfServiceDate.val(date[1]+'/'+date[2]+'/'+date[0]);
+    }
+  }
+  initDate();
+
+
+  function initHandlers() {
+    dateOfService.change(function(e) {
+      if($(this).val()) {
+        var date = $(this).val().substring(0,10).split('-');
+        dateOfServiceDate.val(date[1]+'/'+date[2]+'/'+date[0]);
+        dateOfServiceDateContainer.removeClass('hidden');
+      }
+      else {
+        dateOfServiceDateContainer.addClass('hidden');
+        dateOfServiceDate.val('');
+      }
+    })
+
+    status.change(function(e) {
+      if($(this).val()=='Completed') {
+        addToEncounter.removeClass('disabled');
+        dateOfService.val("<%= @procedure.created_at %>").change();
+      }
+      else {
+        addToEncounter.addClass('disabled');
+        dateOfService.val('').change();
+      }
+    })
+  }
+  initHandlers();
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tooth table API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tooth table API</h1>
+
+      <div class="article">
+        <h2>Update all teeth fields</h2>
+        <h3>PATCH /patient_treatments/update_tooth</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">patient[tooth_tables]</span>
+                </td>
+                <td>
+                  <span class="description">All 32 tooth with specific tooth field</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PATCH /patient_treatments/update_tooth</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"aedd628f29dff84f1a195bb416ce365a","patient":{"tooth_tables":[{"id":"33liufp7aZUzWl","tooth_field_id":"33liufpHGeeMR1","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufptyzFq43","tooth_field_id":"33liufq3f4PCyJ","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufqgNP0gbL","tooth_field_id":"33liufqq3UA3Vb","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufrSlolX8d","tooth_field_id":"33liufrcRtuu2t","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufsFAEWNfv","tooth_field_id":"33liufsOqJfkaB","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liuft1YeHEDD","tooth_field_id":"33liuftBEjQb7T","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liuftnx424kV","tooth_field_id":"33liuftxd9BRel","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufuaLTmvHn","tooth_field_id":"33liufuk1YwIC3","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liufvMjtXlp5","tooth_field_id":"33liufvWPyh8jL","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33livZy2Z9BWT5","tooth_field_id":"33livZyCFEKtNL","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33livZyoxYwN0N","tooth_field_id":"33livZyyde5jud","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33livZzbLyhDXf","tooth_field_id":"33livZzl23qaRv","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva0NkOS44x","tooth_field_id":"33liva0XQTbQzD","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva1A8oCucF","tooth_field_id":"33liva1JotMHWV","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva1wXDxl9X","tooth_field_id":"33liva26DJ783n","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva2ivdibgp","tooth_field_id":"33liva2sbiryb5","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva3VK3TSE7","tooth_field_id":"33liva3f08cp8N","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva4HiTEIlP","tooth_field_id":"33liva4ROYNfff","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva546sz9Ih","tooth_field_id":"33liva5Dmy8WCx","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva5qVIjzpz","tooth_field_id":"33liva60BNtMkF","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva6ctiUqNH","tooth_field_id":"33liva6mZneDHX","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva7PI8FguZ","tooth_field_id":"33liva7YyDP3op","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva8BgY0XRr","tooth_field_id":"33liva8LMd9uM7","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva8y4xlNz9","tooth_field_id":"33liva97l2uktP","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liva9kTNWEWR","tooth_field_id":"33liva9u9SfbQh","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33livaAWrnH53j","tooth_field_id":"33liwCakjdNFnn","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCbNRxyjQp","tooth_field_id":"33liwCbX8386L5","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCc9qNjZy7","tooth_field_id":"33liwCcJWSswsN","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCcwEnUQVP","tooth_field_id":"33liwCd5usdnPf","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCdidDFH2h","tooth_field_id":"33liwCdsJIOdwx","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCeV1d07Zz","tooth_field_id":"33liwCeehi9UUF","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}},{"id":"33liwCfHQ2ky7H","tooth_field_id":"33liwCfR67uL1X","tooth_field":{"b1":0,"b2":0,"b3":0,"b_bsp1":false,"b_bsp2":false,"b_bsp3":false,"b_bsp4":false,"b_bsp5":false,"b_bsp6":false,"b_bsp7":false,"b_bsp8":false,"b_bsp9":false,"l1":0,"l2":0,"l3":0,"l_bsp1":false,"l_bsp2":false,"l_bsp3":false,"l_bsp4":false,"l_bsp5":false,"l_bsp6":false,"l_bsp7":false,"l_bsp8":false,"l_bsp9":false}}]}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

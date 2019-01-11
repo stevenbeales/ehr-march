@@ -1,0 +1,67 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "POST",
+  "route": "/email_messages/create_reply",
+  "description": "Create reply message",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "name": "commit",
+      "description": "If commit == \"Send\", message will be sent to real email"
+    },
+    {
+      "scope": "email_message",
+      "name": "practice_id",
+      "description": "Practice id, if present - message will be sent to this practice, but not to the addresser"
+    },
+    {
+      "scope": "email_message",
+      "name": "message_id",
+      "description": "Message id, the message you are repling on"
+    },
+    {
+      "scope": "email_message",
+      "name": "subject_id",
+      "description": "Subject id"
+    },
+    {
+      "scope": "email_message",
+      "name": "body",
+      "description": "Message"
+    },
+    {
+      "scope": "email_message",
+      "name": "urgent",
+      "description": "Boolean, if true - message is urgent"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/email_messages/create_reply",
+      "request_body": "{\"data\":{\"auth_token\":\"036881da907b097f4b555c485c28617d\",\"commit\":\"Save\",\"email_message\":{\"practice_id\":\"33lUr4QzjuyHI3\",\"message_id\":\"33lUtBp4lKkAcN\",\"subject_id\":\"33lUtBpO7V2uQt\",\"body\":\"Quisquam excepturi alias sed nesciunt.\",\"urgent\":true}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lUtBpXnaCHL9\",\n    \"type\": \"email-messages\",\n    \"attributes\": {\n      \"id\": \"33lUtBpXnaCHL9\",\n      \"subject-id\": \"33lUtBpO7V2uQt\",\n      \"to-id\": \"33lUr4R9Q07eCJ\",\n      \"from-id\": null,\n      \"body\": \"Quisquam excepturi alias sed nesciunt.\",\n      \"draft\": true,\n      \"archive\": false,\n      \"urgent\": true,\n      \"read\": false\n    },\n    \"links\": {\n      \"self\": \"/email-messages/33lUtBpXnaCHL9\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

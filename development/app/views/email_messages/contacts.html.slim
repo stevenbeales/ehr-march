@@ -1,0 +1,32 @@
+.content
+  .container.bordered-container
+    div#tabsContainer role="tab-panel"
+      ul.nav.nav-tabs.styled
+        li.active
+          a data-toggle="tab" href="#contactsTab" role="tab" Contacts
+      .tab-content
+        #contactsTab.tab-pane.active role="tabpanel"
+          .row.controls
+            .col-lg-6.col-md-6.col-sm-6.col-xs-6
+              .input-group.input-group-custom
+                = hidden_field_tag :practice_id
+                input#find-contacts-input.form-control placeholder="Search Contacts" autocomplete="off"
+                span#find-contacts-button.input-group-addon.input-group-addon-right.input-group-addon-search
+                ul#list-of-practices
+            .col-lg-6.col-md-6.col-sm-6.col-xs-6
+              .row
+                .col-lg-8.pull-right
+                  .row
+                    .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                      a.button.button-danger.pull-right#contact-fav-button href="#"
+                        i.fa.fa-heart-o
+                    .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                      = link_to new_contact_email_messages_path, class: 'button', remote: true
+                        i.fa.fa-plus
+                        | New Contact
+          .contacts-content
+            .table-responsive
+              table.table#table-contacts
+                = render 'contacts', contacts: @contacts
+#modal-contacts-new-contact.modal.fade aria-hidden="true" role="dialog" tabindex="-1" 
+#modal-messages-new-message-in-practice.modal.fade aria-hidden="true" role="dialog" tabindex="-1" 

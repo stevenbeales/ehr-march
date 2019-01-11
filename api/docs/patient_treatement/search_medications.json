@@ -1,0 +1,49 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/medications",
+  "description": "Search medications",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "part",
+      "description": "A part of portion drug"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/medications?data[auth_token]=8d55bdc7be5c9865a071cff729a53d1c&data[part]=Volup",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "8d55bdc7be5c9865a071cff729a53d1c",
+          "part": "Volup"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lbUEbrjmNwyB\",\n      \"type\": \"medications\",\n      \"attributes\": {\n        \"id\": \"33lbUEbrjmNwyB\",\n        \"diagnosis-id\": \"33lbUEc1PrXJsR\",\n        \"portion-id\": \"33lbUEbi3hEa3v\",\n        \"shorthand\": \"Skateboard\",\n        \"signature\": \"Rh3eSwH41vJlToEo\",\n        \"start-date\": \"2016-02-26T16:14:38.809+02:00\",\n        \"stop-date\": \"2016-02-26T18:14:38.809+02:00\",\n        \"note\": \"Est deserunt eius accusantium et.\"\n      },\n      \"links\": {\n        \"self\": \"/medications/33lbUEbrjmNwyB\"\n      }\n    },\n    {\n      \"id\": \"33lbYI6Bu9SNnv\",\n      \"type\": \"medications\",\n      \"attributes\": {\n        \"id\": \"33lbYI6Bu9SNnv\",\n        \"diagnosis-id\": \"33lbYI6LaEbkiB\",\n        \"portion-id\": \"33lbYI62E4J0tf\",\n        \"shorthand\": \"Pop-up\",\n        \"signature\": \"RnAqWiIe32ZnJlKx\",\n        \"start-date\": \"2016-02-26T16:14:44.770+02:00\",\n        \"stop-date\": \"2016-02-26T18:14:44.770+02:00\",\n        \"note\": \"Dolorum ipsam at enim ea.\"\n      },\n      \"links\": {\n        \"self\": \"/medications/33lbYI6Bu9SNnv\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

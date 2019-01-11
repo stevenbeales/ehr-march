@@ -1,0 +1,106 @@
+#dashboard-wrapper.content.container
+  h4.h4-title
+    | Welcome
+    - if current_user.present?
+      span.authorization-welcome-username = current_user.patient.last_name
+  .row
+    .col-lg-9.left-block
+      - if @appointments.any?
+        .form-row-field
+          div
+            h4
+              | Upcoming appointments
+              span.appointments-count
+              | (#{@appointments.count})
+        .panel.panel-default
+          - @appointments.each do |appointment|
+            .panel-body
+              .row
+                .col-lg-2.col-md-2.col-sm-3
+                  p
+                    = appointment.try(:appointment_datetime).try(:strftime, '%b %d')
+                  p.secondary-text
+                    - differ = Time.now.day - appointment.try(:created_at).try(:day).to_i
+                    = differ == 0 ? "Today" : "#{differ} days ago"
+                .col-lg-8.col-md-8.col-sm-6.col-xs-9
+                  p
+                    = appointment.try(:reason)
+                  p.secondary-text
+                    = "Provider : #{appointment.try(:patient).try(:provider).try(:to_label)}"
+                .col-lg-2.col-md-2.col-sm-3.col-xs-3
+                  = link_to 'View', appointment_path(appointment), remote: true, class: "button pull-right"
+      .form-row-field
+        div
+          h4.h4-title
+            | Notification
+            span.notifications-count
+              = "(#{@events_count})"
+      .panel.panel-default
+        .panel-body
+          .row
+            .col-lg-1.col-sm-1.col-md-1.col-xs-2
+              .notification-icon-container
+                img.notification-icon src = image_path('icon_notificationtable-dark.svg') /
+            .col-lg-9.col-sm-7.col-md-9.col-xs-8
+              p Aug 30 ( 1h ago )
+              p.secondary-text Lab Tests Result(s) Available
+            .col-lg-2.col-sm-4.col-md-2.col-xs-2
+              a.btn-remove-notification.pull-right href="#"
+                img src = image_path('icon_notification-remove.svg') /
+        - if @message.present?
+          .panel-body
+            .row
+              .col-lg-1.col-sm-1.col-md-1.col-xs-2
+                .notification-icon-container
+                  img.notification-icon src = image_path('icon_message-dark.svg') /
+              .col-lg-9.col-sm-7.col-md-9.col-xs-8
+                p
+                  = @message.created_at.strftime('%b %d ( [hours]h ago )')
+                p.secondary-text
+                  = "New Message - #{@message.subject.try(:name)}, From: #{@message.from.person.full_name}"
+              .col-lg-2.col-sm-4.col-md-2.col-xs-2
+                a.btn-remove-notification.pull-right href="#"
+                  img src = image_path('icon_notification-remove.svg') /
+        - if @appointment.present?
+          .panel-body
+            .row
+              .col-lg-1.col-sm-1.col-md-1.col-xs-2
+                .notification-icon-container
+                  img.icon-invert-color.notification-icon src = image_path('nav-patient-appointments.svg') /
+              .col-lg-9.col-sm-7.col-md-9.col-xs-8
+                p
+                  = @appointment.appointment_datetime.strftime('%b %d ( [hours]h ago )')
+                p.secondary-text
+                  = @appointment.appointment_type.appt_type
+              .col-lg-2.col-sm-4.col-md-2.col-xs-2
+                a.btn-remove-notification.pull-right href="#"
+                  img src = image_path('icon_notification-remove.svg') /
+    .col-lg-3.right-block
+      .form-row-field
+        div
+          h4 Quick Links
+      .panel.panel-default
+        .panel-body
+          ul
+            li
+              = link_to new_appointment_patients_path, remote: true, class: 'secondary-text-dark'
+                i.fa.fa-angle-right
+                p Make an Appt
+            li
+              = link_to new_message_to_practice_email_messages_path, remote: true, class: 'secondary-text-dark'
+                i.fa.fa-angle-right
+                p Send a Message
+            li
+              a.secondary-text-dark href="#"
+                i.fa.fa-angle-right
+                p View Clinical Summanes
+            li
+              a.secondary-text-dark href="#"
+                i.fa.fa-angle-right
+                p View Lab Results
+#modal-make-an-appt.modal.fade
+.messages-wrapper
+  #modal-message-new.modal.fade
+#modal-show-appointment-details.modal-provider.modal.fade
+javascript:
+  $('.item-dashboard').parent().addClass('active');

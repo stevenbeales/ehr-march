@@ -1,0 +1,18 @@
+.authy-wrapper
+  .panel.panel-default
+    = enable_authy_form do |f|
+      .panel-header
+        h4 
+          = I18n.t('authy_verify_installation_title', {:scope => 'devise'})
+      .panel-body
+        .row
+          .col-lg-12
+            .form-group
+              = text_field_tag :token, "", :autocomplete => :off, :id => 'authy-token', class: 'form-control', placeholder: 'Token'
+      .panel-footer
+        .actions
+          .row
+            .col-lg-12
+              = submit_tag I18n.t('enable_my_account', {:scope => 'devise'}), class: 'btn btn-success'
+              .pull-right
+                = authy_request_sms_link({ class: 'btn btn-info' })

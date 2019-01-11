@@ -1,0 +1,97 @@
+$("#modal-forward-message-from-patient").html("<%= escape_javascript(render 'forward_message_from_patient_form') %>")
+$("#modal-forward-message-from-patient").modal("show")
+
+var smc = new SubjectMenuController();
+smc.initialize('#modal-forward-message-from-patient');
+
+var PracticeSearchController = function() {
+  var id_input;
+  var search_input;
+  var search_button;
+  var search_list;
+  var url ;
+
+  var liFocusIn = false;
+
+  this.initialize = function(id, input, button, list, path) {
+    id_input = $(id);
+    search_input = $(input);
+    search_button = $(button);
+    search_list = $(list);
+    url = path;
+    initFind10Click();
+    initSearchOnInput();
+  };
+
+  var initKeyDownListeners = function() {
+    search_input.on('keydown', function(e) {
+      if(e.keyCode == '40' && search_list.css('display') == 'block') {
+        e.preventDefault();
+        $(search_list.find('a').first()).focus();
+        return false;
+      }
+    });
+    search_list.find('a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        search_input.val($(this).text()).change();
+        id_input.val($(this).data('id'));
+        search_list.fadeOut('fast');
+        search_input.focus();
+      })
+    });
+  };
+
+  var listFill = function(elements) {
+    if(elements.length>0)
+      search_list.css('display', 'block');
+    else
+      search_list.css('display', 'none');
+    search_list.empty();
+    for(var i in elements) {
+      var link = $('<li><a href="#" data-id="' + elements[i]['id'] + '">' + elements[i]['full_name'] + '</a></li>');
+      search_list.append(link);
+    }
+  };
+
+  var initFind10Click = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: url
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+        search_list.find('a').first().focus();
+      });
+    })
+  };
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part
+        }
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+      });
+    });
+  };
+};
+
+var practiceSearchController = new PracticeSearchController();
+practiceSearchController.initialize('input#practice_id', 'input#find-message-patients-input', 'span#find-message-patients-button', 'ul#find-message-patients-list', '<%= Rails.application.routes.url_helpers.patient_practices_email_messages_path %>');
+
+$('a#add-new-subject').click(function() {
+  var subject = $('#new_subject').val();
+  $.ajax({
+    url: '<%= Rails.application.routes.url_helpers.add_subject_email_messages_path %>',
+    data: { name: subject }
+  }).done(function(id) {
+    $('#email_message_subject_id').append('<option value="' + id + '">' + subject + '</option>');
+    $('#new_subject').val('');
+  });
+});

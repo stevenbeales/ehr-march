@@ -1,0 +1,5 @@
+$("#modal-reply-to-message-in-practice-contacts").html("<%= escape_javascript(render 'reply_to_message_in_practice_contacts_form') %>")
+$("#modal-reply-to-message-in-practice-contacts").modal("show")
+
+var smc = new SubjectMenuController();
+smc.initialize('#modal-reply-to-message-in-practice-contacts');

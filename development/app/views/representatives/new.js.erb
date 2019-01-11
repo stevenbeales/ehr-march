@@ -1,0 +1,5 @@
+$("#modal-patient-add-authorized-representative").html("<%= escape_javascript(render 'form', type: 'Add' ) %>")
+$("#modal-patient-add-authorized-representative").modal("show")
+
+initPickers('#modal-patient-add-authorized-representative');
+initSelect2('#modal-patient-add-authorized-representative');

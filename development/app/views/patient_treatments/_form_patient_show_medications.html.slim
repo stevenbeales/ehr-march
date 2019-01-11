@@ -1,0 +1,33 @@
+.modal-content
+  .modal-header
+    .row
+      .col-xs-4
+        p.title Frequently Used Rx
+      .col-xs-8
+        .row
+          p.title
+            | Record Medication (Rx)
+  .modal-body
+    .scrollable-container
+      .content
+        .row
+          .col-xs-4.left-block
+            ul
+              - @portions.each do |portion|
+                li
+                  = link_to "#{portion.drug} #{portion.dose} #{portion.instruction}", '#'
+          .col-xs-8.right-block
+            .row
+              .col-xs-12
+                .input-group-custom.input-group-search
+                  input.form-control type="text" placeholder="Search Medications" id="search-medications-input"
+                  span.input-group-addon.input-group-addon-right.input-group-addon-search id="search-medications-button"
+                  .scrollable-padding-container.fade
+                    .scrollable id="search-medications-list"
+  .modal-footer
+    .row
+      .col-xs-4.left-block
+      .col-xs-8.right-block
+        .controls
+          a.button.button-order href="#" Order
+          a.button.button-cancel href="#" data-dismiss="modal" Cancel

@@ -1,0 +1,43 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title New Patient
+    = flash[:error]
+    = simple_form_for @user, url: simple_create_patients_path, remote: true do |u|
+      = u.simple_fields_for :patient, Patient.new do |q|
+        .modal-body
+          .scrollable-container
+            .content
+              .row
+                .col-xs-12
+                  .form-group
+                    = q.input :first_name, label: false, input_html: { class: 'form-control', placeholder: 'First Name' }
+              .row
+                .col-xs-12
+                  .form-group
+                    = q.input :last_name, label: false, input_html: { class: 'form-control', placeholder: 'Last Name' }
+              .row
+                .col-xs-10
+                  .form-group
+                    = u.input :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Email Address', id: 'new_patient_contact_email' }
+                .col-xs-2
+                  .form-group
+                    .checkbox-custom.checkbox-new-patient-no-email.disabled
+                      input.checkbox type="checkbox" id="new-patient-no-email" checked="true"
+                      label for="new-patient-no-email"
+                        span.checkbox-icon
+                        span.checkbox-label No Email
+              .row
+                .col-xs-12
+                  .form-group
+                    = q.input :mobile_phone, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Contact Phone' }, as: 'tel'
+              .row
+                .col-xs-12
+                  .form-group
+                    .input-group-custom
+                      = q.input :birth, as: :date_picker, label: false, input_html: { class: 'form-control date-picker', placeholder: 'D.O.B' }
+                      span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+        .modal-footer
+          .buttons
+            = u.button :submit, 'Save', class: 'button modal-new-patient-save-changes'
+            a.button.modal-close data-target="#modal-new-patient" data-dismiss="modal" Cancel

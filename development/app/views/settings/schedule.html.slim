@@ -1,0 +1,221 @@
+.col-lg-10
+  #settings-schedule-container.right-block
+    .row-container.practice-locations
+      .bordered-container
+        - if policy(:setting).show?
+          .category-header
+            p.title Practice Locations
+            = link_to form_locations_path, class: 'button-small', remote: true
+              i.fa.fa-plus
+          .row-container.practice-locations-addresses
+            .bordered-container
+              .category-header
+                .row
+                  .col-xs-4.col-lg-4
+                    p.title Location Address
+                  .col-xs-3.col-lg-4
+                    p.title Color
+                  .col-xs-5.col-lg-4
+                    p.title Edit Location Schedule
+              .practice-locations-addresses-content
+                - current_user.provider.practice_locations.any?
+                  .content
+                    .row.row-container
+                      .col-xs-5.col-lg-4
+                        .form-group
+                          = select_tag :practice_address, options_for_select(current_user.provider.practice_locations.map{ |l| [l.location_name, l.id, { data: { color: l.colour } }] }), 'data-theme' => 'green-light', 'data-arrow' => '3x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2'
+                      .col-xs-3.col-lg-4
+                        .form-group
+                          - location = current_user.provider.practice_locations.first
+                          = simple_form_for location, url: root_path do |l|
+                            = l.input :colour, as: :minicolors, input_html: { class: 'minicolor-picker', data: { id: location.id } }
+                      .col-xs-4.col-lg-4
+                        .form-group.pull-right
+                          = link_to 'Edit', form_locations_path(id: current_user.provider.practice_locations.first.id), class: 'button button-edit', id: 'item-settings-add-edit-provider-schedule', remote: true
+        - if policy(:setting).schedule?
+          = simple_form_for current_user.provider, url: settings_update_schedule_path do |p|
+            .general
+              .category-header
+                p.title General
+              .general-content
+                .content
+                  .row-container
+                    = p.simple_fields_for :schedule_general, current_user.provider.schedule_general do |g|
+                      .row
+                        .col-lg-3
+                          .form-group
+                            = g.input :slot_size, as: :select, label: false, collection: ScheduleGeneral.time_slot_enum, selected: current_user.provider.schedule_general.slot_size, input_html: { 'data-theme' => 'green-light', 'data-arrow' => '3x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }
+                        .col-lg-9
+                          .form-group
+                            .radio-group-horizontal
+                              .row
+                                .col-xs-4
+                                  p Dim Past Appointments
+                                .col-xs-8
+                                  .radiobutton-group
+                                    .radiobutton-custom
+                                      = g.radio_button :past_apps, true
+                                      label for="provider_schedule_general_past_apps_true"
+                                        span.radio-icon
+                                        span.radio-label Yes
+                                    .radiobutton-custom
+                                      = g.radio_button :past_apps, false
+                                      label for="provider_schedule_general_past_apps_false"
+                                        span.radio-icon
+                                        span.radio-label No
+                      .content-inside
+                        .row
+                          .col-xs-4
+                            .form-group
+                              p Calendar Time Range (Military time)
+                          .col-xs-8
+                            .form-group
+                              .range-group-horizontal
+                                = g.time_select :calendar_from, { combined: true, default: Time.now, ampm: true, time_separator: "" }, { 'data-theme' => 'green-light', 'data-arrow' => '3x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }
+                                p.range-group-separator to
+                                = g.time_select :calendar_to, { combined: true, default: Time.now, ampm: true, time_separator: "" }, { 'data-theme' => 'green-light', 'data-arrow' => '3x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }
+                        .row
+                          .col-xs-12
+                            .form-group
+                              .radio-group-horizontal
+                                .row
+                                  .col-xs-4
+                                    p Schedule Outside Practice Hours
+                                  .col-xs-8
+                                    .radiobutton-group
+                                      .radiobutton-custom
+                                        = g.radio_button :outside_practice_hour, true
+                                        label for="provider_schedule_general_outside_practice_hour_true"
+                                          span.radio-icon
+                                          span.radio-label Yes
+                                      .radiobutton-custom
+                                        = g.radio_button :outside_practice_hour, false
+                                        label for="provider_schedule_general_outside_practice_hour_false"
+                                          span.radio-icon
+                                          span.radio-label No
+                        .row
+                          .col-xs-12
+                            .form-group
+                              .radio-group-horizontal
+                                .row
+                                  .col-xs-4
+                                    p Allow Multiple Appts at Same Time
+                                  .col-xs-8
+                                    .radiobutton-group
+                                      .radiobutton-custom
+                                        = g.radio_button :multiple_apps, true
+                                        label for="provider_schedule_general_multiple_apps_true"
+                                          span.radio-icon
+                                          span.radio-label Yes
+                                      .radiobutton-custom
+                                        = g.radio_button :multiple_apps, false
+                                        label for="provider_schedule_general_multiple_apps_false"
+                                          span.radio-icon
+                                          span.radio-label No
+                        .row
+                          .col-xs-12
+                            .form-group
+                              .radio-group-horizontal
+                                .row
+                                  .col-xs-7
+                                    p Allow patients to reschedule/cancel appointments from the Patient Portal?
+                                  .col-xs-5
+                                    .radiobutton-group
+                                      .radiobutton-custom
+                                        = g.radio_button :reschedule_for_patient, true
+                                        label for="provider_schedule_general_reschedule_for_patient_true"
+                                          span.radio-icon
+                                          span.radio-label Yes
+                                      .radiobutton-custom
+                                        = g.radio_button :reschedule_for_patient, false
+                                        label for="provider_schedule_general_reschedule_for_patient_false"
+                                          span.radio-icon
+                                          span.radio-label No
+                        .row
+                          .col-xs-12
+                            .patients-reschedule-time
+                              p Patients can reschedule/cancel appointments onine within
+                              = g.input :reschedule_time, as: :numeric, label: false, input_html: { class: 'form-control' }
+                              p hours of the start time of their scheduled appointment.
+            .providers-and-rooms
+              .category-header
+                p.title
+                  = "#{'Providers & ' if @practices.any?}Rooms"
+              .providers-and-rooms-content
+                .row
+                  - if @practices.any?
+                    .col-lg-9
+                      .row-container.provider-colors
+                        .bordered-container
+                          .category-header
+                            .row
+                              .col-xs-6
+                                p.title Provider
+                              .col-xs-6
+                                p.title Edit Provider Schedule
+                          .provider-colors-content
+                            .content
+                              - @practices.each do |practice|
+                                .row.row-container
+                                  .col-xs-6
+                                    .form-group
+                                      p
+                                        = practice.full_name
+                                  .col-xs-6
+                                    .form-group.pull-right
+                                      = link_to 'Edit', edit_practice_path(practice), class: 'button button-edit', id: 'item-settings-add-edit-provider-schedule', remote: true
+                  .col-lg-3
+                    .row-container.provider-rooms
+                      .bordered-container
+                        .category-header
+                          .row
+                            .col-xs-4
+                              p.title Rooms
+                            .col-xs-8
+                              = link_to '#', class: 'button-small button-add-association button-add-room'
+                                i.fa.fa-plus
+                        .provider-rooms-content
+                          .content#rooms
+            .appointment-statuses-and-types
+              .category-header
+                p.title Appointment Statuses & Types
+              .appointment-statuses-and-types-content
+                .row
+                  .col-lg-6
+                    .row-container.appointment-statuses
+                      .bordered-container
+                        .category-header
+                          .row
+                            .col-xs-5.col-lg-5
+                              p.title Status
+                            .col-xs-3.col-lg-3
+                              p.title Color
+                            .col-xs-4.col-lg-4
+                              p.title Edit Status
+                        .appointment-statuses-content
+                          .content#appointment_statuses
+                            .row.row-container
+                              .col-xs-12
+                                = link_to 'Add Status', '#', class: 'button button-add button-add-association button-add-status'
+                  .col-lg-6
+                    .row-container.appointment-types
+                      .bordered-container
+                        .category-header
+                          .row
+                            .col-xs-5.col-lg-5
+                              p.title Type
+                            .col-xs-3.col-lg-3
+                              p.title Color
+                            .col-xs-4.col-lg-4
+                              p.title Edit Type
+                        .appointment-types-content
+                          .content#appointment_types
+                            .row.row-container
+                              .col-xs-12
+                                = link_to 'Add Custom Type', '#', class: 'button button-add button-add-association button-add-type'
+            .buttons
+              = p.submit 'Save Changes', class: 'button'
+              a.button.button-cancel Cancel
+#modal-settings-add-edit-location-practice.modal.fade
+javascript:
+  $('#item-settings-schedule').parent().addClass('active');

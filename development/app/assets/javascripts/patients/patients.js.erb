@@ -1,0 +1,154 @@
+//= require application
+//= require controls
+//= require email_messages/main
+//= require_tree .
+
+$(document).ajaxStart(function(e) {
+  NProgress.start();
+});
+
+$(document).ajaxStop(function() {
+  NProgress.done();
+});
+
+$(document).ready(function() {
+  initPickers();
+  initModalsReposition(true);
+  initSelect2('.dashboard-patient-wrapper')
+
+  var AppointmentsUpcomingController = function() {
+    var actionsMenu, appointmentCheckboxes, checkAllCheckbox;
+
+    this.initialize = function() {
+      initVars();
+      initHandlers();
+    }
+
+    var initVars = function() {
+      actionsMenu = $('#actions-menu');
+      appointmentCheckboxes = $('.appointment-checkbox');
+      checkAllCheckbox = $('#check-all');
+    }
+    
+    var changeHandler = function(e) {
+      var flagTrue = false;
+      var flagFalse = false;
+      appointmentCheckboxes.each(function() {
+        if($(this).is(':checked'))
+          flagTrue = true;
+        else
+          flagFalse = true;
+      })
+      if(flagTrue) {
+        initSelect2('.dashboard-patient-wrapper');
+      }
+      else {
+        actionsMenu.select2('destroy');
+        checkAllCheckbox.prop('checked', '');
+      }
+      if(flagFalse)  {
+        checkAllCheckbox.prop('checked', '');
+      }
+      else {
+        checkAllCheckbox.prop('checked', 'checked');
+      }
+    }
+
+    var checkAllChangeHandler = function(e) {
+      if($(this).is(':checked')) {
+        $('.appointment-checkbox').each(function() {
+          $(this).prop('checked', 'checked');
+        })
+      }
+      else {
+        $('.appointment-checkbox').each(function() {
+          $(this).prop('checked', '');
+        })
+      }
+    }
+
+    var actionsMenuChangeHandler = function(e) {
+      if($(this).val()!='') {
+        e.preventDefault();
+        var checkboxes = [];
+        $('.appointment-checkbox').each(function() {
+          if($(this).is(':checked'))
+            checkboxes.push($(this).data('id'));
+        })
+
+        var ajaxDoneHandler = function(partial) {
+          if(partial) {
+            $('#appointments-upcoming').html(partial);
+            initVars();
+            initHandlers();
+          }
+        }
+        switch($(this).val()) {
+          case '0':
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.appointments_status_actions_patients_path %>',
+              data: {
+                status: 1,
+                ids: JSON.stringify(checkboxes)
+                }
+              }).done(ajaxDoneHandler)
+          break;
+          case '1':
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.appointments_status_actions_patients_path %>',
+              data: {
+                status: 4,
+                ids: JSON.stringify(checkboxes)
+                }
+              }).done(ajaxDoneHandler)
+          break;
+          case '2':
+            $.ajax({
+              url: '<%= Rails.application.routes.url_helpers.appointments_status_actions_patients_path %>',
+              data: {
+                status: 3,
+                ids: JSON.stringify(checkboxes)
+              }
+              }).done(ajaxDoneHandler)
+          break;
+        }
+      }
+      actionsMenu.val('');
+    }
+
+    var initHandlers = function() {
+      actionsMenu.select2('destroy');
+      actionsMenu.change(actionsMenuChangeHandler);
+      checkAllCheckbox.change(checkAllChangeHandler);
+      checkAllCheckbox.change(changeHandler);
+      appointmentCheckboxes.change(changeHandler);
+    }
+  }
+
+  $(function() {
+    var appointmentsUpcomingController = new AppointmentsUpcomingController();
+    appointmentsUpcomingController.initialize();
+  })
+
+
+
+  $(function() {
+    $('.button-attachment').on('click', function(e) {
+      e.preventDefault();
+      $(this).parent().find('input[type="file"]').trigger('click');
+    })
+  });
+
+  $('ul.list-messages li .col-title').each(function () {
+    $(this).click(function(){
+      var li = $(this).closest('li');
+      var ul = $(this).closest('ul');
+      if (!li.hasClass('active')){
+        $('li', $(ul)).each(function(){
+          $(this).removeClass('active');
+        });
+        li.addClass('active');
+      }
+    })
+  });
+});

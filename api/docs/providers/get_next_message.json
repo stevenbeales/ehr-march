@@ -1,0 +1,49 @@
+{
+  "resource": "Providers",
+  "http_method": "GET",
+  "route": "/providers/next_message",
+  "description": "Get next message",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "message_id",
+      "description": "message id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/providers/next_message?data[auth_token]=0d89d94d6370847dde690b99de368d4e&data[message_id]=33lfO2suZ1WaVX",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "0d89d94d6370847dde690b99de368d4e",
+          "message_id": "33lfO2suZ1WaVX"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lfO2sHqgv6sV\",\n    \"type\": \"email-messages\",\n    \"attributes\": {\n      \"id\": \"33lfO2sHqgv6sV\",\n      \"subject-id\": \"33lfO2sRWm4Tml\",\n      \"to-id\": \"33lfLyRAKeGF0d\",\n      \"from-id\": null,\n      \"body\": \"Rem quidem sint ipsum itaque veritatis dolores est facilis.\",\n      \"draft\": false,\n      \"archive\": false,\n      \"urgent\": false,\n      \"read\": false\n    },\n    \"links\": {\n      \"self\": \"/email-messages/33lfO2sHqgv6sV\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

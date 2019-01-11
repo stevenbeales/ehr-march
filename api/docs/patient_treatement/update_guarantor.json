@@ -1,0 +1,114 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "PATCH",
+  "route": "/patient_treatments/update_guarantor",
+  "description": "Update guarantor",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "guarantor",
+      "description": "Guarantor params"
+    },
+    {
+      "scope": "guarantor",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "guarantor",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "scope": "guarantor",
+      "name": "middle_name",
+      "description": "Middle name"
+    },
+    {
+      "scope": "guarantor",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "guarantor",
+      "name": "birth",
+      "description": "Birth date"
+    },
+    {
+      "scope": "guarantor",
+      "name": "gender",
+      "description": "Gender"
+    },
+    {
+      "scope": "guarantor",
+      "name": "social_number",
+      "description": "Social number"
+    },
+    {
+      "scope": "guarantor",
+      "name": "relation",
+      "description": "Relation"
+    },
+    {
+      "scope": "guarantor",
+      "name": "phone",
+      "description": "Phone number"
+    },
+    {
+      "scope": "guarantor",
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "scope": "guarantor",
+      "name": "street_address",
+      "description": "Street address"
+    },
+    {
+      "scope": "guarantor",
+      "name": "city",
+      "description": "City"
+    },
+    {
+      "scope": "guarantor",
+      "name": "state",
+      "description": "State"
+    },
+    {
+      "scope": "guarantor",
+      "name": "zip",
+      "description": "Zip"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/patient_treatments/update_guarantor",
+      "request_body": "{\"data\":{\"auth_token\":\"ce9cab055a67daf9ce51a26aa5044ea7\",\"guarantor\":{\"patient_id\":\"33lcEFNrAbQ6S3\",\"first_name\":\"Marie\",\"middle_name\":\"Jamarcus\",\"last_name\":\"Lehner\",\"birth\":\"2016-02-26T17:15:46.463+02:00\",\"gender\":\"Other\",\"social_number\":\"663489494\",\"relation\":\"Friend\",\"phone\":\"+17552994158\",\"email\":\"jacinthe.lakin@ziemannberge.org\",\"street_address\":\"9871 Camylle Dale\",\"city\":\"Sorrento\",\"state\":\"Massachusetts\",\"zip\":45506}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lcEFNhUWGjXn\",\n    \"type\": \"guarantors\",\n    \"attributes\": {\n      \"id\": \"33lcEFNhUWGjXn\",\n      \"patient-id\": \"33lcEFNrAbQ6S3\",\n      \"first-name\": \"Marie\",\n      \"middle-name\": \"Jamarcus\",\n      \"last-name\": \"Lehner\",\n      \"birth\": \"2016-02-26T17:15:46.463+02:00\",\n      \"gender\": \"Other\",\n      \"social-number\": \"663489494\",\n      \"relation\": \"Friend\",\n      \"phone\": \"+17552994158\",\n      \"email\": \"jacinthe.lakin@ziemannberge.org\",\n      \"street-address\": \"9871 Camylle Dale\",\n      \"city\": \"Sorrento\",\n      \"state\": \"Massachusetts\",\n      \"zip\": 45506\n    },\n    \"links\": {\n      \"self\": \"/guarantors/33lcEFNhUWGjXn\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

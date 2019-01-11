@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient appointment API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patient appointment API</h1>
+
+      <div class="article">
+        <h2>Create patient appointment</h2>
+        <h3>POST /patient_appointments</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">patient_appointment[provider_id]</span>
+                </td>
+                <td>
+                  <span class="description">Provider id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">patient_appointment[patient_id]</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient_appointment[date]</span>
+                </td>
+                <td>
+                  <span class="description">Appointment date</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient_appointment[location]</span>
+                </td>
+                <td>
+                  <span class="description">Location</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient_appointment[appointment_type]</span>
+                </td>
+                <td>
+                  <span class="description">Appointment type</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient_appointment[note]</span>
+                </td>
+                <td>
+                  <span class="description">Note</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient_appointment[phone]</span>
+                </td>
+                <td>
+                  <span class="description">Provider phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient_appointment[email]</span>
+                </td>
+                <td>
+                  <span class="description">Provider email</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /patient_appointments</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"51cbcc12615c865f1d4cc7b5f16955e7","patient_appointment":{"provider_id":"33lWXm2L8x3vwR","patient_id":"33lWSNTVfR4ReN","date":"2016-02-26T17:06:53.460+02:00","location":"Rodriguez Mount, 521, Torranceberg, Florida","appointment_type":"Prophy-Child","note":"Ipsam quia ducimus soluta ut. Porro laboriosam deserunt voluptate error. Voluptas eligendi consequatur veritatis. Ipsam nobis provident aliquid facilis rerum.","phone":"939-448-2078","email":"francis@willfeeney.io"}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33lWaDYMAWtOvj&quot;,
+    &quot;type&quot;: &quot;patient-appointments&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33lWaDYMAWtOvj&quot;,
+      &quot;provider-id&quot;: &quot;33lWXm2L8x3vwR&quot;,
+      &quot;patient-id&quot;: &quot;33lWSNTVfR4ReN&quot;,
+      &quot;date&quot;: &quot;2016-02-26T17:06:53.460+02:00&quot;,
+      &quot;location&quot;: &quot;Rodriguez Mount, 521, Torranceberg, Florida&quot;,
+      &quot;appointment-type&quot;: &quot;Prophy-Child&quot;,
+      &quot;note&quot;: &quot;Ipsam quia ducimus soluta ut. Porro laboriosam deserunt voluptate error. Voluptas eligendi consequatur veritatis. Ipsam nobis provident aliquid facilis rerum.&quot;,
+      &quot;phone&quot;: &quot;+19394482078&quot;,
+      &quot;email&quot;: &quot;francis@willfeeney.io&quot;
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/patient-appointments/33lWaDYMAWtOvj&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

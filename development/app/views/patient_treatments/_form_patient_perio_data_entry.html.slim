@@ -1,0 +1,142 @@
+= flash[:error]
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      .controls
+        .row
+          .col-lg-4.col-md-4
+            = select_tag :field, options_for_select([['Pocket Depth (PD)', 'pd'], ['GM', 'gm'], ['CAL', 'cal'], ['MGL', 'mgl']], field),
+            class: 'select2', 'data-theme' => 'green-dark', 'data-arrow' => '1x', 'data-padding' => '3x', 'data-font' => '1x'
+      a.close-button href="#" data-target="#modal-schedule-reschedule" data-dismiss="modal"
+    = simple_form_for patient, url: update_tooth_patient_treatments_path, remote: true do |p|
+      = p.input :id, as: :hidden, input_html: { value: patient.id }
+      = hidden_field_tag :field, field
+      .modal-body
+        .scrollable-container
+          .content
+            .table-responsive
+              table.table
+                tbody
+                  tr
+                    td.main-title-buccal rowspan="5"
+                      p.breaked Buccal
+                    td.secondary-title colspan="2"
+                    - 16.times do |i|
+                      td colspan="3"
+                        p
+                          | D&nbsp;C&nbsp;M
+                  tr
+                    td.secondary-title colspan="2"
+                      p 
+                        = field.upcase
+                    - top_teeth.each_with_index do |tooth, index|
+                      = p.simple_fields_for "tooth_tables[#{index}]", tooth do |t|
+                        = t.input :id, as: :hidden, input_html: { value: tooth.id }
+                        = t.input :tooth_field_id, as: :hidden, input_html: { value: tooth.send(field).id }
+                        = t.simple_fields_for :tooth_field, tooth.send(field) do |f|
+                          td
+                            = f.input :b1, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                          td
+                            = f.input :b2, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                          td
+                            = f.input :b3, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                  = render 'data_entry_color_dots', type_name: 'Bleed', teeth: top_teeth, field: field, p: p, field_names: %w(b_bsp1 b_bsp2 b_bsp3), color: 'red', is_bottom: false
+                  = render 'data_entry_color_dots', type_name: 'Supp.', teeth: top_teeth, field: field, p: p, field_names: %w(b_bsp4 b_bsp5 b_bsp6), color: 'yellow', is_bottom: false
+                  = render 'data_entry_color_dots', type_name: 'Plaq.', teeth: top_teeth, field: field, p: p, field_names: %w(b_bsp7 b_bsp8 b_bsp9), color: 'purple', is_bottom: false
+                  tr.separator
+                    td colspan="51"
+                  tr
+                    td.main-title-lingual rowspan="5"
+                      p.breaked Lingual
+                    td.secondary-title colspan="2"
+                    - 16.times do |i|
+                      td colspan="3"
+                        p
+                          | D&nbsp;C&nbsp;M
+                  tr
+                    td.secondary-title colspan="2"
+                      p 
+                        = field.upcase
+                    - top_teeth.each_with_index do |tooth, index|
+                      = p.simple_fields_for "tooth_tables[#{index}]", tooth do |t|
+                        = t.simple_fields_for :tooth_field, tooth.send(field) do |f|
+                          td
+                            = f.input :l1, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                          td
+                            = f.input :l2, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                          td
+                            = f.input :l3, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                  = render 'data_entry_color_dots', type_name: 'Bleed', teeth: top_teeth, field: field, p: p, field_names: %w(l_bsp1 l_bsp2 l_bsp3), color: 'red', is_bottom: false
+                  = render 'data_entry_color_dots', type_name: 'Supp.', teeth: top_teeth, field: field, p: p, field_names: %w(l_bsp4 l_bsp5 l_bsp6), color: 'yellow', is_bottom: false
+                  = render 'data_entry_color_dots', type_name: 'Plaq.', teeth: top_teeth, field: field, p: p, field_names: %w(l_bsp7 l_bsp8 l_bsp9), color: 'purple', is_bottom: false
+                  tr.numbers-top
+                    td.title colspan="3"
+                      p TOOTH
+                    - top_teeth.each_with_index do |tooth, i|
+                      td colspan="3"
+                        a.number href="#"
+                          = tooth.tooth_num
+                  tr
+                    td.main-title-buccal rowspan="5"
+                      p.breaked Buccal
+                    td.secondary-title colspan="2"
+                    - 16.times do |i|
+                      td colspan="3"
+                        p
+                          | D&nbsp;C&nbsp;M
+                  tr
+                    td.secondary-title colspan="2"
+                      p 
+                        = field.upcase
+                    - bottom_teeth.each_with_index do |tooth, index|
+                      = p.simple_fields_for "tooth_tables[#{index + 16}]", tooth do |t|
+                        = t.input :id, as: :hidden, input_html: { value: tooth.id }
+                        = t.input :tooth_field_id, as: :hidden, input_html: { value: tooth.send(field).id }
+                        = t.simple_fields_for :tooth_field, tooth.send(field) do |f|
+                          td
+                            = f.input :b1, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                          td
+                            = f.input :b2, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                          td
+                            = f.input :b3, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                  = render 'data_entry_color_dots', type_name: 'Bleed', teeth: bottom_teeth, field: field, p: p, field_names: %w(b_bsp1 b_bsp2 b_bsp3), color: 'red', is_bottom: true
+                  = render 'data_entry_color_dots', type_name: 'Supp.', teeth: bottom_teeth, field: field, p: p, field_names: %w(b_bsp4 b_bsp5 b_bsp6), color: 'yellow', is_bottom: true
+                  = render 'data_entry_color_dots', type_name: 'Plaq.', teeth: bottom_teeth, field: field, p: p, field_names: %w(b_bsp7 b_bsp8 b_bsp9), color: 'purple', is_bottom: true
+                  tr.separator
+                    td colspan="51"
+                  tr
+                    td.main-title-lingual rowspan="5"
+                      p.breaked Lingual
+                    td.secondary-title colspan="2"
+                    - 16.times do |i|
+                      td colspan="3"
+                        p
+                          | D&nbsp;C&nbsp;M
+                  tr
+                    td.secondary-title colspan="2"
+                      p 
+                        = field.upcase
+                    - bottom_teeth.each_with_index do |tooth, index|
+                      = p.simple_fields_for "tooth_tables[#{index + 16}]", tooth do |t|
+                        = t.simple_fields_for :tooth_field, tooth.send(field) do |f|
+                          td
+                            = f.input :l1, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                          td
+                            = f.input :l2, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                          td
+                            = f.input :l3, label: false, disabled: !tooth.active, input_html: { class: 'input-tooth', maxlength: 1 }
+                  = render 'data_entry_color_dots', type_name: 'Bleed', teeth: bottom_teeth, field: field, p: p, field_names: %w(l_bsp1 l_bsp2 l_bsp3), color: 'red', is_bottom: true
+                  = render 'data_entry_color_dots', type_name: 'Supp.', teeth: bottom_teeth, field: field, p: p, field_names: %w(l_bsp4 l_bsp5 l_bsp6), color: 'yellow', is_bottom: true
+                  = render 'data_entry_color_dots', type_name: 'Plaq.', teeth: bottom_teeth, field: field, p: p, field_names: %w(l_bsp7 l_bsp8 l_bsp9), color: 'purple', is_bottom: true
+                  tr.numbers-bottom
+                    td.title colspan="3"
+                      p TOOTH
+                    - bottom_teeth.each do |tooth|
+                      td colspan="3"
+                        a.number href="#"
+                          = tooth.tooth_num
+      .modal-footer
+        .controls
+          - if policy(:chart).perio_update?
+            = p.submit 'Save', class: 'button'
+          a.button href="#" data-dismiss="modal" Cancel

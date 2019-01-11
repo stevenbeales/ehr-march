@@ -1,0 +1,7 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      p.title Immunizations (#{type} Vaccine)
+      a.close-button href="#" data-dismiss="modal"
+    #immunization-container
+      = render 'form', type_general: type_general, type: type

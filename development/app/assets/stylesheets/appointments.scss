@@ -1,0 +1,303 @@
+$grid-float-breakpoint: 0px;
+$green: #41b6a6;
+$greendark: #2e877b;
+$greenlight: rgba(65,182,166, 0.49);
+$greenregular: #417505;
+$greendarksecondary: #22645b;
+$greenhighlight: rgba(59, 167, 153, 0.07);
+$blue: #4cb8db;
+$orange: #fe8f00;
+$orangelight: #F0AD4E;
+$red: #d64841;
+$redregular: #D0021B;
+$gray: #f2f2f2;
+$graytext: #74757e;
+$graymedium: #7D7D7D;
+$graytextdark: #4A4A4A;
+$graylight: #EDEDED;
+$confirmed: #5BB85C;
+$unconfirmed: #D9534E;
+
+#modal-add-appointment {
+  .modal-dialog,
+  .modal-content {
+    min-width: 0 !important;
+  }
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        padding-top: 16px;
+        .button {
+          width: auto;
+        }
+        .nav-tabs {
+          border-bottom: 1px solid $green;
+          li {
+            border-radius: 3px 3px 0 0;
+            a {
+              background-color: transparent;
+              color: $green;
+              padding: 7px 14px 5px 15px;
+              font-size: 16px;
+              border: 0;
+              transition: background-color 0.2s, color 0.2s;
+            }
+            &:hover,
+            &:focus,
+            &:active {
+              a {
+                background-color: $green;
+                color: #fff;
+              }
+            }
+            &.active {
+              a {
+                background-color: $green;
+                color: #fff;
+              }
+            }
+          }
+        }
+        .tab-pane {
+          .content {
+            padding-top: 20px;
+          }
+          .select-styled {
+            margin-top: 0;
+          }
+          textarea {
+            resize: none;
+          }
+          .checkbox-label {
+            color: $graytext;
+            text-transform: none;
+          }
+          .checkbox-blockout-recurring  {
+            @media(max-width: 450px) {
+              .checkbox-icon-container,
+              .checkbox-label {
+                display: block;
+              }
+              .checkbox-label {
+                padding-left: 0;
+              }
+            }
+            .checkbox-label {
+              left: 43px;
+              top: 2px;
+            }
+          }
+        }
+        #tab-appointment {
+          .dropdown-custom.dropdown {
+            &:not(.dropup) {
+              .dropdown-menu {
+                margin-top: 3px !important;
+              }
+            }
+            &.dropup {
+              .dropdown-menu {
+                margin-bottom: 3px !important;
+              }
+            }
+            .dropdown-menu {
+              li a {
+                font-size: 15px;
+              }
+            }
+            .input-group-addon-search {
+              right: 1px !important;
+            }
+          }
+        }
+        #tab-blockout {
+          .input-group-custom {
+            .input-group-addon-left {
+              width: auto;
+              padding: 14px 50px 13px 20px;
+            }
+            .input-group-addon-right {
+              width: auto;
+              padding: 14px 26px 13px 24px;
+            }
+            &.reccur-every {
+              display: table;
+              .input-group-addon {
+                cursor: default;
+              }
+              .form-control {
+                padding-left: 184px !important;
+              }
+              .input-group-addon-left {
+                display: table-cell;
+                position: relative;
+                top: 0;
+                left: 0;
+                border-radius: 3px 0 0 3px !important;
+              }
+              .block_out_recur_every {
+                display: table-cell;
+                .form-control {
+                  display: table-cell;
+                  padding-left: 10px !important;
+                  padding-right: 10px !important;
+                  border-radius: 0;
+                  padding-left: 0;
+                  padding-right: 0;
+                }
+              }
+              .input-group-addon-right {
+                display: table-cell;
+                position: relative;
+                border-radius: 0 3px 3px 0 !important;
+                top: 0;
+                right: 0;
+              }
+              @media(max-width: 500px) {
+                .input-group-addon {
+                  padding-left: 10px !important;
+                  padding-right: 10px !important;
+                }
+              }
+            }
+          }
+          .recurring-radio-buttons .radiobutton-custom:not(:first-child) {
+            margin-top: 13px;
+          }
+          .recurring-radio-buttons {
+            @media(max-width: 400px) {
+              .radiobutton-custom label .radio-icon {
+                display: block;
+              }
+              .radiobutton-custom .radio-label {
+                padding-left: 0;
+              }
+            }
+          }
+          .recurring-checkboxes .checkbox-custom {
+              display: inline-block;
+              label {
+                vertical-align: top;
+              }
+              .checkbox-label {
+                position: relative;
+                padding: 3px;
+              }
+            }
+          textarea {
+            height: 120px !important;
+          }
+        }
+        .button {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+#modal-show-appointment-details {
+  .form-control,
+  .select2-container .select2-selection--single .select2-selection__rendered,
+  .select2-container .select2-results .select2-results__options .select2-results__option:not(.select2-results__option--highlighted) {
+    color: $graytextdark !important;
+  }
+  .input-group-custom.addon-left .input-group-addon {
+    color: #000 !important;
+  }
+  .modal-dialog {
+    .modal-header {
+      .close-button {
+        right: 10px;
+        top: 3px;
+        background-image: asset_url('close-button-white.svg');
+        &:hover {
+          background-image: asset_url('close-button-white.svg');
+          opacity: 0.75;
+        }
+      }
+    }
+    .modal-body {
+      .row.separated {
+        border-bottom: 1px solid $green;
+        margin-bottom: 20px;
+      }
+      .input-group-custom {
+        .input-group-addon {
+          width: 118px;
+          left: 0;
+          position: inherit;
+          padding: 0 15px;
+          vertical-align: middle;
+          cursor: default;
+          text-align: left;
+          border: 1px solid #DEDEDE;
+          border-radius: 3px 0 0 3px !important;
+        }
+        .form-control {
+          border-radius: 0 3px 3px 0;
+          padding-left: 20px;
+          padding-right: 20px !important;
+        }
+        .select2-container .select2-selection {
+          border-radius: 0 3px 3px 0;
+        }
+        div {
+          width: 100%;
+          display: table-cell;
+        }
+        .select-styled:not(:first-child) {
+          .select {
+            display: block;
+            select {
+              border-radius: 0 3px 3px 0;
+            }
+          }
+        }
+      }
+      select,
+      .form-control,
+      .input-group-addon {
+        height: 45px;
+        top: 0;
+        left: 15px;
+        color: #7D7D7D;
+        &.confirmed {
+          background-color: $confirmed;
+          border: 0;
+          & {
+            color: #fff;
+          }
+        }
+      }
+    }
+    .modal-footer {
+      .controls * {
+        display: inline-block;
+        margin: 0;
+        &:not(:first-child) {
+          margin-left: 13px;
+        }
+        &.button.appt-button-edit,
+        &.button.appt-button-save {
+          width: 68px;
+        }
+        &.button.appt-button-reshedule {
+          width: 102px;
+        }
+        &.button.appt-button-cancel {
+          width: 165px;
+        }
+      }
+    }
+  }
+}
+
+#select2-show-appointment-status-results,
+#select2-show-provider-id-results,
+#select2-show-provider-second-id-results,
+#select2-show-patient-id-results {
+  .select2-results__option:not(.select2-results__option--highlighted) {
+    color: $graytextdark !important;
+  }
+}

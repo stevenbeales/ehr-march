@@ -1,0 +1,56 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/search_patients",
+  "description": "Search patient",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "page",
+      "description": "Pagination, page number"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "part",
+      "description": "A part of first name or last name of a patient"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/search_patients?data[auth_token]=d750353ccd552bc9de922b4f8b74abda&data[page]=0&data[part]=Dav",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "d750353ccd552bc9de922b4f8b74abda",
+          "page": "0",
+          "part": "Dav"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lX6Kxv332beV\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lX6Kxv332beV\",\n        \"email\": \"katelyn.crist@green.io\",\n        \"role\": \"Patient\",\n        \"first-name\": \"David\",\n        \"middle-name\": null,\n        \"last-name\": \"Markus\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+17164173959\",\n        \"primary-phone\": \"+15996515623\",\n        \"code\": null,\n        \"social-number\": \"429698748\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lX6Kxv332beV/avatar8.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lX6Kxv332beV\"\n      }\n    },\n    {\n      \"id\": \"33lXE3Fbn092Z9\",\n      \"type\": \"patients\",\n      \"attributes\": {\n        \"id\": \"33lXE3Fbn092Z9\",\n        \"email\": \"roosevelt@davis.io\",\n        \"role\": \"Patient\",\n        \"first-name\": \"Glory\",\n        \"middle-name\": null,\n        \"last-name\": \"Daviand\",\n        \"gender\": \"Male\",\n        \"mobile-phone\": \"+18891841135\",\n        \"primary-phone\": \"+14854322587\",\n        \"code\": null,\n        \"social-number\": \"864842175\",\n        \"active\": true,\n        \"declined-portal-access\": null,\n        \"preferred-language\": null,\n        \"ethnicity\": \"Hispanic of Latino\",\n        \"american-race\": null,\n        \"asian-race\": null,\n        \"african-race\": null,\n        \"hawaiian-race\": null,\n        \"white-race\": null,\n        \"undetermined-race\": null,\n        \"email-reminder\": null,\n        \"sms-reminder\": null,\n        \"immunization-registry\": \"NotSend\",\n        \"work-phone\": null,\n        \"ext\": null,\n        \"street-address\": null,\n        \"city\": null,\n        \"state\": null,\n        \"zip\": null,\n        \"profile-image\": {\n          \"url\": \"/uploads/patient/profile_image/33lXE3Fbn092Z9/avatar11.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/patients/33lXE3Fbn092Z9\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

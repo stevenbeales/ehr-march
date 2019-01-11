@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="22px" height="32px" viewBox="0 0 22 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: bin/sketchtool 1.4 (305) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 177</title>
+    <desc>Created with bin/sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Patients---Dashboard" sketch:type="MSArtboardGroup" transform="translate(-871.000000, -12.000000)" fill="#FFFFFF">
+            <g id="menu" sketch:type="MSLayerGroup" transform="translate(384.000000, 0.000000)">
+                <g id="Menu-Items-Copy-+-Group" transform="translate(13.000000, 12.000000)" sketch:type="MSShapeGroup">
+                    <g id="Menu-Items-Copy">
+                        <path d="M494,25.5 C494,27.985 491.802,30 489.091,30 L480.909,30 C478.198,30 476,27.985 476,25.5 L476,22.5 C476,20.374 477.613,18.604 479.775,18.133 C481.25,19.304 483.05,20 485,20 C486.95,20 488.75,19.304 490.225,18.133 C492.387,18.604 494,20.374 494,22.5 L494,25.5 L494,25.5 Z M478,10 C478,5.582 481.134,2 485,2 C488.866,2 492,5.582 492,10 C492,14.418 488.866,18 485,18 C481.134,18 478,14.418 478,10 L478,10 Z M491.951,16.353 C493.23,14.625 494,12.412 494,10 C494,4.478 489.971,0 485,0 C480.029,0 476,4.478 476,10 C476,12.412 476.77,14.625 478.049,16.353 C475.699,17.165 474,19.373 474,22 L474,26 C474,29.313 476.687,32 480,32 L490,32 C493.313,32 496,29.313 496,26 L496,22 C496,19.373 494.301,17.165 491.951,16.353 L491.951,16.353 Z" id="Fill-177"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

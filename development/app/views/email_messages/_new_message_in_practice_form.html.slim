@@ -1,0 +1,61 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      p.title New Message (In Practice)
+    = flash[:error]
+    = simple_form_for EmailMessage.new, url: create_to_practice_email_messages_path, remote: true do |f|
+      .modal-body
+        .scrollable-container
+          .content
+            .row
+              .col-lg-12
+                .form-group
+                  .dropdown-custom
+                    .input-group.input-group-custom
+                      span.input-group-addon To:
+                      = f.input :practice_id, as: :hidden, input_html: { value: (@practice.id if @practice.present?) }
+                      input#find-message-practice-staff-input.form-control placeholder="Search Practice Staff" autocomplete="off" value=(@practice.full_name if @practice.present?)
+                      span#find-message-practice-staff-button.input-group-addon.input-group-addon-right.input-group-addon-search
+                      ul.dropdown-menu id="find-message-practice-staff-list"
+            .row
+              .col-lg-12
+                .form-group
+                  .input-group.input-group-custom
+                    span.input-group-addon From:
+                    input.form-control type="text" readonly="readonly" tabindex="-1" value="#{current_user.provider.title}. #{current_user.provider.full_name}"
+            .row
+              .col-lg-12
+                .form-group
+                  .dropdown-custom
+                    .input-group.input-group-custom
+                      span.input-group-addon To Patient:
+                      = f.input :patient_id, as: :hidden, input_html: { value: '' }
+                      input#find-message-patients-input.form-control placeholder="Search Patients" autocomplete="off"
+                      span#find-message-patients-button.input-group-addon.input-group-addon-right.input-group-addon-search
+                      ul.dropdown-menu id="find-message-patients-list"
+            .row
+              .col-lg-12
+                .form-group-large
+                  = f.input :subject_id, as: :hidden
+                  .input-group.input-group-custom.input-group-subject
+                    span.input-group-addon Subject:
+                    a.form-control#subject-button href="#"
+                    #subjects-container
+                      ul.dropdown-menu#subjects-list
+                      .controls
+                        input.form-control#subject-add-input type="text" placeholder="Add New Subject"
+                        a.button#subject-add-button href="#" Add
+            .row
+              .col-lg-12
+                = f.input :body, as: :text, input_html: { class: 'form-control', rows: 4, placeholder: 'Message:' }
+      .modal-footer
+        .controls
+          .checkbox-custom.checkbox-custom-danger.checkbox-urgent
+            = f.check_box :urgent, class: 'checkbox'
+            label for="email_message_urgent"
+              span.checkbox-icon-container
+                span.checkbox-icon
+              span.checkbox-label Urgent
+          = f.submit 'Send', class: 'button button-send'
+          = f.submit 'Save', class: 'button button-save'
+          a.button.button-cancel data-dismiss="modal" Cancel

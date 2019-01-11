@@ -1,0 +1,49 @@
+{
+  "resource": "Providers",
+  "http_method": "GET",
+  "route": "/providers/prev_message",
+  "description": "Get previous message",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "message_id",
+      "description": "message id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/providers/prev_message?data[auth_token]=159b86000f0c43f06cfc3b891e32de0a&data[message_id]=33lfL82h1marAZ",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "159b86000f0c43f06cfc3b891e32de0a",
+          "message_id": "33lfL82h1marAZ"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lfL83Jk7CKnb\",\n    \"type\": \"email-messages\",\n    \"attributes\": {\n      \"id\": \"33lfL83Jk7CKnb\",\n      \"subject-id\": \"33lfL83TQCLhhr\",\n      \"to-id\": \"33lfJ66HA4h8WR\",\n      \"from-id\": null,\n      \"body\": \"Qui velit ut tenetur.\",\n      \"draft\": false,\n      \"archive\": false,\n      \"urgent\": false,\n      \"read\": false\n    },\n    \"links\": {\n      \"self\": \"/email-messages/33lfL83Jk7CKnb\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient treatement API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patient treatement API</h1>
+
+      <div class="article">
+        <h2>Update guarantor</h2>
+        <h3>PATCH /patient_treatments/update_guarantor</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">guarantor</span>
+                </td>
+                <td>
+                  <span class="description">Guarantor params</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">guarantor[patient_id]</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[first_name]</span>
+                </td>
+                <td>
+                  <span class="description">First name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[middle_name]</span>
+                </td>
+                <td>
+                  <span class="description">Middle name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[last_name]</span>
+                </td>
+                <td>
+                  <span class="description">Last name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[birth]</span>
+                </td>
+                <td>
+                  <span class="description">Birth date</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[gender]</span>
+                </td>
+                <td>
+                  <span class="description">Gender</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[social_number]</span>
+                </td>
+                <td>
+                  <span class="description">Social number</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[relation]</span>
+                </td>
+                <td>
+                  <span class="description">Relation</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[phone]</span>
+                </td>
+                <td>
+                  <span class="description">Phone number</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[email]</span>
+                </td>
+                <td>
+                  <span class="description">Email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[street_address]</span>
+                </td>
+                <td>
+                  <span class="description">Street address</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[city]</span>
+                </td>
+                <td>
+                  <span class="description">City</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[state]</span>
+                </td>
+                <td>
+                  <span class="description">State</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">guarantor[zip]</span>
+                </td>
+                <td>
+                  <span class="description">Zip</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PATCH /patient_treatments/update_guarantor</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"ce9cab055a67daf9ce51a26aa5044ea7","guarantor":{"patient_id":"33lcEFNrAbQ6S3","first_name":"Marie","middle_name":"Jamarcus","last_name":"Lehner","birth":"2016-02-26T17:15:46.463+02:00","gender":"Other","social_number":"663489494","relation":"Friend","phone":"+17552994158","email":"jacinthe.lakin@ziemannberge.org","street_address":"9871 Camylle Dale","city":"Sorrento","state":"Massachusetts","zip":45506}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33lcEFNhUWGjXn&quot;,
+    &quot;type&quot;: &quot;guarantors&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33lcEFNhUWGjXn&quot;,
+      &quot;patient-id&quot;: &quot;33lcEFNrAbQ6S3&quot;,
+      &quot;first-name&quot;: &quot;Marie&quot;,
+      &quot;middle-name&quot;: &quot;Jamarcus&quot;,
+      &quot;last-name&quot;: &quot;Lehner&quot;,
+      &quot;birth&quot;: &quot;2016-02-26T17:15:46.463+02:00&quot;,
+      &quot;gender&quot;: &quot;Other&quot;,
+      &quot;social-number&quot;: &quot;663489494&quot;,
+      &quot;relation&quot;: &quot;Friend&quot;,
+      &quot;phone&quot;: &quot;+17552994158&quot;,
+      &quot;email&quot;: &quot;jacinthe.lakin@ziemannberge.org&quot;,
+      &quot;street-address&quot;: &quot;9871 Camylle Dale&quot;,
+      &quot;city&quot;: &quot;Sorrento&quot;,
+      &quot;state&quot;: &quot;Massachusetts&quot;,
+      &quot;zip&quot;: 45506
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/guarantors/33lcEFNhUWGjXn&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

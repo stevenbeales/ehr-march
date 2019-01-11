@@ -1,0 +1,279 @@
+$grid-float-breakpoint: 0px;
+$green: #41b6a6;
+$greendark: #2e877b;
+$greenlight: rgba(65,182,166, 0.49);
+$greenregular: #417505;
+$greendarksecondary: #22645b;
+$greenhighlight: rgba(59, 167, 153, 0.07);
+$blue: #4cb8db;
+$orange: #fe8f00;
+$orangelight: #F0AD4E;
+$red: #d64841;
+$redregular: #D0021B;
+$gray: #f2f2f2;
+$graytext: #74757e;
+$graymedium: #7D7D7D;
+$graytextdark: #4A4A4A;
+$graylight: #EDEDED;
+$confirmed: #5BB85C;
+$unconfirmed: #D9534E;
+
+#modal-patient-immunizations,
+  #modal-patient-immunization-vaccine {
+    .modal-dialog {
+      .modal-content {
+        .modal-header {
+          height: 50px;
+          .title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 50px;
+            padding: 0 60px 0 30px;
+            margin-bottom: 0;
+          }
+          .close-button {
+            right: 10px;
+            top: 13px;
+            background-image: asset_url('close-button-white.svg');
+            &:hover {
+              background-image: asset_url('close-button-white.svg');
+              opacity: 0.75;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #modal-patient-immunizations {
+    .modal-dialog,
+    .modal-content {
+      width: 1179px;
+    }
+    .modal-dialog {
+      .modal-content {
+        .modal-body {
+          padding-top: 15px;
+          .content {
+            padding: 0 20px 34px 20px;
+          }
+          .slimScrollDiv .content {
+            padding-right: 30px;
+          }
+          .controls {
+            margin: -7px -7px 7px -7px;
+            text-align: right;
+            a.button,
+            .select2.select2-container {
+              display: inline-block;
+              font-size: 15px;
+              margin: 7px 7px;
+            }
+          }
+          .table-responsive {
+            border-radius: 3px;
+            border: 1px solid $green;
+            table.table {
+              margin: 0;
+              thead {
+                background-color: $green;
+                tr {
+                  th {
+                    padding: 0 40px 0 40px;
+                    border-bottom: 0;
+                    a {
+                      line-height: 50px;
+                      white-space: nowrap;
+                      font-size: 15px;
+                      color: #fff;
+                      font-weight: normal;
+                      &:after {
+                        content: "\f107";
+                        position: relative;
+                        top: 2px;
+                        left: 10px;
+                        display: inline-block;
+                        font: normal normal normal 14px/1 FontAwesome;
+                        font-size: 20px;
+                        text-rendering: auto;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                      }
+                    }
+                  }
+                }
+              }
+              tbody {
+                tr {
+                  &:hover,
+                  &:focus,
+                  &:active {
+                    a {
+                      color: $green;
+                      text-decoration: underline !important;
+                    }
+                  }
+                  &:first-child td {
+                    padding-top: 20px;
+                  }
+                  &:last-child td {
+                    padding-bottom: 20px;
+                  }
+                  td {
+                    padding: 5px 40px;
+                    border-top: 0;
+                    a {
+                      font-size: 16px;
+                      color: $graytextdark;
+                      transition: color 0.2s;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .modal-footer {
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  #modal-patient-immunization-vaccine {
+    .modal-dialog,
+    .modal-content {
+      width: 750px;
+    }
+    .modal-dialog {
+      .modal-content {
+        border: 1px solid $green;
+          border-radius: 3px !important;
+        .modal-body {
+          padding-top: 20px;
+          padding-bottom: 20px;
+          .content {
+            padding: 8px 20px 0 20px;
+          }
+          .slimScrollDiv .content {
+            padding-right: 30px;
+          }
+          .dropdown-menu {
+            width: 100%;
+            border-color: $green;
+            background: #fff;
+            max-height: 200px;
+            overflow-y: auto;
+            li {
+              height: 45px;
+              a {
+                padding-left: 15px;
+                padding-right: 15px;
+                transition: background 0.2s, border-color 0.2s, color 0.2s;
+                &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                  background: $green;
+                  color: #fff;
+                }
+              }
+            }
+          }
+          .vaccine-types-radio-buttons {
+            margin: -5px -12px 15px -12px;
+            .radiobutton-custom {
+              display: inline-block;
+              font-size: 0;
+              margin: 5px 12px;
+              label .radio-icon {
+                background-color: #F5F5F5;
+              }
+            }
+          }
+          .input-group-custom.input-group-green {
+            .input-group-addon-right {
+              background-color: $green;
+              right: 1px;
+              border-radius: 0 !important;
+              &.input-group-addon-small {
+                width: 50px;
+              }
+              &.input-group-addon-large {
+                width: 67px;
+                top: 33px;
+                right: 11px;
+              }
+            }
+          }
+          .title,
+          .log-container .log-record {
+            margin-left: 5px;
+            font-size: 16px;
+            color: $graytext;
+            span {
+              color: $unconfirmed;
+            }
+            a {
+              &,
+              &:hover,
+              &:focus,
+              &:active,
+              &.active {
+                color: $green;
+                text-decoration: underline !important;
+                transition: opacity 0.2s;
+              }
+              &:hover,
+              &:focus,
+              &:active,
+              &.active {
+                opacity: 0.75;
+              }
+            }
+          }
+          .title-bolder {
+            color: $graytext;
+            margin: 0;
+            padding: 11px 0;
+            font-size: 16px;
+            font-family: 'SF UI Text Bold';
+            text-transform: uppercase;
+          }
+          textarea.form-control {
+            height: 131px !important;
+            resize: none;
+          }
+          .log-container {
+            .title {
+              margin-bottom: 20px;
+            }
+          }
+          .row {
+            margin-left: -10px;
+            margin-right: -10px;
+            div[class*='col-'] {
+              padding-left: 10px;
+              padding-right: 10px;
+            }
+          }
+          .row .form-group {
+            margin-bottom: 10px;
+          }
+          .row:last-child .form-group {
+            margin-bottom: 0;
+          }
+        }
+        .modal-footer {
+          padding: 10px 20px 30px 20px;
+          .controls {
+            margin: -7px;
+            .button {
+              margin: 7px;
+            }
+          }
+        }
+      }
+    }
+  }

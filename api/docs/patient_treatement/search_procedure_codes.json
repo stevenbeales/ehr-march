@@ -1,0 +1,49 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/procedure_codes",
+  "description": "Search procedure codes",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "part",
+      "description": "A part of procedure code"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/procedure_codes?data[auth_token]=a9c53c11f6b3eb1b45dc56f415a24592&data[part]=D51",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "a9c53c11f6b3eb1b45dc56f415a24592",
+          "part": "D51"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"procedure_codes\": [\n      {\n        \"procedure\": \"Complete Denture - Maxillary\",\n        \"code\": \"D5110\"\n      },\n      {\n        \"procedure\": \"Complete Denture - Mandibular\",\n        \"code\": \"D5120\"\n      },\n      {\n        \"procedure\": \"Immediate Denture - Maxillary\",\n        \"code\": \"D5130\"\n      }\n    ]\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+thead
+  tr
+    - if @appointments_upcoming.any?
+      th
+        .checkbox-custom
+          input.checkbox type="checkbox" id="check-all"
+          label for="check-all"
+            span.checkbox-icon
+    th
+      p Date
+    th
+      p Time
+    th
+      p ApptType
+    th
+      p Prov
+    th
+      p Status
+tbody
+  - if !@appointments_upcoming.any?
+    tr
+      td colspan="5"
+        p.table-empty You doesn't have any upcoming appointments.
+  - @appointments_upcoming.each_with_index do |appointment, i|
+    tr
+      td
+        .checkbox-custom
+          input.checkbox.appointment-checkbox type="checkbox" id="appointment_checkbox_#{i}" data-id="#{appointment.id}"
+          label for="appointment_checkbox_#{i}"
+            span.checkbox-icon
+      td
+        p
+          = appointment.try(:appointment_datetime).try(:strftime, '%m/%d/%Y')
+      td
+        p
+          = local_time(appointment.appointment_datetime, '%l:%M %p')
+      td
+        p
+          = appointment.appointment_type.try(:appt_type)
+      td
+        p
+          = "#{appointment.try(:patient).try(:provider).try(:title)}. #{appointment.try(:patient).try(:provider).try(:first_name)} #{appointment.try(:patient).try(:provider).try(:last_name)}"
+      td
+        p
+          = appointment.appointment_status.try(:name)

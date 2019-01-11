@@ -1,0 +1,49 @@
+{
+  "resource": "Appointments",
+  "http_method": "GET",
+  "route": "/appointments/reschedule",
+  "description": "Set appointment status to reschedule",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Appointment id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/appointments/reschedule?data[auth_token]=0060e9d045e30f52e6f3add0a221248e&data[id]=33lQ9akk1faVAh",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "0060e9d045e30f52e6f3add0a221248e",
+          "id": "33lQ9akk1faVAh"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+= hidden_field_tag :model_name, class_name.to_s
+- fields.each do |field, configs|
+  .row
+    .col-lg-12
+      .form-group
+        = input(f, field, configs[:type], class_name)
+- associations.each do |class_name, target_name|
+  .row
+    .col-lg-12
+      .form-group
+        = f.input "#{target_name.to_s}_id", as: :select, collection: class_name.constantize.all.to_a, input_html: { 'data-placeholder': class_name, 'data-theme': 'gray-lighter', 'data-arrow': '2x', 'data-padding': '3x', 'data-font': '1x', class: 'select2' }

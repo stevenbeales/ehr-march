@@ -1,0 +1,94 @@
+nav.navbar-provider.navbar
+  .navbar-header
+      button.navbar-toggle.collapsed type="navbar-toggle button" data-toggle="collapse" data-target="#navbar-provider-main"
+        span.fa.fa-bars.fa-2x
+  #navbar-provider-main.collapse.navbar-collapse
+    .left-block
+      ul.main-menu.nav.navbar-nav
+        li
+          = link_to 'Dashboard', providers_path, class: 'item-dashboard'
+        li
+          = link_to 'Schedule', schedule_calendars_path, class: 'item-schedule'
+        li
+          = link_to 'Patients', patient_treatments_path, class: 'item-patients'
+        li
+          = link_to 'Messages', email_messages_path, class: 'item-messages'
+        li
+          a.item-erx href="#" eRx
+        li
+          a.item-labsimaging href="#" Labs/Imaging
+        li
+          a.item-reports href="#" Reports
+        li
+          a.item-billing href="#" Billing
+        - if policy(:setting).show? || policy(:setting).schedule?
+          li
+            = link_to 'Settings', settings_practice_path, class: 'item-settings'
+  ul.profile-menu.nav.navbar-nav.navbar-right class=(current_user.provider.emergency_access? ? 'navbar-emergency-access' : '')
+    li
+      .dropdown
+        a.profile-user.dropdown-toggle data-toggle="dropdown"
+          span.name
+            - if current_user.present?
+              span = current_user.provider.title
+              | .
+              '
+              span = current_user.provider.last_name
+          - if gravatar?(current_user)
+            = gravatar_for(current_user, { class: 'avatar', alt: 'avatar' })
+          - else
+            - if current_user.provider.profile_image.present?
+              img src="#{current_user.provider.profile_image.url}" class='avatar' alt='avatar'
+            - else
+              = image_tag 'avatar-empty.svg', size: "100", class: "avatar avatar-empty"
+          i.arrow.fa.fa-angle-down
+        ul.dropdown-menu
+          - if current_user.provider.emergency_access
+            li
+              = link_to 'Disable Emergency Access', set_emergency_access_providers_path(id: current_user.provider.id, emergency_access: false)
+          li
+            = link_to 'My Account', show_myaccount_providers_path, remote: true
+          li
+            a href="#" data-toggle="modal" data-target="#modal-about-ehr1" About EHR1
+          - if current_user.authy_id.present? && current_user.authy_enabled
+            li
+              = link_to 'Disable 2FA', user_disable_authy_path(id: current_user.id), method: :post
+          - else
+            li
+              = link_to 'Enable 2FA', user_enable_authy_path
+          li
+            = link_to 'Log out', destroy_user_session_path, method: 'delete'
+#modal-about-ehr1.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        a.close-button href="#" data-target="#modal-about-ehr1" data-dismiss="modal"
+      .modal-body
+        .top-block
+          p EHR1 - Electronic Health Record Version 1.0
+          p Copyright © 2015 EHR1. All Rights Reserved
+        .center-block
+          .logo
+        .bottom-block
+          p
+            | View the&nbsp;
+            a href="#" Healthcare Provider User Agreement
+            | ,&nbsp;
+            a href="#" Privacy policy
+            |  and&nbsp;
+            a href="#" Terms of Use
+            | .
+#modal-lockscreen.modal.fade data-keyboard="false" data-backdrop=""
+  .modal-dialog
+    .modal-content
+      .modal-header
+        .logo
+      .modal-body
+        .lockscreen-icon
+        .form-group
+          input.form-control type="password" id="lockscreen_password" placeholder="Password"
+      .modal-footer
+        .form-group
+          = link_to 'Unlock', '#', class: 'button', id: 'unlock'
+#modal-myaccount.modal.fade
+#modal-request-emergency-access.modal.fade

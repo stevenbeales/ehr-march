@@ -1,0 +1,54 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      p.title
+        = "Authorized Representative#{ 's' if @representatives.count > 1 }"
+      a.close-button href="#" data-dismiss="modal"
+    .modal-body
+      .scrollable-container
+        .content
+          .row
+            .col-lg-12
+              .table-responsive
+                table.table#representative-table
+                  thead
+                    tr
+                      th
+                        | Full Name
+                      th
+                        | Primary Email
+                      th
+                        | Contact Phone
+                      th
+                        | Active
+                      th
+                        | Actions
+                  - if @representatives.any?
+                    tbody
+                      - @representatives.each do |representative|
+                        tr
+                          td
+                            = link_to "#{representative.last_name}, #{representative.first_name}", '#'
+                          td
+                            = representative.user.email
+                          td
+                            = representative.primary_phone
+                          td
+                            .checkbox-custom
+                              = check_box_tag :active, nil, representative.active, { id: representative.id }
+                              label for="#{representative.id}"
+                                span.checkbox-icon-container
+                                  span.checkbox-icon
+                          td.controls
+                            = link_to 'View', representative_path(representative, patient_id: @patient.id), remote: true, class: 'button button-modal-open', 'data-target' => '#modal-patient-show-authorized-representative'
+                            = link_to 'Edit', edit_representative_path(representative, patient_id: @patient.id), remote: true, class: 'button button-modal-open', 'data-target' => '#modal-patient-edit-authorized-representative'
+                            = link_to 'Reset Password', reset_password_representative_path(representative, patient_id: @patient.id), remote: true, method: :post, class: 'button button-modal-open', 'data-target' => '#modal-patient-reset-password-authorized-representative'
+                            = link_to 'Delete', representative_path(representative, patient_id: @patient.id), remote: true, method: :delete, class: 'button button-danger destroy-button', id: representative.id
+                  - else
+                    tbody
+                      tr
+                        td.message colspan="5"
+                          | No Representatives Found
+    .modal-footer
+      .controls
+        = link_to 'Add New', new_representative_path(patient_id: @patient.id), remote: true, class: 'button button-modal-open', 'data-target' => '#modal-patient-add-authorized-representative'

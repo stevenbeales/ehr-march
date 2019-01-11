@@ -1,0 +1,96 @@
+#myprofile-wrapper.container.content
+  = simple_form_for current_user, url: update_myprofile_patients_path(id: current_user.patient.id) do |u|
+    = u.simple_fields_for :patient, current_user.patient do |p|
+      .row.top-block
+        .col-lg-12
+          h4 Basic Info
+          .panel.panel-default
+            .panel-body
+              .photo-container.pull-left
+                a.button-attachment href="#"
+                  - if gravatar?(current_user)
+                    = gravatar_for(current_user, { class: 'photo-patient', alt: 'avatar' })
+                  - else
+                    - if current_user.patient.profile_image.present?
+                      img src="#{current_user.patient.profile_image.url}" class='photo-patient' alt='avatar'
+                    - else
+                      = image_tag 'avatar-empty-white.svg', size: 500, class: "avatar avatar-empty avatar-empty-dark"
+                = p.file_field  :profile_image
+              .row.pull-right
+                .col-lg-5
+                  .form-group
+                    = p.input :first_name, label: false, input_html: { class: 'form-control', placeholder: 'First Name' }
+                .col-lg-2
+                  .form-group
+                    = p.input :middle_name, label: false, input_html: { class: 'form-control', placeholder: 'M.I.' }
+                .col-lg-5
+                  .form-group
+                    = p.input :last_name, label: false, input_html: { class: 'form-control', placeholder: 'Last Name' }
+              .row.pull-right
+                .col-lg-5
+                  .form-group
+                    = p.input :birth, as: :date_picker, label: false, input_html: { class: 'form-control date-picker', placeholder: 'Date of Birth' }
+                .col-lg-3
+                  .form-group
+                    = p.input :gender, as: :select, label: false, collection: Patient.genders.to_a, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+              .row.pull-right
+                .col-lg-5
+                  p Account Access
+                  = link_to 'Request Password Reset Email', edit_user_registration_path, class: 'button disabled', tabindex: '-1'
+      .row.bottom-block
+        .col-lg-6.left-block
+          h4 My Contact Infrormation
+          .panel.panel-default
+            .panel-body
+              .form-group
+                = p.input :mobile_phone, as: :tel, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Cell Phone' }
+              .form-group
+                = u.input :email, as: :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Email' }
+              .form-group
+                = p.input :primary_phone, as: :tel, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Home Phone' }
+              .form-group
+                = p.input :street_address, label: false, input_html: { class: 'form-control', placeholder: 'Address' }
+              .row
+                .col-lg-4
+                  .form-group
+                    = p.input :city, label: false, input_html: { class: 'form-control', placeholder: 'City' }
+                .col-lg-4
+                  .form-group
+                    = p.input :state, as: :numeric, label: false, input_html: { class: 'form-control', placeholder: 'State' }
+                .col-lg-4
+                  .form-group
+                    = p.input :zip, as: :numeric, label: false, input_html: { class: 'form-control', placeholder: 'Zip' }
+              .form-group
+                = p.input :work_phone, as: :tel, label: false, input_html: { class: 'form-control input-phone', placeholder: 'Work Phone' }
+              .controls.pull-right
+                /a.button Edit
+                = u.submit 'Save', class: 'button'
+        .col-lg-6.right-block
+          h4 Emergency Contact
+          .panel.panel-default
+            = simple_form_for EmergencyContact.new, url: create_emergency_contact_patients_path do |ec|
+              = ec.input :patient_id, as: :hidden, input_html: { value: current_user.patient.id }
+              .panel-body
+                .row
+                  .col-lg-4
+                    .form-group
+                      = ec.input :first_name, label: false, input_html: { class: 'form-control', placeholder: 'First Name' }
+                  .col-lg-4
+                    .form-group
+                      = ec.input :middle_name, label: false, input_html: { class: 'form-control', placeholder: 'M.I.' }
+                  .col-lg-4
+                    .form-group
+                      = ec.input :last_name, label: false, input_html: { class: 'form-control', placeholder: 'Last Name' }
+                .form-group
+                  = ec.input :relation, as: :select, label: false, collection: EmergencyContact.relations.to_a, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+                .form-group
+                  = ec.input :mobile_phone, as: :tel, label: false, input_html: { class: 'form-control', placeholder: 'Phone' }
+                .form-group
+                  = ec.input :email, as: :email, label: false, input_html: { class: 'form-control input-email', placeholder: 'Email' }
+                .form-group
+                  = ec.input :street_address, as: :text, label: false, input_html: { class: 'form-control', placeholder: 'Address', rows: 3 }
+                .controls.pull-right
+                  /a.button Edit
+                  = ec.submit 'Save', class: 'button'
+javascript:
+  $('.item-myprofile').parent().addClass('active');

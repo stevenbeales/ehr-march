@@ -1,0 +1,179 @@
+= simple_form_for encounter, url: update_encounter_patient_treatments_path, remote: true do |f|
+  = f.input :id, as: :hidden, input_html: { value: encounter.id }
+  = f.input :patient_id, as: :hidden, input_html: { value: patient.id }
+  - if encounter.procedures.present?
+    - if encounter.procedures.first.date_of_service.present?
+      .row
+        .col-xs-4
+          p Date of Service:
+        .col-xs-8
+          p
+            = encounter.procedures.first.date_of_service.strftime('%m/%d/%Y')
+  .row
+    .col-xs-2
+      p Provider:
+    .col-xs-10
+      p
+        = "#{encounter.patient.provider.try(:title)} #{encounter.patient.provider.try(:full_name)}, #{encounter.patient.provider.try(:degree)}"
+  - if encounter.procedures.present?
+    .row
+      .col-xs-4
+        p Procedure(s)
+      .col-xs-8
+    .row.row-procedure-table
+      .bordered-container.bordered-container-actioned
+        .procedures-content
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th
+                    p Code
+                  th
+                    p Description
+                  th
+                    p Status
+              tbody
+                - encounter.procedures.each do |procedure|
+                  tr
+                    td
+                      p
+                        = procedure.procedure_code
+                    td
+                      p
+                        = procedure.description
+                    td
+                      p
+                        = procedure.status
+  - if encounter.notes.present?
+    .row.row-notes
+      .col-xs-2
+        p Notes:
+      .col-xs-10
+        p
+          = encounter.notes
+  - if encounter.vital.present?
+    = f.simple_fields_for :vital, encounter.vital do |v|
+      = v.input :id, as: :hidden, input_html: { value: encounter.vital.id }
+      .row.row-vitals
+        .col-xs-12
+          .panel.panel-default
+            .panel-heading
+              .panel-title
+                a.custom-collapsing.collapsed data-toggle="collapse" href="#collapseVitals" aria-expanded="false"
+                  | Vitals
+                  .pull-right
+                    i.fa.fa-angle-right
+                    i.fa.fa-angle-down
+            .panel-collapse.collapse id="collapseVitals"
+              .panel-body.text-center
+                ul.cpicker#status_filter
+                  li.wocpicker role="presentation"
+                    .row
+                      .col-lg-5
+                        .form-group
+                          .input-group.height-container
+                            span.input-group-addon Height
+                            = v.input :height_major, input_html: { class: 'form-control text-centered' }
+                            = select_tag :height_major_unit_system, options_for_select([["ft", "0"], ["m", "1"]]), 'data-theme' => 'green-dark', 'data-arrow' => '1x', 'data-padding' => '1x', 'data-arrow-padding' => '05x', 'data-font' => '1x', 'data-width': '26px', class: 'select2'
+                            = v.input :height_minor, input_html: { class: 'form-control text-centered' }
+                            = select_tag :height_minor_unit_system, options_for_select([["in", "0"], ["cm", "1"]]), 'data-theme' => 'green-dark', 'data-arrow' => '1x', 'data-padding' => '1x', 'data-arrow-padding' => '05x', 'data-font' => '1x', 'data-width': '36px', class: 'select2'
+                      .col-lg-4
+                        .form-group
+                          .input-group.weight-container
+                            span.input-group-addon Weight
+                            = v.input :weight, input_html: { class: 'form-control text-centered' }
+                            = select_tag :weight_unit_system, options_for_select([["lbs.", "0"], ["kg.", "1"]]), 'data-theme' => 'green-dark', 'data-arrow' => '1x', 'data-padding' => '1x', 'data-arrow-padding' => '05x', 'data-font' => '1x', 'data-width': '38px', class: 'select2'
+                      .col-lg-3
+                        .form-group
+                          .input-group
+                            span.input-group-addon BMI
+                            = text_field_tag :bmi, '', class: 'form-control text-centered', id: 'encounter_vital_bmi', placeholder: '', autocomplete: 'off'
+                    .row
+                      .col-lg-5
+                        .form-group
+                          .input-group
+                            span.input-group-addon BP
+                            = v.input :bp_left, input_html: { class: 'form-control text-centered' }
+                            span.input-group-addon  &nbsp;/&nbsp;
+                            = v.input :bp_right, input_html: { class: 'form-control text-centered' }
+                      .col-lg-4
+                        .form-group
+                          .input-group
+                            span.input-group-addon Temp
+                            = v.input :temp, input_html: { class: 'form-control text-centered' }
+                            span.input-group-addon.input-group-addon-right F
+                      .col-lg-3
+                        .form-group.temp-route-container
+                          = v.input :temp_type, as: :select, collection: Vital.temp_types, input_html: { 'data-placeholder' => 'Temp Route', 'data-theme' => 'green-light', 'data-arrow' => '1x', 'data-padding' => '1x', 'data-arrow-padding' => '05x', 'data-font' => '1x', class: 'select2' }
+                    .row
+                      .col-lg-5
+                        .row.row-sub
+                          .col-lg-6
+                            .form-group
+                              .input-group
+                                span.input-group-addon Pulse
+                                = v.input :pulse, input_html: { class: 'form-control text-centered' }
+                          .col-lg-6
+                            .form-group
+                              .input-group
+                                span.input-group-addon RR
+                                = v.input :rr, input_html: { class: 'form-control text-centered' }
+                      .col-lg-4
+                        .form-group
+                          .input-group
+                            span.input-group-addon.span-sat
+                              | O
+                              sup 2
+                              |  Sat.
+                            = v.input :sat, input_html: { class: 'form-control text-centered' }
+                            span.input-group-addon.input-group-addon-right.span-percents %
+                      .col-lg-3
+                        .form-group.ra-container
+                          = v.input :ra_type, as: :select, collection: Vital.ra_types, input_html: { 'data-placeholder' => 'RA', 'data-theme' => 'green-light', 'data-arrow' => '1x', 'data-padding' => '1x', 'data-arrow-padding' => '05x', 'data-font' => '1x', class: 'select2' }
+                    .row
+                      .col-lg-5
+                        .form-group
+                          .input-group
+                            span.input-group-addon.span-temp Blood type
+                            = v.input :blood, input_html: { class: 'form-control' }
+  .row.row-quality
+    p Quality of Care
+    .checkbox-custom
+      = f.check_box :med_completed, class: 'checkbox'
+      label for="encounter_med_completed"
+        span.checkbox-icon-container
+          span.checkbox-icon
+        span.checkbox-label Medication Reconciliation Completed
+    .checkbox-custom
+      = f.check_box :patient_education, class: 'checkbox'
+      label for="encounter_patient_education"
+        span.checkbox-icon-container
+          span.checkbox-icon
+        span.checkbox-label Patient Education Resources Provider
+    .checkbox-custom
+      = f.check_box :clinical_summary, class: 'checkbox'
+      label for="encounter_clinical_summary"
+        span.checkbox-icon-container
+          span.checkbox-icon
+        span.checkbox-label Clinical Summary Declined by Patient
+    - if encounter.referred_to.present?
+      .checkbox-custom
+        input.checkbox type="checkbox" id="patients_dental_referredToProvider" checked="false"
+          label for="patients_dental_referredToProvider"
+            span.checkbox-icon-container
+              span.checkbox-icon
+            span.checkbox-label
+              = "Referred to: #{encounter.referred_to.try(:full_name)}"
+    - if encounter.referred_from.present?
+      .checkbox-custom
+        input.checkbox type="checkbox" id="patients_dental_referredFromProvider" checked="false"
+          label for="patients_dental_referredFromProvider"
+            span.checkbox-icon-container
+              span.checkbox-icon
+            span.checkbox-label
+              = "Referred from: #{encounter.referred_from.try(:full_name)}"
+  .row.row-buttons
+    .btn-group.inline.pull-right
+      = f.submit 'Edit', class: 'button'
+      a.button href="#" Sign

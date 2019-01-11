@@ -1,0 +1,2689 @@
+Index
+-----
+
+Parameters:
+  * auth_token - Authentication Token
+  * page - Pagination, page number
+
+Request:
+  GET /patient_treatments?data[auth_token]=e4c19011396a9b2e319c6ad4ae20379c&data[page]=0
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"e4c19011396a9b2e319c6ad4ae20379c", "page"=>"0"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lWeDOToVzSxX",
+        "type": "patients",
+        "attributes": {
+          "id": "33lWeDOToVzSxX",
+          "email": "prudence@kihn.net",
+          "role": "Patient",
+          "first-name": "Allen",
+          "middle-name": null,
+          "last-name": "Stracke",
+          "gender": "Male",
+          "mobile-phone": "+13576457743",
+          "primary-phone": "+16658536490",
+          "code": null,
+          "social-number": "229279466",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lWeDOToVzSxX/avatar2.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lWeDOToVzSxX"
+        }
+      },
+      {
+        "id": "33lWjhRJcz7fXf",
+        "type": "patients",
+        "attributes": {
+          "id": "33lWjhRJcz7fXf",
+          "email": "austin@shanahanwaters.co",
+          "role": "Patient",
+          "first-name": "Nicola",
+          "middle-name": null,
+          "last-name": "Harber",
+          "gender": "Male",
+          "mobile-phone": "+18918396114",
+          "primary-phone": "+17984402881",
+          "code": null,
+          "social-number": "848754716",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lWjhRJcz7fXf/avatar6.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lWjhRJcz7fXf"
+        }
+      },
+      {
+        "id": "33lWp17lLZOUDr",
+        "type": "patients",
+        "attributes": {
+          "id": "33lWp17lLZOUDr",
+          "email": "ransom_hammes@williamson.com",
+          "role": "Patient",
+          "first-name": "Velva",
+          "middle-name": null,
+          "last-name": "Hudson",
+          "gender": "Male",
+          "mobile-phone": "+15587360837",
+          "primary-phone": "+17250138423",
+          "code": null,
+          "social-number": "157774981",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lWp17lLZOUDr/avatar7.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lWp17lLZOUDr"
+        }
+      }
+    ]
+  }
+
+
+Search patient
+--------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+
+Request:
+  GET /patient_treatments/show_patient_main?data[auth_token]=b82e1395351c79a51735a74472a3f580&data[patient_id]=33lWyO0jr3VcIN
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"b82e1395351c79a51735a74472a3f580", "patient_id"=>"33lWyO0jr3VcIN"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "diactive_ids": [
+  
+      ],
+      "top_teeth": [
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:36.388+02:00",
+          "id": "33lX1h0fPOI57D",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 1,
+          "updated_at": "2016-02-26T17:07:36.388+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:36.503+02:00",
+          "id": "33lX1h1Rno2veV",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 2,
+          "updated_at": "2016-02-26T17:07:36.503+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:36.588+02:00",
+          "id": "33lX1h2ECDnmBn",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 3,
+          "updated_at": "2016-02-26T17:07:36.588+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:36.658+02:00",
+          "id": "33lX1h30adYcj5",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 4,
+          "updated_at": "2016-02-26T17:07:36.658+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:36.750+02:00",
+          "id": "33lX1h3mz3JTGN",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 5,
+          "updated_at": "2016-02-26T17:07:36.750+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:36.822+02:00",
+          "id": "33lX1h4ZNT4Jnf",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 6,
+          "updated_at": "2016-02-26T17:07:36.822+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:36.911+02:00",
+          "id": "33lX1h5LlspAKx",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 7,
+          "updated_at": "2016-02-26T17:07:36.911+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.006+02:00",
+          "id": "33lX1h68AIa0sF",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 8,
+          "updated_at": "2016-02-26T17:07:37.006+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.085+02:00",
+          "id": "33lX23aoCYgtTn",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 9,
+          "updated_at": "2016-02-26T17:07:37.085+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.165+02:00",
+          "id": "33lX23baayRk15",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 10,
+          "updated_at": "2016-02-26T17:07:37.165+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.240+02:00",
+          "id": "33lX23cMzOCaYN",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 11,
+          "updated_at": "2016-02-26T17:07:37.240+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.332+02:00",
+          "id": "33lX23d9NnxR5f",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 12,
+          "updated_at": "2016-02-26T17:07:37.332+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.420+02:00",
+          "id": "33lX23dvmDiHcx",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 13,
+          "updated_at": "2016-02-26T17:07:37.420+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.522+02:00",
+          "id": "33lX23eiAdT8AF",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 14,
+          "updated_at": "2016-02-26T17:07:37.522+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.608+02:00",
+          "id": "33lX23fUZ3DyhX",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 15,
+          "updated_at": "2016-02-26T17:07:37.608+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.697+02:00",
+          "id": "33lX23gGxSypEp",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 16,
+          "updated_at": "2016-02-26T17:07:37.697+02:00"
+        }
+      ],
+      "bottom_teeth": [
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:39.081+02:00",
+          "id": "33lX3XMpIpsqrz",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 32,
+          "updated_at": "2016-02-26T17:07:39.081+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.994+02:00",
+          "id": "33lX2mWt1KjtdT",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 31,
+          "updated_at": "2016-02-26T17:07:38.994+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.927+02:00",
+          "id": "33lX2mW6cuz36B",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 30,
+          "updated_at": "2016-02-26T17:07:38.927+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.842+02:00",
+          "id": "33lX2mVKEVECYt",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 29,
+          "updated_at": "2016-02-26T17:07:38.842+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.760+02:00",
+          "id": "33lX2mUXq5TM1b",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 28,
+          "updated_at": "2016-02-26T17:07:38.760+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.677+02:00",
+          "id": "33lX2mTlRfiVUJ",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 27,
+          "updated_at": "2016-02-26T17:07:38.677+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.611+02:00",
+          "id": "33lX2mSz3Fxex1",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 26,
+          "updated_at": "2016-02-26T17:07:38.611+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.516+02:00",
+          "id": "33lX2mSCeqCoPj",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 25,
+          "updated_at": "2016-02-26T17:07:38.516+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.427+02:00",
+          "id": "33lX2mRQGQRxsR",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 24,
+          "updated_at": "2016-02-26T17:07:38.427+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.342+02:00",
+          "id": "33lX2mQds0h7L9",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 23,
+          "updated_at": "2016-02-26T17:07:38.342+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.243+02:00",
+          "id": "33lX2mPrTawGnr",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 22,
+          "updated_at": "2016-02-26T17:07:38.243+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.134+02:00",
+          "id": "33lX2mP55BBQGZ",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 21,
+          "updated_at": "2016-02-26T17:07:38.134+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:38.051+02:00",
+          "id": "33lX2mOIglQZjH",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 20,
+          "updated_at": "2016-02-26T17:07:38.051+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.964+02:00",
+          "id": "33lX23ic8iFMqh",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 19,
+          "updated_at": "2016-02-26T17:07:37.964+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.891+02:00",
+          "id": "33lX23hpkIUWJP",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 18,
+          "updated_at": "2016-02-26T17:07:37.891+02:00"
+        },
+        {
+          "active": true,
+          "b_bsp1": false,
+          "b_bsp2": false,
+          "b_bsp3": false,
+          "b_bsp4": false,
+          "b_bsp5": false,
+          "b_bsp6": false,
+          "b_bsp7": false,
+          "b_bsp8": false,
+          "b_bsp9": false,
+          "created_at": "2016-02-26T17:07:37.802+02:00",
+          "id": "33lX23h3Lsjfm7",
+          "l_bsp1": false,
+          "l_bsp2": false,
+          "l_bsp3": false,
+          "l_bsp4": false,
+          "l_bsp5": false,
+          "l_bsp6": false,
+          "l_bsp7": false,
+          "l_bsp8": false,
+          "l_bsp9": false,
+          "patient_id": "33lWyO0jr3VcIN",
+          "tooth_num": 17,
+          "updated_at": "2016-02-26T17:07:37.802+02:00"
+        }
+      ],
+      "procedures": [
+  
+      ],
+      "encounters": [
+  
+      ],
+      "insurances": [
+  
+      ],
+      "diagnoses": [
+  
+      ],
+      "medications": [
+  
+      ],
+      "allergies": [
+  
+      ],
+      "email_messages": [
+  
+      ],
+      "appointments": [
+  
+      ],
+      "smoking_status": [
+        {
+          "created_at": "2016-02-26T17:07:36.377+02:00",
+          "effective_from": "2016-02-26T17:07:36.368+02:00",
+          "id": "33lX1h0VjJ8iCx",
+          "patient_id": "33lWyO0jr3VcIN",
+          "status": "Light Tobacco Smoker",
+          "updated_at": "2016-02-26T17:07:36.377+02:00"
+        }
+      ],
+      "past_medical_history": {
+        "created_at": "2016-02-26T17:07:36.361+02:00",
+        "developmental_history": "Sequi at impedit blanditiis enim.",
+        "id": "33lX1h0M3DzLIh",
+        "major_events": "Et voluptatem placeat enim nisi.",
+        "nutrition_history": "Ut sed labore illo mollitia.",
+        "ongoing_problems": "Nobis qui velit soluta magni et.",
+        "patient_id": "33lWyO0jr3VcIN",
+        "preventitive_care": "Quos consequuntur sint est sunt debitis et.",
+        "updated_at": "2016-02-26T17:07:36.361+02:00"
+      },
+      "advanced_directive": {
+        "created_at": "2016-02-26T17:07:36.341+02:00",
+        "id": "33lX1h0CN8pyOR",
+        "notes": null,
+        "patient_id": "33lWyO0jr3VcIN",
+        "record_date": "2016-02-26T17:07:36.331+02:00",
+        "updated_at": "2016-02-26T17:07:36.341+02:00"
+      }
+    }
+  }
+
+
+Search patient
+--------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * page - Pagination, page number
+  * part - A part of first name or last name of a patient
+
+Request:
+  GET /patient_treatments/search_patients?data[auth_token]=d750353ccd552bc9de922b4f8b74abda&data[page]=0&data[part]=Dav
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"d750353ccd552bc9de922b4f8b74abda", "page"=>"0", "part"=>"Dav"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lX6Kxv332beV",
+        "type": "patients",
+        "attributes": {
+          "id": "33lX6Kxv332beV",
+          "email": "katelyn.crist@green.io",
+          "role": "Patient",
+          "first-name": "David",
+          "middle-name": null,
+          "last-name": "Markus",
+          "gender": "Male",
+          "mobile-phone": "+17164173959",
+          "primary-phone": "+15996515623",
+          "code": null,
+          "social-number": "429698748",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lX6Kxv332beV/avatar8.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lX6Kxv332beV"
+        }
+      },
+      {
+        "id": "33lXE3Fbn092Z9",
+        "type": "patients",
+        "attributes": {
+          "id": "33lXE3Fbn092Z9",
+          "email": "roosevelt@davis.io",
+          "role": "Patient",
+          "first-name": "Glory",
+          "middle-name": null,
+          "last-name": "Daviand",
+          "gender": "Male",
+          "mobile-phone": "+18891841135",
+          "primary-phone": "+14854322587",
+          "code": null,
+          "social-number": "864842175",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lXE3Fbn092Z9/avatar11.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lXE3Fbn092Z9"
+        }
+      }
+    ]
+  }
+
+
+Get active or inactive patients
+-------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * page - Pagination, page number
+  * active - Boolean, if true - get active patients
+
+Request:
+  GET /patient_treatments/active_patients?data[auth_token]=cbebb99b1563faad1d929f741b1cc2f4&data[page]=1&data[active]=true
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"cbebb99b1563faad1d929f741b1cc2f4", "page"=>"1", "active"=>"true"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lXLaBYgPzsyR",
+        "type": "patients",
+        "attributes": {
+          "id": "33lXLaBYgPzsyR",
+          "email": "mose.konopelski@harris.info",
+          "role": "Patient",
+          "first-name": "Maci",
+          "middle-name": null,
+          "last-name": "Wuckert",
+          "gender": "Male",
+          "mobile-phone": "+16214554981",
+          "primary-phone": "+15476797144",
+          "code": null,
+          "social-number": "553273771",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lXLaBYgPzsyR/avatar2.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lXLaBYgPzsyR"
+        }
+      },
+      {
+        "id": "33lXOzcepCC5z9",
+        "type": "patients",
+        "attributes": {
+          "id": "33lXOzcepCC5z9",
+          "email": "kylee.kuhn@rathgerlach.info",
+          "role": "Patient",
+          "first-name": "Felix",
+          "middle-name": null,
+          "last-name": "Langworth",
+          "gender": "Male",
+          "mobile-phone": "+15986747841",
+          "primary-phone": "+15066837731",
+          "code": null,
+          "social-number": "589299814",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lXOzcepCC5z9/avatar6.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lXOzcepCC5z9"
+        }
+      }
+    ]
+  }
+
+
+Add patient diagnoses
+---------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * diagnosis_id - Diagnosis id, this or diagnosis code id should be present
+  * diagnosis_code_id - Diagnosis code id, this or diagnosis id should be present
+
+Request:
+  GET /patient_treatments/add_patient_diagnoses?data[auth_token]=9fa0ab4295587826f44bac8e20905d5a&data[patient_id]=33lXY1oZbpFWEd&data[diagnosis_id]=33lXY1oPvk69KN&data[diagnosis_code_id]
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"9fa0ab4295587826f44bac8e20905d5a", "patient_id"=>"33lXY1oZbpFWEd", "diagnosis_id"=>"33lXY1oPvk69KN", "diagnosis_code_id"=>nil}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "diagnosis": {
+        "acute": true,
+        "created_at": "2016-02-26T17:08:40.365+02:00",
+        "diagnosis_code_id": "2pT2wTIIX5RWOu",
+        "id": "33lXY1oPvk69KN",
+        "note": "Truffaut mixtape plaid fashion axe mlkshk hella keffiyeh.",
+        "patient_id": "33lXY1oZbpFWEd",
+        "start_date": "2016-02-26T16:08:40.361+02:00",
+        "stop_date": "2016-02-26T18:08:40.361+02:00",
+        "terminal": true,
+        "updated_at": "2016-02-26T17:08:40.365+02:00"
+      },
+      "diagnosis_code": {
+        "code": "W5542XD",
+        "created_at": "2015-12-29T10:30:37.009+02:00",
+        "description": "Struck by pig, subsequent encounter",
+        "id": "2pT2wTIIX5RWOu",
+        "updated_at": "2015-12-29T10:30:37.009+02:00"
+      }
+    }
+  }
+
+
+Create patient diagnoses
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * diagnosis_code_id - Diagnosis code id
+  * start_date - Start date
+  * stop_date - Stop date
+  * acute - Boolean, if true - acute
+  * terminal - Boolean, if true - terminal
+  * note - Note
+
+Request:
+  POST /patient_treatments/create_diagnosis
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"ba0cdd21f36307d1c71188a2b3484a75","patient_id":"33lXkn0F8cPE5T","diagnosis":{"diagnosis_code_id":"2pT2NAQLz47QUC","start_date":"2016-02-26T16:08:51.302+02:00","stop_date":"2016-02-26T18:08:51.302+02:00","acute":true,"terminal":true,"note":"Cornhole echo plaid tumblr health migas."}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lXpa7t8mO0QN",
+      "type": "diagnoses",
+      "attributes": {
+        "id": "33lXpa7t8mO0QN",
+        "patient-id": "33lXkn0F8cPE5T",
+        "diagnosis-code-id": "2pT2NAQLz47QUC",
+        "start-date": "2016-02-26T16:08:51.302+02:00",
+        "stop-date": "2016-02-26T18:08:51.302+02:00",
+        "acute": true,
+        "terminal": true,
+        "note": "Cornhole echo plaid tumblr health migas."
+      },
+      "links": {
+        "self": "/diagnoses/33lXpa7t8mO0QN"
+      }
+    }
+  }
+
+
+Update patient diagnoses
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * diagnosis_id - Diagnosis id
+  * patient_id - Patient id
+  * diagnosis_code_id - Diagnosis code id
+  * start_date - Start date
+  * stop_date - Stop date
+  * acute - Boolean, if true - acute
+  * terminal - Boolean, if true - terminal
+  * note - Note
+
+Request:
+  PATCH /patient_treatments/update_diagnosis
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"ba2565358ff7dcd7e2b4026f90d777cd","diagnosis":{"diagnosis_id":"33lXsGdDowpx5v","diagnosis_code_id":"2pT2ppcd3ANtLc","start_date":"2016-02-26T17:09:06.104+02:00","stop_date":"2016-02-26T17:09:06.104+02:00","acute":true,"terminal":true,"note":"Carry try-hard celiac loko bicycle rights blue bottle hella flexitarian."},"patient_id":"33lXsGdNV1zK0B"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lXsGdDowpx5v",
+      "type": "diagnoses",
+      "attributes": {
+        "id": "33lXsGdDowpx5v",
+        "patient-id": "33lXsGdNV1zK0B",
+        "diagnosis-code-id": "2pT2ppcd3ANtLc",
+        "start-date": "2016-02-26T17:09:06.104+02:00",
+        "stop-date": "2016-02-26T17:09:06.104+02:00",
+        "acute": true,
+        "terminal": true,
+        "note": "Carry try-hard celiac loko bicycle rights blue bottle hella flexitarian."
+      },
+      "links": {
+        "self": "/diagnoses/33lXsGdDowpx5v"
+      }
+    }
+  }
+
+
+Show patient medications
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+
+Request:
+  GET /patient_treatments/show_patient_medications?data[auth_token]=8bc42038186632c6e0f1ec220865e799&data[patient_id]=33lY2nExn2cY7P
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"8bc42038186632c6e0f1ec220865e799", "patient_id"=>"33lY2nExn2cY7P"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lY0hh9cRT6zz",
+        "type": "portions",
+        "attributes": {
+          "id": "33lY0hh9cRT6zz",
+          "drug": "Veritatis",
+          "dose": "118 mg.",
+          "instruction": "Blue bottle chicharrones meggings sustainable letterpress twee pabst."
+        },
+        "links": {
+          "self": "/portions/33lY0hh9cRT6zz"
+        }
+      },
+      {
+        "id": "33lY0hhJIWcTuF",
+        "type": "portions",
+        "attributes": {
+          "id": "33lY0hhJIWcTuF",
+          "drug": "Velit",
+          "dose": "384 mg.",
+          "instruction": "Swag everyday banjo portland hammock."
+        },
+        "links": {
+          "self": "/portions/33lY0hhJIWcTuF"
+        }
+      },
+      {
+        "id": "33lY0hhSyblqoV",
+        "type": "portions",
+        "attributes": {
+          "id": "33lY0hhSyblqoV",
+          "drug": "Voluptas",
+          "dose": "351 mg.",
+          "instruction": "Banjo microdosing neutra flannel seitan fingerstache."
+        },
+        "links": {
+          "self": "/portions/33lY0hhSyblqoV"
+        }
+      }
+    ]
+  }
+
+
+Add patient medications
+-----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * diagnosis_id - Diagnosis id
+  * medication_id - Medication id
+
+Request:
+  GET /patient_treatments/add_patient_medications?data[auth_token]=50a62f854ffddf8ed9a5d0b52558fa53&data[patient_id]=33lYAlCtqQu4FH&data[diagnosis_id]=33lYGCwtaslCZH&data[medication_id]=33lYMaArQ6hQYt
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"50a62f854ffddf8ed9a5d0b52558fa53", "patient_id"=>"33lYAlCtqQu4FH", "diagnosis_id"=>"33lYGCwtaslCZH", "medication_id"=>"33lYMaArQ6hQYt"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "diagnosis": {
+        "acute": true,
+        "created_at": "2016-02-26T17:09:41.497+02:00",
+        "diagnosis_code_id": "2pT06c8fyIJ0bY",
+        "id": "33lYGCwtaslCZH",
+        "note": "Butcher letterpress keffiyeh umami kickstarter polaroid hella.",
+        "patient_id": "33lYGCx3GxuZTX",
+        "start_date": "2016-02-26T16:09:41.493+02:00",
+        "stop_date": "2016-02-26T18:09:41.493+02:00",
+        "terminal": true,
+        "updated_at": "2016-02-26T17:09:41.497+02:00"
+      },
+      "medication": {
+        "created_at": "2016-02-26T17:09:52.408+02:00",
+        "diagnosis_id": "33lYMaB16BqnT9",
+        "id": "33lYMaArQ6hQYt",
+        "note": "Architecto repudiandae excepturi et quia.",
+        "portion_id": "33lYUBnxCTOLFT",
+        "shorthand": "Blog",
+        "signature": "1rNz9b9n0r5uBj2m",
+        "start_date": "2016-02-26T16:09:52.407+02:00",
+        "stop_date": "2016-02-26T18:09:52.407+02:00",
+        "updated_at": "2016-02-26T17:09:52.408+02:00"
+      }
+    }
+  }
+
+
+Create patient medication
+-------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * diagnosis_id - Diagnosis id
+  * portion_id - Portion id
+  * shorthand - Shorthand
+  * signature - Signature
+  * start_date - Start date
+  * stop_date - Stop date
+  * note - Note
+
+Request:
+  POST /patient_treatments/create_medication
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"346d9ee79ad38320bd2a639dcbbf6557","patient_id":"33lYYnXfqw0MNP","medication":{"diagnosis_id":"33lYYnXWAqqzT9","portion_id":"33lYgB2znCuWcF","shorthand":"Flexitarian","signature":"Jh53QyA4D93sHmD5","start_date":"2016-02-26T17:10:10.653+02:00","stop_date":"2016-02-26T17:10:10.653+02:00","note":"Nihil quo inventore quod maiores."}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lYgB39TI3tWV",
+      "type": "medications",
+      "attributes": {
+        "id": "33lYgB39TI3tWV",
+        "diagnosis-id": "33lYYnXWAqqzT9",
+        "portion-id": "33lYgB2znCuWcF",
+        "shorthand": "Flexitarian",
+        "signature": "Jh53QyA4D93sHmD5",
+        "start-date": "2016-02-26T17:10:10.653+02:00",
+        "stop-date": "2016-02-26T17:10:10.653+02:00",
+        "note": "Nihil quo inventore quod maiores."
+      },
+      "links": {
+        "self": "/medications/33lYgB39TI3tWV"
+      }
+    }
+  }
+
+
+Update patient medication
+-------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * medication_id - Medication id
+  * patient_id - Patient id
+  * diagnosis_id - Diagnosis id
+  * portion_id - Portion id
+  * shorthand - Shorthand
+  * signature - Signature
+  * start_date - Start date
+  * stop_date - Stop date
+  * note - Note
+
+Request:
+  PATCH /patient_treatments/update_medication
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"3954ca6b2ae4b9ce67717f3945362aa5","medication":{"medication_id":"33lYjN7T4yxZD9","diagnosis_id":"33lYjN7cl46w7P","portion_id":"33lYpuXpYm5X2B","shorthand":"Forage","signature":"50CbGj3tV6TjBj98","start_date":"2016-02-26T17:10:25.674+02:00","stop_date":"2016-02-26T17:10:25.674+02:00","note":"Repellat earum sed quia consequatur."},"patient_id":"33lYjN7mR9GJ1f"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lYjN7T4yxZD9",
+      "type": "medications",
+      "attributes": {
+        "id": "33lYjN7T4yxZD9",
+        "diagnosis-id": "33lYjN7cl46w7P",
+        "portion-id": "33lYpuXpYm5X2B",
+        "shorthand": "Forage",
+        "signature": "50CbGj3tV6TjBj98",
+        "start-date": "2016-02-26T17:10:25.674+02:00",
+        "stop-date": "2016-02-26T17:10:25.674+02:00",
+        "note": "Repellat earum sed quia consequatur."
+      },
+      "links": {
+        "self": "/medications/33lYjN7T4yxZD9"
+      }
+    }
+  }
+
+
+Create patient allergy
+----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * allergen_type - Allergen type
+  * severity_level - Severity level
+  * onset_at - Onset at
+  * start_date - Start date
+  * active - Active
+  * note - Note
+
+Request:
+  POST /patient_treatments/create_allergy
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"919a191f948dd6907e71aa313344922a","patient_id":"33lYtHIfp4LFg3","allergy":{"allergen_type":"Drug","severity_level":"Very Mild","onset_at":"Childhood","start_date":"2016-02-26T17:10:45.987+02:00","active":true,"note":"Odit eos libero ut et voluptas hic."}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lZ3qNOyaDvwR",
+      "type": "allergies",
+      "attributes": {
+        "id": "33lZ3qNOyaDvwR",
+        "patient-id": "33lYtHIfp4LFg3",
+        "allergen-type": "Drug",
+        "severity-level": "Very Mild",
+        "onset-at": "Childhood",
+        "start-date": "2016-02-26T17:10:45.987+02:00",
+        "active": true,
+        "note": "Odit eos libero ut et voluptas hic."
+      },
+      "links": {
+        "self": "/allergies/33lZ3qNOyaDvwR"
+      }
+    }
+  }
+
+
+Create patient allergy
+----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * id - Allergy id
+  * allergen_type - Allergen type
+  * severity_level - Severity level
+  * onset_at - Onset at
+  * start_date - Start date
+  * active - Active
+  * note - Note
+
+Request:
+  PATCH /patient_treatments/update_allergy
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"42a88c2e34a269f326fd4e624dbef548","patient_id":"33lZ7H39O9cYTr","allergy":{"id":"33lZCkpRFojasd","allergen_type":"Drug","severity_level":"Very Mild","onset_at":"Childhood","start_date":"2016-02-26T17:11:15.229+02:00","active":true,"note":"Sed ad veritatis dolore unde quas."}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lZCkpRFojasd",
+      "type": "allergies",
+      "attributes": {
+        "id": "33lZCkpRFojasd",
+        "patient-id": "33lZCkpavtsxmt",
+        "allergen-type": "Drug",
+        "severity-level": "Very Mild",
+        "onset-at": "Childhood",
+        "start-date": "2016-02-26T17:11:15.229+02:00",
+        "active": true,
+        "note": "Sed ad veritatis dolore unde quas."
+      },
+      "links": {
+        "self": "/allergies/33lZCkpRFojasd"
+      }
+    }
+  }
+
+
+Create patient insurance
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * insurance - Insurance params
+  * subscriber - Subscriber params
+  * employer - Employer params
+  * worker_compensation - Worker compensation
+  * insurance_number - Insurance number
+  * relation - Relation
+  * effective_from - Effective from
+  * effective_to - Effective to
+  * copay_type - Copay type
+  * copay_amount - Copay amount
+  * claim - Claim
+  * note - Note
+  * active - Active
+  * first_name - First name
+  * middle_name - Last name
+  * last_name - Middle name
+  * birth - Birth date
+  * gender - Gender
+  * social_number - Social number
+  * phone - Phone
+  * street_address - Street address
+  * city - City
+  * state - State
+  * zip - Zip
+  * name - Name
+  * phone - Phone
+  * street_address - Street address
+  * city - City
+  * state - state
+  * zip - Zip
+
+Request:
+  POST /patient_treatments/create_insurance
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"6f3f6fd956570abce260e9292313cbd5","patient_id":"33lZS0UOfj8Wzj","insurance":{"worker_compensation":true,"insurance_number":"697141577","relation":"Owner","effective_from":"2016-02-26T17:11:37.912+02:00","effective_to":"2016-02-26T17:11:37.912+02:00","copay_type":"$","copay_amount":74.58,"claim":109,"note":"Inventore ut sed praesentium aut optio sapiente facilis ut.","active":true},"subscriber":{"first_name":"Lillie","middle_name":"Cordell","last_name":"Mayert","birth":"2016-02-26T17:11:45.686+02:00","gender":"Male","social_number":"158956878","phone":"+12881694957","street_address":"2137 Camren Neck","city":"Carnegie","state":"Rhode Island","zip":75301},"employer":{"name":"Bettye","phone":"+16438828230","street_address":"253 Fisher Knoll","city":"Columbus","state":"Kentucky","zip":32102}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lZp3VIApqeax",
+      "type": "insurances",
+      "attributes": {
+        "id": "33lZp3VIApqeax",
+        "patient-id": "33lZS0UOfj8Wzj",
+        "provider-id": null,
+        "payer-id": null,
+        "worker-compensation": true,
+        "insurance-number": "697141577",
+        "relation": "Owner",
+        "effective-from": "2016-02-26T17:11:37.912+02:00",
+        "effective-to": "2016-02-26T17:11:37.912+02:00",
+        "copay-type": "$",
+        "copay-amount": 74.58,
+        "claim": 109,
+        "note": "Inventore ut sed praesentium aut optio sapiente facilis ut.",
+        "active": true
+      },
+      "links": {
+        "self": "/insurances/33lZp3VIApqeax"
+      }
+    }
+  }
+
+
+Create patient payer
+--------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * payer - Payer params
+  * claim - Claim params
+  * name - Name
+  * plan - Plan
+  * plan_type - Plan type
+  * first_name - First name
+  * middle_name - Middle name
+  * last_name - Last name
+  * street_address1 - Street address #1
+  * street_address2 - Street address #2
+  * phone - Phone
+  * fax - Fax
+  * ext1 - Ext 1
+  * ext2 - Ext 2
+  * city - City
+  * state - State
+  * zip - Zip
+  * notes - Notes
+
+Request:
+  POST /patient_treatments/create_payer
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"121d0fe875cb6c5479065e8eb178f60b","patient_id":"33lZvNEGWZjJJr","payer":{"name":"Lelah","plan":"Tristin","plan_type":"Type2"},"claim":{"first_name":"Mauricio","middle_name":"Estel","last_name":"Zemlak","street_address1":"28113 Lindsey Knolls","street_address2":"44236 Sonny Mission","phone":"+12744993812","fax":"+1572198169","ext1":"fixie","ext2":"kinfolk","city":"East Otis","state":"Delaware","zip":15353,"notes":"Lo-fi sustainable actually viral scenester vhs knausgaard vinegar venmo."}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33laBtvKWMefRL",
+      "type": "payers",
+      "attributes": {
+        "id": "33laBtvKWMefRL",
+        "patient-id": "33lZvNEGWZjJJr",
+        "name": "Lelah",
+        "plan": "Tristin",
+        "plan-type": "Type2"
+      },
+      "links": {
+        "self": "/payers/33laBtvKWMefRL"
+      }
+    }
+  }
+
+
+Get active or inactive patients
+-------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+
+Request:
+  GET /patient_treatments/add_patient_encounter?data[auth_token]=0345972293b61b536cbf106fd37a2087&data[patient_id]=33laF9nDNQasNP
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"0345972293b61b536cbf106fd37a2087", "patient_id"=>"33laF9nDNQasNP"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33laKXWNBRZ4K3",
+        "type": "procedures",
+        "attributes": {
+          "id": "33laKXWNBRZ4K3",
+          "tooth-table-id": "33laIcr6vqP81j",
+          "procedure-code": "D2150",
+          "description": "Amalgam - Two Surfaces",
+          "date-of-service": "2016-02-26T17:12:44.676+02:00",
+          "status": "Existing"
+        },
+        "links": {
+          "self": "/procedures/33laKXWNBRZ4K3"
+        }
+      },
+      {
+        "id": "33laKXVu9C6xbH",
+        "type": "procedures",
+        "attributes": {
+          "id": "33laKXVu9C6xbH",
+          "tooth-table-id": "33laIcr6vqP81j",
+          "procedure-code": "D2332",
+          "description": "Resin-three Surfaces, Anterior",
+          "date-of-service": "2016-02-26T17:12:44.369+02:00",
+          "status": "Treatment planned"
+        },
+        "links": {
+          "self": "/procedures/33laKXVu9C6xbH"
+        }
+      },
+      {
+        "id": "33laKXVR6weqsV",
+        "type": "procedures",
+        "attributes": {
+          "id": "33laKXVR6weqsV",
+          "tooth-table-id": "33laIcr6vqP81j",
+          "procedure-code": "D2140",
+          "description": "Amalgam - One Surface",
+          "date-of-service": "2016-02-26T17:12:44.319+02:00",
+          "status": "Existing"
+        },
+        "links": {
+          "self": "/procedures/33laKXVR6weqsV"
+        }
+      }
+    ]
+  }
+
+
+Create patient encounter
+------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * procedure_id - Procedure id
+  * encounter - Encounter params
+  * vital - Vital params
+  * procedure_completed - Procedure completed params
+  * procedure_recommended - Procedure recommended params
+  * provider_id - Provider id
+  * notes - Notes
+  * med_completed - Medication completed
+  * patient_education - Patient education
+  * clinical_summary - Clinical summary
+  * to_provider_id - To provider id
+  * from_provider_id - From provider id
+  * height_major - Height major
+  * height_minor - Height minor
+  * weight - Weight
+  * units_system - Units system
+  * bp_left - Bp left
+  * bp_right - Bp right
+  * temp - Temp
+  * pulse - Pulse
+  * rr - RR
+  * sat - SAT
+  * temp_type - Temp type
+  * ra_type - RA type
+  * blood - Blood
+  * procedure_code - Procedure code
+  * procedure_code - Procedure code
+
+Request:
+  POST /patient_treatments/create_patient_encounter
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"6f76edfc37b05332f350f3685cb18e78","patient_id":"33laPgTx4BDIR9","procedure_id":"33laVD7tMOInRb","encounter":{"provider_id":"33laOQ0oWuXdgZ","notes":"Sit fuga totam officia quos eos eaque dolorem.","med_completed":true,"patient_education":true,"clinical_summary":true,"to_provider_id":null,"from_provider_id":null},"vital":{"height_major":9,"height_minor":2,"weight":37.0,"units_system":"us","bp_left":"nulla","bp_right":"qui","temp":"et","pulse":"eum","rr":"est","sat":"est","temp_type":"Rectal","ra_type":"2.0 LO2","blood":"corrupti"},"procedure_completed":{"procedure_code":"D1206"},"procedure_recommended":{"procedure_code":"D6240"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lapg9J8GVnmt",
+      "type": "encounters",
+      "attributes": {
+        "id": "33lapg9J8GVnmt",
+        "provider-id": "33laOQ0oWuXdgZ",
+        "patient-id": "33laPgTx4BDIR9",
+        "notes": "Sit fuga totam officia quos eos eaque dolorem.",
+        "med-completed": true,
+        "patient-education": true,
+        "clinical-summary": true,
+        "to-provider-id": null,
+        "from-provider-id": null
+      },
+      "links": {
+        "self": "/encounters/33lapg9J8GVnmt"
+      }
+    }
+  }
+
+
+Search providers
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - A part of first name or last name of a provider
+
+Request:
+  GET /patient_treatments/providers?data[auth_token]=9eb1b476f935c45d1bc14d9aeca121b8&data[part]=Dav
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"9eb1b476f935c45d1bc14d9aeca121b8", "part"=>"Dav"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lavj0f9WBipH",
+        "type": "providers",
+        "attributes": {
+          "id": "33lavj0f9WBipH",
+          "email": "mauricio@rippin.co",
+          "role": "Provider",
+          "user-id": "33lavj0opbL5jX",
+          "title": "Mr",
+          "first-name": "David",
+          "middle-name": null,
+          "last-name": "Markus",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Frami Mission",
+          "suit-apt-number": "925",
+          "city": "South Rosemarie",
+          "state": "New Hampshire",
+          "zip": null,
+          "practice-street-address": "Satterfield Springs",
+          "practice-suit-apt-number": "28410",
+          "practice-city": "Lake Elise",
+          "practice-state": "Wyoming",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33lavj0f9WBipH/avatar4.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33lavj0f9WBipH"
+        }
+      },
+      {
+        "id": "33layO6GMzi1Xn",
+        "type": "providers",
+        "attributes": {
+          "id": "33layO6GMzi1Xn",
+          "email": "maye@hudson.co",
+          "role": "Provider",
+          "user-id": "33layO6Q34rOS3",
+          "title": "Mr",
+          "first-name": "Glory",
+          "middle-name": null,
+          "last-name": "Daviand",
+          "degree": "DDS",
+          "speciality": "Endodontics",
+          "street-address": "Lillie Prairie",
+          "suit-apt-number": "355",
+          "city": "Lake Salma",
+          "state": "Virginia",
+          "zip": null,
+          "practice-street-address": "Napoleon Street",
+          "practice-suit-apt-number": "31227",
+          "practice-city": "Lake Tessie",
+          "practice-state": "Michigan",
+          "practice-zip": null,
+          "primary-phone": null,
+          "mobile-phone": null,
+          "alt-email": null,
+          "username": null,
+          "secondary-speciality": null,
+          "dental-licence": null,
+          "expiration-date": null,
+          "ein-tin": null,
+          "npi": null,
+          "dea": null,
+          "upin": null,
+          "nadean": null,
+          "status": true,
+          "biography": null,
+          "accepting-patient": false,
+          "enable-online-booking": false,
+          "profile-image": {
+            "url": "/uploads/provider/profile_image/33layO6GMzi1Xn/avatar10.jpg"
+          }
+        },
+        "links": {
+          "self": "/providers/33layO6GMzi1Xn"
+        }
+      }
+    ]
+  }
+
+
+Search diagnosis codes
+----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - A part of diagnosis code
+
+Request:
+  GET /patient_treatments/diagnosis_codes?data[auth_token]=5b0b7189a966b7428c531273cfbbb0e4&data[part]=A00
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"5b0b7189a966b7428c531273cfbbb0e4", "part"=>"A00"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "2pSzzWf5wtQHGS",
+        "type": "diagnosis-codes",
+        "attributes": {
+          "id": "2pSzzWf5wtQHGS",
+          "code": "A000",
+          "description": "Cholera due to Vibrio cholerae 01, biovar cholerae"
+        },
+        "links": {
+          "self": "/diagnosis-codes/2pSzzWf5wtQHGS"
+        }
+      },
+      {
+        "id": "2pSzzWfFcyZeAi",
+        "type": "diagnosis-codes",
+        "attributes": {
+          "id": "2pSzzWfFcyZeAi",
+          "code": "A001",
+          "description": "Cholera due to Vibrio cholerae 01, biovar eltor"
+        },
+        "links": {
+          "self": "/diagnosis-codes/2pSzzWfFcyZeAi"
+        }
+      },
+      {
+        "id": "2pSzzWfPJ3j14y",
+        "type": "diagnosis-codes",
+        "attributes": {
+          "id": "2pSzzWfPJ3j14y",
+          "code": "A009",
+          "description": "Cholera, unspecified"
+        },
+        "links": {
+          "self": "/diagnosis-codes/2pSzzWfPJ3j14y"
+        }
+      }
+    ]
+  }
+
+
+Search procedure codes
+----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - A part of procedure code
+
+Request:
+  GET /patient_treatments/procedure_codes?data[auth_token]=a9c53c11f6b3eb1b45dc56f415a24592&data[part]=D51
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"a9c53c11f6b3eb1b45dc56f415a24592", "part"=>"D51"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "procedure_codes": [
+        {
+          "procedure": "Complete Denture - Maxillary",
+          "code": "D5110"
+        },
+        {
+          "procedure": "Complete Denture - Mandibular",
+          "code": "D5120"
+        },
+        {
+          "procedure": "Immediate Denture - Maxillary",
+          "code": "D5130"
+        }
+      ]
+    }
+  }
+
+
+Search payer names
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - A part of payer name
+  * patient_id - Patient id
+
+Request:
+  GET /patient_treatments/payers?data[auth_token]=35b6aec1a36d06a970a44baedea08e07&data[part]=Gae&data[patient_id]=33lbL1UR8ZT0eh
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"35b6aec1a36d06a970a44baedea08e07", "part"=>"Gae", "patient_id"=>"33lbL1UR8ZT0eh"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lbQEHIjaoq03",
+        "type": "payers",
+        "attributes": {
+          "id": "33lbQEHIjaoq03",
+          "patient-id": "33lbL1UR8ZT0eh",
+          "name": "Gaetano",
+          "plan": "Alberta",
+          "plan-type": "Type5"
+        },
+        "links": {
+          "self": "/payers/33lbQEHIjaoq03"
+        }
+      },
+      {
+        "id": "33lbQEHSPfyCuJ",
+        "type": "payers",
+        "attributes": {
+          "id": "33lbQEHSPfyCuJ",
+          "patient-id": "33lbL1UR8ZT0eh",
+          "name": "Gaetano",
+          "plan": "Therese",
+          "plan-type": "Type5"
+        },
+        "links": {
+          "self": "/payers/33lbQEHSPfyCuJ"
+        }
+      }
+    ]
+  }
+
+
+Search portion drugs
+--------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - A part of portion drug
+
+Request:
+  GET /patient_treatments/portions?data[auth_token]=2082181b11a72578a1c2302e58f10e2f&data[part]=Volup
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"2082181b11a72578a1c2302e58f10e2f", "part"=>"Volup"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lbT9WoEIEQKp",
+        "type": "portions",
+        "attributes": {
+          "id": "33lbT9WoEIEQKp",
+          "drug": "Voluptatem",
+          "dose": "982 mg.",
+          "instruction": "Narwhal sartorial blog wayfarers +1."
+        },
+        "links": {
+          "self": "/portions/33lbT9WoEIEQKp"
+        }
+      },
+      {
+        "id": "33lbT9WxuNNnF5",
+        "type": "portions",
+        "attributes": {
+          "id": "33lbT9WxuNNnF5",
+          "drug": "Voluptatem",
+          "dose": "552 mg.",
+          "instruction": "Kale chips pop-up beard kinfolk brooklyn freegan tousled celiac."
+        },
+        "links": {
+          "self": "/portions/33lbT9WxuNNnF5"
+        }
+      }
+    ]
+  }
+
+
+Search medications
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - A part of portion drug
+
+Request:
+  GET /patient_treatments/medications?data[auth_token]=8d55bdc7be5c9865a071cff729a53d1c&data[part]=Volup
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"8d55bdc7be5c9865a071cff729a53d1c", "part"=>"Volup"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lbUEbrjmNwyB",
+        "type": "medications",
+        "attributes": {
+          "id": "33lbUEbrjmNwyB",
+          "diagnosis-id": "33lbUEc1PrXJsR",
+          "portion-id": "33lbUEbi3hEa3v",
+          "shorthand": "Skateboard",
+          "signature": "Rh3eSwH41vJlToEo",
+          "start-date": "2016-02-26T16:14:38.809+02:00",
+          "stop-date": "2016-02-26T18:14:38.809+02:00",
+          "note": "Est deserunt eius accusantium et."
+        },
+        "links": {
+          "self": "/medications/33lbUEbrjmNwyB"
+        }
+      },
+      {
+        "id": "33lbYI6Bu9SNnv",
+        "type": "medications",
+        "attributes": {
+          "id": "33lbYI6Bu9SNnv",
+          "diagnosis-id": "33lbYI6LaEbkiB",
+          "portion-id": "33lbYI62E4J0tf",
+          "shorthand": "Pop-up",
+          "signature": "RnAqWiIe32ZnJlKx",
+          "start-date": "2016-02-26T16:14:44.770+02:00",
+          "stop-date": "2016-02-26T18:14:44.770+02:00",
+          "note": "Dolorum ipsam at enim ea."
+        },
+        "links": {
+          "self": "/medications/33lbYI6Bu9SNnv"
+        }
+      }
+    ]
+  }
+
+
+Get encounter by id
+-------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Encounter id
+  * patient_id - Patient id
+
+Request:
+  GET /patient_treatments/encounter_full_info?data[auth_token]=8786b8f4eae8e234e17f1490e0449175&data[id]=33lbr7wplbLBTf&data[patient_id]=33lbtZdvz4tstH
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"8786b8f4eae8e234e17f1490e0449175", "id"=>"33lbr7wplbLBTf", "patient_id"=>"33lbtZdvz4tstH"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lbr7wplbLBTf",
+      "type": "encounters",
+      "attributes": {
+        "id": "33lbr7wplbLBTf",
+        "provider-id": null,
+        "patient-id": "33lbr7wzRgUYNv",
+        "notes": "Optio et ut sit.",
+        "med-completed": true,
+        "patient-education": true,
+        "clinical-summary": true,
+        "to-provider-id": null,
+        "from-provider-id": null
+      },
+      "links": {
+        "self": "/encounters/33lbr7wplbLBTf"
+      }
+    }
+  }
+
+
+Get tooth and procedure code for creating procedure
+---------------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * code - Procedure code, the same code you will get back
+  * tooth_num - Tooth number
+
+Request:
+  GET /patient_treatments/add_patient_procedure?data[auth_token]=43f90df92243203677c83946dbf4ef92&data[patient_id]=33lbzXPdYL0jBr&data[code]=D1110&data[tooth_num]=1
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"43f90df92243203677c83946dbf4ef92", "patient_id"=>"33lbzXPdYL0jBr", "code"=>"D1110", "tooth_num"=>"1"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "procedure_code": "D1110",
+      "tooth": {
+        "active": true,
+        "b_bsp1": false,
+        "b_bsp2": false,
+        "b_bsp3": false,
+        "b_bsp4": false,
+        "b_bsp5": false,
+        "b_bsp6": false,
+        "b_bsp7": false,
+        "b_bsp8": false,
+        "b_bsp9": false,
+        "created_at": "2016-02-26T17:15:23.101+02:00",
+        "id": "33lc2QSOSG2eeZ",
+        "l_bsp1": false,
+        "l_bsp2": false,
+        "l_bsp3": false,
+        "l_bsp4": false,
+        "l_bsp5": false,
+        "l_bsp6": false,
+        "l_bsp7": false,
+        "l_bsp8": false,
+        "l_bsp9": false,
+        "patient_id": "33lbzXPdYL0jBr",
+        "tooth_num": 1,
+        "updated_at": "2016-02-26T17:15:23.101+02:00"
+      }
+    }
+  }
+
+
+Get tooth and procedure code for creating procedure
+---------------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * procedure - Procedure params
+  * surface - Surface params
+  * pit - Pit params
+  * cusp - Cusp params
+
+Request:
+  POST /patient_treatments/create_procedure
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"9416a2e70b303d42e46e53388fab1ae3","procedure":{"procedure_code":"D2332","description":"Resin-three Surfaces, Anterior","date_of_service":"2016-02-26T17:15:28.423+02:00","status":"Treatment planned"},"surface":{"mesial":true,"incisal":true,"distal":true,"lingual":true,"facial":true,"class_five":true},"pit":{"mesial":true,"mesiobuccal":true,"mesiolingual":true,"distal":true,"distobuccal":true,"distolingual":true},"cusp":{"mesiobuccal":true,"mesiolingual":true,"distobuccal":true,"distolingual":true}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lc6BtGEqQabj",
+      "type": "procedures",
+      "attributes": {
+        "id": "33lc6BtGEqQabj",
+        "tooth-table-id": null,
+        "procedure-code": "D2332",
+        "description": "Resin-three Surfaces, Anterior",
+        "date-of-service": "2016-02-26T17:15:28.423+02:00",
+        "status": "Treatment planned"
+      },
+      "links": {
+        "self": "/procedures/33lc6BtGEqQabj"
+      }
+    }
+  }
+
+
+Get tooth and procedure code for creating procedure
+---------------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+
+Request:
+  GET /patient_treatments/guarantor?data[auth_token]=c6fa30faf20ce1357c0d47e9e75e5b67&data[patient_id]=33lc8EE1zVtwo7
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"c6fa30faf20ce1357c0d47e9e75e5b67", "patient_id"=>"33lc8EE1zVtwo7"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lc9bm9CPWZ8N",
+      "type": "guarantors",
+      "attributes": {
+        "id": "33lc9bm9CPWZ8N",
+        "patient-id": "33lc8EE1zVtwo7",
+        "first-name": "Ray",
+        "middle-name": "Haylie",
+        "last-name": "Rowe",
+        "birth": "2016-02-26T17:15:34.552+02:00",
+        "gender": "Male",
+        "social-number": "219744898",
+        "relation": "Friend",
+        "phone": "+16164131384",
+        "email": "alize.walker@sanfordheidenreich.com",
+        "street-address": "11843 Cary Rue",
+        "city": "Lovelaceville",
+        "state": "Idaho",
+        "zip": 10963
+      },
+      "links": {
+        "self": "/guarantors/33lc9bm9CPWZ8N"
+      }
+    }
+  }
+
+
+Update guarantor
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * guarantor - Guarantor params
+  * patient_id - Patient id
+  * first_name - First name
+  * middle_name - Middle name
+  * last_name - Last name
+  * birth - Birth date
+  * gender - Gender
+  * social_number - Social number
+  * relation - Relation
+  * phone - Phone number
+  * email - Email
+  * street_address - Street address
+  * city - City
+  * state - State
+  * zip - Zip
+
+Request:
+  PATCH /patient_treatments/update_guarantor
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"ce9cab055a67daf9ce51a26aa5044ea7","guarantor":{"patient_id":"33lcEFNrAbQ6S3","first_name":"Marie","middle_name":"Jamarcus","last_name":"Lehner","birth":"2016-02-26T17:15:46.463+02:00","gender":"Other","social_number":"663489494","relation":"Friend","phone":"+17552994158","email":"jacinthe.lakin@ziemannberge.org","street_address":"9871 Camylle Dale","city":"Sorrento","state":"Massachusetts","zip":45506}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lcEFNhUWGjXn",
+      "type": "guarantors",
+      "attributes": {
+        "id": "33lcEFNhUWGjXn",
+        "patient-id": "33lcEFNrAbQ6S3",
+        "first-name": "Marie",
+        "middle-name": "Jamarcus",
+        "last-name": "Lehner",
+        "birth": "2016-02-26T17:15:46.463+02:00",
+        "gender": "Other",
+        "social-number": "663489494",
+        "relation": "Friend",
+        "phone": "+17552994158",
+        "email": "jacinthe.lakin@ziemannberge.org",
+        "street-address": "9871 Camylle Dale",
+        "city": "Sorrento",
+        "state": "Massachusetts",
+        "zip": 45506
+      },
+      "links": {
+        "self": "/guarantors/33lcEFNhUWGjXn"
+      }
+    }
+  }
+
+
+Update smoking status
+---------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * smoking_status - Smoking status params
+  * smoking_status_id - Smoking status id
+  * effective_from - Effective from date
+
+Request:
+  PATCH /patient_treatments/update_smoking_status
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"6ccc1ee45da6c6cb5366332aba5fca03","smoking_status":{"smoking_status_id":"33lcKpvTxFdTcZ","status":"Smoker, Current Status Unknown","effective_from":"2016-02-26T17:15:56.369+02:00"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lcKpvTxFdTcZ",
+      "type": "smoking-statuses",
+      "attributes": {
+        "id": "33lcKpvTxFdTcZ",
+        "patient-id": "33lcKpvddKmqWp",
+        "status": "Smoker, Current Status Unknown",
+        "effective-from": "2016-02-26T17:15:56.369+02:00"
+      },
+      "links": {
+        "self": "/smoking-statuses/33lcKpvTxFdTcZ"
+      }
+    }
+  }
+
+
+Update past medical history
+---------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * past_medical_history - Medical history params
+  * id - Medical history id
+  * major_events - Major events
+  * ongoing_problems - Ongoing problems
+  * preventitive_care - Preventitive care
+  * nutrition_history - Nutrition history
+  * developmental_history - Development history
+
+Request:
+  PATCH /patient_treatments/update_medical_history
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"014e033e72851a921cbed355a40c1695","past_medical_history":{"id":"33lcR31Q8EcJBz","major_events":"Error provident corrupti quam at itaque iste dolor.","ongoing_problems":"Est error et quia.","preventitive_care":"Molestias quia voluptatum natus porro quam delectus occaecati in.","nutrition_history":"Repudiandae consequatur enim nisi rem.","developmental_history":"Et ut cum soluta et aut est."}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lcR31Q8EcJBz",
+      "type": "past-medical-histories",
+      "attributes": {
+        "id": "33lcR31Q8EcJBz",
+        "patient-id": "33lcR31ZoJlg6F",
+        "major-events": "Error provident corrupti quam at itaque iste dolor.",
+        "ongoing-problems": "Est error et quia.",
+        "preventitive-care": "Molestias quia voluptatum natus porro quam delectus occaecati in.",
+        "nutrition-history": "Repudiandae consequatur enim nisi rem.",
+        "developmental-history": "Et ut cum soluta et aut est."
+      },
+      "links": {
+        "self": "/past-medical-histories/33lcR31Q8EcJBz"
+      }
+    }
+  }
+
+
+Update advanced directive
+-------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * advanced_directive - Advanced directive params
+  * id - Advanced directive id
+  * record_date - Record date
+  * notes - Notes
+
+Request:
+  PATCH /patient_treatments/update_advanced_directive
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"52fd264b1aaa66c8808b06d8f5fc202c","advanced_directive":{"id":"33lcWw46fY4eKB","record_date":"2016-02-26T17:16:14.778+02:00","notes":null}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lcWw46fY4eKB",
+      "type": "advanced-directives",
+      "attributes": {
+        "id": "33lcWw46fY4eKB",
+        "patient-id": "33lcWw4GLdE1ER",
+        "record-date": "2016-02-26T17:16:14.778+02:00",
+        "notes": null
+      },
+      "links": {
+        "self": "/advanced-directives/33lcWw46fY4eKB"
+      }
+    }
+  }
+
+

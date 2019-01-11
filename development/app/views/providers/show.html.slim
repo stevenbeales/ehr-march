@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong User:
+  = @provider.user
+
+= link_to 'Edit', edit_provider_path(@provider)
+'|
+= link_to 'Back', providers_path

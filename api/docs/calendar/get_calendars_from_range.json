@@ -1,0 +1,56 @@
+{
+  "resource": "Calendar",
+  "http_method": "GET",
+  "route": "/calendars/get_calendars",
+  "description": "Get calendars from range",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "start",
+      "description": "Start date range"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "end",
+      "description": "End date range"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/calendars/get_calendars?data[auth_token]=05e89fb4c2648c3d17f07c9d94b44530&data[start]=2016-02-26+07%3A01%3A06+%2B0200&data[end]=2016-02-27+03%3A01%3A06+%2B0200",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "05e89fb4c2648c3d17f07c9d94b44530",
+          "start": "2016-02-26 07:01:06 +0200",
+          "end": "2016-02-27 03:01:06 +0200"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"calendars\": [\n      {\n        \"id\": \"33lSS1ODVggJSV\",\n        \"title\": \"Crown/Bridge Delivery\",\n        \"description\": \"Consequuntur magnam aspernatur ab.\",\n        \"start\": \"2016-02-26T17:00:00+02:00\",\n        \"end\": \"2016-02-26T19:00:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"6B26D4\",\n        \"statusColor\": \"944B55\",\n        \"patientName\": \"Elody Shanahan\",\n        \"patientPhone\": \"+16485328817\",\n        \"providerName\": \"Octavia Emmerich\",\n        \"type\": \"Crown/Bridge Delivery\",\n        \"status\": \"Reschedule\",\n        \"room\": \"Suite 703\",\n        \"roomId\": \"33lSNWWWBxTaap\"\n      },\n      {\n        \"id\": \"33lSeEFxryuihf\",\n        \"title\": \"Crown/Bridge Delivery\",\n        \"description\": \"Quis velit sit porro dolores vel aspernatur sunt distinctio.\",\n        \"start\": \"2016-02-26T17:00:00+02:00\",\n        \"end\": \"2016-02-26T18:00:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"7CA66A\",\n        \"statusColor\": \"7F7A60\",\n        \"patientName\": \"Roberta Schmitt\",\n        \"patientPhone\": \"+1252496377\",\n        \"providerName\": \"Octavia Emmerich\",\n        \"type\": \"Crown/Bridge Delivery\",\n        \"status\": \"Endo\",\n        \"room\": \"Apt. 837\",\n        \"roomId\": \"33lSZYRez5mtQB\"\n      },\n      {\n        \"id\": \"33lSq19RpHL0Et\",\n        \"title\": \"Prophy-Child\",\n        \"description\": \"Est aut reprehenderit atque voluptatem velit.\",\n        \"start\": \"2016-02-26T17:00:00+02:00\",\n        \"end\": \"2016-02-26T18:00:00+02:00\",\n        \"allDay\": false,\n        \"recurring\": false,\n        \"typeColor\": \"2D7D80\",\n        \"statusColor\": \"0F31D5\",\n        \"patientName\": \"Rickie Howe\",\n        \"patientPhone\": \"+16763441087\",\n        \"providerName\": \"Octavia Emmerich\",\n        \"type\": \"Prophy-Child\",\n        \"status\": \"New Patient\",\n        \"room\": \"Suite 448\",\n        \"roomId\": \"33lSktSrOa9jGN\"\n      }\n    ]\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

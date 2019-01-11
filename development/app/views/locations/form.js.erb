@@ -1,0 +1,37 @@
+$('#modal-settings-add-edit-location-practice').html('<%= escape_javascript(render 'form') %>')
+$('#modal-settings-add-edit-location-practice').modal('show')
+
+initPickers();
+initSelect2('#modal-settings-add-edit-location-practice');
+
+var selectSpecifiedHoursOnSelectionHandler = function() {
+  var selectContainers = $(this).closest('.row').find('.select2-container');
+  switch(this.value) {
+    case 'Specific Hours':
+      selectContainers.each(function() {
+        if(!$(this).parent().hasClass('location_timeslots_specific_hour'))
+          enableControl($(this).closest('.row').find('select:not(.select-new-user-specific-hours)'), false, true);
+      })
+    break;
+    case 'Closed/NA':
+      selectContainers.each(function() {
+        if(!$(this).parent().hasClass('location_timeslots_specific_hour'))
+          disableControl($(this).closest('.row').find('select:not(.select-new-user-specific-hours)'), false, true);
+      })
+    break;
+    case 'Open 24 Hrs':
+      selectContainers.each(function() {
+        if(!$(this).parent().hasClass('location_timeslots_specific_hour'))
+          disableControl($(this).closest('.row').find('select:not(.select-new-user-specific-hours)'), false, true);
+      })
+    break;
+  }
+}
+
+$(function() {
+  var zipcode_controller = new ZipcodeController();
+  zipcode_controller.initialize('#location_city', '#location_state', '#location_zip', '#location_city_list',  '#location_zip_list', false);
+
+  $('.select-new-user-specific-hours').each(selectSpecifiedHoursOnSelectionHandler);
+  $('.select-new-user-specific-hours').on('change', selectSpecifiedHoursOnSelectionHandler);
+})

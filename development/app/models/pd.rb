@@ -1,0 +1,2 @@
+class Pd < ToothField
+end

@@ -1,0 +1,232 @@
+Sort appointments and paginate
+------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * page - Pagination page number
+  * field - Field order by, can be: "appointment_datetime_time", "patient", "appointment_type" other variants return all appointments
+  * type - Type of order: "asc" or "desc"
+
+Request:
+  GET /sorter/appointments?data[auth_token]=cc56f32a583c6f1a081dd266fee1e325&data[page]=0&data[field]=patient&data[type]=desc
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"cc56f32a583c6f1a081dd266fee1e325", "page"=>"0", "field"=>"patient", "type"=>"desc"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lhOpjXDNnJ2J",
+        "type": "appointments",
+        "attributes": {
+          "id": "33lhOpjXDNnJ2J",
+          "patient-id": "33lhOpjgtSwfwZ",
+          "room-id": "33lhWMZrfoCqmJ",
+          "appointment-type-id": "33lhXgeOVy8E0B",
+          "appointment-status-id": "33lhYLmHN2XDHP",
+          "location": "36443 Kuphal Views",
+          "reason": "Fuga perferendis voluptatem nisi.",
+          "appointment-datetime-date": "2016-02-26",
+          "appointment-datetime-time": "17:23",
+          "duration": "15 min",
+          "contact-email": "haan.feest@douglas.info",
+          "contact-phone": "+13139621766",
+          "reminder": false,
+          "colour": "FBF537"
+        },
+        "links": {
+          "self": "/appointments/33lhOpjXDNnJ2J"
+        }
+      },
+      {
+        "id": "33lhZjGKvmEE0x",
+        "type": "appointments",
+        "attributes": {
+          "id": "33lhZjGKvmEE0x",
+          "patient-id": "33lhZjGUbrNavD",
+          "room-id": "33lhdXleniyuyx",
+          "appointment-type-id": "33lhfX9mPBdzXP",
+          "appointment-status-id": "33lhgBCNiRujjP",
+          "location": "839 Brakus Burg",
+          "reason": "Saepe est sint aperiam quam accusamus ut cum ut.",
+          "appointment-datetime-date": "2016-02-26",
+          "appointment-datetime-time": "17:23",
+          "duration": "3 hours",
+          "contact-email": "broderick.konopelski@padbergconnelly.com",
+          "contact-phone": "+127634530",
+          "reminder": true,
+          "colour": "A8952A"
+        },
+        "links": {
+          "self": "/appointments/33lhZjGKvmEE0x"
+        }
+      },
+      {
+        "id": "33lhCy0dOjWN87",
+        "type": "appointments",
+        "attributes": {
+          "id": "33lhCy0dOjWN87",
+          "patient-id": "33lhCy0n4ofk2N",
+          "room-id": "33lhJWPPYg8K71",
+          "appointment-type-id": "33lhLdTM1NPYO3",
+          "appointment-status-id": "33lhNdaR6lb2Gp",
+          "location": "85558 Dennis Viaduct",
+          "reason": "Nihil voluptatum perspiciatis aut omnis aliquid.",
+          "appointment-datetime-date": "2016-02-26",
+          "appointment-datetime-time": "17:23",
+          "duration": "3 hours",
+          "contact-email": "delores@eichmann.co",
+          "contact-phone": "+13368401110",
+          "reminder": true,
+          "colour": "E795BE"
+        },
+        "links": {
+          "self": "/appointments/33lhCy0dOjWN87"
+        }
+      }
+    ]
+  }
+
+
+Sort inbox messages
+-------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * field - Field order by, can be: "from", "created_at" other variants return all inbox
+  * type - Type of order: "asc" or "desc"
+
+Request:
+  GET /sorter/messages?data[auth_token]=b1ca0d8ebdd90476736bb1e2852b8e23&data[field]=created_at&data[type]=asc
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"b1ca0d8ebdd90476736bb1e2852b8e23", "field"=>"created_at", "type"=>"asc"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lhtc6vy0Hzud",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lhtc6vy0Hzud",
+          "subject-id": "33lhtc75e5RMot",
+          "to-id": "33lhsmJvZ4tHqV",
+          "from-id": null,
+          "body": "Vel quaerat eveniet sunt et dolorem.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lhtc6vy0Hzud"
+        }
+      },
+      {
+        "id": "33lhtc7FKAajj9",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lhtc7FKAajj9",
+          "subject-id": "33lhtc7P0Fk6dP",
+          "to-id": "33lhsmJvZ4tHqV",
+          "from-id": null,
+          "body": "Repellat aut ipsum provident.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lhtc7FKAajj9"
+        }
+      },
+      {
+        "id": "33lhuHeGScKD5v",
+        "type": "email-messages",
+        "attributes": {
+          "id": "33lhuHeGScKD5v",
+          "subject-id": "33lhuHeQ8hTa0B",
+          "to-id": "33lhsmJvZ4tHqV",
+          "from-id": null,
+          "body": "Facere omnis a recusandae in quo praesentium.",
+          "draft": false,
+          "archive": false,
+          "urgent": false,
+          "read": false
+        },
+        "links": {
+          "self": "/email-messages/33lhuHeGScKD5v"
+        }
+      }
+    ]
+  }
+
+
+Sort inbox messages
+-------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * field - Field order by, can be: "patient", "created_at", "appointment_type" other variants return all to dos
+  * type - Type of order: "asc" or "desc"
+
+Request:
+  GET /sorter/todos?data[auth_token]=7bfb2abb4346323a7eb1e4028af36a66&data[field]=appointment_type&data[type]=desc
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"7bfb2abb4346323a7eb1e4028af36a66", "field"=>"appointment_type", "type"=>"desc"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33liFfot2DWAQV",
+        "type": "to-dos",
+        "attributes": {
+          "id": "33liFfot2DWAQV",
+          "appointment-id": "33li8p8bP0cStn",
+          "done": false
+        },
+        "links": {
+          "self": "/to-dos/33liFfot2DWAQV"
+        }
+      },
+      {
+        "id": "33li8p8RivT5zX",
+        "type": "to-dos",
+        "attributes": {
+          "id": "33li8p8RivT5zX",
+          "appointment-id": "33li2wbv0j8rmV",
+          "done": false
+        },
+        "links": {
+          "self": "/to-dos/33li8p8RivT5zX"
+        }
+      },
+      {
+        "id": "33li2wblKdzUsF",
+        "type": "to-dos",
+        "attributes": {
+          "id": "33li2wblKdzUsF",
+          "appointment-id": "33lhvbzBZV7Nat",
+          "done": false
+        },
+        "links": {
+          "self": "/to-dos/33li2wblKdzUsF"
+        }
+      }
+    ]
+  }
+
+

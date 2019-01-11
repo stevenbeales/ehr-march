@@ -1,0 +1,55 @@
+{
+  "resource": "Sorter",
+  "http_method": "GET",
+  "route": "/sorter/todos",
+  "description": "Sort inbox messages",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "field",
+      "description": "Field order by, can be: \"patient\", \"created_at\", \"appointment_type\" other variants return all to dos"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "type",
+      "description": "Type of order: \"asc\" or \"desc\""
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/sorter/todos?data[auth_token]=7bfb2abb4346323a7eb1e4028af36a66&data[field]=appointment_type&data[type]=desc",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "7bfb2abb4346323a7eb1e4028af36a66",
+          "field": "appointment_type",
+          "type": "desc"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33liFfot2DWAQV\",\n      \"type\": \"to-dos\",\n      \"attributes\": {\n        \"id\": \"33liFfot2DWAQV\",\n        \"appointment-id\": \"33li8p8bP0cStn\",\n        \"done\": false\n      },\n      \"links\": {\n        \"self\": \"/to-dos/33liFfot2DWAQV\"\n      }\n    },\n    {\n      \"id\": \"33li8p8RivT5zX\",\n      \"type\": \"to-dos\",\n      \"attributes\": {\n        \"id\": \"33li8p8RivT5zX\",\n        \"appointment-id\": \"33li2wbv0j8rmV\",\n        \"done\": false\n      },\n      \"links\": {\n        \"self\": \"/to-dos/33li8p8RivT5zX\"\n      }\n    },\n    {\n      \"id\": \"33li2wblKdzUsF\",\n      \"type\": \"to-dos\",\n      \"attributes\": {\n        \"id\": \"33li2wblKdzUsF\",\n        \"appointment-id\": \"33lhvbzBZV7Nat\",\n        \"done\": false\n      },\n      \"links\": {\n        \"self\": \"/to-dos/33li2wblKdzUsF\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

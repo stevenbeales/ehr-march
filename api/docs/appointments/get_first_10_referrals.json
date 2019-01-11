@@ -1,0 +1,42 @@
+{
+  "resource": "Appointments",
+  "http_method": "GET",
+  "route": "/appointments/referrals",
+  "description": "Get first 10 referrals",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/appointments/referrals?data[auth_token]=f3fa0b8bcf93d5d2ebe4d574c6ec75db",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "f3fa0b8bcf93d5d2ebe4d574c6ec75db"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lQ6vDCJK141z\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vDCJK141z\",\n        \"appointment-id\": null,\n        \"normal\": \"Meaghan\",\n        \"middle-name\": \"Watson\",\n        \"last-name\": \"Price\",\n        \"individual-npi\": \"63-7715282\",\n        \"speciality\": \"Orthodontics and Dentofacial Orthopedics\",\n        \"phone\": \"+14752482168\",\n        \"fax\": \"+16357579419\",\n        \"email\": \"tracy_fay@larson.biz\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vDCJK141z\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vDLzPAQwF\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vDLzPAQwF\",\n        \"appointment-id\": null,\n        \"normal\": \"Lee\",\n        \"middle-name\": \"Torrey\",\n        \"last-name\": \"Bogisich\",\n        \"individual-npi\": \"88-6618177\",\n        \"speciality\": \"Endodontics\",\n        \"phone\": \"+16450300902\",\n        \"fax\": \"+12669745537\",\n        \"email\": \"luisa_daniel@herzog.biz\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vDLzPAQwF\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vDVfUJnqV\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vDVfUJnqV\",\n        \"appointment-id\": null,\n        \"normal\": \"Aniya\",\n        \"middle-name\": \"Jaylan\",\n        \"last-name\": \"Klein\",\n        \"individual-npi\": \"17-1612888\",\n        \"speciality\": \"N/A Speciality\",\n        \"phone\": \"+17052351470\",\n        \"fax\": \"+16709833438\",\n        \"email\": \"mohammed_cummings@cummings.net\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vDVfUJnqV\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vDfLZTAkl\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vDfLZTAkl\",\n        \"appointment-id\": null,\n        \"normal\": \"Dayton\",\n        \"middle-name\": \"Elda\",\n        \"last-name\": \"Moen\",\n        \"individual-npi\": \"20-8022686\",\n        \"speciality\": \"Endodontics\",\n        \"phone\": \"+19449913834\",\n        \"fax\": \"+14353985628\",\n        \"email\": \"chad@franecki.info\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vDfLZTAkl\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vDp1ecXf1\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vDp1ecXf1\",\n        \"appointment-id\": null,\n        \"normal\": \"Nyah\",\n        \"middle-name\": \"Maximillia\",\n        \"last-name\": \"Emmerich\",\n        \"individual-npi\": \"94-4342219\",\n        \"speciality\": \"Oral and Maxillofacial Pathology\",\n        \"phone\": \"+14913923601\",\n        \"fax\": \"+18781737285\",\n        \"email\": \"gust_effertz@hettinger.io\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vDp1ecXf1\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vDyhjluZH\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vDyhjluZH\",\n        \"appointment-id\": null,\n        \"normal\": \"Krystina\",\n        \"middle-name\": \"Augustus\",\n        \"last-name\": \"Huel\",\n        \"individual-npi\": \"95-4655537\",\n        \"speciality\": \"N/A Speciality\",\n        \"phone\": \"+19026203906\",\n        \"fax\": \"+15687717567\",\n        \"email\": \"jaclyn@leuschke.io\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vDyhjluZH\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vE8NovHTX\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vE8NovHTX\",\n        \"appointment-id\": null,\n        \"normal\": \"Dell\",\n        \"middle-name\": \"Denis\",\n        \"last-name\": \"Brakus\",\n        \"individual-npi\": \"04-0899854\",\n        \"speciality\": \"Endodontics\",\n        \"phone\": \"+14422875788\",\n        \"fax\": \"+1353196315\",\n        \"email\": \"jeff@block.net\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vE8NovHTX\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vEI3u4eNn\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vEI3u4eNn\",\n        \"appointment-id\": null,\n        \"normal\": \"Richmond\",\n        \"middle-name\": \"Jermain\",\n        \"last-name\": \"Kshlerin\",\n        \"individual-npi\": \"51-9317976\",\n        \"speciality\": \"Oral and Maxillofacial Radiology\",\n        \"phone\": \"+12342998034\",\n        \"fax\": \"+1584991209\",\n        \"email\": \"chris.johnson@auer.info\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vEI3u4eNn\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vERjzE1I3\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vERjzE1I3\",\n        \"appointment-id\": null,\n        \"normal\": \"Leda\",\n        \"middle-name\": \"Roy\",\n        \"last-name\": \"Buckridge\",\n        \"individual-npi\": \"24-3699431\",\n        \"speciality\": \"Endodontics\",\n        \"phone\": \"+12160452098\",\n        \"fax\": \"+16622057893\",\n        \"email\": \"braden.beatty@vandervort.co\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vERjzE1I3\"\n      }\n    },\n    {\n      \"id\": \"33lQ6vEbQ4NOCJ\",\n      \"type\": \"referrals\",\n      \"attributes\": {\n        \"id\": \"33lQ6vEbQ4NOCJ\",\n        \"appointment-id\": null,\n        \"normal\": \"Hank\",\n        \"middle-name\": \"Kenyon\",\n        \"last-name\": \"Effertz\",\n        \"individual-npi\": \"81-0536021\",\n        \"speciality\": \"Prosthodontics\",\n        \"phone\": \"+12154837958\",\n        \"fax\": \"+19616888993\",\n        \"email\": \"josie@kuhic.name\"\n      },\n      \"links\": {\n        \"self\": \"/referrals/33lQ6vEbQ4NOCJ\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

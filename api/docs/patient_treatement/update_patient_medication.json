@@ -1,0 +1,84 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "PATCH",
+  "route": "/patient_treatments/update_medication",
+  "description": "Update patient medication",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "medication",
+      "required": true,
+      "name": "medication_id",
+      "description": "Medication id"
+    },
+    {
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "medication",
+      "name": "diagnosis_id",
+      "description": "Diagnosis id"
+    },
+    {
+      "scope": "medication",
+      "name": "portion_id",
+      "description": "Portion id"
+    },
+    {
+      "scope": "medication",
+      "name": "shorthand",
+      "description": "Shorthand"
+    },
+    {
+      "scope": "medication",
+      "name": "signature",
+      "description": "Signature"
+    },
+    {
+      "scope": "medication",
+      "name": "start_date",
+      "description": "Start date"
+    },
+    {
+      "scope": "medication",
+      "name": "stop_date",
+      "description": "Stop date"
+    },
+    {
+      "scope": "medication",
+      "name": "note",
+      "description": "Note"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/patient_treatments/update_medication",
+      "request_body": "{\"data\":{\"auth_token\":\"3954ca6b2ae4b9ce67717f3945362aa5\",\"medication\":{\"medication_id\":\"33lYjN7T4yxZD9\",\"diagnosis_id\":\"33lYjN7cl46w7P\",\"portion_id\":\"33lYpuXpYm5X2B\",\"shorthand\":\"Forage\",\"signature\":\"50CbGj3tV6TjBj98\",\"start_date\":\"2016-02-26T17:10:25.674+02:00\",\"stop_date\":\"2016-02-26T17:10:25.674+02:00\",\"note\":\"Repellat earum sed quia consequatur.\"},\"patient_id\":\"33lYjN7mR9GJ1f\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lYjN7T4yxZD9\",\n    \"type\": \"medications\",\n    \"attributes\": {\n      \"id\": \"33lYjN7T4yxZD9\",\n      \"diagnosis-id\": \"33lYjN7cl46w7P\",\n      \"portion-id\": \"33lYpuXpYm5X2B\",\n      \"shorthand\": \"Forage\",\n      \"signature\": \"50CbGj3tV6TjBj98\",\n      \"start-date\": \"2016-02-26T17:10:25.674+02:00\",\n      \"stop-date\": \"2016-02-26T17:10:25.674+02:00\",\n      \"note\": \"Repellat earum sed quia consequatur.\"\n    },\n    \"links\": {\n      \"self\": \"/medications/33lYjN7T4yxZD9\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

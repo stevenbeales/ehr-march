@@ -1,0 +1,10 @@
+$(document).ready(function() {
+  $('a#authy-request-sms-link').unbind('ajax:success');
+  $('a#authy-request-sms-link').bind('ajax:success', function(evt, data, status, xhr) {
+    $('input#authy-token').attr('placeholder', data.sent==false?'Token sent error':data.message);
+    var removePlaceholder = function() {
+      $('input#authy-token').attr('placeholder', '');
+    }
+    $('input#authy-token').click(removePlaceholder);
+  });
+});

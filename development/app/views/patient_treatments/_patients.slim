@@ -1,0 +1,53 @@
+- params[:page] ||= 1
+- show_page_amount = patients.count <= params[:page].to_i * 10 ? patients.count : params[:page].to_i * 10
+.patients-main-table.table-responsive.form-row-field
+  table.table
+    thead
+      th
+      th First
+      th Last
+      th
+        | D.O.B
+        br
+        | Gender
+      th Contact Info
+      th
+        | Last Accessed
+    tbody
+      - patients.each do |patient|
+        tr class="#{'inactive' if !patient.active}"
+          td
+            = link_to show_patient_main_patient_treatments_path(id: patient.id), remote: true
+              - if gravatar?(patient.user)
+                = gravatar_for(patient.user, { class: 'avatar', alt: 'avatar' })
+              - else
+                - if patient.profile_image.present?
+                  img src="#{patient.profile_image.url}" class='avatar' alt='avatar'
+                - else
+                  = image_tag 'avatar-empty.svg', size: "100", class: "avatar avatar-empty"
+          td
+            p
+              = link_to patient.first_name, show_patient_main_patient_treatments_path(id: patient.id), remote: true
+          td
+            p
+              = link_to patient.last_name, show_patient_main_patient_treatments_path(id: patient.id), remote: true
+          td
+            p
+              = patient.birth.try(:strftime, '%b %d, %Y')
+              br
+              = patient.gender
+          td
+            p
+              = "H: #{patient.primary_phone} C: #{patient.mobile_phone}"
+              br
+              = patient.user.email
+          td
+            p
+              = patient.updated_at.strftime('%m/%d/%Y')
+              br
+              = patient.updated_at.strftime('%H:%M %P')
+.row.bottom-block
+  .col-lg-6.col-md-6.col-sm-6.col-xs-4.left-block
+    p Showing #{show_page_amount} of #{patients.count}
+  .col-lg-6.col-md-6.col-sm-6.col-xs-8.right-block
+    = will_paginate patients, renderer: BootstrapPagination::Rails, previous_label: I18n.t('previous_label'), next_label: I18n.t('next_label')

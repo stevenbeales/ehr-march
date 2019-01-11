@@ -1,0 +1,50 @@
+.landing-wrapper
+  .landing-top
+   .string
+      .string-top
+        .image-center
+          = image_tag('ehr.svg', width: 232, height: 88, alt: "EHR1 Logo")
+      .container
+        .string-top-container
+          = link_to root_path, class: 'string-top-home-link'
+            = image_tag('num-top.svg', width: 146, height: 248, alt: "EHR1 One Num Logo")
+        .main-title
+          h1 Your New EHR is just a few clicks away.
+          p
+            | Want an EHR that is easy to use, affordable, and still has all of the practice management functions you need for your busy practice? Then you've come to the right place. With an outstanding support team ready to help get you setup, you'll be charting before you know it.
+        .select-type
+          span.select Please select the account type
+          .accounts
+            span.provider-acc.active provider
+            span.patient-acc patient
+  .landing-content
+    .container
+      .registration
+        .col-lg-5.block
+          h4.change-text Don't have a practitioner account yet?
+          h5.change-text-secondary Register today to receive all the befits
+          = link_to 'Register now', new_user_registration_path, class: "button-landing change-button"
+        .col-lg-2
+        .col-lg-5.block
+          h4 Already registered?
+          h5 Sign in to access all of your securely stored data
+          /= link_to "Sign in", user_enable_authy_path, class: "button-landing"
+          = link_to "Sign in", new_user_session_path, class: "button-landing"
+  .landing-bottom
+    .container
+      .two-factor-container
+        = image_tag('two-factor-icon.svg', alt: 'Two Factor Authentification Icon', class: 'two-factor-icon')
+        .info
+          p
+            | To make our EHR even 
+            span more
+            | &nbsp;secure for you, please download our two-factor authentication application
+        .services
+          a.google-play href="#"
+            = image_tag('default-qrcode.png', alt: "EHR1 Two Factor Authentification App Android QR Code")
+          a.app-store href="#"
+            = image_tag('default-qrcode.png', alt: "EHR1 Two Factor Authentification App iOS QR Code")
+  .landing-footer
+    .container
+      span.copyright Copyright IT Med., Inc. 2015
+  = any_login_here

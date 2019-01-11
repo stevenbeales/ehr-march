@@ -1,0 +1,88 @@
+{
+  "resource": "Patients",
+  "http_method": "POST",
+  "route": "/patients/create_emergency_contact",
+  "description": "Create emergency contact",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "middle_name",
+      "description": "Middle name"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "relation",
+      "description": "Relation"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "mobile_phone",
+      "description": "Mobile phone"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "street_address",
+      "description": "Street address"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "city",
+      "description": "City"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "state",
+      "description": "State"
+    },
+    {
+      "scope": "emergency_contact",
+      "name": "zip",
+      "description": "Zip"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/patients/create_emergency_contact",
+      "request_body": "{\"data\":{\"auth_token\":\"1f743216a1f7920bc9f9b1b968a1a7a1\",\"emergency_contact\":{\"first_name\":\"Eddie\",\"last_name\":\"Jast\",\"middle_name\":\"Hollis\",\"relation\":\"Parent\",\"mobile_phone\":\"+15993416732\",\"email\":\"makenna@treutel.info\",\"street_address\":\"Ella Motorway\",\"city\":\"Schmittport\",\"state\":\"Missouri\",\"zip\":36538}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33leG2VgFvVOJn\",\n    \"type\": \"emergency-contacts\",\n    \"attributes\": {\n      \"id\": \"33leG2VgFvVOJn\",\n      \"patient-id\": null,\n      \"first-name\": \"Eddie\",\n      \"middle-name\": \"Hollis\",\n      \"last-name\": \"Jast\",\n      \"relation\": \"Parent\",\n      \"mobile-phone\": \"+15993416732\",\n      \"email\": \"makenna@treutel.info\",\n      \"street-address\": \"Ella Motorway\",\n      \"city\": \"Schmittport\",\n      \"state\": \"Missouri\",\n      \"zip\": 36538\n    },\n    \"links\": {\n      \"self\": \"/emergency-contacts/33leG2VgFvVOJn\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

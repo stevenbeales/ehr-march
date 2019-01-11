@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointments API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Appointments API</h1>
+
+      <div class="article">
+        <h2>Get first 10 referrals</h2>
+        <h3>GET /appointments/referrals</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /appointments/referrals?data[auth_token]=f3fa0b8bcf93d5d2ebe4d574c6ec75db</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;f3fa0b8bcf93d5d2ebe4d574c6ec75db&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;33lQ6vDCJK141z&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vDCJK141z&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Meaghan&quot;,
+        &quot;middle-name&quot;: &quot;Watson&quot;,
+        &quot;last-name&quot;: &quot;Price&quot;,
+        &quot;individual-npi&quot;: &quot;63-7715282&quot;,
+        &quot;speciality&quot;: &quot;Orthodontics and Dentofacial Orthopedics&quot;,
+        &quot;phone&quot;: &quot;+14752482168&quot;,
+        &quot;fax&quot;: &quot;+16357579419&quot;,
+        &quot;email&quot;: &quot;tracy_fay@larson.biz&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vDCJK141z&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vDLzPAQwF&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vDLzPAQwF&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Lee&quot;,
+        &quot;middle-name&quot;: &quot;Torrey&quot;,
+        &quot;last-name&quot;: &quot;Bogisich&quot;,
+        &quot;individual-npi&quot;: &quot;88-6618177&quot;,
+        &quot;speciality&quot;: &quot;Endodontics&quot;,
+        &quot;phone&quot;: &quot;+16450300902&quot;,
+        &quot;fax&quot;: &quot;+12669745537&quot;,
+        &quot;email&quot;: &quot;luisa_daniel@herzog.biz&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vDLzPAQwF&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vDVfUJnqV&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vDVfUJnqV&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Aniya&quot;,
+        &quot;middle-name&quot;: &quot;Jaylan&quot;,
+        &quot;last-name&quot;: &quot;Klein&quot;,
+        &quot;individual-npi&quot;: &quot;17-1612888&quot;,
+        &quot;speciality&quot;: &quot;N/A Speciality&quot;,
+        &quot;phone&quot;: &quot;+17052351470&quot;,
+        &quot;fax&quot;: &quot;+16709833438&quot;,
+        &quot;email&quot;: &quot;mohammed_cummings@cummings.net&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vDVfUJnqV&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vDfLZTAkl&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vDfLZTAkl&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Dayton&quot;,
+        &quot;middle-name&quot;: &quot;Elda&quot;,
+        &quot;last-name&quot;: &quot;Moen&quot;,
+        &quot;individual-npi&quot;: &quot;20-8022686&quot;,
+        &quot;speciality&quot;: &quot;Endodontics&quot;,
+        &quot;phone&quot;: &quot;+19449913834&quot;,
+        &quot;fax&quot;: &quot;+14353985628&quot;,
+        &quot;email&quot;: &quot;chad@franecki.info&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vDfLZTAkl&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vDp1ecXf1&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vDp1ecXf1&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Nyah&quot;,
+        &quot;middle-name&quot;: &quot;Maximillia&quot;,
+        &quot;last-name&quot;: &quot;Emmerich&quot;,
+        &quot;individual-npi&quot;: &quot;94-4342219&quot;,
+        &quot;speciality&quot;: &quot;Oral and Maxillofacial Pathology&quot;,
+        &quot;phone&quot;: &quot;+14913923601&quot;,
+        &quot;fax&quot;: &quot;+18781737285&quot;,
+        &quot;email&quot;: &quot;gust_effertz@hettinger.io&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vDp1ecXf1&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vDyhjluZH&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vDyhjluZH&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Krystina&quot;,
+        &quot;middle-name&quot;: &quot;Augustus&quot;,
+        &quot;last-name&quot;: &quot;Huel&quot;,
+        &quot;individual-npi&quot;: &quot;95-4655537&quot;,
+        &quot;speciality&quot;: &quot;N/A Speciality&quot;,
+        &quot;phone&quot;: &quot;+19026203906&quot;,
+        &quot;fax&quot;: &quot;+15687717567&quot;,
+        &quot;email&quot;: &quot;jaclyn@leuschke.io&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vDyhjluZH&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vE8NovHTX&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vE8NovHTX&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Dell&quot;,
+        &quot;middle-name&quot;: &quot;Denis&quot;,
+        &quot;last-name&quot;: &quot;Brakus&quot;,
+        &quot;individual-npi&quot;: &quot;04-0899854&quot;,
+        &quot;speciality&quot;: &quot;Endodontics&quot;,
+        &quot;phone&quot;: &quot;+14422875788&quot;,
+        &quot;fax&quot;: &quot;+1353196315&quot;,
+        &quot;email&quot;: &quot;jeff@block.net&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vE8NovHTX&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vEI3u4eNn&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vEI3u4eNn&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Richmond&quot;,
+        &quot;middle-name&quot;: &quot;Jermain&quot;,
+        &quot;last-name&quot;: &quot;Kshlerin&quot;,
+        &quot;individual-npi&quot;: &quot;51-9317976&quot;,
+        &quot;speciality&quot;: &quot;Oral and Maxillofacial Radiology&quot;,
+        &quot;phone&quot;: &quot;+12342998034&quot;,
+        &quot;fax&quot;: &quot;+1584991209&quot;,
+        &quot;email&quot;: &quot;chris.johnson@auer.info&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vEI3u4eNn&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vERjzE1I3&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vERjzE1I3&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Leda&quot;,
+        &quot;middle-name&quot;: &quot;Roy&quot;,
+        &quot;last-name&quot;: &quot;Buckridge&quot;,
+        &quot;individual-npi&quot;: &quot;24-3699431&quot;,
+        &quot;speciality&quot;: &quot;Endodontics&quot;,
+        &quot;phone&quot;: &quot;+12160452098&quot;,
+        &quot;fax&quot;: &quot;+16622057893&quot;,
+        &quot;email&quot;: &quot;braden.beatty@vandervort.co&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vERjzE1I3&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lQ6vEbQ4NOCJ&quot;,
+      &quot;type&quot;: &quot;referrals&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lQ6vEbQ4NOCJ&quot;,
+        &quot;appointment-id&quot;: null,
+        &quot;normal&quot;: &quot;Hank&quot;,
+        &quot;middle-name&quot;: &quot;Kenyon&quot;,
+        &quot;last-name&quot;: &quot;Effertz&quot;,
+        &quot;individual-npi&quot;: &quot;81-0536021&quot;,
+        &quot;speciality&quot;: &quot;Prosthodontics&quot;,
+        &quot;phone&quot;: &quot;+12154837958&quot;,
+        &quot;fax&quot;: &quot;+19616888993&quot;,
+        &quot;email&quot;: &quot;josie@kuhic.name&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/referrals/33lQ6vEbQ4NOCJ&quot;
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

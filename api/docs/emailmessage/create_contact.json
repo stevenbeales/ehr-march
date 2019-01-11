@@ -1,0 +1,48 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/add_contact",
+  "description": "Create contact",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "name": "favorite",
+      "description": "Boolean, if true - contact is favorite"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/add_contact?data[auth_token]=9fa6004cee1055311eb522c4712f421c&data[favorite]=false",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "9fa6004cee1055311eb522c4712f421c",
+          "favorite": "false"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lVIYsLNGSQGR\",\n    \"type\": \"contacts\",\n    \"attributes\": {\n      \"id\": \"33lVIYsLNGSQGR\",\n      \"provider-id\": \"33lVH8lmE2RmwF\",\n      \"favorite\": false\n    },\n    \"links\": {\n      \"self\": \"/contacts/33lVIYsLNGSQGR\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/new",
+  "description": "Get patient by id",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Patient id"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/new?data[auth_token]=27d48729971f2828a527b4ffde154c4e&data[id]=33lU8VRNpZRSXz",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "27d48729971f2828a527b4ffde154c4e",
+          "id": "33lU8VRNpZRSXz"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lU8VRNpZRSXz\",\n    \"type\": \"patients\",\n    \"attributes\": {\n      \"id\": \"33lU8VRNpZRSXz\",\n      \"email\": \"freeda@reingerfadel.name\",\n      \"role\": \"Patient\",\n      \"first-name\": \"Arthur\",\n      \"middle-name\": null,\n      \"last-name\": \"Gibson\",\n      \"gender\": \"Male\",\n      \"mobile-phone\": \"+12542778838\",\n      \"primary-phone\": \"+17779772373\",\n      \"code\": null,\n      \"social-number\": \"882785939\",\n      \"active\": true,\n      \"declined-portal-access\": null,\n      \"preferred-language\": null,\n      \"ethnicity\": \"Hispanic of Latino\",\n      \"american-race\": null,\n      \"asian-race\": null,\n      \"african-race\": null,\n      \"hawaiian-race\": null,\n      \"white-race\": null,\n      \"undetermined-race\": null,\n      \"email-reminder\": null,\n      \"sms-reminder\": null,\n      \"immunization-registry\": \"NotSend\",\n      \"work-phone\": null,\n      \"ext\": null,\n      \"street-address\": null,\n      \"city\": null,\n      \"state\": null,\n      \"zip\": null,\n      \"profile-image\": {\n        \"url\": \"/uploads/patient/profile_image/33lU8VRNpZRSXz/avatar3.jpg\"\n      }\n    },\n    \"links\": {\n      \"self\": \"/patients/33lU8VRNpZRSXz\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Settings API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Settings API</h1>
+
+      <div class="article">
+        <h2>Practices and locations settings</h2>
+        <h3>GET /settings/access_permissions</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /settings/access_permissions?data[auth_token]=679bc0230787bf90ce4a150070dfc1db</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;679bc0230787bf90ce4a150070dfc1db&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;33lgD8G6GgT2VX&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8G6GgT2VX&quot;,
+        &quot;presentation&quot;: &quot;To do update?&quot;,
+        &quot;policy-name&quot;: &quot;ToDoPolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8G6GgT2VX&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8H2LBNFx5&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8H2LBNFx5&quot;,
+        &quot;presentation&quot;: &quot;To do show?&quot;,
+        &quot;policy-name&quot;: &quot;ToDoPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8H2LBNFx5&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8HyPgHTOd&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8HyPgHTOd&quot;,
+        &quot;presentation&quot;: &quot;Appointment create?&quot;,
+        &quot;policy-name&quot;: &quot;AppointmentPolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8HyPgHTOd&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8IuUBBgqB&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8IuUBBgqB&quot;,
+        &quot;presentation&quot;: &quot;Appointment update?&quot;,
+        &quot;policy-name&quot;: &quot;AppointmentPolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8IuUBBgqB&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8JqYg5uHj&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8JqYg5uHj&quot;,
+        &quot;presentation&quot;: &quot;Appointment show?&quot;,
+        &quot;policy-name&quot;: &quot;AppointmentPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8JqYg5uHj&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8KmdB07jH&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8KmdB07jH&quot;,
+        &quot;presentation&quot;: &quot;Appointment reschedule?&quot;,
+        &quot;policy-name&quot;: &quot;AppointmentPolicy#reschedule?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8KmdB07jH&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8LihfuLAp&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8LihfuLAp&quot;,
+        &quot;presentation&quot;: &quot;Calendar show?&quot;,
+        &quot;policy-name&quot;: &quot;CalendarPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8LihfuLAp&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8MemAoYcN&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8MemAoYcN&quot;,
+        &quot;presentation&quot;: &quot;Diagnosis create?&quot;,
+        &quot;policy-name&quot;: &quot;DiagnosisPolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8MemAoYcN&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8Naqfim3v&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8Naqfim3v&quot;,
+        &quot;presentation&quot;: &quot;Diagnosis update?&quot;,
+        &quot;policy-name&quot;: &quot;DiagnosisPolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8Naqfim3v&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8OWvAczVT&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8OWvAczVT&quot;,
+        &quot;presentation&quot;: &quot;Diagnosis show?&quot;,
+        &quot;policy-name&quot;: &quot;DiagnosisPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8OWvAczVT&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8PSzfXCx1&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8PSzfXCx1&quot;,
+        &quot;presentation&quot;: &quot;Advanced directive update?&quot;,
+        &quot;policy-name&quot;: &quot;AdvancedDirectivePolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8PSzfXCx1&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8QP4ARQOZ&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8QP4ARQOZ&quot;,
+        &quot;presentation&quot;: &quot;Advanced directive show?&quot;,
+        &quot;policy-name&quot;: &quot;AdvancedDirectivePolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8QP4ARQOZ&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8RL8fLdq7&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8RL8fLdq7&quot;,
+        &quot;presentation&quot;: &quot;Medication create?&quot;,
+        &quot;policy-name&quot;: &quot;MedicationPolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8RL8fLdq7&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8SHDAFrHf&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8SHDAFrHf&quot;,
+        &quot;presentation&quot;: &quot;Medication update?&quot;,
+        &quot;policy-name&quot;: &quot;MedicationPolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8SHDAFrHf&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8TDHfA4jD&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8TDHfA4jD&quot;,
+        &quot;presentation&quot;: &quot;Medication show?&quot;,
+        &quot;policy-name&quot;: &quot;MedicationPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8TDHfA4jD&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgD8U9MA4IAl&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgD8U9MA4IAl&quot;,
+        &quot;presentation&quot;: &quot;Allergy create?&quot;,
+        &quot;policy-name&quot;: &quot;AllergyPolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgD8U9MA4IAl&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjOhy9UmTz&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjOhy9UmTz&quot;,
+        &quot;presentation&quot;: &quot;Allergy show?&quot;,
+        &quot;policy-name&quot;: &quot;AllergyPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjOhy9UmTz&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjPe2eOzvX&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjPe2eOzvX&quot;,
+        &quot;presentation&quot;: &quot;Setting show?&quot;,
+        &quot;policy-name&quot;: &quot;SettingPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjPe2eOzvX&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjQa79JDN5&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjQa79JDN5&quot;,
+        &quot;presentation&quot;: &quot;Setting schedule?&quot;,
+        &quot;policy-name&quot;: &quot;SettingPolicy#schedule?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjQa79JDN5&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjRWBeDQod&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjRWBeDQod&quot;,
+        &quot;presentation&quot;: &quot;Procedure create?&quot;,
+        &quot;policy-name&quot;: &quot;ProcedurePolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjRWBeDQod&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjSSG97eGB&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjSSG97eGB&quot;,
+        &quot;presentation&quot;: &quot;Procedure show?&quot;,
+        &quot;policy-name&quot;: &quot;ProcedurePolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjSSG97eGB&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjTOKe1rhj&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjTOKe1rhj&quot;,
+        &quot;presentation&quot;: &quot;Procedure update?&quot;,
+        &quot;policy-name&quot;: &quot;ProcedurePolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjTOKe1rhj&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjUKP8w59H&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjUKP8w59H&quot;,
+        &quot;presentation&quot;: &quot;Encounter create?&quot;,
+        &quot;policy-name&quot;: &quot;EncounterPolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjUKP8w59H&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjVGTdqIap&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjVGTdqIap&quot;,
+        &quot;presentation&quot;: &quot;Encounter update?&quot;,
+        &quot;policy-name&quot;: &quot;EncounterPolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjVGTdqIap&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjWCY8kW2N&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjWCY8kW2N&quot;,
+        &quot;presentation&quot;: &quot;Encounter show?&quot;,
+        &quot;policy-name&quot;: &quot;EncounterPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjWCY8kW2N&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjX8cdejTv&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjX8cdejTv&quot;,
+        &quot;presentation&quot;: &quot;Email message create?&quot;,
+        &quot;policy-name&quot;: &quot;EmailMessagePolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjX8cdejTv&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjY4h8YwvT&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjY4h8YwvT&quot;,
+        &quot;presentation&quot;: &quot;Email message show?&quot;,
+        &quot;policy-name&quot;: &quot;EmailMessagePolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjY4h8YwvT&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjZ0ldTAN1&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjZ0ldTAN1&quot;,
+        &quot;presentation&quot;: &quot;Profile show?&quot;,
+        &quot;policy-name&quot;: &quot;ProfilePolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjZ0ldTAN1&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjZwq8NNoZ&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjZwq8NNoZ&quot;,
+        &quot;presentation&quot;: &quot;Profile update?&quot;,
+        &quot;policy-name&quot;: &quot;ProfilePolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjZwq8NNoZ&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjasudHbG7&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjasudHbG7&quot;,
+        &quot;presentation&quot;: &quot;Patient create?&quot;,
+        &quot;policy-name&quot;: &quot;PatientPolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjasudHbG7&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjboz8Bohf&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjboz8Bohf&quot;,
+        &quot;presentation&quot;: &quot;Patient update?&quot;,
+        &quot;policy-name&quot;: &quot;PatientPolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjboz8Bohf&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjcl3d629D&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjcl3d629D&quot;,
+        &quot;presentation&quot;: &quot;Patient patient?&quot;,
+        &quot;policy-name&quot;: &quot;PatientPolicy#patient?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjcl3d629D&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjdh880Fal&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjdh880Fal&quot;,
+        &quot;presentation&quot;: &quot;Past medical history update?&quot;,
+        &quot;policy-name&quot;: &quot;PastMedicalHistoryPolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjdh880Fal&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjedCcuT2J&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjedCcuT2J&quot;,
+        &quot;presentation&quot;: &quot;Past medical history show?&quot;,
+        &quot;policy-name&quot;: &quot;PastMedicalHistoryPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjedCcuT2J&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjfZH7ogTr&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjfZH7ogTr&quot;,
+        &quot;presentation&quot;: &quot;Smoking status update?&quot;,
+        &quot;policy-name&quot;: &quot;SmokingStatusPolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjfZH7ogTr&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjgVLcitvP&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjgVLcitvP&quot;,
+        &quot;presentation&quot;: &quot;Smoking status show?&quot;,
+        &quot;policy-name&quot;: &quot;SmokingStatusPolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjgVLcitvP&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjhRQ7d7Mx&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjhRQ7d7Mx&quot;,
+        &quot;presentation&quot;: &quot;Chart main show?&quot;,
+        &quot;policy-name&quot;: &quot;ChartPolicy#main_show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjhRQ7d7Mx&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjiNUcXKoV&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjiNUcXKoV&quot;,
+        &quot;presentation&quot;: &quot;Chart dental show?&quot;,
+        &quot;policy-name&quot;: &quot;ChartPolicy#dental_show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjiNUcXKoV&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjjJZ7RYG3&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjjJZ7RYG3&quot;,
+        &quot;presentation&quot;: &quot;Chart perio show?&quot;,
+        &quot;policy-name&quot;: &quot;ChartPolicy#perio_show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjjJZ7RYG3&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjkFdcLlhb&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjkFdcLlhb&quot;,
+        &quot;presentation&quot;: &quot;Chart profile show?&quot;,
+        &quot;policy-name&quot;: &quot;ChartPolicy#profile_show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjkFdcLlhb&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgDjlBi7Fz99&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgDjlBi7Fz99&quot;,
+        &quot;presentation&quot;: &quot;Chart perio update?&quot;,
+        &quot;policy-name&quot;: &quot;ChartPolicy#perio_update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgDjlBi7Fz99&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgERHNO7DyRX&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgERHNO7DyRX&quot;,
+        &quot;presentation&quot;: &quot;Chart insurance show?&quot;,
+        &quot;policy-name&quot;: &quot;ChartPolicy#insurance_show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgERHNO7DyRX&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgERIJSc8Bt5&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgERIJSc8Bt5&quot;,
+        &quot;presentation&quot;: &quot;Practice create?&quot;,
+        &quot;policy-name&quot;: &quot;PracticePolicy#create?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgERIJSc8Bt5&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgERJFX72PKd&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgERJFX72PKd&quot;,
+        &quot;presentation&quot;: &quot;Practice show?&quot;,
+        &quot;policy-name&quot;: &quot;PracticePolicy#show?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgERJFX72PKd&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lgERKBbbwcmB&quot;,
+      &quot;type&quot;: &quot;permissions&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lgERKBbbwcmB&quot;,
+        &quot;presentation&quot;: &quot;Practice update?&quot;,
+        &quot;policy-name&quot;: &quot;PracticePolicy#update?&quot;
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/permissions/33lgERKBbbwcmB&quot;
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

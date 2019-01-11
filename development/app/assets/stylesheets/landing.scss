@@ -1,0 +1,319 @@
+//= require bootstrap/bootstrap.min.css
+//= require controls
+//= require font-awesome/font-awesome.css
+//= require any-login/any-login.css
+//= require select2-custom/select2-custom.css
+
+html, body {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.landing-wrapper{
+	height: auto;
+	font-family:"TimesNewRomanPSMT";
+	color:#4a4a4a;
+}
+
+.landing-wrapper .landing-top{
+	text-align: center;
+	margin-bottom:20px;
+	color:#fff;
+	background:asset_url('landing-top-bg.png') 100% 100% no-repeat;
+	background-size:cover;
+	background-position: center center;
+	background-position: center center;
+}
+
+.landing-wrapper .string-top-container{
+	margin-top:14px;
+	margin-left: -26px;
+}
+
+.landing-wrapper .string-top{
+	position:absolute;
+	width:100%;
+	height:89px;
+	top: 93px;
+	background-color:#41b6a6;
+}
+
+.landing-wrapper .string-top .image-center{
+	width:277.2px;
+	margin:0 auto;
+	background-image:asset_url('logo-rectangle.svg');
+	background-repeat: no-repeat;
+}
+
+.landing-wrapper .string .string-top-home-link {
+	width: 276px;
+  left: 12px;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+}
+
+.landing-wrapper .string .string-top-home-link img {
+  position: relative;
+  left: -12px;
+}
+
+.landing-wrapper .main-title h1{
+	font-family:"SF UI Text Regular";
+	font-weight:300;
+	font-style:normal;
+	margin-top:84px;
+}
+
+.landing-wrapper .main-title p{
+	font-family:"SF UI Text Regular";
+	font-size:19px;
+	font-weight:300;
+	font-style:normal;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.landing-wrapper .select-type{
+	margin-top:32px;
+}
+
+.landing-wrapper .select-type span{
+	display:block;
+	font-size: 18px;
+	margin-bottom:10px;
+}
+
+.landing-wrapper .accounts{
+	width:250px;
+	margin:0 auto;
+}
+
+.landing-wrapper .accounts > span{
+	display:block;
+	float:left;
+	width:125px;
+	text-transform: uppercase;
+}
+
+.landing-wrapper .accounts .provider-acc{
+	border-radius: 50px 0 0 50px;
+}
+
+.landing-wrapper .accounts .patient-acc{
+	border-radius: 0px 50px 50px 0;
+}
+
+.landing-wrapper .accounts .provider-acc,
+.landing-wrapper .accounts .patient-acc{
+	color:#000;
+	background:#fff;
+}
+
+.landing-wrapper .accounts .patient-acc:hover,
+.landing-wrapper .accounts .provider-acc:hover {
+	background: #F9F9F9;
+}
+
+.landing-wrapper .accounts .active {
+	background: #fe8f00 !important;
+	color: #fff !important;
+}
+
+.landing-wrapper .accounts .patient-acc,
+.landing-wrapper .accounts .provider-acc{
+	color:#000;
+	display: block;
+	padding: 10px 0;
+	font-size:14px;
+	cursor: pointer;
+}
+
+.landing-wrapper .registration .block{
+	margin-bottom:50px;
+	text-align: left;
+}
+
+.landing-wrapper .registration button,
+.step-form .step-btn
+{
+	width: 167px;
+	border-radius:5px;
+	border:1px solid #c9c7c7;
+	-webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.5);
+	margin-top: 20px;
+	background-image: -webkit-gradient(
+		linear,
+		right bottom,
+		right top,
+		color-stop(0.5, #EDEAEA),
+		color-stop(1, #D5D2D2)
+		);
+	background-image: -o-linear-gradient(top, #EDEAEA 50%, #D5D2D2 100%);
+	background-image: -moz-linear-gradient(top, #EDEAEA 50%, #D5D2D2 100%);
+	background-image: -webkit-linear-gradient(top, #EDEAEA 50%, #D5D2D2 100%);
+	background-image: -ms-linear-gradient(top, #EDEAEA 50%, #D5D2D2 100%);
+	background-image: linear-gradient(to top, #EDEAEA 50%, #D5D2D2 100%);
+}
+
+.landing-wrapper .registration a {
+    display: block;
+    padding: 7px 0 6px 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #4a4a4a;
+}
+
+.landing-wrapper .registration a:hover,
+.landing-wrapper .registration a:focus
+{
+	text-decoration:none;
+}
+
+.landing-wrapper .landing-bottom{
+	padding-top: 25px;
+	padding-bottom:50px;
+	border-top:1px solid #979797;
+	background-color: #f0eeee;
+	background-image: asset_url('landing-bottom-bg.png');
+}
+
+.landing-wrapper .landing-bottom .container .two-factor-container .info p span {
+	text-decoration: underline;
+}
+
+.landing-wrapper .two-factor-container{
+	text-align:center;
+	clear: both;
+}
+
+.landing-wrapper .two-factor-container .info p,
+#sign-in-form .info p
+{
+	font-size:20px;
+	max-width: 466px;
+	margin: 32px auto;
+}
+
+.landing-wrapper .two-factor-container .info p a{
+	text-decoration:underline;
+	color:#4a4a4a;
+}
+
+.landing-wrapper .two-factor-container .two-factor-icon {
+	width: 40px;
+	height: 40px;
+}
+
+.landing-wrapper .services{
+	text-align:center;
+}
+
+.landing-wrapper .services a{
+	display:inline-block;
+	margin-left: 2.5px;
+	margin-right: 2.5px;
+	width:351px;
+	height:95px;
+	border-radius:8px;
+	border:1px solid #c9c7c7;
+}
+
+.landing-wrapper .services a:first-child{
+	margin-right:50px;
+}
+
+.landing-wrapper .services img{
+	float:left;
+	padding-left: 10px;
+}
+
+.landing-wrapper .services .google-play{
+	background: #fff asset_url('google-play-logo.svg') 86% 46% no-repeat;
+}
+
+.landing-wrapper .services .app-store{
+	background: #fff asset_url('app-store-logo.svg') 86% 46% no-repeat;
+}
+
+.landing-wrapper .services .google-play,
+.landing-wrapper .services .app-store {
+	background-size: 216px;
+  background-position: 113px center;
+}
+
+.landing-wrapper .landing-content .registration h4{
+	font-size:24px;
+	color:#4a4a4a;
+}
+
+.landing-wrapper .landing-content .registration h5{
+	font-size:18px;
+	color:#4a4a4a;
+}
+
+.landing-footer{
+	height: 40px;
+	color: #949ca7;
+	background: #41b6a6;
+}
+
+footer{
+	display: table-footer-group;
+	height: 40px;
+	color: #949ca7;
+	background: #41b6a6;
+}
+
+footer > .container, .landing-footer > .container{
+	padding-top: 10px;
+}
+
+.landing-footer .copyright, footer .copyright{
+	font-family: TimesNewRomanPSMT;
+	color:#fff;
+}
+
+@media screen and (max-width:1999px){
+	.landing-wrapper .landing-content .registration{
+		text-align:center;
+	}
+}
+
+@media screen and (max-width:991px){
+	.landing-wrapper .main-title h1{
+		margin-top:30px;
+	}
+	.landing-wrapper .select-type{
+		margin-top:17px;
+	}
+	.landing-wrapper .services a:first-child{
+		margin-right:0;
+	}
+}
+
+@media screen and (max-width:735px){
+	.landing-wrapper .services a{
+		margin-bottom:15px;
+	}
+}
+
+@media screen and (max-width:383px){
+	.landing-wrapper .services a{
+		width:260px;
+		height: 76px;
+		background-size: 60% !important;
+	}
+	.landing-wrapper .services img{
+		width: 30%;
+		padding-left:4px;
+	}
+}

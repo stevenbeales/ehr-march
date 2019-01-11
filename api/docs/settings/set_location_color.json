@@ -1,0 +1,56 @@
+{
+  "resource": "Settings",
+  "http_method": "GET",
+  "route": "/settings/set_practice_location_color",
+  "description": "Set location color",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "id",
+      "description": "Location id"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "colour",
+      "description": "Location color"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/settings/set_practice_location_color?data[auth_token]=c4009b8c6c45b2216020b8380480204b&data[id]=33lh70qi5ZywPz&data[colour]=%23ffffff",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "c4009b8c6c45b2216020b8380480204b",
+          "id": "33lh70qi5ZywPz",
+          "colour": "#ffffff"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

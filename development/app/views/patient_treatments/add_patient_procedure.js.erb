@@ -1,0 +1,4 @@
+$("#modal-patient-add-procedure").html("<%= escape_javascript(render 'patient_add_procedure_form') %>")
+$("#modal-patient-add-procedure").modal("show")
+
+initSelect2('#modal-patient-add-procedure');

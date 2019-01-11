@@ -1,0 +1,41 @@
+ul.nav.nav-tabs.styled
+  li class=('active' if type == 'inbox' )
+    a data-toggle="tab" href="#messagesInboxTab" role="tab" data-message_type="inbox" Inbox
+  li class=('active' if type == 'sent' )
+    a data-toggle="tab" href="#messagesSentTab" role="tab" data-message_type="sent" Sent
+  li class=('active' if type == 'draft' )
+    a data-toggle="tab" href="#messagesDraftTab" role="tab" data-message_type="draft" Draft
+  li.tab-danger class=('active' if type == 'urgent' )
+    a data-toggle="tab" href="#messagesUrgentTab" role="tab" data-message_type="urgent" Urgent
+  li class=('active' if type == 'archive' )
+    a.disabled data-toggle="tab" href="#messagesArchiveTab" role="tab" data-message_type="archive" Archive
+.tab-content
+  #messagesInboxTab.tab-pane.active role="tabpanel"
+    .row.controls
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6
+        .input-group.input-group-custom
+          input#find-messages-input.form-control placeholder="Search Messages" autocomplete="off"
+          span#find-messages-button.input-group-addon.input-group-addon-right.input-group-addon-search
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6
+        .row
+          .col-lg-8.pull-right
+            .row
+              .col-lg-6.col-md-6.col-sm-6
+                select.select2#message-actions-menu data-placeholder="Actions" data-theme="green-dark" data-arrow="1x" data-padding="3x" data-font="1x" class=(current_user.role == :Provider ? 'actions-provider' : (current_user.patient? ? 'actions-patient' : ''))
+                  option value=""
+              .col-lg-6.col-md-6.col-sm-6
+                - if current_user.role == :Provider
+                  select.select2#message-new-message-menu data-theme="green-dark" data-arrow="1x" data-padding="3x" data-font="1x" data-placeholder="New Message"
+                    option value=""
+                    option value="0" To Patient
+                    option value="1" In Practice
+                - elsif current_user.patient?
+                  = link_to 'New Message', new_message_to_practice_email_messages_path, remote: true, class: 'button button-modal-open', 'data-target' => '#modal-new-message-dialog'
+    .messages-content
+      .left-block
+        .panel
+          = render 'list_of_messages', messages: messages, type: type, amount: amount, page: 1, sort_by: sort_by
+      .right-block
+        .panel#show-message-block
+          - if messages.first.present?
+            = render 'message_show', message: messages.first

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointments API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Appointments API</h1>
+
+      <div class="article">
+        <h2>Create appointment</h2>
+        <h3>POST /appointments</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[patient_id]</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[location]</span>
+                </td>
+                <td>
+                  <span class="description">Location</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[room_id]</span>
+                </td>
+                <td>
+                  <span class="description">Room id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[appointment_type_id]</span>
+                </td>
+                <td>
+                  <span class="description">Appointment type id</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[appointment_datetime]</span>
+                </td>
+                <td>
+                  <span class="description">Appointment datetime</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[reason]</span>
+                </td>
+                <td>
+                  <span class="description">Reason</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[duration]</span>
+                </td>
+                <td>
+                  <span class="description">Duration</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[contact_email]</span>
+                </td>
+                <td>
+                  <span class="description">Patient contact email</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[contact_phone]</span>
+                </td>
+                <td>
+                  <span class="description">Patient contact phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[reminder]</span>
+                </td>
+                <td>
+                  <span class="description">Reminder</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">appointment[colour]</span>
+                </td>
+                <td>
+                  <span class="description">Colour</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">appointment[referral_id]</span>
+                </td>
+                <td>
+                  <span class="description">Referral id</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /appointments</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"9c39ebc57126ad2baca227c5a952a778","appointment":{"patient_id":"33lMzHTagkLFsR","location":"746 Huel Fall","room_id":"33lN7TWnitzbvv","appointment_type_id":"33lN8lku2A9A2d","appointment_datetime":"2016-02-26T16:52:00.000+02:00","reason":"Illo adipisci aliquid nihil eligendi.","duration":"3 hours","contact_email":"+14410797159","contact_phone":"+14410797159","reminder":false,"colour":"641A30","referral_id":"33lNC9KKDNMag7"}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33lNC9KTtSVxaN&quot;,
+    &quot;type&quot;: &quot;appointments&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33lNC9KTtSVxaN&quot;,
+      &quot;patient-id&quot;: &quot;33lMzHTagkLFsR&quot;,
+      &quot;room-id&quot;: &quot;33lN7TWnitzbvv&quot;,
+      &quot;appointment-type-id&quot;: &quot;33lN8lku2A9A2d&quot;,
+      &quot;appointment-status-id&quot;: null,
+      &quot;location&quot;: &quot;746 Huel Fall&quot;,
+      &quot;reason&quot;: &quot;Illo adipisci aliquid nihil eligendi.&quot;,
+      &quot;appointment-datetime-date&quot;: &quot;2016-02-26&quot;,
+      &quot;appointment-datetime-time&quot;: &quot;16:52&quot;,
+      &quot;duration&quot;: &quot;3 hours&quot;,
+      &quot;contact-email&quot;: &quot;+14410797159&quot;,
+      &quot;contact-phone&quot;: &quot;+14410797159&quot;,
+      &quot;reminder&quot;: false,
+      &quot;colour&quot;: &quot;6888F0&quot;
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/appointments/33lNC9KTtSVxaN&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

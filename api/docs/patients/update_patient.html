@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patients API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patients API</h1>
+
+      <div class="article">
+        <h2>Update patient</h2>
+        <h3>PATCH /patients/:id</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">auth_token</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">user[email]</span>
+                </td>
+                <td>
+                  <span class="description">Email</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">patient[id]</span>
+                </td>
+                <td>
+                  <span class="description">Patient id</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[first_name]</span>
+                </td>
+                <td>
+                  <span class="description">First_name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[last_name]</span>
+                </td>
+                <td>
+                  <span class="description">Last name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[middle_name]</span>
+                </td>
+                <td>
+                  <span class="description">Middle name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[birth]</span>
+                </td>
+                <td>
+                  <span class="description">Birth date</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[gender]</span>
+                </td>
+                <td>
+                  <span class="description">Gender</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[mobile_phone]</span>
+                </td>
+                <td>
+                  <span class="description">Mobile phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[primary_phone]</span>
+                </td>
+                <td>
+                  <span class="description">Primary phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[social_number]</span>
+                </td>
+                <td>
+                  <span class="description">Social number</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[active]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - active</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[declined_portal_access]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - access declined</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[preferred_language]</span>
+                </td>
+                <td>
+                  <span class="description">Preferred language</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[ethnicity]</span>
+                </td>
+                <td>
+                  <span class="description">Ethnicity</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[american_race]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - american race</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[asian_race]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - asian race</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[african_race]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - african race</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[hawaiian_race]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - hawaiian race</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[white_race]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - white race</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[undetermined_race]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - undetermined race</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[email_reminder]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - remind by email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[sms_reminder]</span>
+                </td>
+                <td>
+                  <span class="description">Boolean, if true - remind by sms</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[immunization_registry]</span>
+                </td>
+                <td>
+                  <span class="description">Immunization registry</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[work_phone]</span>
+                </td>
+                <td>
+                  <span class="description">Work phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[ext]</span>
+                </td>
+                <td>
+                  <span class="description">Ext</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[street_address]</span>
+                </td>
+                <td>
+                  <span class="description">Street address</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[city]</span>
+                </td>
+                <td>
+                  <span class="description">City</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[state]</span>
+                </td>
+                <td>
+                  <span class="description">State</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">patient[zip]</span>
+                </td>
+                <td>
+                  <span class="description">Zip</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_first_name]</span>
+                </td>
+                <td>
+                  <span class="description">First name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_last_name]</span>
+                </td>
+                <td>
+                  <span class="description">Last name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_middle_name]</span>
+                </td>
+                <td>
+                  <span class="description">Middle name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_relation]</span>
+                </td>
+                <td>
+                  <span class="description">Relation</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_mobile_phone]</span>
+                </td>
+                <td>
+                  <span class="description">Mobile phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_email]</span>
+                </td>
+                <td>
+                  <span class="description">Email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_street_address]</span>
+                </td>
+                <td>
+                  <span class="description">Street address</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_city]</span>
+                </td>
+                <td>
+                  <span class="description">City</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_state]</span>
+                </td>
+                <td>
+                  <span class="description">State</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">emergency_contact[contact_zip]</span>
+                </td>
+                <td>
+                  <span class="description">Zip</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_first_name]</span>
+                </td>
+                <td>
+                  <span class="description">First name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_last_name]</span>
+                </td>
+                <td>
+                  <span class="description">Last name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_middle_name]</span>
+                </td>
+                <td>
+                  <span class="description">Middle name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_relation]</span>
+                </td>
+                <td>
+                  <span class="description">Relation</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_mobile_phone]</span>
+                </td>
+                <td>
+                  <span class="description">Mobile phone</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_email]</span>
+                </td>
+                <td>
+                  <span class="description">Email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_street_address]</span>
+                </td>
+                <td>
+                  <span class="description">Street address</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_city]</span>
+                </td>
+                <td>
+                  <span class="description">City</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_state]</span>
+                </td>
+                <td>
+                  <span class="description">State</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">next_kin[kin_zip]</span>
+                </td>
+                <td>
+                  <span class="description">Zip</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PATCH /patients/33ldWolHwnwGah</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">{"data":{"auth_token":"3e129630b188d71ae61b3b611ed77eb0","user":{"email":"test@email.com"},"patient":{"id":"33ldWolHwnwGah","first_name":"Abner","last_name":"Jacobson","middle_name":null,"birth":"2006-02-26T17:17:42.328+02:00","gender":"Male","mobile_phone":"301-451-0292 x64456","primary_phone":"880-156-8341","social_number":"0dZpEiL2AqHlE691","active":true,"declined_portal_access":true,"preferred_language":"Spanish","ethnicity":"Hispanic of Latino","american_race":false,"asian_race":true,"african_race":false,"hawaiian_race":false,"white_race":false,"undetermined_race":false,"email_reminder":false,"sms_reminder":false,"immunization_registry":"NotSpecified","work_phone":"325-492-8605 x7607","ext":"Stumptown","street_address":"Tre Circle","city":"Christianaside","state":"2kVlS6EqQ7qiQj","zip":26818},"emergency_contact":{"contact_first_name":"Jordi","contact_last_name":"Bailey","contact_middle_name":"Nico","contact_relation":"Wife","contact_mobile_phone":"+1050347849","contact_email":"lorena.greenfelder@erdman.info","contact_street_address":"Gottlieb Row","contact_city":"Port Leon","contact_state":"Florida","contact_zip":15484},"next_kin":{"kin_first_name":"Vladimir","kin_last_name":"Gerlach","kin_middle_name":"Katherine","kin_relation":"Parent","kin_mobile_phone":"+17281815954","kin_email":"eryn_spencer@franecki.co","kin_street_address":"Ryan Harbors","kin_city":"Gutmannmouth","kin_state":"Oregon","kin_zip":48391}}}</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;33ldWolHwnwGah&quot;,
+    &quot;type&quot;: &quot;patients&quot;,
+    &quot;attributes&quot;: {
+      &quot;id&quot;: &quot;33ldWolHwnwGah&quot;,
+      &quot;email&quot;: &quot;macy@lockman.org&quot;,
+      &quot;role&quot;: &quot;Patient&quot;,
+      &quot;first-name&quot;: &quot;Abner&quot;,
+      &quot;middle-name&quot;: null,
+      &quot;last-name&quot;: &quot;Jacobson&quot;,
+      &quot;gender&quot;: &quot;Male&quot;,
+      &quot;mobile-phone&quot;: &quot;+1301451029264456&quot;,
+      &quot;primary-phone&quot;: &quot;+18801568341&quot;,
+      &quot;code&quot;: null,
+      &quot;social-number&quot;: &quot;0dZpEiL2AqHlE691&quot;,
+      &quot;active&quot;: true,
+      &quot;declined-portal-access&quot;: true,
+      &quot;preferred-language&quot;: &quot;Spanish&quot;,
+      &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+      &quot;american-race&quot;: false,
+      &quot;asian-race&quot;: true,
+      &quot;african-race&quot;: false,
+      &quot;hawaiian-race&quot;: false,
+      &quot;white-race&quot;: false,
+      &quot;undetermined-race&quot;: false,
+      &quot;email-reminder&quot;: false,
+      &quot;sms-reminder&quot;: false,
+      &quot;immunization-registry&quot;: &quot;NotSpecified&quot;,
+      &quot;work-phone&quot;: &quot;+132549286057607&quot;,
+      &quot;ext&quot;: &quot;Stumptown&quot;,
+      &quot;street-address&quot;: &quot;Tre Circle&quot;,
+      &quot;city&quot;: &quot;Christianaside&quot;,
+      &quot;state&quot;: &quot;2kVlS6EqQ7qiQj&quot;,
+      &quot;zip&quot;: 26818,
+      &quot;profile-image&quot;: {
+        &quot;url&quot;: &quot;/uploads/patient/profile_image/33ldWolHwnwGah/avatar3.jpg&quot;
+      }
+    },
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;/patients/33ldWolHwnwGah&quot;
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+New referral
+------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /referrals/new?data[auth_token]=d2cc4669e6e973ce8ff74a9e5e0af6a1
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"d2cc4669e6e973ce8ff74a9e5e0af6a1"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfrfMm1IvJp5",
+      "type": "referrals",
+      "attributes": {
+        "id": "33lfrfMm1IvJp5",
+        "appointment-id": null,
+        "normal": null,
+        "middle-name": null,
+        "last-name": null,
+        "individual-npi": null,
+        "speciality": "Endodontics",
+        "phone": null,
+        "fax": null,
+        "email": null
+      },
+      "links": {
+        "self": "/referrals/33lfrfMm1IvJp5"
+      }
+    }
+  }
+
+
+Create referral
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * normal - Normal
+  * middle_name - Middle name
+  * last_name - Last name
+  * individual_npi - Individual npi
+  * speciality - Speciality
+  * phone - Phone
+  * fax - Fax
+  * email - Email
+
+Request:
+  POST /referrals
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"bfbb9783982009116c2da16bc1cc3a25","referral":{"normal":"Conor","middle_name":"Pasquale","last_name":"Grady","individual_npi":"32-2616700","speciality":"N/A Speciality","phone":"1-523-783-9632","fax":"602-471-2288 x11276","email":"may@bergstromrunte.com"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lfuUDIQj2Kfb",
+      "type": "referrals",
+      "attributes": {
+        "id": "33lfuUDIQj2Kfb",
+        "appointment-id": null,
+        "normal": "Conor",
+        "middle-name": "Pasquale",
+        "last-name": "Grady",
+        "individual-npi": "32-2616700",
+        "speciality": "N/A Speciality",
+        "phone": "+15237839632",
+        "fax": "+1602471228811276",
+        "email": "may@bergstromrunte.com"
+      },
+      "links": {
+        "self": "/referrals/33lfuUDIQj2Kfb"
+      }
+    }
+  }
+
+

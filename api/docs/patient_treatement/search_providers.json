@@ -1,0 +1,49 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "GET",
+  "route": "/patient_treatments/providers",
+  "description": "Search providers",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "part",
+      "description": "A part of first name or last name of a provider"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patient_treatments/providers?data[auth_token]=9eb1b476f935c45d1bc14d9aeca121b8&data[part]=Dav",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "9eb1b476f935c45d1bc14d9aeca121b8",
+          "part": "Dav"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lavj0f9WBipH\",\n      \"type\": \"providers\",\n      \"attributes\": {\n        \"id\": \"33lavj0f9WBipH\",\n        \"email\": \"mauricio@rippin.co\",\n        \"role\": \"Provider\",\n        \"user-id\": \"33lavj0opbL5jX\",\n        \"title\": \"Mr\",\n        \"first-name\": \"David\",\n        \"middle-name\": null,\n        \"last-name\": \"Markus\",\n        \"degree\": \"DDS\",\n        \"speciality\": \"Endodontics\",\n        \"street-address\": \"Frami Mission\",\n        \"suit-apt-number\": \"925\",\n        \"city\": \"South Rosemarie\",\n        \"state\": \"New Hampshire\",\n        \"zip\": null,\n        \"practice-street-address\": \"Satterfield Springs\",\n        \"practice-suit-apt-number\": \"28410\",\n        \"practice-city\": \"Lake Elise\",\n        \"practice-state\": \"Wyoming\",\n        \"practice-zip\": null,\n        \"primary-phone\": null,\n        \"mobile-phone\": null,\n        \"alt-email\": null,\n        \"username\": null,\n        \"secondary-speciality\": null,\n        \"dental-licence\": null,\n        \"expiration-date\": null,\n        \"ein-tin\": null,\n        \"npi\": null,\n        \"dea\": null,\n        \"upin\": null,\n        \"nadean\": null,\n        \"status\": true,\n        \"biography\": null,\n        \"accepting-patient\": false,\n        \"enable-online-booking\": false,\n        \"profile-image\": {\n          \"url\": \"/uploads/provider/profile_image/33lavj0f9WBipH/avatar4.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/providers/33lavj0f9WBipH\"\n      }\n    },\n    {\n      \"id\": \"33layO6GMzi1Xn\",\n      \"type\": \"providers\",\n      \"attributes\": {\n        \"id\": \"33layO6GMzi1Xn\",\n        \"email\": \"maye@hudson.co\",\n        \"role\": \"Provider\",\n        \"user-id\": \"33layO6Q34rOS3\",\n        \"title\": \"Mr\",\n        \"first-name\": \"Glory\",\n        \"middle-name\": null,\n        \"last-name\": \"Daviand\",\n        \"degree\": \"DDS\",\n        \"speciality\": \"Endodontics\",\n        \"street-address\": \"Lillie Prairie\",\n        \"suit-apt-number\": \"355\",\n        \"city\": \"Lake Salma\",\n        \"state\": \"Virginia\",\n        \"zip\": null,\n        \"practice-street-address\": \"Napoleon Street\",\n        \"practice-suit-apt-number\": \"31227\",\n        \"practice-city\": \"Lake Tessie\",\n        \"practice-state\": \"Michigan\",\n        \"practice-zip\": null,\n        \"primary-phone\": null,\n        \"mobile-phone\": null,\n        \"alt-email\": null,\n        \"username\": null,\n        \"secondary-speciality\": null,\n        \"dental-licence\": null,\n        \"expiration-date\": null,\n        \"ein-tin\": null,\n        \"npi\": null,\n        \"dea\": null,\n        \"upin\": null,\n        \"nadean\": null,\n        \"status\": true,\n        \"biography\": null,\n        \"accepting-patient\": false,\n        \"enable-online-booking\": false,\n        \"profile-image\": {\n          \"url\": \"/uploads/provider/profile_image/33layO6GMzi1Xn/avatar10.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/providers/33layO6GMzi1Xn\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

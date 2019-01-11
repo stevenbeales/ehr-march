@@ -1,0 +1,42 @@
+{
+  "resource": "Locations",
+  "http_method": "GET",
+  "route": "/locations/form",
+  "description": "New location",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/locations/form?data[auth_token]=65ef450b9b0e141dbfff9da4048ff673",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "65ef450b9b0e141dbfff9da4048ff673"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lWEKnThj2RYR\",\n    \"type\": \"locations\",\n    \"attributes\": {\n      \"id\": \"33lWEKnThj2RYR\",\n      \"provider-id\": null,\n      \"location-name\": null,\n      \"location-phone\": null,\n      \"location-fax\": null,\n      \"location-address\": null,\n      \"city\": null,\n      \"state\": null,\n      \"zip\": null,\n      \"location-npi\": null,\n      \"location-tin-en\": null,\n      \"colour\": null\n    },\n    \"links\": {\n      \"self\": \"/locations/33lWEKnThj2RYR\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+= t.simple_fields_for tooth_field, tooth.send(tooth_field) do |m|
+  tr.input-controls
+    - if header == true
+      td
+    td.input-container.input-tooth-first
+      = m.input "#{tooth_field_type}1", label: false, input_html: { maxlength: 1, class: 'input-tooth' }
+    td.input-container
+      = m.input "#{tooth_field_type}2", label: false, input_html: { maxlength: 1, class: 'input-tooth' }
+    td.input-container.input-tooth-last
+      = m.input "#{tooth_field_type}3", label: false, input_html: { maxlength: 1, class: 'input-tooth' }
+  tr.dots
+    - if header == true
+      td.main-title rowspan="3"
+        p B
+        p S
+        p P
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp1"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp1"
+          span.checkbox-dot.dot-red
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp2"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp2"
+          span.checkbox-dot.dot-red
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp3"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp3"
+          span.checkbox-dot.dot-red
+  tr.dots
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp4"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp4"
+          span.checkbox-dot.dot-yellow
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp5"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp5"
+          span.checkbox-dot.dot-yellow
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp6"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp6"
+          span.checkbox-dot.dot-yellow
+  tr.dots
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp7"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp7"
+          span.checkbox-dot.dot-purple
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp8"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp8"
+          span.checkbox-dot.dot-purple
+    td
+      .checkbox-dots
+        = m.check_box "#{tooth_field_type}_bsp9"
+        label for="tooth_table_#{tooth_field}_#{tooth_field_type}_bsp9"
+          span.checkbox-dot.dot-purple

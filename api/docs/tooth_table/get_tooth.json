@@ -1,0 +1,842 @@
+{
+  "resource": "Tooth table",
+  "http_method": "PATCH",
+  "route": "/patient_treatments/update_full_perio",
+  "description": "Get tooth",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "tooth_table",
+      "required": true,
+      "name": "id",
+      "description": "Tooth id, tooth must be active"
+    },
+    {
+      "scope": "tooth_table",
+      "name": "fm_f",
+      "description": "Fm f"
+    },
+    {
+      "scope": "tooth_table",
+      "name": "fm_m",
+      "description": "Fm m"
+    },
+    {
+      "scope": "tooth_table",
+      "name": "mgl",
+      "description": "Mgl"
+    },
+    {
+      "scope": "tooth_table",
+      "name": "cal",
+      "description": "Cal"
+    },
+    {
+      "scope": "tooth_table",
+      "name": "pd",
+      "description": "Pd"
+    },
+    {
+      "scope": "tooth_table",
+      "name": "gm",
+      "description": "Gm"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b1",
+      "description": "Tooth table mgl b1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b2",
+      "description": "Tooth table mgl b2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b3",
+      "description": "Tooth table mgl b3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp1",
+      "description": "Tooth table mgl b bsp1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp2",
+      "description": "Tooth table mgl b bsp2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp3",
+      "description": "Tooth table mgl b bsp3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp4",
+      "description": "Tooth table mgl b bsp4"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp5",
+      "description": "Tooth table mgl b bsp5"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp6",
+      "description": "Tooth table mgl b bsp6"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp7",
+      "description": "Tooth table mgl b bsp7"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp8",
+      "description": "Tooth table mgl b bsp8"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "b_bsp9",
+      "description": "Tooth table mgl b bsp9"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l1",
+      "description": "Tooth table mgl l1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l2",
+      "description": "Tooth table mgl l2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l3",
+      "description": "Tooth table mgl l3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp1",
+      "description": "Tooth table mgl l bsp1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp2",
+      "description": "Tooth table mgl l bsp2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp3",
+      "description": "Tooth table mgl l bsp3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp4",
+      "description": "Tooth table mgl l bsp4"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp5",
+      "description": "Tooth table mgl l bsp5"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp6",
+      "description": "Tooth table mgl l bsp6"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp7",
+      "description": "Tooth table mgl l bsp7"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp8",
+      "description": "Tooth table mgl l bsp8"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "mgl"
+      ],
+      "name": "l_bsp9",
+      "description": "Tooth table mgl l bsp9"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b1",
+      "description": "Tooth table cal b1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b2",
+      "description": "Tooth table cal b2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b3",
+      "description": "Tooth table cal b3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp1",
+      "description": "Tooth table cal b bsp1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp2",
+      "description": "Tooth table cal b bsp2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp3",
+      "description": "Tooth table cal b bsp3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp4",
+      "description": "Tooth table cal b bsp4"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp5",
+      "description": "Tooth table cal b bsp5"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp6",
+      "description": "Tooth table cal b bsp6"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp7",
+      "description": "Tooth table cal b bsp7"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp8",
+      "description": "Tooth table cal b bsp8"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "b_bsp9",
+      "description": "Tooth table cal b bsp9"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l1",
+      "description": "Tooth table cal l1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l2",
+      "description": "Tooth table cal l2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l3",
+      "description": "Tooth table cal l3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp1",
+      "description": "Tooth table cal l bsp1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp2",
+      "description": "Tooth table cal l bsp2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp3",
+      "description": "Tooth table cal l bsp3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp4",
+      "description": "Tooth table cal l bsp4"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp5",
+      "description": "Tooth table cal l bsp5"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp6",
+      "description": "Tooth table cal l bsp6"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp7",
+      "description": "Tooth table cal l bsp7"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp8",
+      "description": "Tooth table cal l bsp8"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "cal"
+      ],
+      "name": "l_bsp9",
+      "description": "Tooth table cal l bsp9"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b1",
+      "description": "Tooth table pd b1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b2",
+      "description": "Tooth table pd b2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b3",
+      "description": "Tooth table pd b3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp1",
+      "description": "Tooth table pd b bsp1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp2",
+      "description": "Tooth table pd b bsp2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp3",
+      "description": "Tooth table pd b bsp3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp4",
+      "description": "Tooth table pd b bsp4"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp5",
+      "description": "Tooth table pd b bsp5"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp6",
+      "description": "Tooth table pd b bsp6"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp7",
+      "description": "Tooth table pd b bsp7"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp8",
+      "description": "Tooth table pd b bsp8"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "b_bsp9",
+      "description": "Tooth table pd b bsp9"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l1",
+      "description": "Tooth table pd l1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l2",
+      "description": "Tooth table pd l2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l3",
+      "description": "Tooth table pd l3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp1",
+      "description": "Tooth table pd l bsp1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp2",
+      "description": "Tooth table pd l bsp2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp3",
+      "description": "Tooth table pd l bsp3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp4",
+      "description": "Tooth table pd l bsp4"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp5",
+      "description": "Tooth table pd l bsp5"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp6",
+      "description": "Tooth table pd l bsp6"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp7",
+      "description": "Tooth table pd l bsp7"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp8",
+      "description": "Tooth table pd l bsp8"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "pd"
+      ],
+      "name": "l_bsp9",
+      "description": "Tooth table pd l bsp9"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b1",
+      "description": "Tooth table gm b1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b2",
+      "description": "Tooth table gm b2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b3",
+      "description": "Tooth table gm b3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp1",
+      "description": "Tooth table gm b bsp1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp2",
+      "description": "Tooth table gm b bsp2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp3",
+      "description": "Tooth table gm b bsp3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp4",
+      "description": "Tooth table gm b bsp4"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp5",
+      "description": "Tooth table gm b bsp5"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp6",
+      "description": "Tooth table gm b bsp6"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp7",
+      "description": "Tooth table gm b bsp7"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp8",
+      "description": "Tooth table gm b bsp8"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "b_bsp9",
+      "description": "Tooth table gm b bsp9"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l1",
+      "description": "Tooth table gm l1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l2",
+      "description": "Tooth table gm l2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l3",
+      "description": "Tooth table gm l3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp1",
+      "description": "Tooth table gm l bsp1"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp2",
+      "description": "Tooth table gm l bsp2"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp3",
+      "description": "Tooth table gm l bsp3"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp4",
+      "description": "Tooth table gm l bsp4"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp5",
+      "description": "Tooth table gm l bsp5"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp6",
+      "description": "Tooth table gm l bsp6"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp7",
+      "description": "Tooth table gm l bsp7"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp8",
+      "description": "Tooth table gm l bsp8"
+    },
+    {
+      "scope": [
+        "tooth_table",
+        "gm"
+      ],
+      "name": "l_bsp9",
+      "description": "Tooth table gm l bsp9"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/patient_treatments/update_full_perio",
+      "request_body": "{\"data\":{\"auth_token\":\"18130102da9decf122edb054e132868e\",\"tooth_table\":{\"id\":\"33likBvygCvQTz\",\"fm_f\":0,\"fm_m\":0,\"mgl\":{\"b1\":1,\"b2\":2,\"b3\":3,\"b_bsp1\":true,\"b_bsp2\":true,\"b_bsp3\":true,\"b_bsp4\":true,\"b_bsp5\":true,\"b_bsp6\":true,\"b_bsp7\":true,\"b_bsp8\":true,\"b_bsp9\":true,\"l1\":1,\"l2\":2,\"l3\":3,\"l_bsp1\":true,\"l_bsp2\":true,\"l_bsp3\":true,\"l_bsp4\":true,\"l_bsp5\":true,\"l_bsp6\":true,\"l_bsp7\":true,\"l_bsp8\":true,\"l_bsp9\":true},\"cal\":{\"b1\":1,\"b2\":2,\"b3\":3,\"b_bsp1\":true,\"b_bsp2\":true,\"b_bsp3\":true,\"b_bsp4\":true,\"b_bsp5\":true,\"b_bsp6\":true,\"b_bsp7\":true,\"b_bsp8\":true,\"b_bsp9\":true,\"l1\":1,\"l2\":2,\"l3\":3,\"l_bsp1\":true,\"l_bsp2\":true,\"l_bsp3\":true,\"l_bsp4\":true,\"l_bsp5\":true,\"l_bsp6\":true,\"l_bsp7\":true,\"l_bsp8\":true,\"l_bsp9\":true},\"pd\":{\"b1\":1,\"b2\":2,\"b3\":3,\"b_bsp1\":true,\"b_bsp2\":true,\"b_bsp3\":true,\"b_bsp4\":true,\"b_bsp5\":true,\"b_bsp6\":true,\"b_bsp7\":true,\"b_bsp8\":true,\"b_bsp9\":true,\"l1\":1,\"l2\":2,\"l3\":3,\"l_bsp1\":true,\"l_bsp2\":true,\"l_bsp3\":true,\"l_bsp4\":true,\"l_bsp5\":true,\"l_bsp6\":true,\"l_bsp7\":true,\"l_bsp8\":true,\"l_bsp9\":true},\"gm\":{\"b1\":1,\"b2\":2,\"b3\":3,\"b_bsp1\":true,\"b_bsp2\":true,\"b_bsp3\":true,\"b_bsp4\":true,\"b_bsp5\":true,\"b_bsp6\":true,\"b_bsp7\":true,\"b_bsp8\":true,\"b_bsp9\":true,\"l1\":1,\"l2\":2,\"l3\":3,\"l_bsp1\":true,\"l_bsp2\":true,\"l_bsp3\":true,\"l_bsp4\":true,\"l_bsp5\":true,\"l_bsp6\":true,\"l_bsp7\":true,\"l_bsp8\":true,\"l_bsp9\":true}}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33likBvygCvQTz\",\n    \"type\": \"tooth-tables\",\n    \"attributes\": {\n      \"id\": \"33likBvygCvQTz\",\n      \"patient-id\": \"33liiDVB0Jgkjb\",\n      \"tooth-num\": 1,\n      \"fm-f\": 0,\n      \"fm-m\": 0,\n      \"b-bsp1\": false,\n      \"b-bsp2\": false,\n      \"b-bsp3\": false,\n      \"b-bsp4\": false,\n      \"b-bsp5\": false,\n      \"b-bsp6\": false,\n      \"b-bsp7\": false,\n      \"b-bsp8\": false,\n      \"b-bsp9\": false,\n      \"l-bsp1\": false,\n      \"l-bsp2\": false,\n      \"l-bsp3\": false,\n      \"l-bsp4\": false,\n      \"l-bsp5\": false,\n      \"l-bsp6\": false,\n      \"l-bsp7\": false,\n      \"l-bsp8\": false,\n      \"l-bsp9\": false,\n      \"active\": true\n    },\n    \"links\": {\n      \"self\": \"/tooth-tables/33likBvygCvQTz\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

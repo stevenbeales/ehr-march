@@ -1,0 +1,63 @@
+{
+  "resource": "Calendar",
+  "http_method": "PATCH",
+  "route": "/calendars/reschedule",
+  "description": "Reschedule",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "Calendar id"
+    },
+    {
+      "required": true,
+      "name": "days",
+      "description": "Amount of days past"
+    },
+    {
+      "required": true,
+      "name": "reschedule",
+      "description": "Boolean, if true - send notification"
+    },
+    {
+      "required": true,
+      "name": "old_show_start_time",
+      "description": "Old appointment datetime"
+    },
+    {
+      "required": true,
+      "name": "new_show_start_time",
+      "description": "New appointment datetime"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/calendars/reschedule",
+      "request_body": "{\"data\":{\"auth_token\":\"dfa50e2798c39820df5779d939c7a143\",\"id\":\"33lRMnZuyei17D\",\"days\":3,\"reschedule\":true,\"old_show_start_time\":\"2016-02-26T16:58:00.000+02:00\",\"new_show_start_time\":\"2016-02-29T16:58:00.000+02:00\"}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+doctype html
+html.no-js
+  head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[name="description" content="#{content_for?(:description) ? yield(:description) : 'Doctor Portal'}"]
+    title
+      = content_for?(:title) ? yield(:title) : "Admin Portal"
+    = stylesheet_link_tag 'admin', media: 'all'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all'
+    = javascript_include_tag 'admin'
+    = csrf_meta_tags
+  body.page-header-fixed.page-quick-sidebar-over-content.page-sidebar-closed-hide-logo.page-container-bg-solid
+    main[role="main"]
+      /= render 'layouts/messages'
+      = yield

@@ -1,0 +1,510 @@
+$("#modal-add-appointment").html("<%= escape_javascript(render 'new_form') %>");
+
+initModalFadeInOut('#modal-add-appointment');
+initPickers('#modal-add-appointment');
+initSelect2('#modal-add-appointment');
+
+$("#modal-add-appointment").modal("show");
+$("#modal-new-patient").modal("hide");
+$("#modal-new-referral").modal("hide");
+
+$(function() {
+  $('.modal-add-patient-save').on('click', function(e) {
+    e.preventDefault();
+    if($('#modal-add-appointment .nav-tabs a[href="#tab-appointment"]').parent().hasClass('active'))
+      $('form.simple_form.new_appointment').submit();
+    else
+      $('form.simple_form.new_block_out').submit();
+  })
+  $('#modal-add-appointment .nav-tabs a[href="#tab-blockout"]').on('shown.bs.tab', function (e) {
+    enableControl($('.modal-add-patient-save'));
+  });
+  // $('#modal-add-appointment .nav-tabs a[href="#tab-appointment"]').on('shown.bs.tab', function (e) {
+  //   validateForm();
+  // });
+});
+
+$(function() {
+  $('#modal-add-appointment .nav-tabs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    repositionModal($('#modal-add-appointment'), false);
+  });
+})
+
+$('#blockout_recurring_weekly, #blockout_recurring_daily').on('change', function() {
+  var addonRight = '.reccur-every .input-group-addon-right';
+  if($(addonRight).text()=="(s)") {
+    $(addonRight).text('Week');
+    $(addonRight).parent().children('.form-control').attr('style', 'padding-right: 108px !important');
+  }
+  else {
+    $(addonRight).text('(s)');
+    $(addonRight).parent().children('.form-control').attr('style', 'padding-right: 88px !important');
+  }
+});
+
+var buttons = $('.recuring-controls-block input[type="number"], .recuring-controls-block input[type="radio"], .recuring-controls-block input[type="checkbox"]');
+$(function disableRecurringBlock() {
+  $(buttons).each(function() {
+    if($(this).attr('id')!='blockout_recurring'){
+      disableControl($(this));
+    }
+  })
+});
+
+$('#blockout_recurring').on('change', function() {
+  if(!$(this).is(':checked')) {
+    $(buttons).each(function() {
+      if($(this).attr('id')!='blockout_recurring'){
+        disableControl($(this));
+      }
+    })
+  }
+  else {
+    $(buttons).each(function() {
+      if($(this).attr('id')!='blockout_recurring'){
+        if($(this)[0].type!='number')
+          enableControl($(this));
+        if(($(this)[0].type=='number') && ($('#blockout_recurring_weekly').is(':checked')))
+          enableControl($(this));
+      }
+    })
+  }
+});
+
+$('#blockout_recurring_daily, #blockout_recurring_weekly').on('change', function() {
+  switch($(this).attr('id')) {
+    case 'blockout_recurring_daily':
+      disableControl($('#blockout_reccur_every'), true);
+      disableControl($('.reccur-every'));
+    break
+    case 'blockout_recurring_weekly':
+      enableControl($('#blockout_reccur_every'), true);
+      enableControl($('.reccur-every'));
+    break
+  }
+})
+
+function buttonStateChange(isEnable) {
+  if($('.nav-tabs a[href="#tab-appointment"]').parent().hasClass('active')) {
+    if(!isEnable) {
+      disableControl('#modal-add-appointment .modal-add-patient-save');
+    }
+    else {
+      enableControl('#modal-add-appointment .modal-add-patient-save');
+    }
+  }
+}
+
+function validateForm() {
+ $('form.new_appointment').validate({
+   highlight: function(element) {
+     if($(element).attr('id')!='find-patient-input') {
+       buttonStateChange(false);
+       $(element).addClass('unvalid');
+       $(element).removeClass('valid');
+       if($(element).attr('id')=='contact_email'){
+         $('#modal-add-appointment .checkbox-no-email input[type=checkbox]').prop('checked', true);
+       }
+     }
+   },
+   unhighlight: function(element) {
+     if($(element).attr('id')!='find-patient-input') {
+       $(element).removeClass('unvalid');
+       $(element).addClass('valid');
+       if($(element).attr('id')=='contact_email') {
+         if($(element).val().length>0)
+           $('#modal-add-appointment .checkbox-no-email input[type=checkbox]').prop('checked', false);
+         else
+           $('#modal-add-appointment .checkbox-no-email input[type=checkbox]').prop('checked', true);
+       }
+     }
+   },
+   errorPlacement: function(error,element) {
+     return true;
+   },
+   rules: {
+     'providers': {
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     },
+     'appointment[location]': {
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     },
+     'appointment[room]': {
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     },
+     'appointment[appointment_type]': {
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     },
+     'appointment[reason]': {
+       required: function() { return false; }
+     },
+     'appointment[appointment_datetime_date]': {
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     },
+     'appointment[appointment_datetime_time]': {
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     },
+     'appointment[duration]': {
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     },
+     'appointment[contact_email]': {
+       email: true,
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     },
+     'appointment[contact_phone]': {
+       required: {
+         required: true,
+         depends: function(element) {
+           return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+         }
+       }
+     }//,
+     // 'block_out[time_for]': {
+     //   required: {
+     //     required: true,
+     //     depends: function(element) {
+     //       return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+     //     }
+     //   }
+     // },
+     // 'block_out[block_datetime_date]': {
+     //   required: {
+     //     required: true,
+     //     depends: function(element) {
+     //       return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+     //     }
+     //   }
+     // },
+     // 'block_out[block_datetime_time]': {
+     //   required: {
+     //     required: true,
+     //     depends: function(element) {
+     //       return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+     //     }
+     //   }
+     // },
+     // 'block_out[duration]': {
+     //   required: {
+     //     required: true,
+     //     depends: function(element) {
+     //       return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+     //     }
+     //   }
+     // },
+     // 'block_out[description]': {
+     //   required: {
+     //     required: true,
+     //     depends: function(element) {
+     //       return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+     //     }
+     //   }
+     // },
+     // 'block_out[note]': {
+     //   required: {
+     //     required: true,
+     //     depends: function(element) {
+     //       return $(($(element).parents('.tab-pane').hasClass('in active'))==true);
+     //     }
+     //   }
+     // },
+     // 'block_out[recur_every]': {
+     //   required: {
+     //     required: true,
+     //     depends: function(element) {
+     //       return $((($(element).parents('.tab-pane').hasClass('in active'))==true)&&($('#blockout_recurring').is(':checked')));
+     //     }
+     //   }
+     // }
+   }
+ });
+ $('form.new_appointment').valid();
+}
+validateForm();
+
+$('form.new_appointment input:not([type="radio"]):not([type="checkbox"]), #new_appointment textarea, #new_appointment select').bind('input change', function() {
+  formValidCheck();
+});
+
+function formValidCheck() {
+  if($('form.new_appointment').valid()){
+    buttonStateChange(true);
+  }
+}
+
+var FindPatientController = function() {
+ var find_patient_id_input = $('input#appointment_patient_id');
+ var find_patient_input = $('input#find-patient-input');
+ var find_patient_button = $('span#find-patient-button');
+ var find_patient_list = $('ul#find-patient-list');
+ var find_patient_contact_phone = $('select#contact_phone');
+ var find_patient_contact_email = $('input#contact_email');
+
+ var liFocusIn = false;
+
+ this.initialize = function() {
+   find10Patients();
+   initFindPatientOnInput();
+ };
+
+ var initKeyDownListeners = function() {
+  find_patient_input.on('keydown', function(e) {
+     if(e.keyCode == '40' && find_patient_list.css('display') == 'block') {
+       e.preventDefault();
+       $(find_patient_list.find('li a').first()).focus();
+       return false;
+     }
+   });
+  find_patient_list.find('li a').each(function() {
+     $(this).on('click', function(e) {
+       e.preventDefault();
+       find_patient_input.val($(this).text()).change();
+       find_patient_contact_email.val($(this).data('contact_email'));
+       find_patient_contact_email.change();
+       find_patient_contact_phone.html('');
+       $(this).data('phones').forEach(function(phone) {
+         find_patient_contact_phone.append('<option value="' + phone + '">' + phone + '</option>');
+       });
+       find_patient_contact_phone.change()
+       find_patient_id_input.val($(this).data('id'));
+       find_patient_input.focus();
+       find_patient_list.fadeOut('fast');
+     })
+   });
+  find_patient_list.find('li').focusin(function() {
+    liFocusIn = true;
+  })
+  find_patient_list.find('li').focusout(function() {
+    liFocusIn = false;
+  })
+  find_patient_list.focusout(function() {
+    setTimeout(function() {
+      if(!liFocusIn)
+        find_patient_list.fadeOut({
+          'duration': 0
+        });
+    }, 100);
+  });
+  find_patient_list.find('li').each(function() {
+    $(this).on('keydown', function(e) {
+      switch(e.keyCode)
+      {
+        case 38:
+            if(this.previousElementSibling == null)
+              find_patient_input.focus();
+            else
+              $(this).prev().find('a').focus();
+            return false;
+        break
+        case 40:
+          if(this.nextElementSibling == null)
+            find_patient_list.find('li a').first().focus();
+          else
+            $(this).next().find('a').focus();
+          return false;
+        break
+      }
+    });
+  });
+ };
+
+ var listFill = function(patients) {
+   if(patients.length>0)
+     find_patient_list.css('display', 'block');
+   else
+     find_patient_list.css('display', 'none');
+   find_patient_list.empty();
+   for(var i in patients) {
+     var patient = $('<li/>');
+     var patientLink = $('<a/>').attr('href','#');
+     patientLink.text(patients[i]['full_name'].trim());
+     patientLink.data('id', patients[i]['id']);
+     patientLink.data('contact_email', patients[i]['email']);
+     patientLink.data('phones', patients[i]['phones']);
+     patient.append(patientLink);
+     find_patient_list.append(patient);
+   }
+ };
+
+ var find10Patients = function() {
+   find_patient_button.on('click', function() {
+     $.ajax({
+       url: '<%= patients_appointments_path %>'
+     }).done(function(patients){
+       listFill(patients);
+       initKeyDownListeners();
+       find_patient_list.find('li a').first().focus();
+     });
+   })
+ };
+
+ var initFindPatientOnInput = function() {
+   find_patient_input.on('keyup', function(){
+     var search_part = $(this).val();
+     $.ajax({
+       url: '<%= patients_appointments_path %>',
+       data: {
+         part: search_part
+       }
+     }).done(function(patients){
+       listFill(patients);
+       initKeyDownListeners();
+     });
+   });
+ };
+};
+
+var FindReferralController = function() {
+  var find_referral_id_input = $('#referral_id');
+  var find_referral_input = $('#find-referral-input');
+  var find_referral_button = $('#find-referral-button');
+  var find_referral_list = $('#find-referral-list');
+
+  var liFocusIn = false;
+
+  this.initialize = function() {
+    find10Referrals();
+    initFindReferralOnInput();
+  };
+
+  var initKeyDownListeners = function() {
+    find_referral_input.on('keydown', function(e) {
+      if(e.keyCode == '40' && find_referral_list.css('display') == 'block') {
+        e.preventDefault();
+        $(find_referral_list.find('li a').first()).focus();
+        return false;
+      }
+    });
+    find_referral_list.find('li a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        find_referral_input.val($(this).text()).change();
+        find_referral_id_input.val($(this).data('id'));
+        find_referral_list.fadeOut('fast');
+        find_referral_input.focus();
+      })
+    });
+    find_referral_list.find('li').focusin(function() {
+      liFocusIn = true;
+    })
+    find_referral_list.find('li').focusout(function() {
+      liFocusIn = false;
+    })
+    find_referral_list.focusout(function() {
+      setTimeout(function() {
+        if(!liFocusIn)
+          find_referral_list.fadeOut({
+            'duration': 0
+          });
+      }, 100);
+    });
+    find_referral_list.find('li').each(function() {
+      $(this).on('keydown', function(e) {
+        switch(e.keyCode)
+        {
+          case 38:
+            if(this.previousElementSibling == null)
+              find_referral_input.focus();
+            else
+              $(this).prev().find('a').focus();
+            return false;
+            break
+          case 40:
+            if(this.nextElementSibling == null)
+              find_referral_list.find('li a').first().focus();
+            else
+              $(this).next().find('a').focus();
+            return false;
+            break
+        }
+      });
+    });
+  };
+
+  var listFill = function(referrals) {
+    if(referrals.length>0)
+      find_referral_list.css('display', 'block');
+    else
+      find_referral_list.css('display', 'none');
+    find_referral_list.empty();
+    for(var i in referrals) {
+      var referral = $('<li/>');
+      var referralLink = $('<a/>').attr('href','#');
+      referralLink.text(referrals[i]['full_name'].trim());
+      referralLink.data('id', referrals[i]['id']);
+      referral.append(referralLink);
+      find_referral_list.append(referral);
+    }
+  };
+
+  var find10Referrals = function() {
+    find_referral_button.on('click', function() {
+      $.ajax({
+        url: '<%= referrals_appointments_path %>'
+      }).done(function(referrals){
+        listFill(referrals);
+        initKeyDownListeners();
+        find_referral_list.find('li a').first().focus();
+      });
+    })
+  };
+
+  var initFindReferralOnInput = function() {
+    find_referral_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: '<%= referrals_appointments_path %>',
+        data: {
+          part: search_part
+        }
+      }).done(function(referrals){
+        listFill(referrals);
+        initKeyDownListeners();
+      });
+    });
+  };
+};
+
+var findPatientController = new FindPatientController();
+var findReferralController = new FindReferralController();
+findPatientController.initialize();
+findReferralController.initialize();

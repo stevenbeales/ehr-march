@@ -1,0 +1,4 @@
+$("#modal-open-message").html("<%= escape_javascript(render 'open_message_form') %>")
+$("#modal-open-message").modal("show")
+
+initSelect2('#modal-open-message');

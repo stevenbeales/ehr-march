@@ -1,0 +1,38 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title Add New User
+      a.close-button href="#" data-target="#modal-settings-add-user-practice" data-dismiss="modal"
+    = flash[:error]
+    = simple_form_for User.new, url: practices_path, class: 'form-horizontal', role: 'form', remote: true do |u|
+      .modal-body
+        .scrollable-container
+          .content
+            .row-container
+              = u.simple_fields_for :practice, Provider.new do |p|
+                .row
+                  .col-xs-12
+                    .form-group
+                      .input-group
+                        span.input-group-addon First Name
+                        = p.input :first_name, label: false, input_html: { class: 'form-control' }
+                .row
+                  .col-xs-12
+                    .form-group
+                      .input-group
+                        span.input-group-addon Last Name
+                        = p.input :last_name, label: false, input_html: { class: 'form-control' }
+                .row
+                  .col-xs-12
+                    .form-group
+                      .input-group
+                        span.input-group-addon Email
+                        = u.input :email, label: false, input_html: { class: 'form-control' }
+                .row
+                  .col-xs-6
+                    = p.input :practice_role, as: 'select', collection: Provider.practice_roles.to_a, input_html: { 'placeholder' => 'User Role', 'data-theme' => 'gray-dark', 'data-arrow' => '3x', 'data-padding' => '3x', 'data-font' => '2x', class: 'select2' }, include_blank: false
+                  .col-xs-6
+                    = p.input :status, as: 'select', collection: [['Enabled', true], ['Disabled', false]], input_html: { 'placeholder' => 'Status', 'data-theme' => 'gray-dark', 'data-arrow' => '3x', 'data-padding' => '1x', 'data-font' => '2x', class: 'select2' }, include_blank: false
+      .modal-footer
+        .buttons
+          = u.submit 'Add', id: 'button_submit_new_user_practice', class: 'button button-add'

@@ -1,0 +1,43 @@
+.panel-heading#message-show data-id="#{message.id}"
+  .row
+    .col-lg-6.col-md-6.col-sm-6.col-xs-6
+      .left-block-message-header
+        p
+          = message.from.try(:person).try(:full_name)
+        p
+          | To:
+          span
+            = message.to.try(:person).try(:full_name)
+        p
+          = message.subject.try(:name)
+    .col-lg-6.col-md-6.col-sm-6.col-xs-6
+      .right-block-message-header.pull-right
+        .message-date
+          p
+            = message.created_at.strftime('%m/%d/%Y %H:%M %P')
+        .message-avatar
+          - if message.from.try(:person).try(:profile_image_id?)
+            = image_tag attachment_url(message.from.person, :profile_image), class: "avatar", alt: 'message-avatar'
+          - else
+            = image_tag 'avatar-empty.svg', size: "100", class: "avatar avatar-empty"
+.panel-heading
+  p
+    |Patient:&nbsp;
+    span
+      = message.from.try(:person).try(:full_name)
+.panel-body.message-container
+  textarea.form-control.message
+    = message.body
+.panel-body.message-reply-container
+  textarea.form-control.message-reply.disabled readonly="readonly" tabindex="-1"
+.panel-footer
+  .controls-bottom
+    .row
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6
+        a.button#message-to-archive data-id="#{message.id}" href="#" Archive
+        a.button.button-danger#delete-message data-id="#{message.id}" href="#" Delete
+      - if message.to.id == current_user.id
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          .pull-right
+            a.button#message-item-reply-button data-id="#{message.id}" href="#" Reply
+            a.button#message-item-forward-button data-id="#{message.id}" href="#" Forward

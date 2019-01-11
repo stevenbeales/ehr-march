@@ -1,0 +1,79 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "PATCH",
+  "route": "/patient_treatments/update_allergy",
+  "description": "Create patient allergy",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "allergy",
+      "required": true,
+      "name": "id",
+      "description": "Allergy id"
+    },
+    {
+      "scope": "allergy",
+      "name": "allergen_type",
+      "description": "Allergen type"
+    },
+    {
+      "scope": "allergy",
+      "name": "severity_level",
+      "description": "Severity level"
+    },
+    {
+      "scope": "allergy",
+      "name": "onset_at",
+      "description": "Onset at"
+    },
+    {
+      "scope": "allergy",
+      "name": "start_date",
+      "description": "Start date"
+    },
+    {
+      "scope": "allergy",
+      "name": "active",
+      "description": "Active"
+    },
+    {
+      "scope": "allergy",
+      "name": "note",
+      "description": "Note"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/patient_treatments/update_allergy",
+      "request_body": "{\"data\":{\"auth_token\":\"42a88c2e34a269f326fd4e624dbef548\",\"patient_id\":\"33lZ7H39O9cYTr\",\"allergy\":{\"id\":\"33lZCkpRFojasd\",\"allergen_type\":\"Drug\",\"severity_level\":\"Very Mild\",\"onset_at\":\"Childhood\",\"start_date\":\"2016-02-26T17:11:15.229+02:00\",\"active\":true,\"note\":\"Sed ad veritatis dolore unde quas.\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lZCkpRFojasd\",\n    \"type\": \"allergies\",\n    \"attributes\": {\n      \"id\": \"33lZCkpRFojasd\",\n      \"patient-id\": \"33lZCkpavtsxmt\",\n      \"allergen-type\": \"Drug\",\n      \"severity-level\": \"Very Mild\",\n      \"onset-at\": \"Childhood\",\n      \"start-date\": \"2016-02-26T17:11:15.229+02:00\",\n      \"active\": true,\n      \"note\": \"Sed ad veritatis dolore unde quas.\"\n    },\n    \"links\": {\n      \"self\": \"/allergies/33lZCkpRFojasd\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

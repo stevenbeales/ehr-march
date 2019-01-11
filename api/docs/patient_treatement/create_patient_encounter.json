@@ -1,0 +1,178 @@
+{
+  "resource": "Patient treatement",
+  "http_method": "POST",
+  "route": "/patient_treatments/create_patient_encounter",
+  "description": "Create patient encounter",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "required": true,
+      "name": "procedure_id",
+      "description": "Procedure id"
+    },
+    {
+      "required": true,
+      "name": "encounter",
+      "description": "Encounter params"
+    },
+    {
+      "required": true,
+      "name": "vital",
+      "description": "Vital params"
+    },
+    {
+      "required": true,
+      "name": "procedure_completed",
+      "description": "Procedure completed params"
+    },
+    {
+      "required": true,
+      "name": "procedure_recommended",
+      "description": "Procedure recommended params"
+    },
+    {
+      "scope": "encounter",
+      "name": "provider_id",
+      "description": "Provider id"
+    },
+    {
+      "scope": "encounter",
+      "name": "notes",
+      "description": "Notes"
+    },
+    {
+      "scope": "encounter",
+      "name": "med_completed",
+      "description": "Medication completed"
+    },
+    {
+      "scope": "encounter",
+      "name": "patient_education",
+      "description": "Patient education"
+    },
+    {
+      "scope": "encounter",
+      "name": "clinical_summary",
+      "description": "Clinical summary"
+    },
+    {
+      "scope": "encounter",
+      "name": "to_provider_id",
+      "description": "To provider id"
+    },
+    {
+      "scope": "encounter",
+      "name": "from_provider_id",
+      "description": "From provider id"
+    },
+    {
+      "scope": "vital",
+      "name": "height_major",
+      "description": "Height major"
+    },
+    {
+      "scope": "vital",
+      "name": "height_minor",
+      "description": "Height minor"
+    },
+    {
+      "scope": "vital",
+      "name": "weight",
+      "description": "Weight"
+    },
+    {
+      "scope": "vital",
+      "name": "units_system",
+      "description": "Units system"
+    },
+    {
+      "scope": "vital",
+      "name": "bp_left",
+      "description": "Bp left"
+    },
+    {
+      "scope": "vital",
+      "name": "bp_right",
+      "description": "Bp right"
+    },
+    {
+      "scope": "vital",
+      "name": "temp",
+      "description": "Temp"
+    },
+    {
+      "scope": "vital",
+      "name": "pulse",
+      "description": "Pulse"
+    },
+    {
+      "scope": "vital",
+      "name": "rr",
+      "description": "RR"
+    },
+    {
+      "scope": "vital",
+      "name": "sat",
+      "description": "SAT"
+    },
+    {
+      "scope": "vital",
+      "name": "temp_type",
+      "description": "Temp type"
+    },
+    {
+      "scope": "vital",
+      "name": "ra_type",
+      "description": "RA type"
+    },
+    {
+      "scope": "vital",
+      "name": "blood",
+      "description": "Blood"
+    },
+    {
+      "scope": "procedure_completed",
+      "name": "procedure_code",
+      "description": "Procedure code"
+    },
+    {
+      "scope": "procedure_recommended",
+      "name": "procedure_code",
+      "description": "Procedure code"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/patient_treatments/create_patient_encounter",
+      "request_body": "{\"data\":{\"auth_token\":\"6f76edfc37b05332f350f3685cb18e78\",\"patient_id\":\"33laPgTx4BDIR9\",\"procedure_id\":\"33laVD7tMOInRb\",\"encounter\":{\"provider_id\":\"33laOQ0oWuXdgZ\",\"notes\":\"Sit fuga totam officia quos eos eaque dolorem.\",\"med_completed\":true,\"patient_education\":true,\"clinical_summary\":true,\"to_provider_id\":null,\"from_provider_id\":null},\"vital\":{\"height_major\":9,\"height_minor\":2,\"weight\":37.0,\"units_system\":\"us\",\"bp_left\":\"nulla\",\"bp_right\":\"qui\",\"temp\":\"et\",\"pulse\":\"eum\",\"rr\":\"est\",\"sat\":\"est\",\"temp_type\":\"Rectal\",\"ra_type\":\"2.0 LO2\",\"blood\":\"corrupti\"},\"procedure_completed\":{\"procedure_code\":\"D1206\"},\"procedure_recommended\":{\"procedure_code\":\"D6240\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lapg9J8GVnmt\",\n    \"type\": \"encounters\",\n    \"attributes\": {\n      \"id\": \"33lapg9J8GVnmt\",\n      \"provider-id\": \"33laOQ0oWuXdgZ\",\n      \"patient-id\": \"33laPgTx4BDIR9\",\n      \"notes\": \"Sit fuga totam officia quos eos eaque dolorem.\",\n      \"med-completed\": true,\n      \"patient-education\": true,\n      \"clinical-summary\": true,\n      \"to-provider-id\": null,\n      \"from-provider-id\": null\n    },\n    \"links\": {\n      \"self\": \"/encounters/33lapg9J8GVnmt\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

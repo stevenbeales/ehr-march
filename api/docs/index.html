@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON API Example</title>
+  <meta charset="utf-8">
+  <style>
+    
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: &quot;required&quot;;
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>JSON API Example</h1>
+
+  <div class="article">
+    <h2>Admin</h2>
+
+    <ul>
+      <li>
+        <a href="admin/index.html">Index</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Appointments</h2>
+
+    <ul>
+      <li>
+        <a href="appointments/create_appointment.html">Create appointment</a>
+      </li>
+      <li>
+        <a href="appointments/delete_appointment.html">Delete appointment</a>
+      </li>
+      <li>
+        <a href="appointments/find_patients_by_part_of_first_or_last_name.html">Find patients by part of first or last name</a>
+      </li>
+      <li>
+        <a href="appointments/find_referrals_by_part_of_normal_or_last_name.html">Find referrals by part of normal or last name</a>
+      </li>
+      <li>
+        <a href="appointments/get_first_10_patients.html">Get first 10 patients</a>
+      </li>
+      <li>
+        <a href="appointments/get_first_10_referrals.html">Get first 10 referrals</a>
+      </li>
+      <li>
+        <a href="appointments/new_appointment.html">New appointment</a>
+      </li>
+      <li>
+        <a href="appointments/set_appointment_status_to_reschedule.html">Set appointment status to reschedule</a>
+      </li>
+      <li>
+        <a href="appointments/show_appointment.html">Show appointment</a>
+      </li>
+      <li>
+        <a href="appointments/update_appointment.html">Update appointment</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Block out</h2>
+
+    <ul>
+      <li>
+        <a href="block_out/create_block_out.html">Create block out</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Calendar</h2>
+
+    <ul>
+      <li>
+        <a href="calendar/filtered_calendars.html">Filtered calendars</a>
+      </li>
+      <li>
+        <a href="calendar/get_calendars_from_range.html">Get calendars from range</a>
+      </li>
+      <li>
+        <a href="calendar/move_calendar.html">Move calendar</a>
+      </li>
+      <li>
+        <a href="calendar/open_reschedule.html">Open reschedule</a>
+      </li>
+      <li>
+        <a href="calendar/reschedule.html">Reschedule</a>
+      </li>
+      <li>
+        <a href="calendar/resize_calendar.html">Resize calendar</a>
+      </li>
+      <li>
+        <a href="calendar/schedule.html">Schedule</a>
+      </li>
+      <li>
+        <a href="calendar/show_calendar.html">Show calendar</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Dashboard</h2>
+
+    <ul>
+      <li>
+        <a href="dashboard/index.html">Index</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>EmailMessage</h2>
+
+    <ul>
+      <li>
+        <a href="emailmessage/create_contact.html">Create contact</a>
+      </li>
+      <li>
+        <a href="emailmessage/create_message_from_current_patient_to_practice.html">Create message from current patient to practice</a>
+      </li>
+      <li>
+        <a href="emailmessage/create_message_from_current_user_to_patient.html">Create message from current user to patient</a>
+      </li>
+      <li>
+        <a href="emailmessage/create_message_from_current_user_to_patient_and_practice.html">Create message from current user to patient and practice</a>
+      </li>
+      <li>
+        <a href="emailmessage/create_new_subject.html">Create new subject</a>
+      </li>
+      <li>
+        <a href="emailmessage/create_reply_message.html">Create reply message</a>
+      </li>
+      <li>
+        <a href="emailmessage/delete_messages.html">Delete messages</a>
+      </li>
+      <li>
+        <a href="emailmessage/delete_subject.html">Delete subject</a>
+      </li>
+      <li>
+        <a href="emailmessage/get_25_contacts_with_pagination.html">Get 25 contacts with pagination</a>
+      </li>
+      <li>
+        <a href="emailmessage/get_all_subjects.html">Get all subjects</a>
+      </li>
+      <li>
+        <a href="emailmessage/get_all_subjects.html">Get all subjects</a>
+      </li>
+      <li>
+        <a href="emailmessage/get_certain_amount_of_certain_type_email_messages_with_pagination.html">Get certain amount of certain type email messages with pagination</a>
+      </li>
+      <li>
+        <a href="emailmessage/get_certain_amount_of_certain_type_email_messages_with_pagination.html">Get certain amount of certain type email messages with pagination</a>
+      </li>
+      <li>
+        <a href="emailmessage/get_first_25_inbox_messages.html">Get first 25 inbox messages</a>
+      </li>
+      <li>
+        <a href="emailmessage/get_patient_by_id.html">Get patient by id</a>
+      </li>
+      <li>
+        <a href="emailmessage/get_practice_by_id.html">Get practice by id</a>
+      </li>
+      <li>
+        <a href="emailmessage/mark_messages_as_read.html">Mark messages as read</a>
+      </li>
+      <li>
+        <a href="emailmessage/remove_messages_to_archive.html">Remove messages to archive</a>
+      </li>
+      <li>
+        <a href="emailmessage/search_messages.html">Search messages</a>
+      </li>
+      <li>
+        <a href="emailmessage/search_patients_by_part_of_first_or_last_name.html">Search patients by part of first or last name</a>
+      </li>
+      <li>
+        <a href="emailmessage/search_practice_by_part_of_first_or_last_name.html">Search practice by part of first or last name</a>
+      </li>
+      <li>
+        <a href="emailmessage/switch_contact_favorite_flag.html">Switch contact favorite flag</a>
+      </li>
+      <li>
+        <a href="emailmessage/update_subject.html">Update subject</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Errors</h2>
+
+    <ul>
+      <li>
+        <a href="errors/show.html">Show</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Landings</h2>
+
+    <ul>
+      <li>
+        <a href="landings/index.html">Index</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Locations</h2>
+
+    <ul>
+      <li>
+        <a href="locations/create_location.html">Create location</a>
+      </li>
+      <li>
+        <a href="locations/get_location_for_edit.html">Get location for edit</a>
+      </li>
+      <li>
+        <a href="locations/new_location.html">New location</a>
+      </li>
+      <li>
+        <a href="locations/set_location_as_primary.html">Set location as primary</a>
+      </li>
+      <li>
+        <a href="locations/update_timeslots.html">Update timeslots</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Patient appointment</h2>
+
+    <ul>
+      <li>
+        <a href="patient_appointment/create_patient_appointment.html">Create patient appointment</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Patient treatement</h2>
+
+    <ul>
+      <li>
+        <a href="patient_treatement/add_patient_diagnoses.html">Add patient diagnoses</a>
+      </li>
+      <li>
+        <a href="patient_treatement/add_patient_medications.html">Add patient medications</a>
+      </li>
+      <li>
+        <a href="patient_treatement/create_patient_allergy.html">Create patient allergy</a>
+      </li>
+      <li>
+        <a href="patient_treatement/create_patient_allergy.html">Create patient allergy</a>
+      </li>
+      <li>
+        <a href="patient_treatement/create_patient_diagnoses.html">Create patient diagnoses</a>
+      </li>
+      <li>
+        <a href="patient_treatement/create_patient_encounter.html">Create patient encounter</a>
+      </li>
+      <li>
+        <a href="patient_treatement/create_patient_insurance.html">Create patient insurance</a>
+      </li>
+      <li>
+        <a href="patient_treatement/create_patient_medication.html">Create patient medication</a>
+      </li>
+      <li>
+        <a href="patient_treatement/create_patient_payer.html">Create patient payer</a>
+      </li>
+      <li>
+        <a href="patient_treatement/get_active_or_inactive_patients.html">Get active or inactive patients</a>
+      </li>
+      <li>
+        <a href="patient_treatement/get_active_or_inactive_patients.html">Get active or inactive patients</a>
+      </li>
+      <li>
+        <a href="patient_treatement/get_encounter_by_id.html">Get encounter by id</a>
+      </li>
+      <li>
+        <a href="patient_treatement/get_tooth_and_procedure_code_for_creating_procedure.html">Get tooth and procedure code for creating procedure</a>
+      </li>
+      <li>
+        <a href="patient_treatement/get_tooth_and_procedure_code_for_creating_procedure.html">Get tooth and procedure code for creating procedure</a>
+      </li>
+      <li>
+        <a href="patient_treatement/get_tooth_and_procedure_code_for_creating_procedure.html">Get tooth and procedure code for creating procedure</a>
+      </li>
+      <li>
+        <a href="patient_treatement/index.html">Index</a>
+      </li>
+      <li>
+        <a href="patient_treatement/search_diagnosis_codes.html">Search diagnosis codes</a>
+      </li>
+      <li>
+        <a href="patient_treatement/search_medications.html">Search medications</a>
+      </li>
+      <li>
+        <a href="patient_treatement/search_patient.html">Search patient</a>
+      </li>
+      <li>
+        <a href="patient_treatement/search_patient.html">Search patient</a>
+      </li>
+      <li>
+        <a href="patient_treatement/search_payer_names.html">Search payer names</a>
+      </li>
+      <li>
+        <a href="patient_treatement/search_portion_drugs.html">Search portion drugs</a>
+      </li>
+      <li>
+        <a href="patient_treatement/search_procedure_codes.html">Search procedure codes</a>
+      </li>
+      <li>
+        <a href="patient_treatement/search_providers.html">Search providers</a>
+      </li>
+      <li>
+        <a href="patient_treatement/show_patient_medications.html">Show patient medications</a>
+      </li>
+      <li>
+        <a href="patient_treatement/update_advanced_directive.html">Update advanced directive</a>
+      </li>
+      <li>
+        <a href="patient_treatement/update_guarantor.html">Update guarantor</a>
+      </li>
+      <li>
+        <a href="patient_treatement/update_past_medical_history.html">Update past medical history</a>
+      </li>
+      <li>
+        <a href="patient_treatement/update_patient_diagnoses.html">Update patient diagnoses</a>
+      </li>
+      <li>
+        <a href="patient_treatement/update_patient_medication.html">Update patient medication</a>
+      </li>
+      <li>
+        <a href="patient_treatement/update_smoking_status.html">Update smoking status</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Patients</h2>
+
+    <ul>
+      <li>
+        <a href="patients/create_emergency_contact.html">Create emergency contact</a>
+      </li>
+      <li>
+        <a href="patients/create_new_patient.html">Create new patient</a>
+      </li>
+      <li>
+        <a href="patients/create_new_patient_without_email.html">Create new patient without email</a>
+      </li>
+      <li>
+        <a href="patients/index.html">Index</a>
+      </li>
+      <li>
+        <a href="patients/list_of_medications.html">List of medications</a>
+      </li>
+      <li>
+        <a href="patients/list_of_provider_locations.html">List of provider locations</a>
+      </li>
+      <li>
+        <a href="patients/list_of_providers_for_new_appointment.html">List of providers for new appointment</a>
+      </li>
+      <li>
+        <a href="patients/update_patient.html">Update patient</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Practices</h2>
+
+    <ul>
+      <li>
+        <a href="practices/create_practice.html">Create practice</a>
+      </li>
+      <li>
+        <a href="practices/get_practice_for_edit.html">Get practice for edit</a>
+      </li>
+      <li>
+        <a href="practices/update_practice.html">Update practice</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Providers</h2>
+
+    <ul>
+      <li>
+        <a href="providers/add_patient.html">Add patient</a>
+      </li>
+      <li>
+        <a href="providers/download_pdf.html">Download pdf</a>
+      </li>
+      <li>
+        <a href="providers/get_first_inbox_message.html">Get first inbox message</a>
+      </li>
+      <li>
+        <a href="providers/get_next_message.html">Get next message</a>
+      </li>
+      <li>
+        <a href="providers/get_previous_message.html">Get previous message</a>
+      </li>
+      <li>
+        <a href="providers/index.html">Index</a>
+      </li>
+      <li>
+        <a href="providers/lock_provider_user.html">Lock provider user</a>
+      </li>
+      <li>
+        <a href="providers/save_email_message.html">Save email message</a>
+      </li>
+      <li>
+        <a href="providers/send_invitation_email.html">Send invitation email</a>
+      </li>
+      <li>
+        <a href="providers/unlock_provider_user.html">Unlock provider user</a>
+      </li>
+      <li>
+        <a href="providers/update_provider.html">Update provider</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Referral</h2>
+
+    <ul>
+      <li>
+        <a href="referral/create_referral.html">Create referral</a>
+      </li>
+      <li>
+        <a href="referral/new_referral.html">New referral</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Registration</h2>
+
+    <ul>
+      <li>
+        <a href="registration/registrate_new_provider.html">Registrate new provider</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Session</h2>
+
+    <ul>
+      <li>
+        <a href="session/authorization.html">Authorization</a>
+      </li>
+      <li>
+        <a href="session/log_out.html">Log out</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Settings</h2>
+
+    <ul>
+      <li>
+        <a href="settings/get_practice_by_id.html">Get practice by id</a>
+      </li>
+      <li>
+        <a href="settings/practices_and_locations_settings.html">Practices and locations settings</a>
+      </li>
+      <li>
+        <a href="settings/practices_and_locations_settings.html">Practices and locations settings</a>
+      </li>
+      <li>
+        <a href="settings/practices_with_role_&quot;provider&quot;.html">Practices with role &quot;Provider&quot;</a>
+      </li>
+      <li>
+        <a href="settings/set_colours_settings.html">Set colours settings</a>
+      </li>
+      <li>
+        <a href="settings/set_location_color.html">Set location color</a>
+      </li>
+      <li>
+        <a href="settings/set_practice_as_an_admin.html">Set practice as an admin</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Sorter</h2>
+
+    <ul>
+      <li>
+        <a href="sorter/sort_appointments_and_paginate.html">Sort appointments and paginate</a>
+      </li>
+      <li>
+        <a href="sorter/sort_inbox_messages.html">Sort inbox messages</a>
+      </li>
+      <li>
+        <a href="sorter/sort_inbox_messages.html">Sort inbox messages</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Text message</h2>
+
+    <ul>
+      <li>
+        <a href="text_message/create_text_message.html">Create text message</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Tooth table</h2>
+
+    <ul>
+      <li>
+        <a href="tooth_table/get_full_perio.html">Get full perio</a>
+      </li>
+      <li>
+        <a href="tooth_table/get_tooth.html">Get tooth</a>
+      </li>
+      <li>
+        <a href="tooth_table/get_tooth.html">Get tooth</a>
+      </li>
+      <li>
+        <a href="tooth_table/inverse_value_of_field_name_for_tooth_table_and_all_child_tooth_fields.html">Inverse value of field name for tooth table and all child tooth fields</a>
+      </li>
+      <li>
+        <a href="tooth_table/set_tooth_table_activity.html">Set tooth table activity</a>
+      </li>
+      <li>
+        <a href="tooth_table/update_all_teeth_fields.html">Update all teeth fields</a>
+      </li>
+    </ul>
+  </div>
+  <div class="article">
+    <h2>Zipcodes</h2>
+
+    <ul>
+      <li>
+        <a href="zipcodes/list_of_cities.html">List of cities</a>
+      </li>
+      <li>
+        <a href="zipcodes/list_of_zipcodes.html">List of zipcodes</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1252 @@
+New appointment
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /appointments/new?data[auth_token]=fccdc6dc872e3605ddb3ff3fb8d212c5
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"fccdc6dc872e3605ddb3ff3fb8d212c5"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lMxOwrhgTzxD",
+      "type": "appointments",
+      "attributes": {
+        "id": "33lMxOwrhgTzxD",
+        "patient-id": null,
+        "room-id": null,
+        "appointment-type-id": null,
+        "appointment-status-id": null,
+        "location": null,
+        "reason": null,
+        "appointment-datetime-date": "2016-02-26",
+        "appointment-datetime-time": "16:51",
+        "duration": "15 min",
+        "contact-email": null,
+        "contact-phone": null,
+        "reminder": null,
+        "colour": null
+      },
+      "links": {
+        "self": "/appointments/33lMxOwrhgTzxD"
+      }
+    }
+  }
+
+
+Create appointment
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * patient_id - Patient id
+  * location - Location
+  * room_id - Room id
+  * appointment_type_id - Appointment type id
+  * appointment_datetime - Appointment datetime
+  * reason - Reason
+  * duration - Duration
+  * contact_email - Patient contact email
+  * contact_phone - Patient contact phone
+  * reminder - Reminder
+  * colour - Colour
+  * referral_id - Referral id
+
+Request:
+  POST /appointments
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"9c39ebc57126ad2baca227c5a952a778","appointment":{"patient_id":"33lMzHTagkLFsR","location":"746 Huel Fall","room_id":"33lN7TWnitzbvv","appointment_type_id":"33lN8lku2A9A2d","appointment_datetime":"2016-02-26T16:52:00.000+02:00","reason":"Illo adipisci aliquid nihil eligendi.","duration":"3 hours","contact_email":"+14410797159","contact_phone":"+14410797159","reminder":false,"colour":"641A30","referral_id":"33lNC9KKDNMag7"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lNC9KTtSVxaN",
+      "type": "appointments",
+      "attributes": {
+        "id": "33lNC9KTtSVxaN",
+        "patient-id": "33lMzHTagkLFsR",
+        "room-id": "33lN7TWnitzbvv",
+        "appointment-type-id": "33lN8lku2A9A2d",
+        "appointment-status-id": null,
+        "location": "746 Huel Fall",
+        "reason": "Illo adipisci aliquid nihil eligendi.",
+        "appointment-datetime-date": "2016-02-26",
+        "appointment-datetime-time": "16:52",
+        "duration": "3 hours",
+        "contact-email": "+14410797159",
+        "contact-phone": "+14410797159",
+        "reminder": false,
+        "colour": "6888F0"
+      },
+      "links": {
+        "self": "/appointments/33lNC9KTtSVxaN"
+      }
+    }
+  }
+
+
+Update appointment
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Appointment id
+  * patient_id - Patient id
+  * location - Location
+  * room_id - Room id
+  * appointment_type_id - Appointment type id
+  * reason - Reason
+  * duration - Duration
+  * contact_email - Patient contact email
+  * contact_phone - Patient contact phone
+  * reminder - Reminder
+  * colour - Colour
+  * referral_id - Referral id
+  * normal - Referral normal
+  * middle_name - Referral middle name
+  * last_name - Referral last name
+  * individual_npi - Referral npi
+  * speciality - Referral speciality
+  * phone - Referral phone
+  * fax - Referral fax
+  * email - Referral email
+
+Request:
+  PATCH /appointments/33lNW2CdiW5QYd
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"1a753aa439d20193ede62ce5868b9113","appointment":{"patient_id":"33lNJYcx6t1Bsx","location":"12904 Armstrong Station","room_id":"33lNRHlFaq38aZ","appointment_type_id":"33lNSkZ0h2uTj9","reason":"Quos necessitatibus eos amet quod neque eveniet.","duration":"2 hours 45 min","contact_email":"+14898726838","contact_phone":"+14898726838","reminder":true,"colour":"37604E","referral_id":"33lNimxlrBYK9b"},"referral":{"normal":"Dino","middle_name":"Keshaun","last_name":"Russel","individual_npi":"21-7857820","speciality":"Prosthodontics","phone":"+17964849645","fax":"+13915050935","email":"aleandra_langosh@croninstiedemann.info"}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lNW2CdiW5QYd",
+      "type": "appointments",
+      "attributes": {
+        "id": "33lNW2CdiW5QYd",
+        "patient-id": "33lNJYcx6t1Bsx",
+        "room-id": "33lNRHlFaq38aZ",
+        "appointment-type-id": "33lNSkZ0h2uTj9",
+        "appointment-status-id": "33lNhDGtffE6Ox",
+        "location": "12904 Armstrong Station",
+        "reason": "Quos necessitatibus eos amet quod neque eveniet.",
+        "appointment-datetime-date": "2016-02-26",
+        "appointment-datetime-time": "16:52",
+        "duration": "2 hours 45 min",
+        "contact-email": "+14898726838",
+        "contact-phone": "+14898726838",
+        "reminder": true,
+        "colour": "5C7D77"
+      },
+      "links": {
+        "self": "/appointments/33lNW2CdiW5QYd"
+      }
+    }
+  }
+
+
+Show appointment
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Appointment id
+
+Request:
+  GET /appointments/33lNxHU3Xcfy9D?data[auth_token]=62bcd4630198b32b8551bd0c25ab3d89&data[id]=33lNxHU3Xcfy9D
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"62bcd4630198b32b8551bd0c25ab3d89", "id"=>"33lNxHU3Xcfy9D"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lNxHU3Xcfy9D",
+      "type": "appointments",
+      "attributes": {
+        "id": "33lNxHU3Xcfy9D",
+        "patient-id": "33lNxHUDDhpL3T",
+        "room-id": "33lO5HBYGG53St",
+        "appointment-type-id": "33lO6binzhoPeF",
+        "appointment-status-id": "33lO7tRNCBRKSp",
+        "location": "52431 Brianne Plains",
+        "reason": "Laboriosam necessitatibus atque animi ipsam impedit fugit.",
+        "appointment-datetime-date": "2016-02-26",
+        "appointment-datetime-time": "16:53",
+        "duration": "1 hour",
+        "contact-email": "ana.balistreri@green.info",
+        "contact-phone": "+13946523112",
+        "reminder": true,
+        "colour": "3BDB1E"
+      },
+      "links": {
+        "self": "/appointments/33lNxHU3Xcfy9D"
+      }
+    }
+  }
+
+
+Delete appointment
+------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Appointment id
+
+Request:
+  DELETE /appointments/33lOGiFG13zG8B
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"7d5cee9f03419bedef506e2e06e4cfe3"}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Find patients by part of first or last name
+-------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - The beginning of a patient's first or last name
+
+Request:
+  GET /appointments/patients?data[auth_token]=02ff6aa5b2ee64df3853d0d742d0337d&data[part]=De
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"02ff6aa5b2ee64df3853d0d742d0337d", "part"=>"De"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lOYkHuL3YUl9",
+        "type": "patients",
+        "attributes": {
+          "id": "33lOYkHuL3YUl9",
+          "email": "waino@pouros.co",
+          "role": "Patient",
+          "first-name": "Den",
+          "middle-name": null,
+          "last-name": "Brown",
+          "gender": "Male",
+          "mobile-phone": "+15497212651",
+          "primary-phone": "+13844656898",
+          "code": null,
+          "social-number": "295225521",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lOYkHuL3YUl9/avatar3.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lOYkHuL3YUl9"
+        }
+      },
+      {
+        "id": "33lOe22m804INf",
+        "type": "patients",
+        "attributes": {
+          "id": "33lOe22m804INf",
+          "email": "bernardo_sipes@ruelstiedemann.name",
+          "role": "Patient",
+          "first-name": "Den",
+          "middle-name": null,
+          "last-name": "Crown",
+          "gender": "Male",
+          "mobile-phone": "+1866618715",
+          "primary-phone": "+16909656353",
+          "code": null,
+          "social-number": "189664485",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lOe22m804INf/avatar1.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lOe22m804INf"
+        }
+      },
+      {
+        "id": "33lOhkOsT3mjVT",
+        "type": "patients",
+        "attributes": {
+          "id": "33lOhkOsT3mjVT",
+          "email": "marilou@kreiger.io",
+          "role": "Patient",
+          "first-name": "Den",
+          "middle-name": null,
+          "last-name": "Down",
+          "gender": "Male",
+          "mobile-phone": "+14495919928",
+          "primary-phone": "+19945154578",
+          "code": null,
+          "social-number": "693557874",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lOhkOsT3mjVT/avatar1.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lOhkOsT3mjVT"
+        }
+      },
+      {
+        "id": "33lOmW8C7HCC3f",
+        "type": "patients",
+        "attributes": {
+          "id": "33lOmW8C7HCC3f",
+          "email": "eliezer@green.biz",
+          "role": "Patient",
+          "first-name": "Den",
+          "middle-name": null,
+          "last-name": "Xown",
+          "gender": "Male",
+          "mobile-phone": "+16273303400",
+          "primary-phone": "+12399637207",
+          "code": null,
+          "social-number": "848168444",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lOmW8C7HCC3f/avatar5.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lOmW8C7HCC3f"
+        }
+      },
+      {
+        "id": "33lOr69bX9tbFr",
+        "type": "patients",
+        "attributes": {
+          "id": "33lOr69bX9tbFr",
+          "email": "efrain@paucek.net",
+          "role": "Patient",
+          "first-name": "Den",
+          "middle-name": null,
+          "last-name": "Unknown",
+          "gender": "Male",
+          "mobile-phone": "+15594407471",
+          "primary-phone": "+16399159043",
+          "code": null,
+          "social-number": "337235861",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lOr69bX9tbFr/avatar4.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lOr69bX9tbFr"
+        }
+      }
+    ]
+  }
+
+
+Get first 10 patients
+---------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /appointments/patients?data[auth_token]=032af5bcd24a2bff2ecfb8de5e2bb7e8
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"032af5bcd24a2bff2ecfb8de5e2bb7e8"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lP2NguDkGSB9",
+        "type": "patients",
+        "attributes": {
+          "id": "33lP2NguDkGSB9",
+          "email": "aisha@johns.co",
+          "role": "Patient",
+          "first-name": "Kristina",
+          "middle-name": null,
+          "last-name": "Weber",
+          "gender": "Male",
+          "mobile-phone": "+14836590851",
+          "primary-phone": "+14793068243",
+          "code": null,
+          "social-number": "123814136",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lP2NguDkGSB9/avatar10.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lP2NguDkGSB9"
+        }
+      },
+      {
+        "id": "33lP7iSnADosqp",
+        "type": "patients",
+        "attributes": {
+          "id": "33lP7iSnADosqp",
+          "email": "connie@nicolas.io",
+          "role": "Patient",
+          "first-name": "Athena",
+          "middle-name": null,
+          "last-name": "Bauch",
+          "gender": "Male",
+          "mobile-phone": "+14841137708",
+          "primary-phone": "+12409751161",
+          "code": null,
+          "social-number": "858221376",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lP7iSnADosqp/avatar5.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lP7iSnADosqp"
+        }
+      },
+      {
+        "id": "33lPD3bmYzjzoh",
+        "type": "patients",
+        "attributes": {
+          "id": "33lPD3bmYzjzoh",
+          "email": "laron_fisher@mraz.name",
+          "role": "Patient",
+          "first-name": "Orrin",
+          "middle-name": null,
+          "last-name": "Auer",
+          "gender": "Male",
+          "mobile-phone": "+18314027724",
+          "primary-phone": "+17584664890",
+          "code": null,
+          "social-number": "222167659",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lPD3bmYzjzoh/avatar5.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lPD3bmYzjzoh"
+        }
+      },
+      {
+        "id": "33lPINrM0H0wex",
+        "type": "patients",
+        "attributes": {
+          "id": "33lPINrM0H0wex",
+          "email": "anais@denesik.net",
+          "role": "Patient",
+          "first-name": "Jazmyn",
+          "middle-name": null,
+          "last-name": "Casper",
+          "gender": "Male",
+          "mobile-phone": "+17823867663",
+          "primary-phone": "+18566512394",
+          "code": null,
+          "social-number": "597456338",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lPINrM0H0wex/avatar7.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lPINrM0H0wex"
+        }
+      },
+      {
+        "id": "33lPNppOqCTKeB",
+        "type": "patients",
+        "attributes": {
+          "id": "33lPNppOqCTKeB",
+          "email": "gwendolyn_braun@larkin.name",
+          "role": "Patient",
+          "first-name": "Pink",
+          "middle-name": null,
+          "last-name": "Rohan",
+          "gender": "Male",
+          "mobile-phone": "+15654080972",
+          "primary-phone": "+12014579987",
+          "code": null,
+          "social-number": "398462849",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lPNppOqCTKeB/avatar9.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lPNppOqCTKeB"
+        }
+      },
+      {
+        "id": "33lPTAZPdgDKQl",
+        "type": "patients",
+        "attributes": {
+          "id": "33lPTAZPdgDKQl",
+          "email": "joe@schummroberts.com",
+          "role": "Patient",
+          "first-name": "Corine",
+          "middle-name": null,
+          "last-name": "Hermann",
+          "gender": "Male",
+          "mobile-phone": "+18640693582",
+          "primary-phone": "+13007001510",
+          "code": null,
+          "social-number": "484258135",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lPTAZPdgDKQl/avatar7.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lPTAZPdgDKQl"
+        }
+      },
+      {
+        "id": "33lPXeHvRWVZWl",
+        "type": "patients",
+        "attributes": {
+          "id": "33lPXeHvRWVZWl",
+          "email": "victor@mohrklocko.org",
+          "role": "Patient",
+          "first-name": "Sonya",
+          "middle-name": null,
+          "last-name": "Collins",
+          "gender": "Male",
+          "mobile-phone": "+15744128252",
+          "primary-phone": "+15623799490",
+          "code": null,
+          "social-number": "627283486",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lPXeHvRWVZWl/avatar7.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lPXeHvRWVZWl"
+        }
+      },
+      {
+        "id": "33lPcxKFikwR0d",
+        "type": "patients",
+        "attributes": {
+          "id": "33lPcxKFikwR0d",
+          "email": "derrick_kub@gulgowski.biz",
+          "role": "Patient",
+          "first-name": "Lexi",
+          "middle-name": null,
+          "last-name": "Schamberger",
+          "gender": "Male",
+          "mobile-phone": "+14809507155",
+          "primary-phone": "+16399389468",
+          "code": null,
+          "social-number": "856515489",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lPcxKFikwR0d/avatar7.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lPcxKFikwR0d"
+        }
+      },
+      {
+        "id": "33lPiONJoMExnf",
+        "type": "patients",
+        "attributes": {
+          "id": "33lPiONJoMExnf",
+          "email": "christine_hane@kaulke.org",
+          "role": "Patient",
+          "first-name": "Devon",
+          "middle-name": null,
+          "last-name": "Ullrich",
+          "gender": "Male",
+          "mobile-phone": "+15473550297",
+          "primary-phone": "+17614851517",
+          "code": null,
+          "social-number": "628173225",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lPiONJoMExnf/avatar8.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lPiONJoMExnf"
+        }
+      },
+      {
+        "id": "33lPnv4E09CU31",
+        "type": "patients",
+        "attributes": {
+          "id": "33lPnv4E09CU31",
+          "email": "alexandria@gottlieb.io",
+          "role": "Patient",
+          "first-name": "Ozzie",
+          "middle-name": null,
+          "last-name": "Tromp",
+          "gender": "Male",
+          "mobile-phone": "+13680624972",
+          "primary-phone": "+18134317101",
+          "code": null,
+          "social-number": "571815898",
+          "active": true,
+          "declined-portal-access": null,
+          "preferred-language": null,
+          "ethnicity": "Hispanic of Latino",
+          "american-race": null,
+          "asian-race": null,
+          "african-race": null,
+          "hawaiian-race": null,
+          "white-race": null,
+          "undetermined-race": null,
+          "email-reminder": null,
+          "sms-reminder": null,
+          "immunization-registry": "NotSend",
+          "work-phone": null,
+          "ext": null,
+          "street-address": null,
+          "city": null,
+          "state": null,
+          "zip": null,
+          "profile-image": {
+            "url": "/uploads/patient/profile_image/33lPnv4E09CU31/avatar7.jpg"
+          }
+        },
+        "links": {
+          "self": "/patients/33lPnv4E09CU31"
+        }
+      }
+    ]
+  }
+
+
+Find referrals by part of normal or last name
+---------------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * part - The beginning of a referral's normal or last name
+
+Request:
+  GET /appointments/referrals?data[auth_token]=ce1388715e3e572dc1c76ba3cb7ad3b2&data[part]=De
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"ce1388715e3e572dc1c76ba3cb7ad3b2", "part"=>"De"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lQ4Xb9MWQHUh",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ4Xb9MWQHUh",
+          "appointment-id": null,
+          "normal": "Den",
+          "middle-name": "Jessy",
+          "last-name": "Brown",
+          "individual-npi": "57-5534436",
+          "speciality": "Periodontics",
+          "phone": "+14837213224",
+          "fax": "+14202741365",
+          "email": "devan@bode.net"
+        },
+        "links": {
+          "self": "/referrals/33lQ4Xb9MWQHUh"
+        }
+      },
+      {
+        "id": "33lQ4XbJ2bZeOx",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ4XbJ2bZeOx",
+          "appointment-id": null,
+          "normal": "Den",
+          "middle-name": "Amira",
+          "last-name": "Crown",
+          "individual-npi": "57-9875556",
+          "speciality": "Prosthodontics",
+          "phone": "+16898926557",
+          "fax": "+13403744941",
+          "email": "pinkie@feillittle.biz"
+        },
+        "links": {
+          "self": "/referrals/33lQ4XbJ2bZeOx"
+        }
+      },
+      {
+        "id": "33lQ4XbSigj1JD",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ4XbSigj1JD",
+          "appointment-id": null,
+          "normal": "Den",
+          "middle-name": "Elisa",
+          "last-name": "Down",
+          "individual-npi": "84-9652567",
+          "speciality": "Endodontics",
+          "phone": "+15084540414",
+          "fax": "+12662920122",
+          "email": "bernadine_waelchi@bergstromwolff.com"
+        },
+        "links": {
+          "self": "/referrals/33lQ4XbSigj1JD"
+        }
+      },
+      {
+        "id": "33lQ4XbcOlsODT",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ4XbcOlsODT",
+          "appointment-id": null,
+          "normal": "Den",
+          "middle-name": "Wilfred",
+          "last-name": "Xown",
+          "individual-npi": "64-2891135",
+          "speciality": "Prosthodontics",
+          "phone": "+13321432760",
+          "fax": "+19869358910",
+          "email": "buster.oconnell@connelly.info"
+        },
+        "links": {
+          "self": "/referrals/33lQ4XbcOlsODT"
+        }
+      },
+      {
+        "id": "33lQ4Xbm4r1l7j",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ4Xbm4r1l7j",
+          "appointment-id": null,
+          "normal": "Den",
+          "middle-name": "Haley",
+          "last-name": "Unknown",
+          "individual-npi": "26-2244785",
+          "speciality": "Pediatric Dentistry",
+          "phone": "+12122549773",
+          "fax": "+17835504582",
+          "email": "kirk@parker.info"
+        },
+        "links": {
+          "self": "/referrals/33lQ4Xbm4r1l7j"
+        }
+      }
+    ]
+  }
+
+
+Get first 10 referrals
+----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /appointments/referrals?data[auth_token]=f3fa0b8bcf93d5d2ebe4d574c6ec75db
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"f3fa0b8bcf93d5d2ebe4d574c6ec75db"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": [
+      {
+        "id": "33lQ6vDCJK141z",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vDCJK141z",
+          "appointment-id": null,
+          "normal": "Meaghan",
+          "middle-name": "Watson",
+          "last-name": "Price",
+          "individual-npi": "63-7715282",
+          "speciality": "Orthodontics and Dentofacial Orthopedics",
+          "phone": "+14752482168",
+          "fax": "+16357579419",
+          "email": "tracy_fay@larson.biz"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vDCJK141z"
+        }
+      },
+      {
+        "id": "33lQ6vDLzPAQwF",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vDLzPAQwF",
+          "appointment-id": null,
+          "normal": "Lee",
+          "middle-name": "Torrey",
+          "last-name": "Bogisich",
+          "individual-npi": "88-6618177",
+          "speciality": "Endodontics",
+          "phone": "+16450300902",
+          "fax": "+12669745537",
+          "email": "luisa_daniel@herzog.biz"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vDLzPAQwF"
+        }
+      },
+      {
+        "id": "33lQ6vDVfUJnqV",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vDVfUJnqV",
+          "appointment-id": null,
+          "normal": "Aniya",
+          "middle-name": "Jaylan",
+          "last-name": "Klein",
+          "individual-npi": "17-1612888",
+          "speciality": "N/A Speciality",
+          "phone": "+17052351470",
+          "fax": "+16709833438",
+          "email": "mohammed_cummings@cummings.net"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vDVfUJnqV"
+        }
+      },
+      {
+        "id": "33lQ6vDfLZTAkl",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vDfLZTAkl",
+          "appointment-id": null,
+          "normal": "Dayton",
+          "middle-name": "Elda",
+          "last-name": "Moen",
+          "individual-npi": "20-8022686",
+          "speciality": "Endodontics",
+          "phone": "+19449913834",
+          "fax": "+14353985628",
+          "email": "chad@franecki.info"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vDfLZTAkl"
+        }
+      },
+      {
+        "id": "33lQ6vDp1ecXf1",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vDp1ecXf1",
+          "appointment-id": null,
+          "normal": "Nyah",
+          "middle-name": "Maximillia",
+          "last-name": "Emmerich",
+          "individual-npi": "94-4342219",
+          "speciality": "Oral and Maxillofacial Pathology",
+          "phone": "+14913923601",
+          "fax": "+18781737285",
+          "email": "gust_effertz@hettinger.io"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vDp1ecXf1"
+        }
+      },
+      {
+        "id": "33lQ6vDyhjluZH",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vDyhjluZH",
+          "appointment-id": null,
+          "normal": "Krystina",
+          "middle-name": "Augustus",
+          "last-name": "Huel",
+          "individual-npi": "95-4655537",
+          "speciality": "N/A Speciality",
+          "phone": "+19026203906",
+          "fax": "+15687717567",
+          "email": "jaclyn@leuschke.io"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vDyhjluZH"
+        }
+      },
+      {
+        "id": "33lQ6vE8NovHTX",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vE8NovHTX",
+          "appointment-id": null,
+          "normal": "Dell",
+          "middle-name": "Denis",
+          "last-name": "Brakus",
+          "individual-npi": "04-0899854",
+          "speciality": "Endodontics",
+          "phone": "+14422875788",
+          "fax": "+1353196315",
+          "email": "jeff@block.net"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vE8NovHTX"
+        }
+      },
+      {
+        "id": "33lQ6vEI3u4eNn",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vEI3u4eNn",
+          "appointment-id": null,
+          "normal": "Richmond",
+          "middle-name": "Jermain",
+          "last-name": "Kshlerin",
+          "individual-npi": "51-9317976",
+          "speciality": "Oral and Maxillofacial Radiology",
+          "phone": "+12342998034",
+          "fax": "+1584991209",
+          "email": "chris.johnson@auer.info"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vEI3u4eNn"
+        }
+      },
+      {
+        "id": "33lQ6vERjzE1I3",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vERjzE1I3",
+          "appointment-id": null,
+          "normal": "Leda",
+          "middle-name": "Roy",
+          "last-name": "Buckridge",
+          "individual-npi": "24-3699431",
+          "speciality": "Endodontics",
+          "phone": "+12160452098",
+          "fax": "+16622057893",
+          "email": "braden.beatty@vandervort.co"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vERjzE1I3"
+        }
+      },
+      {
+        "id": "33lQ6vEbQ4NOCJ",
+        "type": "referrals",
+        "attributes": {
+          "id": "33lQ6vEbQ4NOCJ",
+          "appointment-id": null,
+          "normal": "Hank",
+          "middle-name": "Kenyon",
+          "last-name": "Effertz",
+          "individual-npi": "81-0536021",
+          "speciality": "Prosthodontics",
+          "phone": "+12154837958",
+          "fax": "+19616888993",
+          "email": "josie@kuhic.name"
+        },
+        "links": {
+          "self": "/referrals/33lQ6vEbQ4NOCJ"
+        }
+      }
+    ]
+  }
+
+
+Set appointment status to reschedule
+------------------------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Appointment id
+
+Request:
+  GET /appointments/reschedule?data[auth_token]=0060e9d045e30f52e6f3add0a221248e&data[id]=33lQ9akk1faVAh
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"0060e9d045e30f52e6f3add0a221248e", "id"=>"33lQ9akk1faVAh"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+

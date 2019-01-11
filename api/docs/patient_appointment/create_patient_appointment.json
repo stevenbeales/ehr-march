@@ -1,0 +1,80 @@
+{
+  "resource": "Patient appointment",
+  "http_method": "POST",
+  "route": "/patient_appointments",
+  "description": "Create patient appointment",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "patient_appointment",
+      "required": true,
+      "name": "provider_id",
+      "description": "Provider id"
+    },
+    {
+      "scope": "patient_appointment",
+      "required": true,
+      "name": "patient_id",
+      "description": "Patient id"
+    },
+    {
+      "scope": "patient_appointment",
+      "name": "date",
+      "description": "Appointment date"
+    },
+    {
+      "scope": "patient_appointment",
+      "name": "location",
+      "description": "Location"
+    },
+    {
+      "scope": "patient_appointment",
+      "name": "appointment_type",
+      "description": "Appointment type"
+    },
+    {
+      "scope": "patient_appointment",
+      "name": "note",
+      "description": "Note"
+    },
+    {
+      "scope": "patient_appointment",
+      "name": "phone",
+      "description": "Provider phone"
+    },
+    {
+      "scope": "patient_appointment",
+      "name": "email",
+      "description": "Provider email"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/patient_appointments",
+      "request_body": "{\"data\":{\"auth_token\":\"51cbcc12615c865f1d4cc7b5f16955e7\",\"patient_appointment\":{\"provider_id\":\"33lWXm2L8x3vwR\",\"patient_id\":\"33lWSNTVfR4ReN\",\"date\":\"2016-02-26T17:06:53.460+02:00\",\"location\":\"Rodriguez Mount, 521, Torranceberg, Florida\",\"appointment_type\":\"Prophy-Child\",\"note\":\"Ipsam quia ducimus soluta ut. Porro laboriosam deserunt voluptate error. Voluptas eligendi consequatur veritatis. Ipsam nobis provident aliquid facilis rerum.\",\"phone\":\"939-448-2078\",\"email\":\"francis@willfeeney.io\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lWaDYMAWtOvj\",\n    \"type\": \"patient-appointments\",\n    \"attributes\": {\n      \"id\": \"33lWaDYMAWtOvj\",\n      \"provider-id\": \"33lWXm2L8x3vwR\",\n      \"patient-id\": \"33lWSNTVfR4ReN\",\n      \"date\": \"2016-02-26T17:06:53.460+02:00\",\n      \"location\": \"Rodriguez Mount, 521, Torranceberg, Florida\",\n      \"appointment-type\": \"Prophy-Child\",\n      \"note\": \"Ipsam quia ducimus soluta ut. Porro laboriosam deserunt voluptate error. Voluptas eligendi consequatur veritatis. Ipsam nobis provident aliquid facilis rerum.\",\n      \"phone\": \"+19394482078\",\n      \"email\": \"francis@willfeeney.io\"\n    },\n    \"links\": {\n      \"self\": \"/patient-appointments/33lWaDYMAWtOvj\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

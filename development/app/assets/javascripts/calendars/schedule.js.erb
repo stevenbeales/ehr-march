@@ -1,0 +1,394 @@
+var ScheduleController = function() {
+  var calendar;
+
+  var weekends = true;
+  var gridList = 'agendaDay, agendaWeek, month';
+  var isViewRender = false;
+  var settings;
+
+  this.initialize = function(events, schedule_settings) {
+    settings = schedule_settings;
+    initSelect2('.schedule-wrapper');
+    calendarInit(weekends, gridList, events);
+    addCalendarAdditionalControls();
+    pickerInitializers();
+  };
+
+  var newEventHandler = function(startDate, endDate, allDay, jsEvent, view) {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.new_appointment_calendars_path %>/',
+      dataType: "script"
+    });
+  };
+
+  var eventResizeHandler = function (event, delta, revertFunc) {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.reschedule_calendars_path %>/',
+      dataType: "script"
+    });
+  };
+
+  var eventDragStopHandler = function(event, delta, revertFunc, jsEvent, ui, view) {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.open_reschedule_calendars_path %>',
+      data: {
+        id: event.id,
+        days: delta._days
+      }
+    });
+  };
+
+  var eventDragStartHandler = function(event, jsEvent, ui, view) {
+
+  };
+
+  var eventClickHandler = function(event, jsEvent, view) {
+    if(!($(jsEvent.toElement).hasClass('fa'))) {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.calendars_path %>/' + event.id,
+        dataType: "script"
+      });
+    }
+  };
+
+  var eventRenderHandler = function(event, element, view) {
+    var fcContent = element.find('.fc-content');
+    var fcContentDataContainer = $('<div/>',{ 'class': 'fc-content-data-container' });
+    var fcBg = element.find('.fc-bg');
+    fcContent.find('.fc-title').remove();
+    fcContent.find('.fc-time').remove();
+    if(view.name == 'agendaDay' || view.name == 'agendaWeek') {
+      fcBg.attr('style', 'background-color: ' + (event.statusColor==null?'#2e877b':event.statusColor) +' !important');
+      element.attr('style', 'background-color: ' + (event.statusColor==null?'#2e877b':event.statusColor) +' !important');
+      var fcContentData = $('<div/>', { 'class': 'fc-content-data' });
+      var fcData = '<div class="fc-time-container">';
+      if(view.name == 'agendaDay') {
+        if(!event._allDay) {
+          if(!($('.fc-agendaDay-view').hasClass('fc-agendaDay-grid-view'))) {
+            fcData += '<p class="fc-time-start">' + event.start.format('h:mm');
+            if(event.end!=null) {
+              fcData += ' -' + '</p>\
+                <p class="fc-time-end">' + event.end.format('h:mm');
+            }
+          }
+          else {
+            fcData += '<p class="fc-time-startend">' + event.start.format('h:mm');
+            if(event.end!=null) {
+              fcData += ' - ' + event.end.format('h:mm');
+            }
+          }
+        }
+        fcData += '</p></div>';
+      }
+      else {
+        if(!event._allDay) {
+          fcData += '<p class="fc-time">' + event.start.format('h:mm');
+          if(event.end!=null)
+            fcData += ' - ' + event.end.format('h:mm') + '</p>';
+        }
+        fcData += '</div>';
+      }
+      fcData += '<div class="fc-patient-name-container"><p class="fc-patient-name">' + (event.patientName==null?'Patient Name':event.patientName) + '</p></div>\
+      <div class="fc-patient-phone-container"><p class="fc-patient-phone">' + (event.patientPhone==null?'Mobile Number':event.patientPhone) + '</p></div>\
+      <div class="fc-provider-name-container"><p class="fc-provider-name">' + (event.providerName==null?'Provider':event.providerName) + '</p></div>\
+      <div class="fc-type-container"><p class="fc-type">' + (event.type==null?'Appointment Type':event.type) + '</p></div>\
+      <div class="fc-status-container"><p class="fc-status">' + (event.status==null?'Status':event.status) + '</p></div>\
+      <div class="fc-room-container"><p class="fc-room"">' + (event.room==null?'Room':event.room) + '</p></div>';
+      var fcContentBgHover = '<div class="fc-bg-hover"></div>';
+      fcContentData.append(fcData);
+      fcContentDataContainer.append(fcContentData);
+      element.append(fcContentBgHover);
+      if(view.name == 'agendaDay' && ($('.fc-agendaDay-view').hasClass('fc-agendaDay-grid-view'))){
+        switch(event.roomId) {
+          case 0:
+            element.addClass('cell-1');
+          break
+          case 1:
+            element.addClass('cell-2');
+          break
+          case 2:
+            element.addClass('cell-3');
+          break
+        }
+      }
+      if(view.name == 'agendaWeek' || (view.name == 'agendaDay' && ($('.fc-agendaDay-view').hasClass('fc-agendaDay-grid-view')))) {
+        fcBgColorType = $('<div/>', { 'class': 'fc-bg-color-type' });
+        fcBgColorType.css('background-color', (event.typeColor==null?'#41B6A6':event.typeColor));
+        element.append(fcBgColorType);
+      }
+    }
+    if(view.name == 'month') {
+      fcContentDataContainer.attr({
+        'data-toggle': 'tooltip',
+        'data-placement': 'top',
+        'title': 'Appointment detail'
+      });
+      var fcContentData = $('<span/>',{ 'class': 'fc-content-data' });
+      var fcData = '<span class="fc-time-start">' + event.start.format('h:mm A') + '</span>\
+        <span> - </span>\
+        <span class="fc-patient-name">' + (event.patientName==null?'Patient Name':event.patientName) + '</span>';
+      fcContentData.append(fcData);
+      fcContentDataContainer.append(fcContentData);
+      fcContentDataContainer.tooltip({
+        position: {
+          my: "center bottom-7",
+          at: "center top"
+        },
+        tooltipClass: "schedule-tooltip-styling"
+      });
+    }
+    fcContent.append(fcContentDataContainer);
+  };
+
+  var eventAfterRenderHandler = function(event, element, view) {
+    if(view.name == 'agendaDay' || view.name == 'agendaWeek') {
+      var fcContent = $(element).find('.fc-content');
+      var fcContentData = fcContent.find('.fc-content-data');
+      var fcContentDataContainer = fcContent.find('.fc-content-data-container');
+      if($(fcContentData).height()>$(fcContentDataContainer).height() || $(fcContentData).width()>$(fcContentDataContainer).width()) {
+        var fcExpandButton = $('<div/>', { 'class': 'fc-bg-expand' }).html('<i class="fa fa-angle-down"></i>');
+        fcExpandButton.on('click', function() {
+          if(fcExpandButton.find('i').hasClass('fa-angle-down')) {
+            fcExpandButton.css('top', 'auto');
+            fcExpandButton.find('i').addClass('fa-angle-up');
+            fcExpandButton.find('i').removeClass('fa-angle-down');
+            element.addClass('fc-expanded fc-expanded-height');
+            if($(fcContentData).width()>$(fcContentDataContainer).width()) {
+              if(view.name=='agendaWeek')
+                element.addClass('fc-expanded-width');
+              else
+                element.addClass('fc-expanded-dayView');
+            }
+          }
+          else {
+            if(fcExpandButton.find('i').hasClass('fa-angle-up')) {
+              fcExpandButton.find('i').addClass('fa-angle-down');
+              fcExpandButton.find('i').removeClass('fa-angle-up');
+              element.removeClass('fc-expanded');
+              element.removeClass('fc-expanded-width');
+              element.removeClass('fc-expanded-height');
+              element.removeClass('fc-expanded-dayView');
+              if($(fcContentDataContainer).height()<26) {
+                fcExpandButton.css('top', '-5px');
+              }
+            }
+          }
+        });
+        if($(fcContentDataContainer).height()<26) {
+          fcExpandButton.css('top', '-5px');
+        }
+        element.append(fcExpandButton);
+      }
+    }
+  }
+
+  var eventAfterAllRenderHandler = function(view) {
+
+  }
+
+  var viewRenderHandler = function(view) {
+    var currentdate = $('#calendar').fullCalendar('getDate');
+    $(".fc-state-highlight").removeClass("fc-state-highlight");
+    $('.fc-day-header-highlight').removeClass("fc-day-header-highlight");
+    $('.fc-day-header:has("span")').removeClass("fc-day-header-highlight").html(currentdate.format('ddd DD'));
+    $("td[data-date="+currentdate.format('YYYY-MM-DD')+"]").addClass("fc-state-highlight");
+    $('.fc-day-header:contains("' + currentdate.format('ddd DD') + '")').addClass("fc-day-header-highlight").html(currentdate.format('ddd') + ' ' + '<span>' + currentdate.format('DD') + '</span>');
+    addDateToCenterHeader(false);
+    isViewRender = true;
+    if(view.name == 'agendaDay') {
+      $('#calendar .fc-toolbar .fc-headercenter').css('display','inline-block');
+      var dayGridHeader = '<th class="fc-day-header fc-widget-header" style="width: 47px;"><i class="fa fa-angle-down"></i></th>\
+          <th class="fc-day-header fc-widget-header" width="33%">OR1</th>\
+          <th class="fc-day-header fc-widget-header" width="33%">OR2</th>\
+          <th class="fc-day-header fc-widget-header" width="33%">Exam Room</th>';
+          //<th class="fc-day-header fc-widget-header"><i class="fa fa-angle-right"></i></th>';
+      var dayListHeader = '<th class="fc-day-header fc-widget-header" style="width: 47px;"><i class="fa fa-angle-down"></i></th>\
+        <th class="fc-day-header fc-widget-header" width="18.8%"><span>Patient Name</span><i class="fa fa-angle-down"></i></th>\
+        <th class="fc-day-header fc-widget-header" width="18.6%"><span>Mobile Number</span><i class="fa fa-angle-down"></i></th>\
+        <th class="fc-day-header fc-widget-header" width="13.9%">Provider<i class="fa fa-angle-down"></i></th>\
+        <th class="fc-day-header fc-widget-header" width="18.6%">Appointment Type<i class="fa fa-angle-down"></i></th>\
+        <th class="fc-day-header fc-widget-header" width="14%">Status<i class="fa fa-angle-down"></i></th>\
+        <th class="fc-day-header fc-widget-header">Room<i class="fa fa-angle-down"></i></th>';
+      var dayListGrid = '<div class="shedule-day-list-record">\
+        <div class="sh-list-content">\
+          <div class="sh-name"></div>\
+          <div class="sh-mobyle"></div>\
+          <div class="sh-provider"></div>\
+          <div class="sh-apptype"></div>\
+          <div class="sh-status"></div>\
+          <div class="sh-room"></div>\
+        </div>\
+      </div>';
+      var dayGridGrid = '<div class="shedule-day-record">\
+        <div class="cell-1"></div>\
+        <div class="cell-2"></div>\
+        <div class="cell-3"></div>\
+      </div>';
+
+      $('.fc-gridview-button').removeClass('fc-state-active');
+      $('.fc-listview-button').addClass('fc-state-active');
+      $('.fc-agendaDay-view').addClass('fc-agendaDay-list-view');
+      $('.fc-agendaDay-view').removeClass('fc-agendaDay-grid-view');
+      $('.fc-row.fc-widget-header table > thead > tr').addClass('day-list');
+      $('.fc-row.fc-widget-header table > thead > tr').html('');
+      $('.fc-row.fc-widget-header table > thead > tr').append(dayListHeader);
+      $('.fc-time-grid-container .fc-time-grid .fc-slats table > tbody > tr td.fc-widget-content').append(dayListGrid);
+
+      $('.fc-listview-button').click(function() {
+        $('.fc-agendaDay-view').addClass('fc-agendaDay-list-view');
+        $('.fc-agendaDay-view').removeClass('fc-agendaDay-grid-view');
+        $('.fc-gridview-button').removeClass('fc-state-active');
+        $('.fc-listview-button').addClass('fc-state-active');
+        $('.shedule-day-list-record').css('display','block');
+
+        $('.fc-row.fc-widget-header table > thead > tr').removeClass('day-grid');
+        $('.fc-row.fc-widget-header table > thead > tr').addClass('day-list');
+        $('.fc-row.fc-widget-header table > thead > tr').html('');
+        $('.fc-row.fc-widget-header table > thead > tr').append(dayListHeader);
+        $('.fc-time-grid-container .fc-time-grid .fc-slats table > tbody > tr td.fc-widget-content:not(.fc-axis)').html('');
+        $('.fc-time-grid-container .fc-time-grid .fc-slats table > tbody > tr td.fc-widget-content:not(.fc-axis)').append(dayListGrid);
+        addDateToCenterHeader(false);
+        calendar.fullCalendar('rerenderEvents');
+      });
+
+      $('.fc-gridview-button').click(function() {
+        $('.fc-agendaDay-view').addClass('fc-agendaDay-grid-view');
+        $('.fc-agendaDay-view').removeClass('fc-agendaDay-list-view');
+        $('.fc-listview-button').removeClass('fc-state-active');
+        $('.fc-gridview-button').addClass('fc-state-active');
+        $('.shedule-day-list-record').css('display','none');
+
+        $('.fc-row.fc-widget-header table > thead > tr').removeClass('day-list');
+        $('.fc-row.fc-widget-header table > thead > tr').addClass('day-grid');
+        $('.fc-row.fc-widget-header table > thead > tr').html('');
+        $('.fc-row.fc-widget-header table > thead > tr').append(dayGridHeader);
+        $('.fc-time-grid-container .fc-time-grid .fc-slats table > tbody > tr td.fc-widget-content:not(.fc-axis)').html('');
+        $('.fc-time-grid-container .fc-time-grid .fc-slats table > tbody > tr td.fc-widget-content:not(.fc-axis)').append(dayGridGrid);
+        addDateToCenterHeader(false);
+        addDateToCenterHeader(true);
+        calendar.fullCalendar('rerenderEvents');
+      });
+    }
+    else
+      $('#calendar .fc-toolbar .fc-headercenter').css('display','none');
+  }
+
+  function addDateToCenterHeader(isTrue) {
+    if(isTrue) {
+      $(".fc-toolbar .fc-center .actions").addClass('actions-large');
+      $(".fc-toolbar .fc-center .actions").before($('<div/>', { 'class': 'fc-center-dateblock' }).append($(".fc-toolbar .fc-center h2")));
+      $(".fc-toolbar .fc-center .fc-center-dateblock").append('<h3>'+moment().format('dddd')+'</h3>');
+    }
+    else {
+      $(".fc-toolbar .fc-center .actions").removeClass('actions-large');
+      $(".fc-toolbar .fc-center .actions").before($(".fc-toolbar .fc-center .fc-center-dateblock h2"));
+      $(".fc-toolbar .fc-center .fc-center-dateblock").remove();
+    }
+  }
+
+  $(window).on('resize', function() {
+    if(calendar != null)
+      calendar.fullCalendar('rerenderEvents');
+  })
+
+  var calendarInit = function(weekends, gridList, events) {
+    if (weekends == undefined) {
+      weekends = false;
+    }
+    if (gridList == undefined) {
+      gridList = 'today, agendaWeek, month, agendaDay, prev, next';
+    }
+    calendar = $('#calendar').fullCalendar({
+      firstDay: 1,
+      columnFormat: 'ddd D',
+      timeFormat: 'h:mm A',
+      header: {
+        left: gridList,
+        headercenter: ', ',
+        center: 'title',
+        right: 'prev, today, next'
+      },
+      views: {
+        day: {
+          titleFormat: 'MMMM DD, YYYY'
+        },
+        week: {
+          titleFormat: 'MMMM YYYY',
+          columnFormat: 'ddd DD'
+        },
+        month: {
+          columnFormat: 'ddd'
+        }
+      },
+      minTime: settings['minTime'],
+      maxTime: settings['maxTime'],
+      snapDuration: settings['snapDuration'],
+      weekends: weekends,
+      selectable: true,
+      selectHelper: true,
+      editable: true,
+      eventDurationEditable: true,
+      events: events,
+      select: newEventHandler,
+      eventResize: eventResizeHandler,
+      eventDrop: eventDragStopHandler,
+      eventDragStart: eventDragStartHandler,
+      eventRender: eventRenderHandler,
+      eventClick: eventClickHandler,
+      eventAfterRender: eventAfterRenderHandler,
+      eventAfterAllRender: eventAfterAllRenderHandler,
+      viewRender: viewRenderHandler
+    });
+  };//calendarInit
+
+  function addCalendarAdditionalControls() {
+    $(".fc-toolbar .fc-center").append($(".actions"));
+    $(".actions").css("display","table");
+    var dayGridListSwitcher = '<button type="button" class="fc-listview-button fc-button fc-state-default fc-corner-left fc-corner-right fc-state-active">List View</button>\
+      <button type="button" class="fc-gridview-button fc-button fc-state-default fc-corner-left fc-corner-right">Grid View</button>';
+    $('#calendar .fc-toolbar .fc-headercenter').append(dayGridListSwitcher);
+  };
+
+  var pickerInitializers = function() {
+    var smallCalendarDate;
+    $('#small-calendar').datepicker({
+        weekStart: 1,
+        format: 'dd/mm/yyyy'
+      }).on('changeDate', function(e) {
+      smallCalendarDate = $('#small-calendar').datepicker('getDate');
+      var oldMoment = $('#calendar').fullCalendar('getDate');
+      var oldMomentContent = oldMoment.format('ddd')+'<span>'+oldMoment.format('DD')+'</span>';
+      $('#calendar').fullCalendar('gotoDate', new Date(smallCalendarDate));
+      var moment = $('#calendar').fullCalendar('getDate');
+      $(".fc-state-highlight").removeClass("fc-state-highlight");
+      $("td[data-date="+moment.format('YYYY-MM-DD')+"]").addClass("fc-state-highlight");
+      if (!isViewRender)
+        $('.fc-day-header-highlight').removeClass("fc-day-header-highlight");
+      $('.fc-day-header:contains("' + moment.format('ddd DD') + '")').addClass("fc-day-header-highlight").html(moment.format('ddd') + ' ' + '<span>' + moment.format('DD') + '</span>');
+      isViewRender = false;
+    });
+
+    $('#jumptodate-calendar').datepicker({
+      weekStart: 1,
+      autoclose: true,
+      format: 'dd/mm/yyyy'
+    })
+    .on('changeDate', function(e) {
+      smallCalendarDate = $('#jumptodate-calendar').datepicker('getDate');
+      $('#small-calendar').datepicker('setDate', smallCalendarDate);
+    });
+    $('#jumptodate-calendar').datepicker('setDate',  moment().format('YYYY/MM/DD'));
+    $('#jumptodate-calendar').parent().find('.input-group-addon-calendar').on('click', function() {
+      var picker = $('#jumptodate-calendar').closest('.input-group').find('.date-picker');
+      if($(picker).hasClass('showing')){
+        $(picker).datepicker('hide');
+        picker.removeClass('showing');
+      }
+      else {
+        picker.datepicker('show');
+        picker.addClass('showing');
+      }
+      initPickers();
+    });
+  }
+};

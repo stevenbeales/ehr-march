@@ -1,0 +1,10 @@
+- provider.locations.each_with_index do |location, index|
+  li role="presentation" data-provider_id="#{provider.id}"
+    = link_to '#', role: 'menuitem', tabindex: -1, class: 'filter_item', data: { option: location }
+      .checkbox-custom
+        input.checkbox type="checkbox" id="location_#{index + 1}" checked="checked"
+        label for="location_#{index + 1}"
+          span.checkbox-icon-container
+            span.checkbox-icon
+          span.checkbox-label
+            = location

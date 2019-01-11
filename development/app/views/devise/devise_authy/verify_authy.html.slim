@@ -1,0 +1,35 @@
+= verify_authy_form
+  .modal-authy-wrapper
+    #modal-authy-verify.modal-authy.modal.fade[data-backdrop='static' data-keyboard='false']
+      .modal-dialog
+        .modal-content
+          .modal-header
+            .left-block
+              p Enable Two-Factor Authentication
+            .right-block
+              #authy-logo
+          .modal-body
+            p Please enter your Authy token that you have received via SMS message, or Authy app. If you have not downloaded and installed Authy application for your smartphone yet, please scan the QR code below!
+            .form-group
+              .input-group
+                span.input-group-addon Authy Token
+                = text_field_tag :token, "", :autocomplete => :off, :id => 'authy-token', class: 'form-control'
+            .form-group
+              .checkbox-custom
+                = check_box_tag :remember_device, class: 'checkbox'
+                label for="remember_device"
+                  span.checkbox-icon-container
+                    span.checkbox-icon
+                  span.checkbox-label Remember device
+            .mobile-apps
+              .left-block
+              .right-block
+                .mobile-apps-links
+                  a.mobile-app-ios[href="#"]
+                  a.mobile-app-android[href="#"]
+                  a.mobile-app-blackberry[href="#"]
+                  a.mobile-app-windows[href="#"]
+          .modal-footer
+            .buttons
+              = submit_tag 'Enable', :class => 'button'
+              = authy_request_sms_link

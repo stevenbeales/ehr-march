@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patients API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Patients API</h1>
+
+      <div class="article">
+        <h2>List of provider locations</h2>
+        <h3>GET /patients/provider_full_info</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[provider_id]</span>
+                </td>
+                <td>
+                  <span class="description">Provider id</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /patients/provider_full_info?data[auth_token]=dbf9a8dc6f49c2f3b7bbc79ac65bb124&amp;data[provider_id]=33le1XMWYnkkNv</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;dbf9a8dc6f49c2f3b7bbc79ac65bb124&quot;, &quot;provider_id&quot;=&gt;&quot;33le1XMWYnkkNv&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;locations&quot;: [
+      {
+        &quot;city&quot;: &quot;Josefaberg&quot;,
+        &quot;colour&quot;: &quot;F8BF28&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:18:31.582+02:00&quot;,
+        &quot;id&quot;: &quot;33le2hGqFYbYTz&quot;,
+        &quot;location_address&quot;: &quot;Harris Points&quot;,
+        &quot;location_fax&quot;: &quot;+18001364447&quot;,
+        &quot;location_name&quot;: &quot;Elouise Lane&quot;,
+        &quot;location_npi&quot;: &quot;49-4223248&quot;,
+        &quot;location_phone&quot;: &quot;+14325065136&quot;,
+        &quot;location_tin_en&quot;: &quot;39-2753518&quot;,
+        &quot;provider_id&quot;: &quot;33le1XMWYnkkNv&quot;,
+        &quot;state&quot;: &quot;Florida&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:18:31.582+02:00&quot;,
+        &quot;zip&quot;: 57631
+      },
+      {
+        &quot;city&quot;: &quot;Eddiefort&quot;,
+        &quot;colour&quot;: &quot;B0FA32&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:18:32.270+02:00&quot;,
+        &quot;id&quot;: &quot;33le3IMnPc4123&quot;,
+        &quot;location_address&quot;: &quot;Crona Meadows&quot;,
+        &quot;location_fax&quot;: &quot;+12697255674&quot;,
+        &quot;location_name&quot;: &quot;Torp Haven&quot;,
+        &quot;location_npi&quot;: &quot;54-1473409&quot;,
+        &quot;location_phone&quot;: &quot;+13510835971&quot;,
+        &quot;location_tin_en&quot;: &quot;60-1709963&quot;,
+        &quot;provider_id&quot;: &quot;33le1XMWYnkkNv&quot;,
+        &quot;state&quot;: &quot;North Carolina&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:18:32.270+02:00&quot;,
+        &quot;zip&quot;: 13026
+      },
+      {
+        &quot;city&quot;: &quot;North Herman&quot;,
+        &quot;colour&quot;: &quot;0B4B86&quot;,
+        &quot;created_at&quot;: &quot;2016-02-26T17:18:32.923+02:00&quot;,
+        &quot;id&quot;: &quot;33le44c07YgVUp&quot;,
+        &quot;location_address&quot;: &quot;Terry Ridges&quot;,
+        &quot;location_fax&quot;: &quot;+15647272134&quot;,
+        &quot;location_name&quot;: &quot;Jessie Mills&quot;,
+        &quot;location_npi&quot;: &quot;97-4237844&quot;,
+        &quot;location_phone&quot;: &quot;+13212942789&quot;,
+        &quot;location_tin_en&quot;: &quot;25-6732395&quot;,
+        &quot;provider_id&quot;: &quot;33le1XMWYnkkNv&quot;,
+        &quot;state&quot;: &quot;Connecticut&quot;,
+        &quot;updated_at&quot;: &quot;2016-02-26T17:18:32.923+02:00&quot;,
+        &quot;zip&quot;: 1583
+      }
+    ]
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages/new_tab",
+  "description": "Get certain amount of certain type email messages with pagination",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "amount",
+      "description": "Amount of messages"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "page",
+      "description": "Page pagination number"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "type",
+      "description": "Type: inbox, sent, draft, archive or urgent"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages/new_tab?data[auth_token]=6654ef86adc70a23a4dc158937365b1e&data[amount]=2&data[page]=0&data[type]=inbox",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "6654ef86adc70a23a4dc158937365b1e",
+          "amount": "2",
+          "page": "0",
+          "type": "inbox"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lV0QTpXec0IN\",\n      \"type\": \"email-messages\",\n      \"attributes\": {\n        \"id\": \"33lV0QTpXec0IN\",\n        \"subject-id\": \"33lV0QTzDjlNCd\",\n        \"to-id\": \"33lUyQtNJd0k3X\",\n        \"from-id\": null,\n        \"body\": \"Incidunt qui atque eius sit mollitia amet nemo.\",\n        \"draft\": false,\n        \"archive\": false,\n        \"urgent\": false,\n        \"read\": false\n      },\n      \"links\": {\n        \"self\": \"/email-messages/33lV0QTpXec0IN\"\n      }\n    },\n    {\n      \"id\": \"33lV0QU8touk6t\",\n      \"type\": \"email-messages\",\n      \"attributes\": {\n        \"id\": \"33lV0QU8touk6t\",\n        \"subject-id\": \"33lV0QUIZu4719\",\n        \"to-id\": \"33lUyQtNJd0k3X\",\n        \"from-id\": null,\n        \"body\": \"Consequatur rem impedit voluptatem expedita placeat enim.\",\n        \"draft\": false,\n        \"archive\": false,\n        \"urgent\": false,\n        \"read\": false\n      },\n      \"links\": {\n        \"self\": \"/email-messages/33lV0QU8touk6t\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

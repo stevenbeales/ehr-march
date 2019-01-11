@@ -1,0 +1,57 @@
+{
+  "resource": "Registration",
+  "http_method": "POST",
+  "route": "/registration/create",
+  "description": "Registrate new provider",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "user",
+      "required": true,
+      "name": "email",
+      "description": "New provider email"
+    },
+    {
+      "scope": "user",
+      "required": true,
+      "name": "password",
+      "description": "New provider password"
+    },
+    {
+      "scope": "user",
+      "required": true,
+      "name": "password_confirmation",
+      "description": "New provider password confirmation"
+    },
+    {
+      "scope": "provider",
+      "required": true,
+      "name": "first_name",
+      "description": "New provider first_name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/registration/create",
+      "request_body": "{\"data\":{\"user\":{\"email\":\"doctor@email.com\",\"password\":\"doctor\",\"password_confirmation\":\"doctor\"},\"provider\":{\"first_name\":\"Kennith\"}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": \"33lfvDvId0TlOV\",\n    \"type\": \"providers\",\n    \"attributes\": {\n      \"id\": \"33lfvDvId0TlOV\",\n      \"email\": \"doctor@email.com\",\n      \"role\": \"Provider\",\n      \"user-id\": \"33lfvDupal1efj\",\n      \"title\": \"Mr\",\n      \"first-name\": \"Kennith\",\n      \"middle-name\": null,\n      \"last-name\": null,\n      \"degree\": \"DDS\",\n      \"speciality\": \"Endodontics\",\n      \"street-address\": null,\n      \"suit-apt-number\": null,\n      \"city\": null,\n      \"state\": null,\n      \"zip\": null,\n      \"practice-street-address\": null,\n      \"practice-suit-apt-number\": null,\n      \"practice-city\": null,\n      \"practice-state\": null,\n      \"practice-zip\": null,\n      \"primary-phone\": null,\n      \"mobile-phone\": null,\n      \"alt-email\": null,\n      \"username\": null,\n      \"secondary-speciality\": null,\n      \"dental-licence\": null,\n      \"expiration-date\": null,\n      \"ein-tin\": null,\n      \"npi\": null,\n      \"dea\": null,\n      \"upin\": null,\n      \"nadean\": null,\n      \"status\": false,\n      \"biography\": null,\n      \"accepting-patient\": false,\n      \"enable-online-booking\": false,\n      \"profile-image\": {\n        \"url\": null\n      }\n    },\n    \"links\": {\n      \"self\": \"/providers/33lfvDvId0TlOV\"\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

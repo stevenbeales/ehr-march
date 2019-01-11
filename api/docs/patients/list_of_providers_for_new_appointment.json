@@ -1,0 +1,42 @@
+{
+  "resource": "Patients",
+  "http_method": "GET",
+  "route": "/patients/new_appointment",
+  "description": "List of providers for new appointment",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/patients/new_appointment?data[auth_token]=7c4bc814722331ee6ee3282001ef2225",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "7c4bc814722331ee6ee3282001ef2225"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33ldktvFAQyZN5\",\n      \"type\": \"providers\",\n      \"attributes\": {\n        \"id\": \"33ldktvFAQyZN5\",\n        \"email\": \"bella@nienow.name\",\n        \"role\": \"Provider\",\n        \"user-id\": \"33ldktvOqW7wHL\",\n        \"title\": \"Mr\",\n        \"first-name\": \"Jo\",\n        \"middle-name\": null,\n        \"last-name\": \"Roob\",\n        \"degree\": \"DDS\",\n        \"speciality\": \"Endodontics\",\n        \"street-address\": \"Walter Ramp\",\n        \"suit-apt-number\": \"808\",\n        \"city\": \"East Diamondburgh\",\n        \"state\": \"North Dakota\",\n        \"zip\": null,\n        \"practice-street-address\": \"Alessia Junction\",\n        \"practice-suit-apt-number\": \"937\",\n        \"practice-city\": \"Eldredborough\",\n        \"practice-state\": \"Indiana\",\n        \"practice-zip\": null,\n        \"primary-phone\": null,\n        \"mobile-phone\": null,\n        \"alt-email\": null,\n        \"username\": null,\n        \"secondary-speciality\": null,\n        \"dental-licence\": null,\n        \"expiration-date\": null,\n        \"ein-tin\": null,\n        \"npi\": null,\n        \"dea\": null,\n        \"upin\": null,\n        \"nadean\": null,\n        \"status\": true,\n        \"biography\": null,\n        \"accepting-patient\": false,\n        \"enable-online-booking\": false,\n        \"profile-image\": {\n          \"url\": \"/uploads/provider/profile_image/33ldktvFAQyZN5/avatar8.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/providers/33ldktvFAQyZN5\"\n      }\n    },\n    {\n      \"id\": \"33ldmpKs0i1FA3\",\n      \"type\": \"providers\",\n      \"attributes\": {\n        \"id\": \"33ldmpKs0i1FA3\",\n        \"email\": \"flavio.hintz@kihn.org\",\n        \"role\": \"Provider\",\n        \"user-id\": \"33ldmpL1gnAc4J\",\n        \"title\": \"Mr\",\n        \"first-name\": \"Jennyfer\",\n        \"middle-name\": null,\n        \"last-name\": \"Brekke\",\n        \"degree\": \"DDS\",\n        \"speciality\": \"Endodontics\",\n        \"street-address\": \"Sipes Bypass\",\n        \"suit-apt-number\": \"335\",\n        \"city\": \"Deshawnhaven\",\n        \"state\": \"Indiana\",\n        \"zip\": null,\n        \"practice-street-address\": \"Pinkie Burg\",\n        \"practice-suit-apt-number\": \"9897\",\n        \"practice-city\": \"West Haylie\",\n        \"practice-state\": \"Maine\",\n        \"practice-zip\": null,\n        \"primary-phone\": null,\n        \"mobile-phone\": null,\n        \"alt-email\": null,\n        \"username\": null,\n        \"secondary-speciality\": null,\n        \"dental-licence\": null,\n        \"expiration-date\": null,\n        \"ein-tin\": null,\n        \"npi\": null,\n        \"dea\": null,\n        \"upin\": null,\n        \"nadean\": null,\n        \"status\": true,\n        \"biography\": null,\n        \"accepting-patient\": false,\n        \"enable-online-booking\": false,\n        \"profile-image\": {\n          \"url\": \"/uploads/provider/profile_image/33ldmpKs0i1FA3/avatar3.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/providers/33ldmpKs0i1FA3\"\n      }\n    },\n    {\n      \"id\": \"33ldoC8ccvl7zf\",\n      \"type\": \"providers\",\n      \"attributes\": {\n        \"id\": \"33ldoC8ccvl7zf\",\n        \"email\": \"rollin.moore@padberg.net\",\n        \"role\": \"Provider\",\n        \"user-id\": \"33ldoC8mJ0uUtv\",\n        \"title\": \"Mr\",\n        \"first-name\": \"Emiliano\",\n        \"middle-name\": null,\n        \"last-name\": \"Jacobs\",\n        \"degree\": \"DDS\",\n        \"speciality\": \"Endodontics\",\n        \"street-address\": \"Abernathy Cove\",\n        \"suit-apt-number\": \"9917\",\n        \"city\": \"Nannieland\",\n        \"state\": \"Kansas\",\n        \"zip\": null,\n        \"practice-street-address\": \"Crist Viaduct\",\n        \"practice-suit-apt-number\": \"543\",\n        \"practice-city\": \"Lake Shaniya\",\n        \"practice-state\": \"Georgia\",\n        \"practice-zip\": null,\n        \"primary-phone\": null,\n        \"mobile-phone\": null,\n        \"alt-email\": null,\n        \"username\": null,\n        \"secondary-speciality\": null,\n        \"dental-licence\": null,\n        \"expiration-date\": null,\n        \"ein-tin\": null,\n        \"npi\": null,\n        \"dea\": null,\n        \"upin\": null,\n        \"nadean\": null,\n        \"status\": true,\n        \"biography\": null,\n        \"accepting-patient\": false,\n        \"enable-online-booking\": false,\n        \"profile-image\": {\n          \"url\": \"/uploads/provider/profile_image/33ldoC8ccvl7zf/avatar10.jpg\"\n        }\n      },\n      \"links\": {\n        \"self\": \"/providers/33ldoC8ccvl7zf\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

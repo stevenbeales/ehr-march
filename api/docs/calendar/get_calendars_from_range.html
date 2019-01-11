@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calendar API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calendar API</h1>
+
+      <div class="article">
+        <h2>Get calendars from range</h2>
+        <h3>GET /calendars/get_calendars</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[start]</span>
+                </td>
+                <td>
+                  <span class="description">Start date range</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[end]</span>
+                </td>
+                <td>
+                  <span class="description">End date range</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /calendars/get_calendars?data[auth_token]=05e89fb4c2648c3d17f07c9d94b44530&amp;data[start]=2016-02-26+07%3A01%3A06+%2B0200&amp;data[end]=2016-02-27+03%3A01%3A06+%2B0200</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;05e89fb4c2648c3d17f07c9d94b44530&quot;, &quot;start&quot;=&gt;&quot;2016-02-26 07:01:06 +0200&quot;, &quot;end&quot;=&gt;&quot;2016-02-27 03:01:06 +0200&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: {
+    &quot;calendars&quot;: [
+      {
+        &quot;id&quot;: &quot;33lSS1ODVggJSV&quot;,
+        &quot;title&quot;: &quot;Crown/Bridge Delivery&quot;,
+        &quot;description&quot;: &quot;Consequuntur magnam aspernatur ab.&quot;,
+        &quot;start&quot;: &quot;2016-02-26T17:00:00+02:00&quot;,
+        &quot;end&quot;: &quot;2016-02-26T19:00:00+02:00&quot;,
+        &quot;allDay&quot;: false,
+        &quot;recurring&quot;: false,
+        &quot;typeColor&quot;: &quot;6B26D4&quot;,
+        &quot;statusColor&quot;: &quot;944B55&quot;,
+        &quot;patientName&quot;: &quot;Elody Shanahan&quot;,
+        &quot;patientPhone&quot;: &quot;+16485328817&quot;,
+        &quot;providerName&quot;: &quot;Octavia Emmerich&quot;,
+        &quot;type&quot;: &quot;Crown/Bridge Delivery&quot;,
+        &quot;status&quot;: &quot;Reschedule&quot;,
+        &quot;room&quot;: &quot;Suite 703&quot;,
+        &quot;roomId&quot;: &quot;33lSNWWWBxTaap&quot;
+      },
+      {
+        &quot;id&quot;: &quot;33lSeEFxryuihf&quot;,
+        &quot;title&quot;: &quot;Crown/Bridge Delivery&quot;,
+        &quot;description&quot;: &quot;Quis velit sit porro dolores vel aspernatur sunt distinctio.&quot;,
+        &quot;start&quot;: &quot;2016-02-26T17:00:00+02:00&quot;,
+        &quot;end&quot;: &quot;2016-02-26T18:00:00+02:00&quot;,
+        &quot;allDay&quot;: false,
+        &quot;recurring&quot;: false,
+        &quot;typeColor&quot;: &quot;7CA66A&quot;,
+        &quot;statusColor&quot;: &quot;7F7A60&quot;,
+        &quot;patientName&quot;: &quot;Roberta Schmitt&quot;,
+        &quot;patientPhone&quot;: &quot;+1252496377&quot;,
+        &quot;providerName&quot;: &quot;Octavia Emmerich&quot;,
+        &quot;type&quot;: &quot;Crown/Bridge Delivery&quot;,
+        &quot;status&quot;: &quot;Endo&quot;,
+        &quot;room&quot;: &quot;Apt. 837&quot;,
+        &quot;roomId&quot;: &quot;33lSZYRez5mtQB&quot;
+      },
+      {
+        &quot;id&quot;: &quot;33lSq19RpHL0Et&quot;,
+        &quot;title&quot;: &quot;Prophy-Child&quot;,
+        &quot;description&quot;: &quot;Est aut reprehenderit atque voluptatem velit.&quot;,
+        &quot;start&quot;: &quot;2016-02-26T17:00:00+02:00&quot;,
+        &quot;end&quot;: &quot;2016-02-26T18:00:00+02:00&quot;,
+        &quot;allDay&quot;: false,
+        &quot;recurring&quot;: false,
+        &quot;typeColor&quot;: &quot;2D7D80&quot;,
+        &quot;statusColor&quot;: &quot;0F31D5&quot;,
+        &quot;patientName&quot;: &quot;Rickie Howe&quot;,
+        &quot;patientPhone&quot;: &quot;+16763441087&quot;,
+        &quot;providerName&quot;: &quot;Octavia Emmerich&quot;,
+        &quot;type&quot;: &quot;Prophy-Child&quot;,
+        &quot;status&quot;: &quot;New Patient&quot;,
+        &quot;room&quot;: &quot;Suite 448&quot;,
+        &quot;roomId&quot;: &quot;33lSktSrOa9jGN&quot;
+      }
+    ]
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

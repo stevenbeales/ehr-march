@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="32px" viewBox="0 0 28 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: bin/sketchtool 1.4 (305) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 215</title>
+    <desc>Created with bin/sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Patients---Dashboard" sketch:type="MSArtboardGroup" transform="translate(-993.000000, -12.000000)" fill="#FFFFFF">
+            <g id="menu" sketch:type="MSLayerGroup" transform="translate(384.000000, 0.000000)">
+                <g id="Menu-Items-Copy-+-Group" transform="translate(13.000000, 12.000000)" sketch:type="MSShapeGroup">
+                    <g id="Menu-Items-Copy">
+                        <path d="M617,14 L603,14 C602.447,14 602,14.448 602,15 C602,15.553 602.447,16 603,16 L617,16 C617.553,16 618,15.553 618,15 C618,14.448 617.553,14 617,14 L617,14 Z M622,28 C622,29.104 621.104,30 620,30 L600,30 C598.896,30 598,29.104 598,28 L598,8 C598,6.896 598.896,6 600,6 L603,6 L603,10 L617,10 L617,6 L620,6 C621.104,6 622,6.896 622,8 L622,28 L622,28 Z M605,4 L607.223,4 C607.223,2.896 608.466,2 610,2 C611.534,2 612.777,2.896 612.777,4 L615,4 L615,8 L605,8 L605,4 L605,4 Z M620,4 L617,4 L617,2 L614.307,2 C613.44,0.81 611.846,0 610,0 C608.154,0 606.56,0.81 605.693,2 L603,2 L603,4 L600,4 C597.791,4 596,5.791 596,8 L596,28 C596,30.209 597.791,32 600,32 L620,32 C622.209,32 624,30.209 624,28 L624,8 C624,5.791 622.209,4 620,4 L620,4 Z M617,24 L603,24 C602.447,24 602,24.448 602,25 C602,25.553 602.447,26 603,26 L617,26 C617.553,26 618,25.553 618,25 C618,24.448 617.553,24 617,24 L617,24 Z M617,19 L603,19 C602.447,19 602,19.448 602,20 C602,20.553 602.447,21 603,21 L617,21 C617.553,21 618,20.553 618,20 C618,19.448 617.553,19 617,19 L617,19 Z" id="Fill-215"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

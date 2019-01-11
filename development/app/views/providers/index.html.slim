@@ -1,0 +1,51 @@
+= render 'navigation_provider'
+.dashboard-wrapper
+  .header
+    .categories-container
+      ul.categories
+        li
+          a href="#" Home
+        li
+          i.category-arrow.fa.fa-angle-right
+        li
+          a.active href="#" Dashboard
+  .content
+    .container-fluid.content-container
+      .top-controls
+        a.button.button-lock href="#" data-toggle="modal" data-target="#modal-lockscreen"
+          i.fa.fa-lock
+        - if policy(Patient).create?
+          = link_to 'Add Patient', add_patient_providers_path, remote: true, class: "button"
+        - if policy(Appointment).create?
+          = link_to 'Add Appointment', new_appointment_path, remote: true, class: "button"
+      .windows
+        .left-block
+          p.current-date
+            = local_time(Time.now, '%A, %B %-dth, %Y')
+          - if policy(Appointment).show?
+            = render 'my_appointments', appointments: @appointments, field: '', type: ''
+        .right-block
+          - if policy(EmailMessage).show?
+            = render 'messages', messages: @messages
+          - if policy(ToDo).show?
+            = render 'to_dos', to_dos: @to_dos
+  .footer
+#modal-add-patient.modal.modal-provider.fade
+#modal-add-appointment.modal-provider.modal.fade
+#modal-add-patient-invite-to-portal.modal-provider.modal.fade
+#modal-new-patient.modal-provider.modal.fade
+#modal-show-appointment-details.modal-provider.modal.fade
+#modal-new-referral.modal-provider.modal.fade
+#modal-message-open.modal-provider.modal.fade
+#modal-message-reply.modal-provider.modal.fade
+.messages-wrapper
+  #modal-reply-to-message-from-patient.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+  #modal-reply-to-message-in-practice-contacts.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+  #modal-open-message.modal.fade aria-hidden="true" role="dialog" tabindex="-1"
+javascript:
+  $('.item-dashboard').parent().addClass('active');
+- if current_user.locked
+  javascript:
+    $(function() {
+      $('a[data-target="#modal-lockscreen"]').trigger('click');
+    });

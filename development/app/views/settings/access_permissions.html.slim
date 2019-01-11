@@ -1,0 +1,1572 @@
+.col-lg-10
+  #settings-access-permissions-container.right-block
+    .row-container.access-permissions-settings
+      .bordered-container
+        .category-header
+          p.title Access Permissions
+        .access-permissions
+          - if @permissions.any?
+            = simple_form_for current_user.provider, url: settings_update_permissions_path do |f|
+              .table-responsive
+                table.table
+                  tbody
+                    tr.header-main
+                      td
+                      td
+                        p Admin
+                      td
+                        p Dentist
+                      td
+                        p Hygienist
+                      td
+                        p Back Office
+                      td
+                        p Front Desk
+                    /tr.header-title
+                      td colspan="6"
+                        p Dashboard
+                    - @permissions.each do |permission|
+                      = f.simple_fields_for "permissions[#{permission.id}]", permission do |p|
+                        tr
+                          td
+                            p
+                              = permission.presentation
+                          - permission.availabilities.each do |availability|
+                            = p.simple_fields_for "availabilities[#{availability.id}]", availability do |a|
+                              td
+                                .checkbox-custom
+                                  = a.check_box :available, id: availability.id, class: 'checkbox'
+                                  label[for="#{availability.id}"]
+                                    span.checkbox-icon-container
+                                      span.checkbox-icon
+              .row
+                .col-lg-12.controls
+                  = f.submit 'Save', class: 'button'
+                    /tr
+                    /  td
+                    /    p
+                    /      | View My Messages
+                    /      span
+                    /        | (includes only msgs to tdat specific user or tdeir user role group (i.e. Front Desk - all users witd Front Desk role)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-2-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-2-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-2-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-2-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-2-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-2-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-2-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-2-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-2-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-2-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | View/Complete To Do's - Schedule Requests/Cancellations
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-3-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-3-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-3-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-3-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-3-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-3-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-3-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-3-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-3-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-3-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | View/Complete To Do's - eRx-related
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-4-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-4-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-4-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-4-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-4-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-4-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-4-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-4-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-4-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-4-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | View/Complete To Do's - Labs-related
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-5-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-5-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-5-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-5-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-5-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-5-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-5-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-5-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-5-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-5-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | View/Complete To Do's - Imaging-related
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-6-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-6-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-6-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-6-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-6-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-6-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-6-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-6-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-6-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-6-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | View/Complete To Do's - Sign Chart
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-7-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-7-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-7-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_dashboard-7-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-7-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-7-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-7-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-7-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_dashboard-7-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_dashboard-7-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr.header-title
+                    /  td colspan="6"
+                    /    p Schedule
+                    /tr
+                    /  td
+                    /    p
+                    /      | Use Schedule - all functions (i.e. make a appt, update appt status, etc.)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-1-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-1-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-1-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-1-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-1-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-1-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-1-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-1-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-1-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-1-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Be Scheduled for Appointments
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-2-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-2-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-2-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-2-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-2-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-2-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-2-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_schedule-2-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-2-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_schedule-2-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Access/Edit Schedule Settings
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-3-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-3-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-3-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-3-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-3-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-3-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-3-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-3-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_schedule-3-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_schedule-3-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr.header-title
+                    /  td colspan="6"
+                    /    p Patients
+                    /tr
+                    /  td
+                    /    p
+                    /      | Add New Patient
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-1-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-1-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-1-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-1-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-1-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-1-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-1-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-1-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-1-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-1-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Patient -> Chart tab (Front Desk: Appts access only)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-2-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-2-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-2-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-2-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-2-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-2-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-2-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-2-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-2-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-2-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Patient -> Dental Chart tab
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-3-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-3-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-3-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-3-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-3-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-3-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-3-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-3-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-3-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-3-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Patient -> Perio Chart tab
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-4-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-4-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-4-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-4-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-4-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-4-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-4-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-4-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-4-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-4-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Patient -> Profile tab
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-5-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-5-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-5-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-5-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-5-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-5-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-5-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-5-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-5-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-5-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Patient -> Insurance tab
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-6-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-6-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-6-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-6-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-6-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-6-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-6-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-6-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-6-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-6-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Diagnoses
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-7-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-7-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-7-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-7-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-7-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-7-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-7-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-7-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-7-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-7-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Medications
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-8-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-8-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-8-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-8-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-8-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-8-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-8-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-8-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-8-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-8-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Allergies
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-9-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-9-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-9-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-9-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-9-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-9-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-9-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-9-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-9-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-9-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Smoking Status
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-10-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-10-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-10-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-10-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-10-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-10-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-10-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-10-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-10-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-10-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Past Medical History
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-11-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-11-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-11-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-11-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-11-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-11-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-11-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-11-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-11-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-11-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Edit Chart -> Advanced Directives
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-12-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-12-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-12-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-12-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-12-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-12-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-12-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-12-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-12-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-12-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Encounters (view or add a new encounter)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-13-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-13-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-13-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-13-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-13-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-13-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-13-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-13-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-13-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-13-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Messages (read, reply, forward, etc.)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-14-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Chart -> Appointments (view, make a new appt)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-14-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-14-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Patient Action dropdown -> Add Procedure
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-15-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-15-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-15-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-15-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-15-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-15-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-15-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-15-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-15-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-15-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Patient Action dropdown -> Add Encounter Note
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-16-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-16-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-16-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-16-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-16-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-16-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-16-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-16-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-16-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-16-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Patient Action dropdown -> Add Invite to Patient Portal
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Patient Action dropdown -> Add Invite to Patient Portal
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-17-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-17-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Patient Action dropdown -> Send a Message
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-18-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-18-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-18-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-18-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-18-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-18-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-18-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-18-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-18-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-18-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Patient Action dropdown -> Print/Send To:
+                    /      | -Patient Chart (includes everytding)
+                    /      | -Treatments
+                    /      | -Encounter Note(s)
+                    /      | -Period Chart
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-19-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-19-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-19-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-19-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-19-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-19-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-19-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-19-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-19-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-19-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Patient Action dropdown -> Create Clinical Summary/Referral
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-20-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-20-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-20-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-20-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-20-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-20-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-20-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-20-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-20-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-20-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Patient Action dropdown -> Syndromic Surveillance
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-21-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-21-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-21-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-21-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-21-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-21-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-21-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_patients-21-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_patients-21-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_patients-21-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr.header-title
+                    /  td colspan="6"
+                    /    p eRx
+                    /tr
+                    /  td
+                    /    p
+                    /      | All eRx functions (Admim-unless also Dentist, cannot submit eRx)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_erx-1-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_erx-1-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_erx-1-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_erx-1-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_erx-1-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_erx-1-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_erx-1-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_erx-1-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_erx-1-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_erx-1-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr.header-title
+                    /  td colspan="6"
+                    /    p Labs
+                    /tr
+                    /  td
+                    /    p
+                    /      | All Labs functions except below (Admin-unless also Dentist, cannot order labs)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-1-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_labs-1-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-1-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_labs-1-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-1-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_labs-1-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-1-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_labs-1-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-1-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_labs-1-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Order/Sign Labs
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-2-1.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_labs-2-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-2-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_labs-2-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-2-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_labs-2-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-2-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_labs-2-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_labs-2-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_labs-2-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr.header-title
+                    /  td colspan="6"
+                    /    p Imaging
+                    /tr
+                    /  td
+                    /    p
+                    /      | All Imaging functions except below (Admin-unless also Dentist/Hygienist, cannot order x-rays)
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-1-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_imaging-1-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-1-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_imaging-1-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-1-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_imaging-1-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-1-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_imaging-1-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-1-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_imaging-1-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Order/Sign X-rays
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-2-1.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_imaging-2-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-2-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_imaging-2-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-2-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_imaging-2-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-2-4.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_imaging-2-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_imaging-2-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_imaging-2-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr.header-title
+                    /  td colspan="6"
+                    /    p Reports
+                    /tr
+                    /  td
+                    /    p
+                    /      | Use Reports section functions - save, print, filter.
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-1-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-1-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-1-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-1-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-1-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-1-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-1-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-1-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-1-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-1-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Generate Patient List by Condition
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-2-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-2-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-2-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-2-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-2-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-2-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-2-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-2-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-2-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_reports-2-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Generate MU Stage 1 Report
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-3-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-3-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-3-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-3-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-3-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-3-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-3-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-3-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-3-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-3-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Generate MU Modified Stage 2 Report
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-4-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-4-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-4-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-4-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-4-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-4-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-4-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-4-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-4-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-4-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr
+                    /  td
+                    /    p
+                    /      | Generate Clinical Quality Measures Report
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-5-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-5-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-5-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-5-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-5-3.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-5-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-5-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-5-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_reports-5-5.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_reports-5-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr.header-title
+                    /  td colspan="6"
+                    /    p Billing
+                    /tr
+                    /  td
+                    /    p
+                    /      | All Billing functions
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_billing-1-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_billing-1-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_billing-1-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_billing-1-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_billing-1-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_billing-1-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_billing-1-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_billing-1-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_billing-1-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_billing-1-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /tr.header-title
+                    /  td colspan="6"
+                    /    p Settings
+                    /tr
+                    /  td
+                    /    p
+                    /      | Edit Settings for section of tde EHR
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_settings-1-1.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_settings-1-1"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_settings-1-2.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_settings-1-2"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_settings-1-3.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_settings-1-3"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_settings-1-4.checkbox type="checkbox" checked="checked"
+                    /      label[for="checkbox_access_permissions_settings-1-4"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+                    /  td
+                    /    .checkbox-custom
+                    /      input#checkbox_access_permissions_settings-1-5.checkbox type="checkbox"
+                    /      label[for="checkbox_access_permissions_settings-1-5"]
+                    /        span.checkbox-icon-container
+                    /          span.checkbox-icon
+javascript:
+  $('#item-settings-access-permissions').parent().addClass('active');

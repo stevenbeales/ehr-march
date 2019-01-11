@@ -1,0 +1,23 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      p.title User has been added!
+      a.close-button href="#" data-target="#modal-settings-add-user-added-practice" data-dismiss="modal"
+    .modal-body
+      .scrollable-container
+        .content
+          .row-container
+            .row
+              .col-xs-12
+                .form-group
+                  p An email has been set to
+                  p 
+                    = @practice.full_name
+                  p He/She wil need to enter the Practice record ID# to activate their account.
+                  p 
+                    | Practice Record ID#:&nbsp;
+                    span
+                      = @code
+    .modal-footer
+      .buttons
+        a.button.button-cancel data-target="#modal-settings-add-user-added-practice" data-dismiss="modal" Close

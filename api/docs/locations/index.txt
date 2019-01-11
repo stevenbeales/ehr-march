@@ -1,0 +1,165 @@
+New location
+------------
+
+Parameters:
+  * auth_token - Authentication Token
+
+Request:
+  GET /locations/form?data[auth_token]=65ef450b9b0e141dbfff9da4048ff673
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"65ef450b9b0e141dbfff9da4048ff673"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lWEKnThj2RYR",
+      "type": "locations",
+      "attributes": {
+        "id": "33lWEKnThj2RYR",
+        "provider-id": null,
+        "location-name": null,
+        "location-phone": null,
+        "location-fax": null,
+        "location-address": null,
+        "city": null,
+        "state": null,
+        "zip": null,
+        "location-npi": null,
+        "location-tin-en": null,
+        "colour": null
+      },
+      "links": {
+        "self": "/locations/33lWEKnThj2RYR"
+      }
+    }
+  }
+
+
+Create location
+---------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * provider_id - Provider id
+  * practice_id - Practice id
+  * location_name - Location name
+  * location_phone - Location phone
+  * location_fax - Location fax
+  * location_address - Location address
+  * city - City
+  * state - State
+  * zip - Zip
+  * location_npi - Location NPI
+  * location_tin_en - Location TIN EN
+  * timeslots - Array of timeslots
+  * weekday - Weekday
+  * from - From time
+  * to - To time
+  * specific_hour - Specific hour type
+
+Request:
+  POST /locations
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"c3930749a5a73e0c0f78333ca515a897","location":{"provider_id":"33lWFZCIIhUOQt","location_name":"Schowalter Turnpike","location_phone":"+18320161660","location_fax":"+15911218111","location_address":"Gloria Pike","city":"Boyerville","state":"West Virginia","zip":50108,"location_npi":"83-2609178","location_tin_en":"78-7665682","timeslots":[{"weekday":"Sunday","from":"2016-01-27T03:15:00.000+02:00","to":"2016-01-27T12:00:00.000+02:00","specific_hour":"Closed/NA"},{"weekday":"Tuesday","from":"2016-01-27T01:00:00.000+02:00","to":"2016-01-27T23:45:00.000+02:00","specific_hour":"Open 24 Hrs"},{"weekday":"Tuesday","from":"2016-01-27T10:15:00.000+02:00","to":"2016-01-27T19:00:00.000+02:00","specific_hour":"Closed/NA"},{"weekday":"Saturday","from":"2016-01-27T11:00:00.000+02:00","to":"2016-01-27T14:15:00.000+02:00","specific_hour":"Open 24 Hrs"},{"weekday":"Saturday","from":"2016-01-27T08:30:00.000+02:00","to":"2016-01-27T22:00:00.000+02:00","specific_hour":"Open 24 Hrs"},{"weekday":"Friday","from":"2016-01-27T04:30:00.000+02:00","to":"2016-01-27T21:15:00.000+02:00","specific_hour":"Closed/NA"},{"weekday":"Tuesday","from":"2016-01-27T03:00:00.000+02:00","to":"2016-01-27T19:15:00.000+02:00","specific_hour":"Closed/NA"}]}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Get location for edit
+---------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Location id
+
+Request:
+  GET /locations/form?data[auth_token]=1f6d2726fa90ca75630ef93f478bf4a7&data[id]=33lWKskw58CjkB
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"1f6d2726fa90ca75630ef93f478bf4a7", "id"=>"33lWKskw58CjkB"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+    "data": {
+      "id": "33lWKskw58CjkB",
+      "type": "locations",
+      "attributes": {
+        "id": "33lWKskw58CjkB",
+        "provider-id": null,
+        "location-name": "Ivy Alley",
+        "location-phone": "+19681147083",
+        "location-fax": "+19050578030",
+        "location-address": "Albin Coves",
+        "city": "Port Fae",
+        "state": "Connecticut",
+        "zip": 38844,
+        "location-npi": "21-7459751",
+        "location-tin-en": "17-0893743",
+        "colour": "ADAE92"
+      },
+      "links": {
+        "self": "/locations/33lWKskw58CjkB"
+      }
+    }
+  }
+
+
+Update timeslots
+----------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * timeslots - Array of timeslots
+  * weekday - Weekday
+  * from - From time
+  * to - To time
+  * specific_hour - Specific hour type
+
+Request:
+  PATCH /locations/:id
+  Content-Type: application/vnd.api+json
+
+  {"data":{"auth_token":"7596f63c2627619920ffeb6e516e414f","location":{"timeslots":[{"id":"2wVcPB36GXsh12","location_id":null,"weekday":"Sunday","from":"2016-01-27T03:15:00.000+02:00","to":"2016-01-27T12:00:00.000+02:00","specific_hour":"Closed/NA"},{"id":"2wVcRlKqPV42RA","location_id":null,"weekday":"Tuesday","from":"2016-01-27T01:00:00.000+02:00","to":"2016-01-27T23:45:00.000+02:00","specific_hour":"Open 24 Hrs"},{"id":"2wVcRlL05aDPLQ","location_id":null,"weekday":"Tuesday","from":"2016-01-27T10:15:00.000+02:00","to":"2016-01-27T19:00:00.000+02:00","specific_hour":"Closed/NA"},{"id":"2wVcRlL9lfMmFg","location_id":null,"weekday":"Saturday","from":"2016-01-27T11:00:00.000+02:00","to":"2016-01-27T14:15:00.000+02:00","specific_hour":"Open 24 Hrs"},{"id":"2wVcRlLJRkW99w","location_id":null,"weekday":"Saturday","from":"2016-01-27T08:30:00.000+02:00","to":"2016-01-27T22:00:00.000+02:00","specific_hour":"Open 24 Hrs"},{"id":"2wVcRlLT7pfW4C","location_id":null,"weekday":"Friday","from":"2016-01-27T04:30:00.000+02:00","to":"2016-01-27T21:15:00.000+02:00","specific_hour":"Closed/NA"},{"id":"2wVcRlLcnuosyS","location_id":null,"weekday":"Tuesday","from":"2016-01-27T03:00:00.000+02:00","to":"2016-01-27T19:15:00.000+02:00","specific_hour":"Closed/NA"}]}}}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+
+Set location as primary
+-----------------------
+
+Parameters:
+  * auth_token - Authentication Token
+  * id - Location id
+
+Request:
+  GET /locations/primary_location?data[auth_token]=284394d3f39881c88321c9a9b60056a6&data[id]=33lWQq8b7b2gJ1
+  Content-Type: application/vnd.api+json
+
+  data={"auth_token"=>"284394d3f39881c88321c9a9b60056a6", "id"=>"33lWQq8b7b2gJ1"}
+
+Response:
+  Status: 200 OK
+  Content-Type: application/json; charset=utf-8
+
+  {
+  }
+
+

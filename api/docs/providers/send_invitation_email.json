@@ -1,0 +1,77 @@
+{
+  "resource": "Providers",
+  "http_method": "GET",
+  "route": "/providers/send_invite_email",
+  "description": "Send invitation email",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "first_name",
+      "description": "Patient first name"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "last_name",
+      "description": "Patient last name"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "birth",
+      "description": "Patient birth date"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "code",
+      "description": "Activation code"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "email",
+      "description": "Patient email"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/providers/send_invite_email?data[auth_token]=9e64cac217caefa337f715305ca01779&data[first_name]=Wendell&data[last_name]=Cummings&data[birth]=2016-02-26+17%3A20%3A23+%2B0200&data[code]=54569&data[email]=jonathan.davis%40sanfordhuel.biz",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "9e64cac217caefa337f715305ca01779",
+          "first_name": "Wendell",
+          "last_name": "Cummings",
+          "birth": "2016-02-26 17:20:23 +0200",
+          "code": "54569",
+          "email": "jonathan.davis@sanfordhuel.biz"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

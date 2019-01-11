@@ -1,0 +1,44 @@
+.window-my-todo.window
+  .header
+    p.title My To-Do’s
+  - if to_dos.any?
+    .content
+      .table-container
+        .table-header-background
+        table#table-my-todo-s.table.table-dashboard
+          thead
+            tr
+              th
+                #check-all.checkbox-custom.checkbox-table.disabled
+                  input.checkbox#checkbox_main type="checkbox" readonly="readonly" tabindex="-1"
+                  label[for="checkbox_main"]
+                    span.checkbox-icon
+              - my_todos_header_fields.each do |todos_field|
+                th class="#{ todos_field[:name].downcase.delete(' ') + "-header" }"
+                  a.table-header-sort-button href="#"
+                    | #{todos_field[:name]}
+                    .sort-arrows data-field="#{todos_field[:field]}"
+                      i.fa.fa-angle-up
+                      i.fa.fa-angle-down
+          tbody
+            - if to_dos.any?
+              - to_dos.each_with_index do |to_do, index|
+                tr
+                  td.checkbox
+                    .checkbox-custom.checkbox-table.disabled
+                      = check_box_tag "checkbox#{index}", to_do.try(:id), to_do.try(:done), readonly: 'readonly', tabindex: '-1'
+                      label[for="checkbox#{index}"]
+                        span.checkbox-icon-container
+                          span.checkbox-icon
+                  td.type
+                    p
+                      = to_do.try(:appointment).try(:appointment_type).try(:appt_type)
+                  td.patient
+                    p
+                      = to_do.try(:appointment).try(:patient).try(:full_name)
+                  td.date
+                    p
+                      = to_do.try(:created_at).try(:strftime, '%m/%d/%Y')
+  - else
+    .content.message-empty
+      p You don't have any to-do's

@@ -1,0 +1,188 @@
+.modal-content
+  = flash[:error]
+  .modal-header
+    p.title Add Patient Insurance
+  = simple_form_for Insurance.new, url: create_insurance_patient_treatments_path, remote: true do |i|
+    = i.input :patient_id, as: :hidden, input_html: { value: @patient.id }
+    .modal-body
+      .scrollable-container
+        .content
+          .top-block
+            .panel
+              .panel-body
+                .row
+                  .col-lg-12
+                    .form-group
+                      .dropdown.dropdown-custom#dropdown-find-payer
+                        .input-group-custom.input-group-search
+                          = i.input :payer_id, as: :hidden
+                          input.form-control type="text" placeholder="Payer Name" id="find-payers-input"
+                          span.input-group-addon.input-group-addon-right.input-group-addon-search id="find-payers-button"
+                          ul.dropdown-menu id="find-payers-list"
+                .row
+                  .col-lg-12
+                    .form-group
+                      .dropdown.dropdown-custom
+                        .input-group-custom.input-group-search
+                          = text_field_tag :payer_plan, '', class: 'form-control', placeholder: 'Plan Name & Type'
+                          span.input-group-addon.input-group-addon-right.input-group-addon-search id="find-plans-button"
+                          ul.dropdown-menu id="find-plans-list"
+                .row
+                  .col-lg-6
+                    .form-group
+                      = i.input :provider_id, as: :select, collection: Provider.all.map{ |p| [p.full_name, p.id] }, selected: current_user.provider.id, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+                  .col-lg-6
+                    .form-group
+                      .checkbox-custom
+                        = i.check_box :worker_compensation, class: 'checkbox'
+                        label for="insurance_worker_compensation"
+                          span.checkbox-icon-container
+                            span.checkbox-icon
+                          span.checkbox-label Worker’s Compensation
+                .row
+                  .col-lg-6
+                    .form-group
+                      = i.input :insurance_number, input_html: { class: 'form-control', placeholder: 'Incurance ID' }
+                  .col-lg-6
+                    .form-group
+                      = i.input :relation, as: :select, collection: Insurance.relations, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+                .row
+                  .col-lg-6
+                    .form-group
+                      .input-group-custom
+                        = i.input :effective_from, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Effective From' }
+                        span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+                  .col-lg-6
+                    .form-group
+                      .input-group-custom
+                        = i.input :effective_to, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Effective To' }
+                        span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+                .row
+                  .col-lg-6
+                    .form-group
+                      = i.input :copay_type, as: :select, collection: Insurance.copay_types, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-padding' => '3x', 'data-font' => '1x', class: 'select2', id: 'patients_insurance_copay_type' }, include_blank: false
+                  .col-lg-6
+                    .form-group
+                      .input-group
+                        span.input-group-addon CoPay Amount
+                        = i.input :copay_amount, input_html: { class: 'form-control', placeholder: '$', id: 'patients_insurance_copay_amount' }
+                .row
+                  .col-lg-6
+                    .form-group
+                      = i.input :claim, input_html: { class: 'form-control', placeholder: 'Claim #' }
+                  .col-lg-6
+                    .form-group
+                      = i.input :note, as: :text, input_html: { class: 'form-control', placeholder: 'Notes', rows: 5 }
+          .bottom-block
+            .row
+              .col-lg-6.left-block
+                .panel
+                  .panel-heading
+                    a data-toggle="collapse" href="#panelEmployer"
+                      p.panel-title Employer
+                  .panel-collapse.collapse.in id="panelEmployer"
+                    = i.simple_fields_for :employer, Employer.new do |e|
+                      .panel-body
+                        .row
+                          .col-lg-12
+                            .form-group
+                              = e.input :name, input_html: { class: 'form-control', placeholder: 'Employer Name' }
+                        .row
+                          .col-lg-12
+                            .form-group
+                              = e.input :phone, input_html: { class: 'form-control input-phone', placeholder: 'Phone Number' }
+                        .row
+                          .col-lg-12
+                            .form-group
+                              = e.input :street_address, input_html: { class: 'form-control', placeholder: 'Street Address' }
+                        .row
+                          .col-lg-8
+                            .form-group
+                              .dropdown.dropdown-custom
+                                = e.input :city, input_html: { class: 'form-control', placeholder: 'City' }
+                                ul.dropdown-menu#insurance_employer_attributes_city_list
+                          .col-lg-4
+                            .form-group
+                              .disabled
+                                = e.input :state, as: :select, collection: State.all.map {|state| [state.abbr, state.name]}, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2', 'readonly' => 'readonly', 'tabindex' => '-1' }, include_blank: false
+                        .row
+                          .col-lg-12
+                            .form-group
+                              .dropdown.dropdown-custom.dropup
+                                = e.input :zip, input_html: { class: 'form-control', placeholder: 'Zip' }
+                                ul.dropdown-menu#insurance_employer_attributes_zip_list
+              .col-lg-6.right-block
+                .panel
+                  .panel-heading
+                    a data-toggle="collapse" href="#panelSubscriber"
+                      p.panel-title Subscriber Information
+                  .panel-collapse.collapse.in id="panelSubscriber"
+                    = i.simple_fields_for :subscriber, Subscriber.new do |s|
+                      .panel-body
+                        .row
+                          .col-lg-12
+                            .form-group
+                              .checkbox-custom
+                                input.checkbox type="checkbox" id="patients_add_insurance_same_as_guarantor"
+                                label for="patients_add_insurance_same_as_guarantor"
+                                  span.checkbox-icon-container
+                                    span.checkbox-icon
+                                  span.checkbox-label Same as Guarantor
+                        .row
+                          .col-lg-8
+                            .form-group
+                              = s.input :first_name, input_html: { class: 'form-control', placeholder: 'First Name' }
+                          .col-lg-4
+                            .form-group
+                              = s.input :middle_name, input_html: { class: 'form-control', placeholder: 'M.I.' }
+                        .row
+                          .col-lg-12
+                            .form-group
+                              = s.input :last_name, input_html: { class: 'form-control', placeholder: 'Last Name' }
+                        .row
+                          .col-lg-12
+                            .form-group
+                              .input-group-custom
+                                = s.input :birth, as: :date_picker, input_html: { class: 'form-control date-picker', placeholder: 'Date of Birth' }
+                                span.input-group-addon.input-group-addon-right.input-group-addon-calendar
+                        .row
+                          .col-lg-4
+                            .form-group
+                              = s.input :gender, as: :select, collection: Subscriber.genders, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2' }, include_blank: false
+                          .col-lg-8
+                            .form-group
+                              = s.input :social_number, input_html: { class: 'form-control input-social-security', placeholder: 'Social Security' }
+                        .row
+                          .col-lg-12
+                            .form-group
+                              = s.input :phone, as: :tel, input_html: { class: 'form-control input-phone', placeholder: 'Phone Number' }
+                        .row
+                          .col-lg-12
+                            .form-group
+                              = s.input :street_address, input_html: { class: 'form-control', placeholder: 'Street Address' }
+                        .row
+                          .col-lg-8
+                            .form-group
+                              .dropdown.dropdown-custom.dropup
+                                = s.input :city, input_html: { class: 'form-control', placeholder: 'City' }
+                                ul.dropdown-menu#insurance_subscriber_attributes_city_list
+                          .col-lg-4
+                            .form-group
+                              .disabled
+                                = s.input :state, as: :select, collection: State.all.map {|state| [state.abbr, state.name]}, input_html: { 'data-theme' => 'gray-lighter', 'data-arrow' => '2x', 'data-arrow-padding' => '05x', 'data-padding' => '1x', 'data-font' => '1x', class: 'select2', 'readonly' => 'readonly', 'tabindex' => '-1' }, include_blank: false
+                        .row
+                          .col-lg-12
+                            .form-group
+                              = s.input :zip, input_html: { class: 'form-control', placeholder: 'Zip' }
+    .modal-footer
+      .row.controls
+        .col-lg-6
+          .checkbox-custom
+            = i.check_box :active, class: 'checkbox'
+            label for="insurance_active"
+              span.checkbox-icon-container
+                span.checkbox-icon
+              span.checkbox-label Active
+        .col-lg-6
+          = i.submit 'Save', class: 'button button-save'
+          a.button.button-cancel data-dismiss="modal" type="button" Cancel

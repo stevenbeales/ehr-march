@@ -1,0 +1,63 @@
+{
+  "resource": "Providers",
+  "http_method": "GET",
+  "route": "/providers/download_pdf",
+  "description": "Download pdf",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "name",
+      "description": "Patient full name"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "birth",
+      "description": "Patient birth date"
+    },
+    {
+      "scope": "data",
+      "required": true,
+      "name": "code",
+      "description": "Activation code"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/providers/download_pdf?data[auth_token]=f7799894c4a98e0b16304dc986ca79be&data[name]=Mia+Cartwright&data[birth]=2016-02-26+17%3A20%3A19+%2B0200&data[code]=13247",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "f7799894c4a98e0b16304dc986ca79be",
+          "name": "Mia Cartwright",
+          "birth": "2016-02-26 17:20:19 +0200",
+          "code": "13247"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[binary data]",
+      "response_headers": {
+        "Content-Type": "application/pdf"
+      },
+      "response_content_type": "application/pdf",
+      "curl": null
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "resource": "Locations",
+  "http_method": "PATCH",
+  "route": "/locations/:id",
+  "description": "Update timeslots",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    },
+    {
+      "scope": "location",
+      "name": "timeslots",
+      "description": "Array of timeslots"
+    },
+    {
+      "scope": "timeslots",
+      "name": "weekday",
+      "description": "Weekday"
+    },
+    {
+      "scope": "timeslots",
+      "name": "from",
+      "description": "From time"
+    },
+    {
+      "scope": "timeslots",
+      "name": "to",
+      "description": "To time"
+    },
+    {
+      "scope": "timeslots",
+      "name": "specific_hour",
+      "description": "Specific hour type"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/locations/:id",
+      "request_body": "{\"data\":{\"auth_token\":\"7596f63c2627619920ffeb6e516e414f\",\"location\":{\"timeslots\":[{\"id\":\"2wVcPB36GXsh12\",\"location_id\":null,\"weekday\":\"Sunday\",\"from\":\"2016-01-27T03:15:00.000+02:00\",\"to\":\"2016-01-27T12:00:00.000+02:00\",\"specific_hour\":\"Closed/NA\"},{\"id\":\"2wVcRlKqPV42RA\",\"location_id\":null,\"weekday\":\"Tuesday\",\"from\":\"2016-01-27T01:00:00.000+02:00\",\"to\":\"2016-01-27T23:45:00.000+02:00\",\"specific_hour\":\"Open 24 Hrs\"},{\"id\":\"2wVcRlL05aDPLQ\",\"location_id\":null,\"weekday\":\"Tuesday\",\"from\":\"2016-01-27T10:15:00.000+02:00\",\"to\":\"2016-01-27T19:00:00.000+02:00\",\"specific_hour\":\"Closed/NA\"},{\"id\":\"2wVcRlL9lfMmFg\",\"location_id\":null,\"weekday\":\"Saturday\",\"from\":\"2016-01-27T11:00:00.000+02:00\",\"to\":\"2016-01-27T14:15:00.000+02:00\",\"specific_hour\":\"Open 24 Hrs\"},{\"id\":\"2wVcRlLJRkW99w\",\"location_id\":null,\"weekday\":\"Saturday\",\"from\":\"2016-01-27T08:30:00.000+02:00\",\"to\":\"2016-01-27T22:00:00.000+02:00\",\"specific_hour\":\"Open 24 Hrs\"},{\"id\":\"2wVcRlLT7pfW4C\",\"location_id\":null,\"weekday\":\"Friday\",\"from\":\"2016-01-27T04:30:00.000+02:00\",\"to\":\"2016-01-27T21:15:00.000+02:00\",\"specific_hour\":\"Closed/NA\"},{\"id\":\"2wVcRlLcnuosyS\",\"location_id\":null,\"weekday\":\"Tuesday\",\"from\":\"2016-01-27T03:00:00.000+02:00\",\"to\":\"2016-01-27T19:15:00.000+02:00\",\"specific_hour\":\"Closed/NA\"}]}}}",
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

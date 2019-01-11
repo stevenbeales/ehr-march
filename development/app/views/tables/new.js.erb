@@ -1,0 +1,8 @@
+$('#modal-tables-new-record').html("<%= escape_javascript(render 'form_new') %>");
+
+initPickers();
+initModalsReposition();
+initSelect2('#modal-tables-new-record');
+
+if(!$('#modal-tables-new-record').hasClass('in'))
+  $('#modal-tables-new-record').modal("show");

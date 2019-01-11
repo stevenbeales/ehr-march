@@ -1,0 +1,495 @@
+function enableControl(control, isExplicit, isDisabled) {
+  control = $(control);
+  var switchedControl;
+  if(!isExplicit) {
+    switchedControl =
+      (control.parent().hasClass('input-group-custom'))||
+      (control.parent().hasClass('checkbox-custom'))||
+      (control.parent().hasClass('radiobutton-custom'))||
+      (control.parent().hasClass('select-styled'))?
+    control.parent():
+      (control.parent().parent().hasClass('input-group-custom'))||
+      (control.parent().parent().hasClass('checkbox-custom'))||
+      (control.parent().parent().hasClass('radiobutton-custom'))||
+      (control.parent().parent().hasClass('select-styled'))?
+        control.parent().parent():
+          control;
+  }
+  else
+    switchedControl = control;
+  $(switchedControl).removeClass('disabled');
+  $(switchedControl).prop('readonly', false);
+  if(isDisabled)
+    $(switchedControl).prop('disabled', '');
+  if(!$(switchedControl).hasClass('input-group-custom') &&
+     !$(switchedControl).hasClass('checkbox-custom') &&
+     !$(switchedControl).hasClass('radiobutton-custom') &&
+     !$(switchedControl).hasClass('select2')) {
+      $(switchedControl).prop('tabindex', 0);
+  }
+}
+
+function disableControl(control, isExplicit, isDisabled) {
+  control = $(control);
+  var switchedControl;
+  if(!isExplicit) {
+    switchedControl =
+      (control.parent().hasClass('input-group-custom'))||
+      (control.parent().hasClass('checkbox-custom'))||
+      (control.parent().hasClass('radiobutton-custom'))||
+      (control.parent().hasClass('select-styled'))?
+    control.parent():
+      (control.parent().parent().hasClass('input-group-custom'))||
+      (control.parent().parent().hasClass('checkbox-custom'))||
+      (control.parent().parent().hasClass('radiobutton-custom'))||
+      (control.parent().parent().hasClass('select-styled'))?
+        control.parent().parent():
+          control;
+  }
+  else
+    switchedControl = control;
+  $(switchedControl).addClass('disabled');
+  $(switchedControl).prop('readonly', true);
+  if(isDisabled)
+    $(switchedControl).prop('disabled', 'disabled');
+  if(!$(switchedControl).hasClass('input-group-custom') &&
+     !$(switchedControl).hasClass('checkbox-custom') &&
+     !$(switchedControl).hasClass('radiobutton-custom') &&
+     !$(switchedControl).hasClass('select2')) {
+      $(switchedControl).prop('tabindex', -1);
+  }
+}
+
+function modalBackward(parentModal) {
+  $(parentModal).css('z-index', '1040');
+  $('.modal-backdrop').css('visibility', 'hidden');
+}
+
+function modalForward(parentModal) {
+  $(parentModal).css('z-index', '1050');
+  $('.modal-backdrop').first().css('visibility', 'visible');
+  if($('body').find('.modal.in').length>0)
+    $('body').addClass('modal-open');
+}
+
+function passwordInputChangeSize(element)
+{
+  if($(element).val().length>0)
+    $(element).addClass('input-password');
+  else
+    $(element).removeClass('input-password');
+}
+
+function repositionModal(modal, isPatientModal) {
+  var modal = modal,
+  dialog = modal.find('.modal-dialog');
+  modal.css('display', 'block');
+
+  var margin = Math.max(0, ($(window).height() - dialog.height()) / 2);
+  if(isPatientModal && margin>=60)
+    margin-=50;
+  margin = margin>=10?margin:10;
+  dialog.css("margin-top", margin);
+  dialog.css("margin-bottom", margin);
+
+  if($(modal).find('.scrollable-container').closest('.modal-body')) {
+    var scrollableContainer;
+    if($(modal).find('.tab-pane.active').length>0)
+      scrollableContainer = $(modal).find('.tab-pane.active .scrollable-container')
+    else
+      scrollableContainer = $(modal).find('.scrollable-container')
+    var content = scrollableContainer.find('.content').first();
+    var height;
+    height = $(window).height()-
+              (margin)-
+              $(modal).find('.modal-header').outerHeight()-
+              $(modal).find('.modal-footer').outerHeight()-
+              ($(modal).find('.nav-tabs').outerHeight()==null?0:$(modal).find('.nav-tabs').outerHeight())-
+              ($(modal).find('.controls-container')==null?0:$(modal).find('.controls-container').outerHeight())-
+              ($(modal).find('.modal-body').css('padding-top')==null?0:$(modal).find('.modal-body').css('padding-top').replace('px', '')==null?0:$(modal).find('.modal-body').css('padding-top').replace('px', ''))-
+              ($(modal).find('.modal-body').css('padding-bottom')==null?0:$(modal).find('.modal-body').css('padding-bottom').replace('px', '')==null?0:$(modal).find('.modal-body').css('padding-bottom').replace('px', ''))-
+              20;
+
+    if(content.height()> height){
+      scrollableContainer.css({
+        'height': height,
+        'overflow-y': 'hidden'
+       });
+      scrollableContainer.slimScroll({
+      })
+      margin = Math.max(0, ($(window).height() - dialog.height()) / 2);
+      if(isPatientModal && margin>=60)
+        margin-=50;
+      margin = margin>=10?margin:10;
+      dialog.css("margin-top", margin);
+      dialog.css("margin-bottom", margin);
+    }
+    else {
+      scrollableContainer.css({
+        'height': 'auto'
+      });
+      scrollableContainer.slimScroll({
+        'destroy': true
+      });
+    }
+  }
+}
+
+function placeholdersHideOnClick(parent) {
+  var placeholder = '';
+  $(parent).find('.form-control.placeholder-hiding').bind('focus', function() {
+    placeholder = $(this).attr('placeholder');
+    $(this).attr('placeholder', '');
+  });
+
+  $(parent).find('.form-control.placeholder-hiding').bind('blur', function() {
+    $(this).attr('placeholder', placeholder);
+  });
+}
+
+function initPickers(parent) {
+  $(typeof parent != 'undefined'?parent+' '+'.time-picker':'.time-picker').val(moment($('.time-picker').val(), 'hh:mm').format('h:mm A'));
+  $(typeof parent != 'undefined'?parent+' '+'.time-picker':'.time-picker').inputmask('hh:mm T');
+
+  $(typeof parent != 'undefined'?parent+' '+'.date-picker':'.date-picker').datepicker({
+    autoclose: true,
+    format: 'yyyy/mm/dd'
+  }).inputmask('yyyy/mm/dd');
+  $(typeof parent != 'undefined'?parent+' '+'.input-group-addon-calendar':'.input-group-addon-calendar').on('click', function() {
+    var picker = $(this).closest('.input-group-custom').find('.date-picker');
+    if($(picker).hasClass('showing')){
+      $(picker).datepicker('hide');
+      picker.removeClass('showing');
+    }
+    else {
+      picker.datepicker('show');
+      picker.addClass('showing');
+    }
+  })
+  
+  $(typeof parent != 'undefined'?parent+' '+'.color-picker':'.color-picker').colorpicker({});
+  $(typeof parent != 'undefined'?parent+' '+'.input-phone':'.input-phone').inputmask("+1(999)999-9999");
+  $(typeof parent != 'undefined'?parent+' '+'.input-social-security':'.input-social-security').inputmask({
+    mask: "999-99-9999",
+    removeMaskOnSubmit: true
+  });
+}
+
+function initModalsReposition(isPatientModal) {
+  $('.modal').on('show.bs.modal', function(e) {
+    if($(e.target).hasClass('modal')) 
+      repositionModal($(this), isPatientModal);
+  });
+  $(window).on('resize', function() {
+    $('.modal:visible').each(function() {
+      repositionModal($(this), isPatientModal);
+    });
+  });
+}
+
+function initModalFadeInOut(parent) {
+  $($(typeof parent != 'undefined'?parent+' '+'.button-modal-open':'.button-modal-open')).unbind('click');
+  $($(typeof parent != 'undefined'?parent+' '+'.button-modal-open':'.button-modal-open')).on('click', function() {
+    var parent = $(this).closest('.modal');
+    $($(this).attr('data-target')).unbind('show.bs.modal');
+    $($(this).attr('data-target')).on('show.bs.modal', function (e) {
+      if($(e.target).hasClass('modal')){
+        modalBackward(parent);
+        repositionModal($(this));
+      }
+    });
+    $($(this).attr('data-target')).unbind('hidden.bs.modal');
+    $($(this).attr('data-target')).on('hidden.bs.modal', function (e) {
+      if($(e.target).hasClass('modal')){
+        modalForward(parent);
+      }
+    });
+  });
+}
+
+function initSelect2(parent) {
+  $(typeof parent != 'undefined'?parent+' '+'select.select2':'select.select2').each(function() {
+    $(this).select2({
+      width: typeof $(this).data('width') != 'undefined'?$(this).data('width'):'100%',
+      minimumResultsForSearch: Infinity,
+      theme: $(this).data('theme'),
+      arrowPadding: typeof $(this).data('arrow-padding') != 'undefined'?$(this).data('arrow-padding'):'1x',
+      font: typeof $(this).data('font') != 'undefined'?$(this).data('font'):'1x',
+      padding: $(this).data('padding'),
+      arrow: $(this).data('arrow'),
+      placeholder: $(this).attr('placeholder')
+    })
+    if(typeof $(this).attr('placeholder') != 'undefined')
+      $(this).val('').trigger('change');
+  })
+}
+
+$(function showDebugInformation() {
+  var debugInfoContainer = $('#debug-info-container');
+  var consoleContainer = $('#console');
+
+  var debugInfoContainerSwitcher = function() {
+    if($('#modal-web-console-alert').hasClass('in'))
+      $('#modal-web-console-alert').modal('hide');
+    $('#debug-button').toggleClass('active');
+    $('#debug-button').closest('.controls').toggleClass('active');
+    if(debugInfoContainer.hasClass('in'))
+      debugInfoContainer.fadeOut({
+        duration: 'fast', 
+        complete: function() {
+          debugInfoContainer.css('visibility', 'hidden');
+        }
+      });
+    else
+      debugInfoContainer.fadeIn({
+        duration: 'fast', 
+        complete: function() {
+          debugInfoContainer.css('visibility', 'visible');
+        }
+      });
+    debugInfoContainer.toggleClass('in');
+  }
+
+  var consoleContainerSwitcher = function() {
+    if($('#console').length > 0) {
+      $('#console-button').toggleClass('active');
+      $('#console-button').closest('.controls').toggleClass('active');
+      if(consoleContainer.hasClass('in'))
+        consoleContainer.fadeOut('fast');
+      else
+        consoleContainer.fadeIn('fast');
+      consoleContainer.toggleClass('in');
+    }
+    else {
+      if(!$('#modal-web-console-alert').hasClass('in')) {
+        $('#console-button').removeClass('active');
+          $.ajax({
+            url: '<%= Rails.application.routes.url_helpers.web_console_show_web_console_alert_path %>'
+          });
+      }
+    }
+  }
+
+  $('#debug-button').click(function(e) {
+    e.preventDefault();
+    if(consoleContainer.hasClass('in')) 
+      consoleContainerSwitcher();
+    debugInfoContainerSwitcher();
+  })
+  
+  $('#console-button').click(function(e) {
+    e.preventDefault();
+    if(debugInfoContainer.hasClass('in'))
+      debugInfoContainerSwitcher();
+    consoleContainerSwitcher();
+  })
+
+  debugInfoContainer.find('.debug_dump').slimScroll({
+    distance: 5
+  });
+  consoleContainer.find('.console-outer').slimScroll({
+    distance: 5
+  });
+
+  $(document).mousedown(function(e) {
+    if($(e.target).closest('#debug-button').length == 0 && $(e.target).closest('#console-button').length == 0) {
+      if($(e.target).closest('.debug-container').length == 0)
+        if(debugInfoContainer.hasClass('in'))
+          debugInfoContainerSwitcher();
+      if($(e.target).closest('#console').length == 0)
+        if(consoleContainer.hasClass('in'))
+          consoleContainerSwitcher();
+    }
+  })
+});
+
+SubjectMenuController = function() {
+  var parentModal;
+  var subjectsList;
+  var subjectsContainer;
+
+  this.initialize = function(modal) {
+    parentModal = modal;
+    subjectsList = $(parentModal+' #subjects-list');
+    subjectsContainer = $(parentModal+' #subjects-container');
+    disableControl(subjectsList.find('li .form-control'));
+    initButtons();
+    getSubjects();
+  }
+
+  function switchSubjectInputState(enable, control) {
+    if(enable) {
+      $(control).closest('li').addClass('editing');
+      enableControl(control);
+      control.focus();
+    }
+    else {
+      $(control).closest('li').removeClass('editing');
+      disableControl(control);
+    }
+  }
+  
+  function getSubjects() {
+    subjectsList.html('');
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.get_subjects_email_messages_path %>'
+    }).done(function(subjects) {
+      $(subjects).each(function() {
+        subjectsList.append('<li class="input-group">\
+          <a class="subject-input">\
+            <input class="form-control" type="text" value="'+$(this)[0]['name']+'"'+' data-id="'+$(this)[0]['id']+'"/>\
+          </a>\
+          <a class="subject-edit input-group-addon" href="#">\
+            <i class="fa fa-pencil"></i></a>\
+        </li>');
+      })
+      disableControl(subjectsList.find('.input-group .form-control'));
+      if(subjectsList.attr('data-selected')) {
+        var selected = subjectsList.find('.form-control[data-id='+subjectsList.data('selected')+']');
+        $(parentModal+' #subject-button').text(selected.attr('value'));
+        $(parentModal+' #email_message_subject_id').attr('value', selected.data('id'));
+        subjectsList.find('li').removeClass('active');
+        selected.closest('li').addClass('active');
+      }
+      initHandlers();
+    });
+  }
+
+  var inputHandler = function(e) {
+    e.preventDefault();
+    var input = $(this).find('.form-control');
+    if(!($(this).parent().hasClass('editing'))) {
+      $(parentModal+' #subject-button').text(input.attr('value'));
+      $(parentModal+' #email_message_subject_id').attr('value', input.data('id'));
+      subjectsContainer.css('display', 'none');
+      $(subjectsContainer).parent().removeClass('open');
+      subjectsList.find('li').removeClass('active');
+      $(this).parent().addClass('active');
+    }
+  }
+
+  var editHandler = function(e) {
+    e.preventDefault();
+    var input = $(this).parent().find('.form-control');
+    if(!($(this).closest('li').hasClass('editing'))) {
+      switchSubjectInputState(true, input);
+    }
+    else {
+      $.ajax({
+        url: '<%= Rails.application.routes.url_helpers.update_subject_email_messages_path %>',
+        data: { id: input.data('id'), name: input[0].value }
+      }).done(function(subjects) {
+        switchSubjectInputState(false, input);
+        $(this).closest('li').removeClass('editing');
+      });
+    }
+  }
+
+  function initHandlers() {
+    $(parentModal+' #subjects-list').find('li a.subject-input').click(inputHandler);
+    $(parentModal+' #subjects-list .subject-edit').click(editHandler);
+  }
+
+  function initButtons() {
+    $(parentModal+' #subject-button').click(function(e) {
+      e.preventDefault();
+      if(subjectsContainer.css('display')=='none') {
+        subjectsContainer.css('display', 'block');
+        $(this).parent().addClass('open');
+      }
+      else {
+        subjectsContainer.css('display', 'none');
+        $(this).parent().removeClass('open');
+      }
+    });
+
+    $(parentModal+' #subject-add-button').click(function(e) {
+      e.preventDefault();
+      var addInput = $(parentModal+' #subject-add-input');
+      if(addInput.val().length > 0) {
+        var insertedItem = subjectsList.find('li').last().clone();
+        var input = insertedItem.find('.form-control');
+        input.val('');
+        insertedItem.removeClass('editing');
+        insertedItem.removeClass('active');
+        insertedItem.find('a.subject-input').click(inputHandler);
+        insertedItem.find('.subject-edit').click(editHandler);
+        $.ajax({
+          url: '<%= Rails.application.routes.url_helpers.add_subject_email_messages_path %>',
+          data: {
+            name: addInput.val()
+          }
+        }).done(function(subject) {
+          addInput.val('');
+          input.data('id', subject['id']);
+          input.val(subject['name']);
+          subjectsList.append(insertedItem);
+        });
+      }
+    })
+  }
+};
+
+LanguagesMenuController = function() {
+  var mainParent;
+  var mainInput;
+  var languagesList;
+  var languagesToggle;
+
+  this.initialize = function(parent, input) {
+    mainParent = $(parent);
+    languagesList = $(parent+' .languages-list');
+    languagesToggle = $(parent+' .language-button.dropdown-toggle');
+    languageOther = $(languagesList.find('li.language-other input'));
+    mainInput = $(parent+' '+input);
+    initAll();
+  }
+
+  var setFocus = function(control, click) {
+    if(control) {
+      languagesList.find('li a').removeClass('active');
+      languageOther.removeClass('active');
+      if(!$(control).hasClass('language-input') && click)
+        languageOther.val('');
+      $(control).addClass('active');
+    }
+  }
+
+  var initAll = function() {
+    if(languagesList.length > 0 && languagesToggle.length > 0) {
+      if(mainInput.val().length > 0) {
+        languagesToggle.find('span').text(mainInput.val());
+        languagesList.find('li.language-other, li.language-other .language-input').val(mainInput.val());
+      }
+      languagesList.find('li a').click(function(e) {
+        e.preventDefault();
+        var link = $(e.currentTarget);
+        setFocus(e.currentTarget, true);
+        languagesToggle.find('span').text(link.text());
+        languagesToggle.data('index', link.data('index'));
+        mainInput.val(link.text());
+      });
+      languagesList.find('li a, li.language-other .language-input').mouseover(function(e) {
+        setFocus(e.currentTarget);
+      });
+      languagesToggle.parent().on('shown.bs.dropdown', function() {
+        if(languagesToggle.data('index') >= 0) {
+          var selectedControl = languagesList.find('[data-index='+languagesToggle.data('index')+']');
+          if(!selectedControl.hasClass('language-input'))
+            languageOther.val('');
+          setFocus(selectedControl);
+        }
+      });
+      languagesList.find('li.language-other, li.language-other .language-input').click(function(e) {
+        e.stopPropagation();
+      });
+      languagesList.find('li.language-other .language-input').keyup(function(e) {
+        var languageOtherText = languageOther.val();
+        if(languageOtherText.length > 0) {
+          languagesToggle.find('span').text(languageOtherText);
+          mainInput.val(languageOtherText);
+        }
+      });
+    }
+  }
+};

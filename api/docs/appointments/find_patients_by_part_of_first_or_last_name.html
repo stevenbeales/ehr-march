@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointments API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Appointments API</h1>
+
+      <div class="article">
+        <h2>Find patients by part of first or last name</h2>
+        <h3>GET /appointments/patients</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[auth_token]</span>
+                </td>
+                <td>
+                  <span class="description">Authentication Token</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">data[part]</span>
+                </td>
+                <td>
+                  <span class="description">The beginning of a patient&#39;s first or last name</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Content-Type: application/vnd.api+json</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /appointments/patients?data[auth_token]=02ff6aa5b2ee64df3853d0d742d0337d&amp;data[part]=De</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">data: {&quot;auth_token&quot;=&gt;&quot;02ff6aa5b2ee64df3853d0d742d0337d&quot;, &quot;part&quot;=&gt;&quot;De&quot;}</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;33lOYkHuL3YUl9&quot;,
+      &quot;type&quot;: &quot;patients&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lOYkHuL3YUl9&quot;,
+        &quot;email&quot;: &quot;waino@pouros.co&quot;,
+        &quot;role&quot;: &quot;Patient&quot;,
+        &quot;first-name&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Brown&quot;,
+        &quot;gender&quot;: &quot;Male&quot;,
+        &quot;mobile-phone&quot;: &quot;+15497212651&quot;,
+        &quot;primary-phone&quot;: &quot;+13844656898&quot;,
+        &quot;code&quot;: null,
+        &quot;social-number&quot;: &quot;295225521&quot;,
+        &quot;active&quot;: true,
+        &quot;declined-portal-access&quot;: null,
+        &quot;preferred-language&quot;: null,
+        &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+        &quot;american-race&quot;: null,
+        &quot;asian-race&quot;: null,
+        &quot;african-race&quot;: null,
+        &quot;hawaiian-race&quot;: null,
+        &quot;white-race&quot;: null,
+        &quot;undetermined-race&quot;: null,
+        &quot;email-reminder&quot;: null,
+        &quot;sms-reminder&quot;: null,
+        &quot;immunization-registry&quot;: &quot;NotSend&quot;,
+        &quot;work-phone&quot;: null,
+        &quot;ext&quot;: null,
+        &quot;street-address&quot;: null,
+        &quot;city&quot;: null,
+        &quot;state&quot;: null,
+        &quot;zip&quot;: null,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/patient/profile_image/33lOYkHuL3YUl9/avatar3.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/patients/33lOYkHuL3YUl9&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lOe22m804INf&quot;,
+      &quot;type&quot;: &quot;patients&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lOe22m804INf&quot;,
+        &quot;email&quot;: &quot;bernardo_sipes@ruelstiedemann.name&quot;,
+        &quot;role&quot;: &quot;Patient&quot;,
+        &quot;first-name&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Crown&quot;,
+        &quot;gender&quot;: &quot;Male&quot;,
+        &quot;mobile-phone&quot;: &quot;+1866618715&quot;,
+        &quot;primary-phone&quot;: &quot;+16909656353&quot;,
+        &quot;code&quot;: null,
+        &quot;social-number&quot;: &quot;189664485&quot;,
+        &quot;active&quot;: true,
+        &quot;declined-portal-access&quot;: null,
+        &quot;preferred-language&quot;: null,
+        &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+        &quot;american-race&quot;: null,
+        &quot;asian-race&quot;: null,
+        &quot;african-race&quot;: null,
+        &quot;hawaiian-race&quot;: null,
+        &quot;white-race&quot;: null,
+        &quot;undetermined-race&quot;: null,
+        &quot;email-reminder&quot;: null,
+        &quot;sms-reminder&quot;: null,
+        &quot;immunization-registry&quot;: &quot;NotSend&quot;,
+        &quot;work-phone&quot;: null,
+        &quot;ext&quot;: null,
+        &quot;street-address&quot;: null,
+        &quot;city&quot;: null,
+        &quot;state&quot;: null,
+        &quot;zip&quot;: null,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/patient/profile_image/33lOe22m804INf/avatar1.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/patients/33lOe22m804INf&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lOhkOsT3mjVT&quot;,
+      &quot;type&quot;: &quot;patients&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lOhkOsT3mjVT&quot;,
+        &quot;email&quot;: &quot;marilou@kreiger.io&quot;,
+        &quot;role&quot;: &quot;Patient&quot;,
+        &quot;first-name&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Down&quot;,
+        &quot;gender&quot;: &quot;Male&quot;,
+        &quot;mobile-phone&quot;: &quot;+14495919928&quot;,
+        &quot;primary-phone&quot;: &quot;+19945154578&quot;,
+        &quot;code&quot;: null,
+        &quot;social-number&quot;: &quot;693557874&quot;,
+        &quot;active&quot;: true,
+        &quot;declined-portal-access&quot;: null,
+        &quot;preferred-language&quot;: null,
+        &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+        &quot;american-race&quot;: null,
+        &quot;asian-race&quot;: null,
+        &quot;african-race&quot;: null,
+        &quot;hawaiian-race&quot;: null,
+        &quot;white-race&quot;: null,
+        &quot;undetermined-race&quot;: null,
+        &quot;email-reminder&quot;: null,
+        &quot;sms-reminder&quot;: null,
+        &quot;immunization-registry&quot;: &quot;NotSend&quot;,
+        &quot;work-phone&quot;: null,
+        &quot;ext&quot;: null,
+        &quot;street-address&quot;: null,
+        &quot;city&quot;: null,
+        &quot;state&quot;: null,
+        &quot;zip&quot;: null,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/patient/profile_image/33lOhkOsT3mjVT/avatar1.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/patients/33lOhkOsT3mjVT&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lOmW8C7HCC3f&quot;,
+      &quot;type&quot;: &quot;patients&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lOmW8C7HCC3f&quot;,
+        &quot;email&quot;: &quot;eliezer@green.biz&quot;,
+        &quot;role&quot;: &quot;Patient&quot;,
+        &quot;first-name&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Xown&quot;,
+        &quot;gender&quot;: &quot;Male&quot;,
+        &quot;mobile-phone&quot;: &quot;+16273303400&quot;,
+        &quot;primary-phone&quot;: &quot;+12399637207&quot;,
+        &quot;code&quot;: null,
+        &quot;social-number&quot;: &quot;848168444&quot;,
+        &quot;active&quot;: true,
+        &quot;declined-portal-access&quot;: null,
+        &quot;preferred-language&quot;: null,
+        &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+        &quot;american-race&quot;: null,
+        &quot;asian-race&quot;: null,
+        &quot;african-race&quot;: null,
+        &quot;hawaiian-race&quot;: null,
+        &quot;white-race&quot;: null,
+        &quot;undetermined-race&quot;: null,
+        &quot;email-reminder&quot;: null,
+        &quot;sms-reminder&quot;: null,
+        &quot;immunization-registry&quot;: &quot;NotSend&quot;,
+        &quot;work-phone&quot;: null,
+        &quot;ext&quot;: null,
+        &quot;street-address&quot;: null,
+        &quot;city&quot;: null,
+        &quot;state&quot;: null,
+        &quot;zip&quot;: null,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/patient/profile_image/33lOmW8C7HCC3f/avatar5.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/patients/33lOmW8C7HCC3f&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;33lOr69bX9tbFr&quot;,
+      &quot;type&quot;: &quot;patients&quot;,
+      &quot;attributes&quot;: {
+        &quot;id&quot;: &quot;33lOr69bX9tbFr&quot;,
+        &quot;email&quot;: &quot;efrain@paucek.net&quot;,
+        &quot;role&quot;: &quot;Patient&quot;,
+        &quot;first-name&quot;: &quot;Den&quot;,
+        &quot;middle-name&quot;: null,
+        &quot;last-name&quot;: &quot;Unknown&quot;,
+        &quot;gender&quot;: &quot;Male&quot;,
+        &quot;mobile-phone&quot;: &quot;+15594407471&quot;,
+        &quot;primary-phone&quot;: &quot;+16399159043&quot;,
+        &quot;code&quot;: null,
+        &quot;social-number&quot;: &quot;337235861&quot;,
+        &quot;active&quot;: true,
+        &quot;declined-portal-access&quot;: null,
+        &quot;preferred-language&quot;: null,
+        &quot;ethnicity&quot;: &quot;Hispanic of Latino&quot;,
+        &quot;american-race&quot;: null,
+        &quot;asian-race&quot;: null,
+        &quot;african-race&quot;: null,
+        &quot;hawaiian-race&quot;: null,
+        &quot;white-race&quot;: null,
+        &quot;undetermined-race&quot;: null,
+        &quot;email-reminder&quot;: null,
+        &quot;sms-reminder&quot;: null,
+        &quot;immunization-registry&quot;: &quot;NotSend&quot;,
+        &quot;work-phone&quot;: null,
+        &quot;ext&quot;: null,
+        &quot;street-address&quot;: null,
+        &quot;city&quot;: null,
+        &quot;state&quot;: null,
+        &quot;zip&quot;: null,
+        &quot;profile-image&quot;: {
+          &quot;url&quot;: &quot;/uploads/patient/profile_image/33lOr69bX9tbFr/avatar4.jpg&quot;
+        }
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/patients/33lOr69bX9tbFr&quot;
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+$("#modal-contacts-new-contact").html("<%= escape_javascript(render 'new_contact_form') %>")
+$("#modal-contacts-new-contact").modal("show")
+
+initPickers('#modal-contacts-new-contact');
+initSelect2('#modal-contacts-new-contact');
+
+var SearchController = function() {
+  var id_input;
+  var search_input;
+  var search_button;
+  var search_list;
+  var url ;
+
+  var liFocusIn = false;
+
+  this.initialize = function(id, input, button, list, path) {
+    id_input = $(id);
+    search_input = $(input);
+    search_button = $(button);
+    search_list = $(list);
+    url = path;
+    initFind10Click();
+    initSearchOnInput();
+  };
+
+  var initKeyDownListeners = function() {
+    search_input.on('keydown', function(e) {
+      if(e.keyCode == '40' && search_list.css('display') == 'block') {
+        e.preventDefault();
+        $(search_list.find('a').first()).focus();
+        return false;
+      }
+    });
+    search_list.find('a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        search_input.val($(this).text()).change();
+        id_input.val($(this).data('id'));
+        $.ajax({
+          url: '<%= Rails.application.routes.url_helpers.contacts_practices_email_messages_path %>',
+          data: { id: $(this).data('id') }
+        }).done(function(practice_item){
+          var item = practice_item;
+          $('#contacts-new-contact-first-name').attr('value', item['first_name']);
+          $('#contacts-new-contact-middle-name').attr('value', item['middle_name']);
+          $('#contacts-new-contact-last-name').attr('value', item['last_name']);
+          $('#contacts-new-contact-degree').select2('val', item['degree']);
+          $('#contacts-new-contact-speciality').select2('val', item['speciality']);
+          $('#contacts-new-contact-email').val(item['alt_email']);
+          $('#contacts-new-contact-phone').val(item['mobile_phone']);
+          $('#contacts-new-contact-fax').val(item['primary_phone']);
+          $('#contacts-new-contact-street').val(item['street_address']);
+          $('#contacts-new-contact-practice-street').val(item['practice_street_address']);
+          $('#contacts-new-contact-city').val(item['city']);
+          $('#contacts-new-contact-state').select2('val', item['state']);
+          $('#contacts-new-contact-zip').val(item['zip']);
+        });
+        search_list.fadeOut('fast');
+        search_input.focus();
+      })
+    });
+  };
+
+  var listFill = function(elements) {
+    if(elements.length>0)
+      search_list.css('display', 'block');
+    else
+      search_list.css('display', 'none');
+    search_list.empty();
+    for(var i in elements) {
+      var link = $('<li><a href="#" data-id="' + elements[i]['id'] + '">' + elements[i]['full_name'] + '</a></li>');
+      search_list.append(link);
+    }
+  };
+
+  var initFind10Click = function() {
+    search_button.on('click', function() {
+      $.ajax({
+        url: url
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+        search_list.find('a').first().focus();
+      });
+    })
+  };
+
+  var initSearchOnInput = function() {
+    search_input.on('keyup', function(){
+      var search_part = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          part: search_part
+        }
+      }).done(function(elements){
+        listFill(elements);
+        initKeyDownListeners();
+      });
+    });
+  };
+};
+
+var practiceSearchController = new SearchController();
+practiceSearchController.initialize(
+  'input#contacts-new-contact-practice-id', 
+  'input#find-contacts-new-contact-practice-input', 
+  'span#find-contacts-new-contact-practice-button', 
+  'ul#find-contacts-new-contact-practice-list', 
+  '<%= Rails.application.routes.url_helpers.practices_email_messages_path %>');
+
+$('#contact-save').click(function(e) {
+  e.preventDefault();
+  if($('#contacts-new-contact-practice-id').val()) {
+    $.ajax({
+      url: '<%= Rails.application.routes.url_helpers.add_contact_email_messages_path %>',
+      data: {
+        id: $('#contacts-new-contact-practice-id').val()
+      }
+    }).done(function() {
+      $('#modal-contacts-new-contact').modal('hide');
+    });
+  }
+})

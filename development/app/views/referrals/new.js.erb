@@ -1,0 +1,80 @@
+$("#modal-new-referral").html("<%= escape_javascript(render 'new_form') %>");
+
+initPickers();
+initSelect2('#modal-new-referral');
+placeholdersHideOnClick('form.new_referral');
+
+if(!$("#modal-new-referral").hasClass('in'))
+  $("#modal-new-referral").modal("show");
+
+function buttonStateChange(isEnable) {
+  if(!isEnable) {
+    disableControl('#modal-new-referral #modal-add-referral-button');
+  }
+  else {
+    enableControl('#modal-new-referral #modal-add-referral-button');
+  }
+}
+
+function validateForm() {
+  jQuery.validator.addMethod("notEqualTo", function(value, element, param) {
+    return this.optional(element) || value != $(param).val();
+  }, "");
+  $('form.new_referral').validate({
+    highlight: function(element) {
+      buttonStateChange(false);
+      $(element).addClass('unvalid');
+      $(element).removeClass('valid');
+    },
+    unhighlight: function(element) {
+      $(element).removeClass('unvalid');
+      $(element).addClass('valid');
+    },
+    errorPlacement: function(error,element) {
+      return true;
+    },
+    rules: {
+      'referral[normal]': {
+        required: true
+      },
+      'referral[middle_name]': {
+        required: true
+      },
+      'referral[last_name]': {
+        required: true
+      },
+      'referral[individual_npi]': {
+        required: true
+      },
+      'referral[speciality]': {
+        required: true,
+      },
+      'referral[phone]': {
+        required: true
+      },
+      'referral[fax]': {
+        required: true
+      },
+      'referral[email]': {
+        required: true,
+        email: true
+      }
+    }
+  });
+  $('form.new_referral').valid();
+}
+validateForm();
+
+$('form.new_referral input:not([type="radio"]):not([type="checkbox"])').bind('input change', function() {
+  formValidCheck();
+});
+
+function formValidCheck() {
+  if($('form.new_referral').valid()){
+    buttonStateChange(true);
+  };
+}
+
+$('#referral_email').keyup(function() {
+  $('#direct-address-button').attr('href', 'mailto:' + $(this).val());
+});

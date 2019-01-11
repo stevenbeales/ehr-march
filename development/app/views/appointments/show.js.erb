@@ -1,0 +1,44 @@
+$('#modal-show-appointment-details').html("<%= escape_javascript(render 'show_form') %>")
+
+initPickers('#modal-show-appointment-details');
+initSelect2('#modal-show-appointment-details');
+disableAllControls();
+
+$('#modal-show-appointment-details').modal("show")
+
+function disableAllControls() {
+  $('#modal-show-appointment-details').find('.input-group-addon, .form-control, select').each(function() {
+    disableControl($(this), true, true);
+  });
+};
+
+function enableAllControls() {
+  $('#modal-show-appointment-details').find('.input-group-addon, .form-control, select').each(function() {
+    enableControl($(this), true, true);
+  });
+};
+
+$(function editButtonSwitch() {
+  $('#modal-show-appointment-details .appt-button-edit').click(function(e) {
+    e.preventDefault();
+    var editButton = $(this);
+    if(editButton.hasClass('active')) {
+      disableAllControls();
+      editButton.removeClass('active');
+    }
+    else {
+      enableAllControls();
+      editButton.addClass('active');
+    }
+  });
+})
+
+$('#reschedule-appointment').click(function() {
+  $.ajax({
+    url: '<%= Rails.application.routes.url_helpers.reschedule_appointments_path %>',
+    data: { id: $(this).data('id') }
+  }).done(function() {
+    $('#appointment_status option:selected').removeAttr('selected');
+    $('#appointment_status option[value="Rescheduled"]').attr('selected', true);
+  });
+});

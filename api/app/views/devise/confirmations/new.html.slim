@@ -1,0 +1,20 @@
+.confirmations-new-wrapper
+  .panel.panel-default
+    = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+      .panel-header
+        h4 Resend confirmation instructions
+      - if devise_error_messages!.present?
+        .panel-body
+          = devise_error_messages!
+      .panel-body
+        .row
+          .col-lg-12
+            .form-group
+              = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'E-Mail', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+      .panel-footer
+        .actions
+          .row
+            .col-lg-12
+              = f.submit "Resend confirmation instructions", class: 'btn btn-success'
+              .pull-right
+                = render "devise/shared/links"

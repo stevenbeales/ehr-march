@@ -1,0 +1,42 @@
+{
+  "resource": "EmailMessage",
+  "http_method": "GET",
+  "route": "/email_messages",
+  "description": "Get first 25 inbox messages",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "data",
+      "required": true,
+      "name": "auth_token",
+      "description": "Authentication Token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/email_messages?data[auth_token]=ea9f286e28fe678ba5d606f8627c5984",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/vnd.api+json"
+      },
+      "request_query_parameters": {
+        "data": {
+          "auth_token": "ea9f286e28fe678ba5d606f8627c5984"
+        }
+      },
+      "request_content_type": "application/vnd.api+json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": \"33lU5FLRt1tzwh\",\n      \"type\": \"email-messages\",\n      \"attributes\": {\n        \"id\": \"33lU5FLRt1tzwh\",\n        \"subject-id\": \"33lU5FLbZ73Mqx\",\n        \"to-id\": \"33lU40FOH2ahil\",\n        \"from-id\": null,\n        \"body\": \"Maiores ex explicabo sint enim eum.\",\n        \"draft\": false,\n        \"archive\": false,\n        \"urgent\": false,\n        \"read\": false\n      },\n      \"links\": {\n        \"self\": \"/email-messages/33lU5FLRt1tzwh\"\n      }\n    },\n    {\n      \"id\": \"33lU5lZKeJwWhP\",\n      \"type\": \"email-messages\",\n      \"attributes\": {\n        \"id\": \"33lU5lZKeJwWhP\",\n        \"subject-id\": \"33lU5lZUKP5tbf\",\n        \"to-id\": \"33lU40FOH2ahil\",\n        \"from-id\": null,\n        \"body\": \"Aperiam est facere exercitationem aut.\",\n        \"draft\": false,\n        \"archive\": false,\n        \"urgent\": false,\n        \"read\": false\n      },\n      \"links\": {\n        \"self\": \"/email-messages/33lU5lZKeJwWhP\"\n      }\n    },\n    {\n      \"id\": \"33lU5lZe0UFGVv\",\n      \"type\": \"email-messages\",\n      \"attributes\": {\n        \"id\": \"33lU5lZe0UFGVv\",\n        \"subject-id\": \"33lU5lZngZOdQB\",\n        \"to-id\": \"33lU40FOH2ahil\",\n        \"from-id\": null,\n        \"body\": \"A rerum qui doloribus.\",\n        \"draft\": false,\n        \"archive\": false,\n        \"urgent\": false,\n        \"read\": false\n      },\n      \"links\": {\n        \"self\": \"/email-messages/33lU5lZe0UFGVv\"\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

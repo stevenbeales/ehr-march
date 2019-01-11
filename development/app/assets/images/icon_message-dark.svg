@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: bin/sketchtool 1.4 (305) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 191</title>
+    <desc>Created with bin/sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Patients---Dashboard" sketch:type="MSArtboardGroup" transform="translate(-216.000000, -557.000000)" fill="#494949">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(185.000000, 116.000000)">
+                <path d="M47,467 C45.832,467 44.704,466.864 43.62,466.633 L38.912,469.463 L38.975,464.824 C35.366,462.654 33,459.066 33,455 C33,448.373 39.268,443 47,443 C54.732,443 61,448.373 61,455 C61,461.628 54.732,467 47,467 L47,467 Z M47,441 C38.164,441 31,447.269 31,455 C31,459.419 33.345,463.354 37,465.919 L37,473 L44.009,468.747 C44.979,468.907 45.977,469 47,469 C55.836,469 63,462.732 63,455 C63,447.269 55.836,441 47,441 L47,441 Z M54,452 L40,452 C39.448,452 39,452.448 39,453 C39,453.553 39.448,454 40,454 L54,454 C54.552,454 55,453.553 55,453 C55,452.448 54.552,452 54,452 L54,452 Z M52,458 L42,458 C41.448,458 41,458.447 41,459 C41,459.553 41.448,460 42,460 L52,460 C52.552,460 53,459.553 53,459 C53,458.447 52.552,458 52,458 L52,458 Z" id="Fill-191" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,39 @@
+= form_for User.new, url: user_session_path do |f|
+  .authorization-signin-wrapper.authorization-signin-new-user-wrapper
+    .authorization-top
+      .string
+      .string-top
+        .image-center
+          = image_tag('ehr.svg', width: 232, height: 88, alt: "EHR1 Logo")
+      .container
+        .string-top-container
+          = image_tag('num-top.svg', width: 146, height: 248, alt: "EHR1 One Num Logo")
+    .authorization-content
+      .content-top
+        .container
+          .row
+            .col-lg-8
+              .main-title
+                h1 Complete the fields below to activate your User Account before completing the User Registration process.
+      .content
+        .container
+          .row
+            .col-lg-5.controls
+              .form-group
+                / = devise_error_messages_signin!
+                = f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Your Email"
+              .form-group
+                = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Practice ID#"
+              .form-group
+                = f.submit 'Submit', class: 'button'
+            .col-lg-2
+            .col-lg-5.links
+              p
+                | To make our EHR even&nbsp;
+                span more
+                | &nbsp;secure for you, please download our two-factor authentication application
+              .services
+                a.google-play href="#"
+                  = image_tag('default-qrcode.png', alt: "EHR1 Two Factor Authentification App Android QR Code")
+                a.app-store href="#"
+                  = image_tag('default-qrcode.png', alt: "EHR1 Two Factor Authentification App iOS QR Code")

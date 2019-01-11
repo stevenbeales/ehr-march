@@ -1,0 +1,12 @@
+= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f|
+  .modal-passwords-wrapper
+    #modal-forgot-password-complete.modal-passwords.modal.fade data-backdrop='static' data-keyboard='false'
+      .modal-dialog
+        .modal-content
+          .modal-header
+              p Success!
+          .modal-body
+            p Your password has been changed.
+          .modal-footer
+            .buttons
+              = f.submit 'Sign in', class: 'button'

@@ -1,0 +1,13 @@
+$("#modal-patient-allergy").html("<%= escape_javascript(render 'patient_show_allergy_form') %>")
+
+initPickers('#modal-patient-allergy');
+initSelect2('#modal-patient-allergy');
+
+$("#modal-patient-allergy").modal("show")
+
+$(function() {
+  $('#modal-patient-allergy .button-today').click(function(e) {
+    e.preventDefault();
+    $(this).parent().parent().parent().find('.date-picker').datepicker('setDate', moment()._d);
+  })
+})

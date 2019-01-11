@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: bin/sketchtool 1.4 (305) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 204</title>
+    <desc>Created with bin/sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Patients---Dashboard" sketch:type="MSArtboardGroup" transform="translate(-417.000000, -12.000000)" fill="#FFFFFF">
+            <g id="menu" sketch:type="MSLayerGroup" transform="translate(384.000000, 0.000000)">
+                <g id="Menu-Items-Copy-+-Group" transform="translate(13.000000, 12.000000)" sketch:type="MSShapeGroup">
+                    <g id="Group" transform="translate(20.000000, 0.000000)">
+                        <path d="M28.551,21.613 L15,17 L15,2 C22.779,1.961 29.889,8.682 29.889,16.571 C29.889,18.629 29.351,20.19 28.551,21.613 L28.551,21.613 Z M14.5,30 C7.597,30 2,24.404 2,17.5 C2,11.21 6.917,5.878 13,5 L13,18.429 L25.709,22.855 C24.018,27.128 19.163,30 14.5,30 L14.5,30 Z M15,0 L13,0 L13,3 C5.721,3.789 0,10.026 0,17.5 C0,25.508 6.492,32 14.5,32 C20.406,32 25.479,28.463 27.738,23.397 L30,24 C31.093,22.205 32,19.657 32,16.571 C32,7.419 24.005,0 15,0 L15,0 Z" id="Fill-204"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

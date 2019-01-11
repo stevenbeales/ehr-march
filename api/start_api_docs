@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+HOSTNAME=''
+PORT=''
+IP=''
+
+RACK_ENV=development
+RAILS_ENV=development
+
+killall ruby
+  bundle
+  bundle exec rake log:clear
+  bundle exec rake tmp:clear
+  bundle exec rake assets:clean
+
+  ./start_mailcatcher
+  rake nobrainer:drop
+
+  rethinkdb import -f countries.json        --table api_development.countries       --force
+  rethinkdb import -f states.json           --table api_development.states          --force
+  rethinkdb import -f zipcodes.json         --table api_development.zipcodes        --force
+  rethinkdb import -f diagnosis_codes.json  --table api_development.diagnosis_codes --force
+
+  rethinkdb import -f countries.json        --table api_test.countries        --force
+  rethinkdb import -f states.json           --table api_test.states           --force
+  rethinkdb import -f zipcodes.json         --table api_test.zipcodes         --force
+  rethinkdb import -f diagnosis_codes.json  --table api_test.diagnosis_codes  --force
+
+  bundle exec rake nobrainer:seed
+
+  echo -en "\nStart API Docs - Development:\n"
+  echo -en "\thttp://$HOSTNAME:$PORT\n"
+  # foreman start
+  bundle exec thin start -p $PORT -a $IP -e $RAILS_ENV
